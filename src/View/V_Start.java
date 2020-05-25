@@ -3,36 +3,41 @@ package View;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-/*
-*   Testbeschreibung
-*
-*
-* Last Edit:
-* Author: Stefan Maier
- */
-public class V_Start implements I_V_projectPath {
-    private JTextField txtf_projectName;
-    private JButton btn_loadProject;
-    public JButton btn_newProject;
-    public JPanel pnl_start;
-    private JPanel pnl_projectName;
-    private JPanel pnl_load;
-    private JPanel pnl_create;
+
+public class V_Start {
+    private JPanel V_Start_Panel;
+    private JLabel t_newProject;
+    private JButton b_createProject;
+    private JButton b_openProject;
 
     public V_Start() {
+        JFrame frame = new JFrame("V_Start");
+        frame.setContentPane(new V_Start().V_Start_Panel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
 
-        btn_newProject.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent actionEvent) {
-                System.out.print("Hallo Welt");
+        b_createProject.addActionListener(new ActionListener() {
+            /**
+             * Invoked when an action occurs.
+             *
+             * @param e the event to be processed
+             */
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Neues Projekt wurde gedrückt.");
+            }
+        });
+        b_openProject.addActionListener(new ActionListener() {
+            /**
+             * Invoked when an action occurs.
+             *
+             * @param e the event to be processed
+             */
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
     }
-
-    @Override
-    public String getPath()
-    {
-        System.out.println("Hallo Welt");
-        return "Test";
-    }
 }
-

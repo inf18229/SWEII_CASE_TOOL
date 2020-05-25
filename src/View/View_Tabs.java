@@ -1,6 +1,7 @@
 package View;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class View_Tabs {
     private JPanel V_frame;
@@ -9,4 +10,5 @@ public class View_Tabs {
     private JPanel V_FuncReq;
     private JPanel V_NonFuncReq;
     private JPanel V_Effort;
+
 }
