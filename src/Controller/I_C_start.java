@@ -9,4 +9,6 @@
 package Controller;
 
 public interface I_C_start {
+    public void notifyCreate();
+    public void notifyOpen();
 }
