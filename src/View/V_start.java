@@ -74,7 +74,7 @@ public class V_start implements I_V_start {
             if(returnVal == JFileChooser.APPROVE_OPTION)
             {
                 System.out.println("Gewählte Datei: " +
-                        chooser.getSelectedFile().getName());
+                        chooser.getSelectedFile().getAbsolutePath());
             }
 
             //TODO: Importfunktion aufrufen
