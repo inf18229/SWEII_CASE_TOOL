@@ -9,7 +9,9 @@
 
 package Controller;
 //TODO: import Model
+import View.I_V_start;
 import View.V_start;
+
 
 public class C_start implements I_C_start {
     //TODO: create Model and store in local Variable
@@ -23,7 +25,7 @@ public class C_start implements I_C_start {
      * it passes itself as C_start con into the main and therfore creates a reference to itself in the V_Start
      */
     public C_start() {
-        V_start.main(this);
+        I_V_start startView=new V_start(this);
         //V_start viewStart = new V_start(this);
         //V_start.debugPrint();
     }

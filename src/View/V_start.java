@@ -1,13 +1,14 @@
 package View;
 
 import Controller.C_start;
+import Controller.I_C_start;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class V_start {
-    private static C_start con;
+public class V_start implements I_V_projectPath,I_V_start {
+    private static I_C_start con;
     private JPanel V_startPanel;
     private JLabel t_newProject;
     private JButton b_createProject;
@@ -16,15 +17,13 @@ public class V_start {
 
 
 
-    public static void main(C_start con) {
-        JFrame frame = new JFrame("SWE CASE TOOL");
-        frame.setContentPane(new V_start(con).V_startPanel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
-    }
+    public V_start(I_C_start con) {
 
-    public V_start(C_start con) {
+        JFrame frame = new JFrame("SWE CASE TOOL");
+        frame.setContentPane(this.V_startPanel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+
         b_createProject.addActionListener(new ActionListener() {
             /**
              * includes all actions that should be processed when the "Neues Projekt" button gets pressed
@@ -44,6 +43,9 @@ public class V_start {
             }
         });
         debugPrint("View erstellt");
+
+        frame.pack();
+        frame.setVisible(true);
     }
 
     /**
@@ -52,7 +54,13 @@ public class V_start {
      * @param output
      * @return nothing, but print output to console
      */
-    public static void debugPrint(String output){
+    @Override
+    public void debugPrint(String output){
         System.out.println(output);
+    }
+
+    @Override
+    public String getPath(){
+        return "test";
     }
 }
