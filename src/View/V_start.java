@@ -1,13 +1,13 @@
 package View;
 
-import Controller.C_start;
 import Controller.I_C_start;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class V_start implements I_V_projectPath,I_V_start {
+public class V_start implements I_V_start {
     private static I_C_start con;
     private JPanel V_startPanel;
     private JLabel t_newProject;
@@ -61,6 +61,30 @@ public class V_start implements I_V_projectPath,I_V_start {
 
     @Override
     public String getPath(){
+        //TODO: open JFileChooser
+        try{
+            JFileChooser chooser = new JFileChooser();
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("XML", "xml");
+            chooser.setFileFilter(filter);
+            chooser.setAcceptAllFileFilterUsed(false);
+            chooser.setMultiSelectionEnabled(false);
+
+            int returnVal = chooser.showOpenDialog(null);
+
+            if(returnVal == JFileChooser.APPROVE_OPTION)
+            {
+                System.out.println("Gewählte Datei: " +
+                        chooser.getSelectedFile().getName());
+            }
+
+            //TODO: Importfunktion aufrufen
+        }
+        catch (Exception exc){
+            JOptionPane.showMessageDialog(null,
+                    "Dateiauswahl fehlgeschlagen!\n Probiere es erneut.\n" + exc.getMessage(),
+                    "Fehler",
+                    JOptionPane.ERROR_MESSAGE);
+        }
         return "test";
     }
 }
