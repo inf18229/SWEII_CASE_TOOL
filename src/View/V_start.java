@@ -49,16 +49,19 @@ public class V_start implements I_V_start {
     }
 
     /**
-     * debugPrint()
-     * is a method to simply print the input string output as text to console
+     * method to simply print the input string output as text to console
      * @param output
-     * @return nothing, but print output to console
      */
     @Override
     public void debugPrint(String output){
         System.out.println(output);
     }
 
+    /**
+     * opens the JFileChooser and asks the user to choose the file to open
+     * 
+     * @return path to the chosen file
+     */
     @Override
     public String getPath(){
         //TODO: open JFileChooser

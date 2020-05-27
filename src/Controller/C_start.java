@@ -18,8 +18,6 @@ public class C_start implements I_C_start {
     I_V_start viewStart;
 
     /**
-     * Contructor of C_start
-     *
      * creates one Object of Class C_start
      * which runs V_Start.main() and therefore creates the startwindow of the programm
      * it passes itself as C_start con into the main and therfore creates a reference to itself in the V_Start
@@ -30,8 +28,6 @@ public class C_start implements I_C_start {
     }
 
     /**
-     * notifyCreate()
-     *
      * this message gets called by Views to notify the start Controller that a new project should be created
      * the Controller therefore asks the viewStart for a path where the new project should get created
      */
