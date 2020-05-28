@@ -9,6 +9,8 @@ import javax.swing.event.ChangeListener;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class V_frame implements I_V_frame {
     I_C_effort conEffort;
@@ -152,6 +154,33 @@ public class V_frame implements I_V_frame {
             public void stateChanged(ChangeEvent e) {
                 //TODO: activate Controller depending on open tab
                 conFrame.setCurrentTab(tabbedPane.getSelectedIndex());
+            }
+        });
+        b_closeProject.addActionListener(new ActionListener() {
+            /**
+             * notifies C_frame, that the closeProject button was pressed
+             */
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                conFrame.notifyClose();
+            }
+        });
+        b_saveProject.addActionListener(new ActionListener() {
+            /**
+             * notifies C_frame, that the saveProject button was pressed
+             */
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                conFrame.notifySave();
+            }
+        });
+        b_refreshData.addActionListener(new ActionListener() {
+            /**
+             * notifies C_frame, that the refreshData button was pressed
+             */
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                conFrame.notifyRefresh();
             }
         });
 
