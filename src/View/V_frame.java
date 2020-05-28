@@ -153,7 +153,7 @@ public class V_frame implements I_V_frame {
             @Override
             public void stateChanged(ChangeEvent e) {
                 //TODO: activate Controller depending on open tab
-                conFrame.setCurrentTab(tabbedPane.getSelectedIndex());
+                conFrame.notifyTabChange(tabbedPane.getSelectedIndex());
             }
         });
         b_closeProject.addActionListener(new ActionListener() {
@@ -190,17 +190,17 @@ public class V_frame implements I_V_frame {
         targetUse.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent documentEvent) {
-                conFrame.getcurrentController().updateProjectData();
+                conFrame.getCurrentController().updateProjectData();
             }
 
             @Override
             public void removeUpdate(DocumentEvent documentEvent) {
-                conFrame.getcurrentController().updateProjectData();
+                conFrame.getCurrentController().updateProjectData();
             }
 
             @Override
             public void changedUpdate(DocumentEvent documentEvent) {
-                conFrame.getcurrentController().updateProjectData();
+                conFrame.getCurrentController().updateProjectData();
             }
         });
 
@@ -210,17 +210,17 @@ public class V_frame implements I_V_frame {
         productUse.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent documentEvent) {
-                conFrame.getcurrentController().updateProjectData();
+                conFrame.getCurrentController().updateProjectData();
             }
 
             @Override
             public void removeUpdate(DocumentEvent documentEvent) {
-                conFrame.getcurrentController().updateProjectData();
+                conFrame.getCurrentController().updateProjectData();
             }
 
             @Override
             public void changedUpdate(DocumentEvent documentEvent) {
-                conFrame.getcurrentController().updateProjectData();
+                conFrame.getCurrentController().updateProjectData();
             }
         });
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

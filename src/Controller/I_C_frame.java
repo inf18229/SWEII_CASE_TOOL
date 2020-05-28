@@ -1,13 +1,10 @@
-//======================================================================================================================
-//  I_C_frame
-//
-//  C_frame is the main CONTROLLER, that handles all programm functions not regarding special VIEWS.
-//  Its only purpose is to create CONTROLLERS for the special VIEWS and handle USER-IO to switch between the different
-//  VIEWS
-//======================================================================================================================
-
 package Controller;
 
+/**
+ * main CONTROLLER, that handles all programm functions not regarding special VIEWS.
+ * Its only purpose is to create CONTROLLERS for the special VIEWS and handle USER-IO to "switch" between the different
+ * views
+ */
 public interface I_C_frame{
     //TODO: create CONTROLLERS for each special VIEW
     //TODO: create the main frame of the programm V_frame
@@ -24,9 +21,9 @@ public interface I_C_frame{
 
     /**
      * switches to the specified Tab
-     * @param tab integer of the selected tab
+     * @param newTab integer of the newly selected tab
      */
-    void setCurrentTab(int tab);
+    void notifyTabChange(int newTab);
 
     /**
      * notifies the Controller that he should close the project and open the welcome window
@@ -43,11 +40,5 @@ public interface I_C_frame{
      */
     void notifyRefresh();
 
-    /**
-     * method to simply print the string output as text to console
-     * @param output
-     */
-    public void debugPrint(String output);
-
-    public I_C_tab getcurrentController();
+    I_C_tab getCurrentController();
 }
