@@ -143,7 +143,7 @@ public class V_frame implements I_V_frame {
         frame = new JFrame("SWE CASE TOOL");
         frame.setContentPane(this.V_framePanel);
         frame.setResizable(false);
-        frame.getContentPane().setPreferredSize(new Dimension(1000, 800));
+        frame.getContentPane().setPreferredSize(new Dimension(1000, 460));
         tabbedPane.addChangeListener(new ChangeListener() {
             /**
              * Invoked when the target of the listener has changed its state.
