@@ -22,13 +22,6 @@ public class V_frame implements I_V_frame {
     private JPanel panelClassification;
     private JPanel panelWeight;
     private JPanel panelSum;
-    private JLabel labelCategoryHeadline;
-    private JLabel labelCategoryInput;
-    private JLabel labelCategoryQuery;
-    private JLabel labelCategoryOutput;
-    private JLabel labelCategoryDataset;
-    private JLabel labelCategoryReference;
-    private JLabel labelCategorySum;
     private JPanel labelClassificationHeadline;
     private JPanel labelWeightInput;
     private JPanel labelWeightQuery;
@@ -41,6 +34,13 @@ public class V_frame implements I_V_frame {
     private JPanel labelClassificationOutput;
     private JPanel labelClassificationDataset;
     private JPanel labelClassificationReference;
+    private JLabel labelCategoryHeadline;
+    private JLabel labelCategoryInput;
+    private JLabel labelCategoryQuery;
+    private JLabel labelCategoryOutput;
+    private JLabel labelCategoryDataset;
+    private JLabel labelCategoryReference;
+    private JLabel labelCategorySum;
 
     /**
      * Constructor of the V_frame class

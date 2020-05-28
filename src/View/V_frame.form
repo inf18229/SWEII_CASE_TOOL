@@ -42,7 +42,7 @@
             <border type="none"/>
             <children/>
           </grid>
-          <grid id="e1a6e" binding="V_frame_effort" layout-manager="GridLayoutManager" row-count="1" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="e1a6e" binding="V_frame_effort" layout-manager="GridLayoutManager" row-count="2" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <tabbedpane title="Aufwandsschätzung"/>
@@ -61,65 +61,134 @@
                 <properties/>
                 <border type="bevel-raised"/>
                 <children>
-                  <component id="69ccf" class="javax.swing.JLabel" binding="labelCategoryHeadline">
+                  <grid id="61489" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                     </constraints>
-                    <properties>
-                      <text value="Kategorie"/>
-                    </properties>
-                  </component>
-                  <component id="2e640" class="javax.swing.JLabel" binding="labelCategoryInput">
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="e07ba" class="javax.swing.JLabel" binding="labelCategoryHeadline">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="Kategorie"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="8dd55" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints>
-                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                     </constraints>
-                    <properties>
-                      <text value="Eingabedaten"/>
-                    </properties>
-                  </component>
-                  <component id="2cd42" class="javax.swing.JLabel" binding="labelCategoryQuery">
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="4ed93" class="javax.swing.JLabel" binding="labelCategoryInput">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="Eingabedaten"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="faf79" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints>
-                      <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                     </constraints>
-                    <properties>
-                      <text value="Abfragen"/>
-                    </properties>
-                  </component>
-                  <component id="95a3b" class="javax.swing.JLabel" binding="labelCategoryOutput">
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="4b3a0" class="javax.swing.JLabel" binding="labelCategoryQuery">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="Abfragen"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="7723c" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints>
-                      <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                     </constraints>
-                    <properties>
-                      <text value="Ausgaben"/>
-                    </properties>
-                  </component>
-                  <component id="fc0e7" class="javax.swing.JLabel" binding="labelCategoryDataset">
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="a2dc5" class="javax.swing.JLabel" binding="labelCategoryOutput">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="Ausgaben"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="3f29f" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints>
-                      <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                     </constraints>
-                    <properties>
-                      <text value="Datenbestände"/>
-                    </properties>
-                  </component>
-                  <component id="7c8ac" class="javax.swing.JLabel" binding="labelCategoryReference">
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="f9a78" class="javax.swing.JLabel" binding="labelCategoryDataset">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="Datenbestände"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="4079d" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints>
-                      <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                     </constraints>
-                    <properties>
-                      <text value="Referenzdaten"/>
-                    </properties>
-                  </component>
-                  <component id="435d1" class="javax.swing.JLabel" binding="labelCategorySum">
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="ff094" class="javax.swing.JLabel" binding="labelCategoryReference">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="Referenzdaten"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <grid id="cdfeb" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="0" left="0" bottom="0" right="0"/>
                     <constraints>
-                      <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
-                        <preferred-size width="-1" height="50"/>
-                        <maximum-size width="-1" height="50"/>
-                      </grid>
+                      <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                     </constraints>
-                    <properties>
-                      <text value="Summe"/>
-                    </properties>
-                  </component>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="8569f" class="javax.swing.JLabel" binding="labelCategorySum">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                            <maximum-size width="50" height="80"/>
+                          </grid>
+                        </constraints>
+                        <properties>
+                          <text value="Summe"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
                 </children>
               </grid>
               <grid id="5298b" binding="panelCount" layout-manager="GridLayoutManager" row-count="7" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -958,6 +1027,15 @@
                     </children>
                   </grid>
                 </children>
+              </grid>
+              <grid id="f9a77" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children/>
               </grid>
             </children>
           </grid>
