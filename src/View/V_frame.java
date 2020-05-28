@@ -17,7 +17,30 @@ public class V_frame implements I_V_frame {
     private JPanel V_FuncReq;
     private JPanel V_NonFuncReq;
     private JPanel V_frame_effort;
-    private JPanel panelCategories;
+    private JPanel panelCategory;
+    private JPanel panelCount;
+    private JPanel panelClassification;
+    private JPanel panelWeight;
+    private JPanel panelSum;
+    private JLabel labelCategoryHeadline;
+    private JLabel labelCategoryInput;
+    private JLabel labelCategoryQuery;
+    private JLabel labelCategoryOutput;
+    private JLabel labelCategoryDataset;
+    private JLabel labelCategoryReference;
+    private JLabel labelCategorySum;
+    private JPanel labelClassificationHeadline;
+    private JPanel labelWeightInput;
+    private JPanel labelWeightQuery;
+    private JPanel labelWeightOutput;
+    private JPanel labelWeightDataset;
+    private JPanel labelWeightReference;
+    private JPanel labelWeightHeadline;
+    private JPanel labelClassificationInput;
+    private JPanel labelClassificationQuery;
+    private JPanel labelClassificationOutput;
+    private JPanel labelClassificationDataset;
+    private JPanel labelClassificationReference;
 
     /**
      * Constructor of the V_frame class
