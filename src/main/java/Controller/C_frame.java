@@ -7,6 +7,7 @@
 package Controller;
 
 import Model.M_projectData;
+import Model.M_projectData_export;
 import View.I_V_basic;
 import View.I_V_frame;
 import View.V_frame;
@@ -16,6 +17,7 @@ public class C_frame implements I_C_frame{
     I_C_general controllerGeneral;
     I_C_tab currentController; //current active Controller is stored here
     M_projectData projectData;
+    M_projectData_export projectData_export;
     I_C_effort conEffort;
     tabs currentTab;
 
@@ -27,6 +29,7 @@ public class C_frame implements I_C_frame{
         debugPrint("C_frame created");
         viewFrame = new V_frame(this);
         this.projectData=projectData;
+        this.projectData_export = new M_projectData_export(this.projectData);
         createTabControllers();
         I_V_basic.show(viewFrame.getJFrame());
         setCurrentTab(0);
@@ -93,7 +96,8 @@ public class C_frame implements I_C_frame{
      */
     @Override
     public void notifySave() {
-
+        debugPrint("Safe pressed");
+        projectData_export.export(projectData);
     }
 
     /**
