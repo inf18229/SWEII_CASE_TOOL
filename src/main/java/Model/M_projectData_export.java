@@ -19,8 +19,6 @@ public class M_projectData_export {
     public void export(M_projectData temp_projectData)
     {
         jaxbObjectToXML(temp_projectData);
-        //String temp = "temp";
-        //jaxbObjectToXML(temp);
     }
 
     //code from: https://howtodoinjava.com/jaxb/write-object-to-xml/
@@ -41,8 +39,8 @@ public class M_projectData_export {
             File file = new File("test.xml");
 
             //Manually workaround for JAXB with class without annotations
-            JAXBElement<M_projectData> jaxbElement = new JAXBElement<M_projectData>( new QName("",
-                    "root_projectData"), M_projectData.class, temp_projectData);
+            JAXBElement<M_projectData> jaxbElement = new JAXBElement<M_projectData>
+                    ( new QName("root_projectData"), M_projectData.class, temp_projectData);
 
             //Writes XML file to file-system
             jaxbMarshaller.marshal(jaxbElement, System.out);

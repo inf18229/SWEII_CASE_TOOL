@@ -28,7 +28,7 @@ public class C_frame implements I_C_frame{
         System.out.println("C_frame created");
         viewFrame = new V_frame(this);
         this.projectData = projectData;
-        this.projectData_export = new M_projectData_export(this.projectData); //TODO: fix this
+        this.projectData_export = new M_projectData_export(this.projectData);
         createTabControllers();
         I_V_basic.show(viewFrame.getJFrame());
         currentController = controllerGeneral;
@@ -87,7 +87,7 @@ public class C_frame implements I_C_frame{
     @Override
     public void notifySave() {
         System.out.println("Safe pressed");
-        projectData_export.export(projectData); //TODO: fix this
+        projectData_export.export(projectData);
     }
 
     /**
