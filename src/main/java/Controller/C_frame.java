@@ -95,7 +95,7 @@ public class C_frame implements I_C_frame{
      */
     @Override
     public void notifyRefresh() {
-        System.out.println("Controller of Tab Aufwandsschätzung notified to refresh View");
+        System.out.println("Controller of Tab notified to refresh View");
         //TODO: add implementation
     }
 

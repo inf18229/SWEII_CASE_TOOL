@@ -9,9 +9,17 @@
 
 package Model;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import java.util.ArrayList;
 
+@XmlRootElement(name = "M_projectData")
+@XmlAccessorType(XmlAccessType.FIELD)
+
 public class M_projectData {
+    @XmlTransient
     ArrayList<M_projectData_productData> productDataList = new ArrayList<>();
     ArrayList<M_projectData_productFunction> productFunctionList = new ArrayList<>();
 

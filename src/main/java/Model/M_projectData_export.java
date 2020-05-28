@@ -43,7 +43,7 @@ public class M_projectData_export {
                     ( new QName("root_projectData"), M_projectData.class, temp_projectData);
 
             //Writes XML file to file-system
-            jaxbMarshaller.marshal(jaxbElement, System.out);
+            jaxbMarshaller.marshal(temp_projectData, file);
         }
         catch (JAXBException e)
         {
