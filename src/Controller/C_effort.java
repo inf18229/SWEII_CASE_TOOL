@@ -18,4 +18,14 @@ public class C_effort implements I_C_effort{
     public void updateView() {
 
     }
+
+    /**
+     * method to simply print the string output as text to console
+     *
+     * @param output
+     */
+    @Override
+    public void debugPrint(String output) {
+        System.out.println(output);
+    }
 }

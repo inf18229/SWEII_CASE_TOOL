@@ -29,12 +29,6 @@ public interface I_C_frame {
     void setCurrentTab(int tab);
 
     /**
-     * method to simply print the string output as text to console
-     * @param output
-     */
-    void debugPrint(String output);
-
-    /**
      * notifies the Controller that he should close the project and open the welcome window
      */
     void notifyClose();
@@ -48,4 +42,10 @@ public interface I_C_frame {
      * notifies the Controller that he should reload the project data for current view
      */
     void notifyRefresh();
+
+    /**
+     * method to simply print the string output as text to console
+     * @param output
+     */
+    void debugPrint(String output);
 }

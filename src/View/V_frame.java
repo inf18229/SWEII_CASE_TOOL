@@ -149,7 +149,7 @@ public class V_frame implements I_V_frame {
             @Override
             public void stateChanged(ChangeEvent e) {
                 //TODO: activate Controller depending on open tab
-                conFrame.switchToTab(tabbedPane.getSelectedIndex());
+                conFrame.setCurrentTab(tabbedPane.getSelectedIndex());
             }
         });
         b_closeProject.addActionListener(new ActionListener() {
@@ -158,7 +158,7 @@ public class V_frame implements I_V_frame {
              */
             @Override
             public void actionPerformed(ActionEvent e) {
-                conFrame.notifyOpen();
+                conFrame.notifyClose();
             }
         });
         b_saveProject.addActionListener(new ActionListener() {
@@ -167,7 +167,7 @@ public class V_frame implements I_V_frame {
              */
             @Override
             public void actionPerformed(ActionEvent e) {
-                conFrame.notifyOpen();
+                conFrame.notifySave();
             }
         });
         b_refreshData.addActionListener(new ActionListener() {
@@ -176,7 +176,7 @@ public class V_frame implements I_V_frame {
              */
             @Override
             public void actionPerformed(ActionEvent e) {
-                conFrame.notifyOpen();
+                conFrame.notifyRefresh();
             }
         });
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
