@@ -5,20 +5,27 @@ import View.I_V_frame;
 
 import javax.swing.*;
 
+/**
+ * C_general is the implementation of I_C_general
+ * it is responsible for all actions regarding the general tab in I_C_frame
+ */
 public class C_general implements  I_C_general {
-    private JTextArea targetUse;
-    private JTextArea productUse;
-    private M_projectData projectData;
+    private JTextArea targetUse;    // stores text Area "Zielbestimmungen" for which the controller is responsible for
+    private JTextArea productUse;   // stores text Area "Produkteinsatz" for which the controller is responsible for
+    private M_projectData projectData;  // stores the data modell TODO: what exactly?
 
     public C_general(I_V_frame mainFrame, M_projectData projectData){
-        this.targetUse=mainFrame.getTargetUse();    //Controller know the text Area he is responsible for
-        this.productUse=mainFrame.getProductUse();  //Controller know the text Area he is responsible for
-        this.projectData=projectData;               //Controller know the data modell
+        this.targetUse = mainFrame.getTargetUse();
+        this.productUse = mainFrame.getProductUse();
+        this.projectData = projectData;
     }
 
+    /**
+     * TODO: add description
+     */
     @Override
     public void updateProjectData(){
-            System.out.println("update Project Data from general Tab triggered");
+            System.out.println("Update Project Data from general Tab triggered.");
             projectData.getM_projectData_targetDefinition().setContent(targetUse.getText());
             projectData.getM_projectData_productUse().setContent(productUse.getText());
             System.out.println(projectData.getM_projectData_targetDefinition().toString());
