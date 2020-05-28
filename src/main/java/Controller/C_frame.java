@@ -7,33 +7,29 @@
 package Controller;
 
 import Model.M_projectData;
-import Model.M_projectData_export;
 import View.I_V_basic;
 import View.I_V_frame;
 import View.V_frame;
 
+/**
+ * implementation of I_C_Start
+ * handles all programm functions not regarding special VIEWS.
+ */
 public class C_frame implements I_C_frame{
     I_V_frame viewFrame;
     I_C_general controllerGeneral;
-    I_C_tab currentController; //current active Controller is stored here
-    M_projectData projectData;
-    M_projectData_export projectData_export;
-    I_C_effort conEffort;
-    tabs currentTab;
-
-    public enum tabs{
-        Tab0, Tab1, Tab2, Aufwand
-    }
+    I_C_effort controllerEffort;
+    I_C_tab currentController; //stores current active Controller
+    M_projectData projectData;  //stores projectData before export TODO: clarify: projectData also stored before pressing the save button?
 
     public C_frame(M_projectData projectData){
-        debugPrint("C_frame created");
+        System.out.println("C_frame created");
         viewFrame = new V_frame(this);
-        this.projectData=projectData;
-        this.projectData_export = new M_projectData_export(this.projectData);
+        this.projectData = projectData;
+//        this.projectData_export = new M_projectData_export(this.projectData); TODO: fix this
         createTabControllers();
         I_V_basic.show(viewFrame.getJFrame());
-        setCurrentTab(0);
-        currentController=controllerGeneral;
+        currentController = controllerGeneral;
     }
 
     /**
@@ -49,35 +45,27 @@ public class C_frame implements I_C_frame{
 
     /**
      * switches to the specified Tab
-     *
-     * @param tab
+     * TODO: add better description
+     * @param newTab integer of the newly selected tab
      */
     @Override
-    public void setCurrentTab(int tab) {
-        /**
-         * just for debugging puposes
-         * prints index of selected tab to console
-         */
-        switch (tab){
+    public void notifyTabChange(int newTab) {
+        switch (newTab){
             case 0:
-                debugPrint("Tab: 0 - General");
+                System.out.println("Tab: 0 - General");
                 currentController=controllerGeneral;
                 break;
             case 1:
-                currentTab = tabs.Tab1;
-                debugPrint("Tab: 1");
+                System.out.println("Tab: 1");
                 break;
             case 2:
-                currentTab = tabs.Tab2;
-                debugPrint("Tab: 2");
+                System.out.println("Tab: 2");
                 break;
             case 3:
-                currentTab = tabs.Aufwand;
-                debugPrint("Tab: 3 - Aufwandsschätzung");
-                //conEffort.updateView();
+                System.out.println("Tab: 3 - Aufwandsschätzung");
+                currentController = controllerEffort;
                 break;
         }
-
     }
 
     /**
@@ -96,44 +84,22 @@ public class C_frame implements I_C_frame{
      */
     @Override
     public void notifySave() {
-        debugPrint("Safe pressed");
-        projectData_export.export(projectData);
+        System.out.println("Safe pressed");
+//        projectData_export.export(projectData); TODO: fix this
     }
 
     /**
-     * checks which Tab of View is currently displayed
-     * notifies the Controller in charge of this view to reload the project data for current view
+     * when notified reload the project data for current view
      */
     @Override
     public void notifyRefresh() {
-        switch (currentTab){
-            case Tab0:
-                debugPrint("Controller of Tab 0 notified to refresh View");
-                break;
-            case Tab1:
-                debugPrint("Controller of Tab 1 notified to refresh View");
-                break;
-            case Tab2:
-                debugPrint("Controller of Tab 2 notified to refresh View");
-                break;
-            case Aufwand:
-                debugPrint("Controller of Tab Aufwandsschätzung notified to refresh View");
-                break;
-        }
+        System.out.println("Controller of Tab Aufwandsschätzung notified to refresh View");
+        //TODO: add implementation
     }
 
-    /**
-     * method to simply print the string output as text to console
-     *
-     * @param output
-     */
-    @Override
-    public void debugPrint(String output) {
-        System.out.println(output);
-    }
 
     @Override
-    public I_C_tab getcurrentController(){
+    public I_C_tab getCurrentController(){
         return currentController;
     }
 }
