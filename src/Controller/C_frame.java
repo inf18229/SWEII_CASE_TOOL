@@ -6,22 +6,28 @@
 
 package Controller;
 
+import Model.M_projectData;
 import View.I_V_frame;
 import View.V_frame;
 
 public class C_frame implements I_C_frame{
     I_V_frame viewFrame;
+    I_C_general controllerGeneral;
+    I_C_controller currentController; //current active Controller is stored here
+    M_projectData projectData;
 
     public enum tabs{
         Tab1, Tab2, Tab3, Aufwand
     }
 
-    public C_frame(){
+    public C_frame(M_projectData projectData){
         debugPrint("C_frame created");
         viewFrame = new V_frame(this);
+        this.projectData=projectData;
         createControllers();
         viewFrame.show();
         switchToTab(0);
+        currentController=controllerGeneral;
     }
 
     /**
@@ -31,6 +37,8 @@ public class C_frame implements I_C_frame{
     @Override
     public void createControllers(/*I_C_frame.tabs tabs*/) {
         //controllerEffort = new C_effort();
+        controllerGeneral=new C_general(viewFrame,projectData);
+        System.out.println("General Controller created");
     }
 
     /**
@@ -46,7 +54,8 @@ public class C_frame implements I_C_frame{
          */
         switch (tab){
             case 0:
-                debugPrint("Tab: 0");
+                debugPrint("Tab: 0 - General");
+                currentController=controllerGeneral;
                 break;
             case 1:
                 debugPrint("Tab: 1");
@@ -69,5 +78,10 @@ public class C_frame implements I_C_frame{
     @Override
     public void debugPrint(String output) {
         System.out.println(output);
+    }
+
+    @Override
+    public I_C_controller getcurrentController(){
+        return currentController;
     }
 }

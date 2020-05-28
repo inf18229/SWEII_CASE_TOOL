@@ -8,7 +8,7 @@
 
 package Controller;
 
-public interface I_C_frame {
+public interface I_C_frame{
     //TODO: create CONTROLLERS for each special VIEW
     //TODO: create the main frame of the programm V_frame
 
@@ -33,4 +33,6 @@ public interface I_C_frame {
      * @param output
      */
     public void debugPrint(String output);
+
+    public I_C_controller getcurrentController();
 }

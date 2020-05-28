@@ -1,11 +1,13 @@
 package View;
 
-import Controller.I_C_effort;
-import Controller.I_C_frame;
+import Controller.*;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.text.Document;
 import java.awt.*;
 
 public class V_frame implements I_V_frame {
@@ -18,6 +20,9 @@ public class V_frame implements I_V_frame {
     private JPanel V_NonFuncReq;
     private JPanel V_frame_effort;
     private JPanel panelCategories;
+    private JTextArea targetUse;
+    private JTextArea productUse;
+    private JButton saveButton;
 
     /**
      * Constructor of the V_frame class
@@ -41,11 +46,50 @@ public class V_frame implements I_V_frame {
             }
         });
 
+        /**
+         * Document Listener for targetUse that informs current Controller on update
+         */
+        targetUse.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent documentEvent) {
+                conFrame.getcurrentController().updateProjectData();
+            }
 
+            @Override
+            public void removeUpdate(DocumentEvent documentEvent) {
+                conFrame.getcurrentController().updateProjectData();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent documentEvent) {
+                conFrame.getcurrentController().updateProjectData();
+            }
+        });
+
+        /**
+         * Document Listener for productUse that informs current Controller on update
+         */
+        productUse.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent documentEvent) {
+                conFrame.getcurrentController().updateProjectData();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent documentEvent) {
+                conFrame.getcurrentController().updateProjectData();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent documentEvent) {
+                conFrame.getcurrentController().updateProjectData();
+            }
+        });
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack(); //pack method sizes the frame so that all its contents are at or above their preferred size (form)
         frame.setLocationRelativeTo(null);  //places the window in the center of the screen
         frame.setVisible(true);
+
     }
 
     /**
@@ -80,5 +124,21 @@ public class V_frame implements I_V_frame {
                     "Fehler",
                     JOptionPane.ERROR_MESSAGE);
         }
+    }
+
+    @Override
+    /**
+     * this method returns a reference to the targetUse Text area of the frame
+     */
+    public JTextArea getTargetUse(){
+        return targetUse;
+    }
+
+    @Override
+    /**
+     * this method returns a reference to the productUse Text area of the frame
+     */
+    public JTextArea getProductUse(){
+        return productUse;
     }
 }
