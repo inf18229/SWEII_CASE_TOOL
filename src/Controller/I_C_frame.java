@@ -20,7 +20,7 @@ public interface I_C_frame{
     /**
      * creates Controller for each tab
      */
-    void createControllers(/*I_C_frame.tabs tabs*/);
+    void createTabControllers(/*I_C_frame.tabs tabs*/);
 
     /**
      * switches to the specified Tab
@@ -49,5 +49,5 @@ public interface I_C_frame{
      */
     public void debugPrint(String output);
 
-    public I_C_controller getcurrentController();
+    public I_C_tab getcurrentController();
 }

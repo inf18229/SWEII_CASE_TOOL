@@ -14,7 +14,7 @@ import View.V_frame;
 public class C_frame implements I_C_frame{
     I_V_frame viewFrame;
     I_C_general controllerGeneral;
-    I_C_controller currentController; //current active Controller is stored here
+    I_C_tab currentController; //current active Controller is stored here
     M_projectData projectData;
     I_C_effort conEffort;
     tabs currentTab;
@@ -27,7 +27,7 @@ public class C_frame implements I_C_frame{
         debugPrint("C_frame created");
         viewFrame = new V_frame(this);
         this.projectData=projectData;
-        createControllers();
+        createTabControllers();
         I_V_basic.show(viewFrame.getJFrame());
         setCurrentTab(0);
         currentController=controllerGeneral;
@@ -38,7 +38,7 @@ public class C_frame implements I_C_frame{
      * method iterates through enum tabs and creates the specific Controller for each
      */
     @Override
-    public void createControllers(/*I_C_frame.tabs tabs*/) {
+    public void createTabControllers(/*I_C_frame.tabs tabs*/) {
         //controllerEffort = new C_effort();
         controllerGeneral=new C_general(viewFrame,projectData);
         System.out.println("General Controller created");
@@ -129,7 +129,7 @@ public class C_frame implements I_C_frame{
     }
 
     @Override
-    public I_C_controller getcurrentController(){
+    public I_C_tab getcurrentController(){
         return currentController;
     }
 }

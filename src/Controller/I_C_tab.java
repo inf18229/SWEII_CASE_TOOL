@@ -1,6 +1,6 @@
 package Controller;
 
-public interface I_C_controller{
+public interface I_C_tab {
     public void updateProjectData();
 
 }
