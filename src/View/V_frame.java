@@ -1,18 +1,28 @@
 package View;
 
+import Controller.I_C_effort;
 import Controller.I_C_frame;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
 
 public class V_frame implements I_V_frame {
+    I_C_effort conEffort;
     JFrame frame;
     private JPanel V_framePanel;
     private JTabbedPane tabbedPane;
     private JPanel V_General;
     private JPanel V_FuncReq;
     private JPanel V_NonFuncReq;
-    private JPanel V_Effort;
+    private JPanel V_frame_effort;
+    private JLabel labelHeadline;
+    private JLabel labelCategory;
+    private JLabel labelCount;
+    private JLabel labelClass;
+    private JLabel labelSum;
+    private JLabel labelWeight;
 
     /**
      * Constructor of the V_frame class
@@ -23,6 +33,20 @@ public class V_frame implements I_V_frame {
         frame.setContentPane(this.V_framePanel);
         frame.setResizable(false);
         frame.getContentPane().setPreferredSize(new Dimension(1000, 800));
+        tabbedPane.addChangeListener(new ChangeListener() {
+            /**
+             * Invoked when the target of the listener has changed its state.
+             *
+             * @param e a ChangeEvent object
+             */
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                //TODO: activate Controller depending on open tab
+                conFrame.switchToTab(tabbedPane.getSelectedIndex());
+            }
+        });
+
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack(); //pack method sizes the frame so that all its contents are at or above their preferred size (form)
         frame.setLocationRelativeTo(null);  //places the window in the center of the screen

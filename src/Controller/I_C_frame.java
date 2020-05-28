@@ -24,9 +24,9 @@ public interface I_C_frame {
 
     /**
      * switches to the specified Tab
-     * @param tab
+     * @param tab integer of the selected tab
      */
-    public void switchToTab(I_C_frame.tabs tab);
+    public void switchToTab(int tab);
 
     /**
      * method to simply print the string output as text to console

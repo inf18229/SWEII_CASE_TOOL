@@ -21,6 +21,7 @@ public class C_frame implements I_C_frame{
         viewFrame = new V_frame(this);
         createControllers();
         viewFrame.show();
+        switchToTab(0);
     }
 
     /**
@@ -38,7 +39,25 @@ public class C_frame implements I_C_frame{
      * @param tab
      */
     @Override
-    public void switchToTab(I_C_frame.tabs tab) {
+    public void switchToTab(int tab) {
+        /**
+         * just for debugging puposes
+         * prints index of selected tab to console
+         */
+        switch (tab){
+            case 0:
+                debugPrint("Tab: 0");
+                break;
+            case 1:
+                debugPrint("Tab: 1");
+                break;
+            case 2:
+                debugPrint("Tab: 2");
+                break;
+            case 3:
+                debugPrint("Tab: 3 - Aufwandsschätzung");
+                break;
+        }
 
     }
 
