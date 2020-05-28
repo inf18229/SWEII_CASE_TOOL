@@ -12,9 +12,11 @@ import View.V_frame;
 
 public class C_frame implements I_C_frame{
     I_V_frame viewFrame;
+    I_C_effort conEffort;
+    tabs currentTab;
 
     public enum tabs{
-        Tab1, Tab2, Tab3, Aufwand
+        Tab0, Tab1, Tab2, Aufwand
     }
 
     public C_frame(){
@@ -22,7 +24,7 @@ public class C_frame implements I_C_frame{
         viewFrame = new V_frame(this);
         createControllers();
         I_V_basic.show(viewFrame.getJFrame());
-        switchToTab(0);
+        setCurrentTab(0);
     }
 
     /**
@@ -40,26 +42,72 @@ public class C_frame implements I_C_frame{
      * @param tab
      */
     @Override
-    public void switchToTab(int tab) {
+    public void setCurrentTab(int tab) {
         /**
          * just for debugging puposes
          * prints index of selected tab to console
          */
         switch (tab){
             case 0:
+                currentTab = tabs.Tab0;
                 debugPrint("Tab: 0");
                 break;
             case 1:
+                currentTab = tabs.Tab1;
                 debugPrint("Tab: 1");
                 break;
             case 2:
+                currentTab = tabs.Tab2;
                 debugPrint("Tab: 2");
                 break;
             case 3:
+                currentTab = tabs.Aufwand;
                 debugPrint("Tab: 3 - Aufwandsschätzung");
+                //conEffort.updateView();
                 break;
         }
 
+    }
+
+    /**
+     * notifies the Controller that he should close the project and open the welcome window
+     * the controller therefore creates a "Do you really want to close and reject unsaved changes" windows
+     * if allowed, the controller opens V_Start again
+     */
+    @Override
+    public void notifyClose() {
+
+    }
+
+    /**
+     * notifies the Controller that he should save the project
+     * the controller therefore tells the model to save the data (and asks the user for export)
+     */
+    @Override
+    public void notifySave() {
+
+    }
+
+    /**
+     * checks which Tab of View is currently displayed
+     * notifies the Controller in charge of this view to reload the project data for current view
+     */
+    @Override
+    public void notifyRefresh() {
+        switch (currentTab){
+            case Tab0:
+                debugPrint("Controller of Tab 0 notified to refresh View");
+                break;
+            case Tab1:
+                debugPrint("Controller of Tab 1 notified to refresh View");
+                break;
+            case Tab2:
+                debugPrint("Controller of Tab 2 notified to refresh View");
+                break;
+            case Aufwand:
+                debugPrint("Controller of Tab Aufwandsschätzung notified to refresh View");
+                break;
+        }
     }
 
     /**

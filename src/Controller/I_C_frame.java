@@ -20,17 +20,32 @@ public interface I_C_frame {
     /**
      * creates Controller for each tab
      */
-    public void createControllers(/*I_C_frame.tabs tabs*/);
+    void createControllers(/*I_C_frame.tabs tabs*/);
 
     /**
      * switches to the specified Tab
      * @param tab integer of the selected tab
      */
-    public void switchToTab(int tab);
+    void setCurrentTab(int tab);
 
     /**
      * method to simply print the string output as text to console
      * @param output
      */
-    public void debugPrint(String output);
+    void debugPrint(String output);
+
+    /**
+     * notifies the Controller that he should close the project and open the welcome window
+     */
+    void notifyClose();
+
+    /**
+     * notifies the Controller that he should save the project
+     */
+    void notifySave();
+
+    /**
+     * notifies the Controller that he should reload the project data for current view
+     */
+    void notifyRefresh();
 }

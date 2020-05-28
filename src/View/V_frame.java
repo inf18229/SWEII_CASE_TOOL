@@ -7,6 +7,8 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class V_frame implements I_V_frame {
     I_C_effort conEffort;
@@ -125,6 +127,9 @@ public class V_frame implements I_V_frame {
     private JLabel labelSumReferenceComplex;
     private JPanel panelSumSum;
     private JLabel labelSumSum;
+    private JButton b_refreshData;
+    private JButton b_closeProject;
+    private JButton b_saveProject;
 
     /**
      * Constructor of the V_frame class
@@ -145,6 +150,33 @@ public class V_frame implements I_V_frame {
             public void stateChanged(ChangeEvent e) {
                 //TODO: activate Controller depending on open tab
                 conFrame.switchToTab(tabbedPane.getSelectedIndex());
+            }
+        });
+        b_closeProject.addActionListener(new ActionListener() {
+            /**
+             * notifies C_frame, that the closeProject button was pressed
+             */
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                conFrame.notifyOpen();
+            }
+        });
+        b_saveProject.addActionListener(new ActionListener() {
+            /**
+             * notifies C_frame, that the saveProject button was pressed
+             */
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                conFrame.notifyOpen();
+            }
+        });
+        b_refreshData.addActionListener(new ActionListener() {
+            /**
+             * notifies C_frame, that the refreshData button was pressed
+             */
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                conFrame.notifyOpen();
             }
         });
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

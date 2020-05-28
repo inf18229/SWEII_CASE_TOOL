@@ -44,8 +44,6 @@ public class C_start implements I_C_start {
     }
 
     /**
-     * notifyOpen()
-     *
      * this message gets called by Views to notify the start Controller that a existing project should be opened
      * the Controller therefore asks the viewStart for a path to the file that should be opened
      */
