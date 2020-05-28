@@ -17,12 +17,7 @@ public class V_frame implements I_V_frame {
     private JPanel V_FuncReq;
     private JPanel V_NonFuncReq;
     private JPanel V_frame_effort;
-    private JLabel labelHeadline;
-    private JLabel labelCategory;
-    private JLabel labelCount;
-    private JLabel labelClass;
-    private JLabel labelSum;
-    private JLabel labelWeight;
+    private JPanel panelCategories;
 
     /**
      * Constructor of the V_frame class
