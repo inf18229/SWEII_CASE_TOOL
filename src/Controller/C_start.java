@@ -10,6 +10,7 @@
 package Controller;
 //TODO: import Model
 import Model.M_projectData;
+import View.I_V_basic;
 import View.I_V_start;
 import View.V_start;
 
@@ -39,7 +40,7 @@ public class C_start implements I_C_start {
 //        viewStart.getPath();
         //TODO: Model den Pfad in createData(path) übergeben
         //TODO: Create C_frame and open V_frame
-        viewStart.hide();
+        I_V_basic.hide(viewStart.getJFrame());
         I_C_frame controllerFrame = new C_frame(new M_projectData());
     }
 
@@ -54,7 +55,7 @@ public class C_start implements I_C_start {
 //        viewStart.getPath();
         // TODO: an Model/M_projectData_import. den Pfad an load(path) übergeben
         //TODO: Create C_frame and open V_frame
-        viewStart.hide();
+        I_V_basic.hide(viewStart.getJFrame());
         //TODO: initialize C_Frame with Project Data from XML file
         I_C_frame controllerFrame = new C_frame(new M_projectData());
     }

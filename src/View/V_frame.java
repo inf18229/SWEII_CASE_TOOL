@@ -1,6 +1,7 @@
 package View;
 
-import Controller.*;
+import Controller.I_C_effort;
+import Controller.I_C_frame;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -9,10 +10,16 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.Document;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class V_frame implements I_V_frame {
     I_C_effort conEffort;
     JFrame frame;
+    /**
+     * Declarations of Variables for V_frame
+     * all detailed information are saved in V_frame.form
+     */
     private JPanel V_framePanel;
     private JTabbedPane tabbedPane;
     private JPanel V_General;
@@ -42,7 +49,7 @@ public class V_frame implements I_V_frame {
             @Override
             public void stateChanged(ChangeEvent e) {
                 //TODO: activate Controller depending on open tab
-                conFrame.switchToTab(tabbedPane.getSelectedIndex());
+                conFrame.setCurrentTab(tabbedPane.getSelectedIndex());
             }
         });
 
@@ -89,56 +96,15 @@ public class V_frame implements I_V_frame {
         frame.pack(); //pack method sizes the frame so that all its contents are at or above their preferred size (form)
         frame.setLocationRelativeTo(null);  //places the window in the center of the screen
         frame.setVisible(true);
-
     }
 
     /**
-     * this method tries to show the view if there exists one
-     * it should alsways check if view is available and print error if showing is not possible
+     * this method returns a reference to the frame Object
+     *
+     * @return frame
      */
     @Override
-    public void show() {
-        try{
-            frame.setVisible(true);
-        }
-        catch (Exception exc){
-            JOptionPane.showMessageDialog(null,
-                    "Das Fenster kann nicht geöffnet werden.\n Starten Sie das Programm bitte erneut.\n" + exc.getMessage(),
-                    "Fehler",
-                    JOptionPane.ERROR_MESSAGE);
-        }
-    }
-
-    /**
-     * this method tries to show the view if there exists one
-     * it should alsways check if view is available and print error if showing is not possible
-     */
-    @Override
-    public void hide() {
-        try{
-            frame.setVisible(false);
-        }
-        catch (Exception exc){
-            JOptionPane.showMessageDialog(null,
-                    "Das Fenster kann nicht geschlossen werden.\n Starten Sie das Programm bitte erneut.\n" + exc.getMessage(),
-                    "Fehler",
-                    JOptionPane.ERROR_MESSAGE);
-        }
-    }
-
-    @Override
-    /**
-     * this method returns a reference to the targetUse Text area of the frame
-     */
-    public JTextArea getTargetUse(){
-        return targetUse;
-    }
-
-    @Override
-    /**
-     * this method returns a reference to the productUse Text area of the frame
-     */
-    public JTextArea getProductUse(){
-        return productUse;
+    public JFrame getJFrame() {
+        return frame;
     }
 }
