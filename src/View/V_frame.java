@@ -107,4 +107,12 @@ public class V_frame implements I_V_frame {
     public JFrame getJFrame() {
         return frame;
     }
+
+    @Override
+    public JTextArea getTargetUse(){
+        return targetUse;
+    }
+    public JTextArea getProductUse(){
+        return productUse;
+    }
 }

@@ -14,6 +14,7 @@ import View.I_V_basic;
 import View.I_V_start;
 import View.V_start;
 
+
 public class C_start implements I_C_start {
     //TODO: create Model and store in local Variable
     //TODO: create VIEW and store in local Variable
@@ -27,7 +28,7 @@ public class C_start implements I_C_start {
      */
     public C_start() {
         viewStart = new V_start(this);
-        viewStart.show();
+        I_V_basic.show(viewStart.getJFrame());
         //V_start.debugPrint();
     }
 

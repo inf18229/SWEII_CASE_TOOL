@@ -28,4 +28,9 @@ public class C_effort implements I_C_effort{
     public void debugPrint(String output) {
         System.out.println(output);
     }
+
+    @Override
+    public void updateProjectData(){
+
+    }
 }
