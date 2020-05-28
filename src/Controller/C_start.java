@@ -1,20 +1,14 @@
-/**
- * C_start
- *
- * C_start is the implementation if I_C_start
- * @param: nothing
- * @result: nothing2
- */
-
-
 package Controller;
-//TODO: import Model
+
 import Model.M_projectData;
 import View.I_V_basic;
 import View.I_V_start;
 import View.V_start;
 
-
+/**
+ *  C_start is the basic controller, that is always created first.
+ *  Its only purpose is to handle USER-IO during the start sequence
+ */
 public class C_start implements I_C_start {
     //TODO: create Model and store in local Variable
     //TODO: create VIEW and store in local Variable
@@ -22,9 +16,10 @@ public class C_start implements I_C_start {
     //I_C_frame controllerFrame;
 
     /**
-     * creates one Object of Class C_start
-     * which runs V_Start.main() and therefore creates the startwindow of the programm
-     * it passes itself as C_start con into the main and therfore creates a reference to itself in the V_Start
+     * creates Object of Class C_start
+     * creates the startwindow of the programm viewStart
+     * it passes itself as C_start controllerStart into the main
+     * and therefore creates a reference to itself in the viewStart
      */
     public C_start() {
         viewStart = new V_start(this);
@@ -55,14 +50,8 @@ public class C_start implements I_C_start {
         System.out.println("Öffne Projekt wurde gedrückt.");
 //        viewStart.getPath();
         // TODO: an Model/M_projectData_import. den Pfad an load(path) übergeben
-        //TODO: Create C_frame and open V_frame
         I_V_basic.hide(viewStart.getJFrame());
         //TODO: initialize C_Frame with Project Data from XML file
         I_C_frame controllerFrame = new C_frame(new M_projectData());
     }
-
-
-    //TODO: initialize View and make it visible
-    //TODO: decide which links are necessary between Model, View and Controller
-
 }
