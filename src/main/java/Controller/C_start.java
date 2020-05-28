@@ -1,20 +1,14 @@
-/**
- * C_start
- *
- * C_start is the implementation if I_C_start
- * @param: nothing
- * @result: nothing2
- */
-
-
 package Controller;
-//TODO: import Model
+
 import Model.M_projectData;
 import View.I_V_basic;
 import View.I_V_start;
 import View.V_start;
 
-
+/**
+ *  C_start is the basic controller, that is always created first.
+ *  Its only purpose is to handle USER-IO during the start sequence
+ */
 public class C_start implements I_C_start {
     //TODO: create Model and store in local Variable
     //TODO: create VIEW and store in local Variable
@@ -22,26 +16,27 @@ public class C_start implements I_C_start {
     //I_C_frame controllerFrame;
 
     /**
-     * creates one Object of Class C_start
-     * which runs V_Start.main() and therefore creates the startwindow of the programm
-     * it passes itself as C_start con into the main and therfore creates a reference to itself in the V_Start
+     * creates Object of Class C_start
+     * creates the startwindow of the programm viewStart and makes it visible
+     * it passes itself as C_start controllerStart into the main
+     * and therefore creates a reference to itself in the viewStart
      */
     public C_start() {
         viewStart = new V_start(this);
-        I_V_basic.show(viewStart.getJFrame());
-        //V_start.debugPrint();
+        I_V_basic.show(viewStart.getJFrame());  // makes viewStart visible and enables user input
     }
 
     /**
      * this message gets called by Views to notify the start Controller that a new project should be created
      * the Controller therefore asks the viewStart for a path where the new project should get created
+     * after getting the path the Controller has to close viewStart (hide) and pass the job of handeling the project
+     * to the newly created controllerFrame
      */
     public void notifyCreate(){
         System.out.println("Neues Projekt wurde gedrückt.");
-//        viewStart.getPath();
-        //TODO: Model den Pfad in createData(path) übergeben
-        //TODO: Create C_frame and open V_frame
-        I_V_basic.hide(viewStart.getJFrame());
+        //viewStart.getPath();
+        //TODO: Model den Pfad (in createData(path)) übergeben
+        I_V_basic.hide(viewStart.getJFrame());  // makes viewStart invisible and disables user input
         I_C_frame controllerFrame = new C_frame(new M_projectData());
     }
 
@@ -53,16 +48,10 @@ public class C_start implements I_C_start {
      */
     public void notifyOpen(){
         System.out.println("Öffne Projekt wurde gedrückt.");
-//        viewStart.getPath();
-        // TODO: an Model/M_projectData_import. den Pfad an load(path) übergeben
-        //TODO: Create C_frame and open V_frame
-        I_V_basic.hide(viewStart.getJFrame());
+        //viewStart.getPath();
+        // TODO: an Model/M_projectData_import. den Pfad (an load(path)) übergeben
+        I_V_basic.hide(viewStart.getJFrame());  // makes viewStart invisible and disables user input
         //TODO: initialize C_Frame with Project Data from XML file
         I_C_frame controllerFrame = new C_frame(new M_projectData());
     }
-
-
-    //TODO: initialize View and make it visible
-    //TODO: decide which links are necessary between Model, View and Controller
-
 }

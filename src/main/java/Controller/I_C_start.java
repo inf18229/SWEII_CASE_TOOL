@@ -1,14 +1,17 @@
-//======================================================================================================================
-//  I_C_start
-//
-//  C_start is the basic controller, that is always created first.
-//  Its only purpose is to handle USER-IO during the start sequence an it should create a new Controller C_frame ones
-//  the user has chosen a correct file.
-//======================================================================================================================
-
 package Controller;
 
+/**
+ * I_C_Start is responsible for all actions in the start View I_V_start
+ */
 public interface I_C_start {
-    public void notifyCreate();
-    public void notifyOpen();
+    /**
+     * the notifyCreate method has to be implemented to be run by the view
+     * it should run any functions necessary when creating a new project
+     */
+    void notifyCreate();
+    /**
+     * the notifyOpen method has to be implemented to be run by the view
+     * it should run any functions necessary when opening a new project
+     */
+    void notifyOpen();
 }
