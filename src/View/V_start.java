@@ -4,24 +4,30 @@ import Controller.I_C_start;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class V_start implements I_V_start {
-    private static I_C_start con;
+    private static I_C_start conStart;
+    private JFrame frame;
     private JPanel V_startPanel;
     private JLabel t_newProject;
     private JButton b_createProject;
     private JButton b_openProject;
 
 
-
-
-    public V_start(I_C_start con) {
-
-        JFrame frame = new JFrame("SWE CASE TOOL");
+    /**
+     * Constructor of the V_start Class
+     * it needs a reference to the C_start Controller as param con
+     * @param controllerStart
+     */
+    public V_start(I_C_start controllerStart) {
+        conStart = controllerStart;
+        frame = new JFrame("SWE CASE TOOL");
         frame.setContentPane(this.V_startPanel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false);
+        frame.getContentPane().setPreferredSize(new Dimension (400, 120));
 
 
         b_createProject.addActionListener(new ActionListener() {
@@ -30,7 +36,7 @@ public class V_start implements I_V_start {
              */
             @Override
             public void actionPerformed(ActionEvent e) {
-                con.notifyCreate();
+                conStart.notifyCreate();
             }
         });
         b_openProject.addActionListener(new ActionListener() {
@@ -39,17 +45,17 @@ public class V_start implements I_V_start {
              */
             @Override
             public void actionPerformed(ActionEvent e) {
-                con.notifyOpen();
+                conStart.notifyOpen();
             }
         });
         debugPrint("View erstellt");
-
-        frame.pack();
-        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack(); //pack method sizes the frame so that all its contents are at or above their preferred size (form)
+        frame.setLocationRelativeTo(null);  //places the window in the center of the screen
     }
 
     /**
-     * method to simply print the input string output as text to console
+     * method to simply print the string output as text to console
      * @param output
      */
     @Override
@@ -89,5 +95,39 @@ public class V_start implements I_V_start {
                     JOptionPane.ERROR_MESSAGE);
         }
         return "test";
+    }
+
+    /**
+     * this method tries to show the view if there exists one
+     * it should alsways check if view is available and print error if showing is not possible
+     */
+    @Override
+    public void show() {
+        try{
+            frame.setVisible(true);
+        }
+        catch (Exception exc){
+            JOptionPane.showMessageDialog(null,
+                    "Das Fenster kann nicht geöffnet werden.\n Starten Sie das Programm bitte erneut.\n" + exc.getMessage(),
+                    "Fehler",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    /**
+     * this method tries to show the view if there exists one
+     * it should alsways check if view is available and print error if showing is not possible
+     */
+    @Override
+    public void hide() {
+        try{
+            frame.setVisible(false);
+        }
+        catch (Exception exc){
+            JOptionPane.showMessageDialog(null,
+                    "Das Fenster kann nicht geschlossen werden.\n Starten Sie das Programm bitte erneut.\n" + exc.getMessage(),
+                    "Fehler",
+                    JOptionPane.ERROR_MESSAGE);
+        }
     }
 }

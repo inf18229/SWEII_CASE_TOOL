@@ -16,6 +16,7 @@ public class C_start implements I_C_start {
     //TODO: create Model and store in local Variable
     //TODO: create VIEW and store in local Variable
     I_V_start viewStart;
+    //I_C_frame controllerFrame;
 
     /**
      * creates one Object of Class C_start
@@ -24,6 +25,7 @@ public class C_start implements I_C_start {
      */
     public C_start() {
         viewStart = new V_start(this);
+        viewStart.show();
         //V_start.debugPrint();
     }
 
@@ -33,8 +35,11 @@ public class C_start implements I_C_start {
      */
     public void notifyCreate(){
         System.out.println("Neues Projekt wurde gedrückt.");
-        viewStart.getPath();
+//        viewStart.getPath();
         //TODO: Model den Pfad in createData(path) übergeben
+        //TODO: Create C_frame and open V_frame
+        viewStart.hide();
+        I_C_frame controllerFrame = new C_frame();
     }
 
     /**
@@ -45,8 +50,11 @@ public class C_start implements I_C_start {
      */
     public void notifyOpen(){
         System.out.println("Öffne Projekt wurde gedrückt.");
-        viewStart.getPath();
+//        viewStart.getPath();
         // TODO: an Model/M_projectData_import. den Pfad an load(path) übergeben
+        //TODO: Create C_frame and open V_frame
+        viewStart.hide();
+        I_C_frame controllerFrame = new C_frame();
     }
 
 

@@ -11,4 +11,26 @@ package Controller;
 public interface I_C_frame {
     //TODO: create CONTROLLERS for each special VIEW
     //TODO: create the main frame of the programm V_frame
+
+    /**
+     * in the enum tab every tab of the V_frame should be specified
+     */
+    enum tabs{};
+
+    /**
+     * creates Controller for each tab
+     */
+    public void createControllers(/*I_C_frame.tabs tabs*/);
+
+    /**
+     * switches to the specified Tab
+     * @param tab
+     */
+    public void switchToTab(I_C_frame.tabs tab);
+
+    /**
+     * method to simply print the string output as text to console
+     * @param output
+     */
+    public void debugPrint(String output);
 }
