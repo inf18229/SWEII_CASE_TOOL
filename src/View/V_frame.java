@@ -13,34 +13,17 @@ public class V_frame implements I_V_frame {
     JFrame frame;
     private JPanel V_framePanel;
     private JTabbedPane tabbedPane;
-    private JPanel V_General;
-    private JPanel V_FuncReq;
-    private JPanel V_NonFuncReq;
-    private JPanel V_frame_effort;
-    private JPanel panelCategory;
-    private JPanel panelCount;
-    private JPanel panelClassification;
-    private JPanel panelWeight;
+    private JPanel V_framePanel_General;
+    private JPanel V_framePanel_FuncReq;
+    private JPanel V_framePanel_NonFuncReq;
+    private JPanel panelHeadline;
     private JPanel panelSum;
-    private JPanel labelClassificationHeadline;
-    private JPanel labelWeightInput;
-    private JPanel labelWeightQuery;
-    private JPanel labelWeightOutput;
-    private JPanel labelWeightDataset;
-    private JPanel labelWeightReference;
-    private JPanel labelWeightHeadline;
-    private JPanel labelClassificationInput;
-    private JPanel labelClassificationQuery;
-    private JPanel labelClassificationOutput;
-    private JPanel labelClassificationDataset;
-    private JPanel labelClassificationReference;
-    private JLabel labelCategoryHeadline;
-    private JLabel labelCategoryInput;
-    private JLabel labelCategoryQuery;
-    private JLabel labelCategoryOutput;
-    private JLabel labelCategoryDataset;
-    private JLabel labelCategoryReference;
-    private JLabel labelCategorySum;
+    private JPanel panelWeight;
+    private JPanel panelClassification;
+    private JPanel panelCount;
+    private JPanel panelCategory;
+    private JPanel V_framePanel_effort;
+    private JPanel panel;
 
     /**
      * Constructor of the V_frame class
@@ -50,7 +33,7 @@ public class V_frame implements I_V_frame {
         frame = new JFrame("SWE CASE TOOL");
         frame.setContentPane(this.V_framePanel);
         frame.setResizable(false);
-        frame.getContentPane().setPreferredSize(new Dimension(1000, 800));
+        frame.getContentPane().setPreferredSize(new Dimension(1000, 600));
         tabbedPane.addChangeListener(new ChangeListener() {
             /**
              * Invoked when the target of the listener has changed its state.
