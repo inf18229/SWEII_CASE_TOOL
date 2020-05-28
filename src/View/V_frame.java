@@ -147,8 +147,6 @@ public class V_frame implements I_V_frame {
                 conFrame.switchToTab(tabbedPane.getSelectedIndex());
             }
         });
-
-
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack(); //pack method sizes the frame so that all its contents are at or above their preferred size (form)
         frame.setLocationRelativeTo(null);  //places the window in the center of the screen
@@ -156,36 +154,12 @@ public class V_frame implements I_V_frame {
     }
 
     /**
-     * this method tries to show the view if there exists one
-     * it should alsways check if view is available and print error if showing is not possible
+     * this method returns a reference to the frame Object
+     *
+     * @return frame
      */
     @Override
-    public void show() {
-        try{
-            frame.setVisible(true);
-        }
-        catch (Exception exc){
-            JOptionPane.showMessageDialog(null,
-                    "Das Fenster kann nicht geöffnet werden.\n Starten Sie das Programm bitte erneut.\n" + exc.getMessage(),
-                    "Fehler",
-                    JOptionPane.ERROR_MESSAGE);
-        }
-    }
-
-    /**
-     * this method tries to show the view if there exists one
-     * it should alsways check if view is available and print error if showing is not possible
-     */
-    @Override
-    public void hide() {
-        try{
-            frame.setVisible(false);
-        }
-        catch (Exception exc){
-            JOptionPane.showMessageDialog(null,
-                    "Das Fenster kann nicht geschlossen werden.\n Starten Sie das Programm bitte erneut.\n" + exc.getMessage(),
-                    "Fehler",
-                    JOptionPane.ERROR_MESSAGE);
-        }
+    public JFrame getJFrame() {
+        return frame;
     }
 }

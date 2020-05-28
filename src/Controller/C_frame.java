@@ -6,6 +6,7 @@
 
 package Controller;
 
+import View.I_V_basic;
 import View.I_V_frame;
 import View.V_frame;
 
@@ -20,7 +21,7 @@ public class C_frame implements I_C_frame{
         debugPrint("C_frame created");
         viewFrame = new V_frame(this);
         createControllers();
-        viewFrame.show();
+        I_V_basic.show(viewFrame.getJFrame());
         switchToTab(0);
     }
 
