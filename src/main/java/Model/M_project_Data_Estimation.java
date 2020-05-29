@@ -1,12 +1,3 @@
-/**
- * Main: This file is part of CASE-Tool
- *
- * With the CASE-Tool it is possible to create feasibility studies
- * and save them. The software is based on a student project.
- *
- * Description:  Model for Estimation
- */
-
 package Model;
 
 public abstract class M_project_Data_Estimation {

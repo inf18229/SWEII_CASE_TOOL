@@ -9,9 +9,12 @@
 
 package Model;
 
-public class M_projectData_functionPointEstimation extends M_project_Data_Estimation {
-    public M_projectData_functionPointEstimation(double actualValue, double setpoint) {
+public class M_projectData_functionPointEstimation/* extends M_project_Data_Estimation */{
+    /*public M_projectData_functionPointEstimation(double actualValue, double setpoint) {
         super(actualValue, setpoint);
+    }*/
+    public M_projectData_functionPointEstimation(){
+
     }
 
     //variables for all counts
@@ -36,25 +39,25 @@ public class M_projectData_functionPointEstimation extends M_project_Data_Estima
     public int countReferenceComplex = 0;
 
     //variables for all weights
-    public int weightInputSimple = 0;
-    public int weightInputMedium = 0;
-    public int weightInputComplex = 0;
+    public int weightInputSimple = 1;
+    public int weightInputMedium = 1;
+    public int weightInputComplex = 1;
 
     public int weightQuerySimple = 1;
     public int weightQueryMedium = 2;
     public int weightQueryComplex = 3;
 
-    public int weightOutputSimple = 0;
-    public int weightOutputMedium = 0;
-    public int weightOutputComplex = 0;
+    public int weightOutputSimple = 1;
+    public int weightOutputMedium = 1;
+    public int weightOutputComplex = 1;
 
-    public int weightDatasetSimple = 0;
-    public int weightDatasetMedium = 0;
-    public int weightDatasetComplex = 0;
+    public int weightDatasetSimple = 1;
+    public int weightDatasetMedium = 1;
+    public int weightDatasetComplex = 1;
 
-    public int weightReferenceSimple = 0;
-    public int weightReferenceMedium = 0;
-    public int weightReferenceComplex = 0;
+    public int weightReferenceSimple = 1;
+    public int weightReferenceMedium = 1;
+    public int weightReferenceComplex = 1;
 
     //variables for all calculated sums
     public int sumInputSimple = 0;
@@ -101,10 +104,10 @@ public class M_projectData_functionPointEstimation extends M_project_Data_Estima
     public double correctionFactor = 0;
 
 
-    @Override
+    /*@Override
     public void estimate() {
 
-    }
+    }*/
 
     /**
      * calculates the Sum for one row
@@ -177,7 +180,7 @@ public class M_projectData_functionPointEstimation extends M_project_Data_Estima
         e3Sum = (float) e2Sum / 100 + 0.7;
     }
 
-    public void calcFunctionPointResult() {
+    /*   public void calcFunctionPointResult() {
         //Calculation for Function Point Result
         setpoint = e1Sum * e3Sum;
     }
@@ -188,9 +191,10 @@ public class M_projectData_functionPointEstimation extends M_project_Data_Estima
         calcE3();
         calcFunctionPointResult();
         calcJonesEstimation();
-    }
+    }*/
 
-    private void calcJonesEstimation() {
+
+    /*private void calcJonesEstimation() {
         //Calculation for Jones Estimation
         jonesDuration = Math.pow(setpoint, 0.4);
 
@@ -198,5 +202,5 @@ public class M_projectData_functionPointEstimation extends M_project_Data_Estima
         if (jonesPersons < 1 & setpoint != 0) jonesPersons = 1;
 
         jonesPersonMoths = jonesDuration * jonesPersons;
-    }
+    }*/
 }

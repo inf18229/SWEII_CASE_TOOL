@@ -27,7 +27,7 @@ public class M_projectData {
     M_projectData_targetDefinition m_projectData_targetDefinition = new M_projectData_targetDefinition();
     M_projectData_productEnvironment m_projectData_productEnvironment = new M_projectData_productEnvironment();
 
-    M_projectData_functionPointEstimation m_projectData_functionPointEstimation = new M_projectData_functionPointEstimation(0,0);
+    M_projectData_functionPointEstimation m_projectData_functionPointEstimation = new M_projectData_functionPointEstimation(/*0,0*/);
 
     public M_projectData_productUse getM_projectData_productUse() {
         return m_projectData_productUse;
