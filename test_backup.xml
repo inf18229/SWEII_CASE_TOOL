@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <M_projectData>
     <m_projectData_productUse>
-        <content>ProdukteinsatzText</content>
+        <content>Test123</content>
         <title>Produkteinsatz</title>
     </m_projectData_productUse>
     <m_projectData_targetDefinition>
-        <content>Zielbestimmung1,
-Zielbestimmung2</content>
+        <content>Test</content>
         <title>Zielbestimmung</title>
     </m_projectData_targetDefinition>
     <m_projectData_productEnvironment>
-        <content>Umgebung in der das Produkt zu nutzen ist</content>
+        <content>Tssdfadsfasdfasdfasdfasdfasdf
+askdföjaslkdf
+askdjöflk
+alsdkföläaksdölf</content>
         <title>Produktumgebung</title>
     </m_projectData_productEnvironment>
     <m_projectData_functionPointEstimation>
@@ -19,9 +21,9 @@ Zielbestimmung2</content>
         <countInputSimple>0</countInputSimple>
         <countInputMedium>0</countInputMedium>
         <countInputComplex>0</countInputComplex>
-        <countQuerySimple>1</countQuerySimple>
-        <countQueryMedium>2</countQueryMedium>
-        <countQueryComplex>3</countQueryComplex>
+        <countQuerySimple>0</countQuerySimple>
+        <countQueryMedium>0</countQueryMedium>
+        <countQueryComplex>0</countQueryComplex>
         <countOutputSimple>0</countOutputSimple>
         <countOutputMedium>0</countOutputMedium>
         <countOutputComplex>0</countOutputComplex>
@@ -31,21 +33,6 @@ Zielbestimmung2</content>
         <countReferenceSimple>0</countReferenceSimple>
         <countReferenceMedium>0</countReferenceMedium>
         <countReferenceComplex>0</countReferenceComplex>
-        <sumInputSimple>0</sumInputSimple>
-        <sumInputMedium>0</sumInputMedium>
-        <sumInputComplex>0</sumInputComplex>
-        <sumQuerySimple>1</sumQuerySimple>
-        <sumQueryMedium>2</sumQueryMedium>
-        <sumQueryComplex>3</sumQueryComplex>
-        <sumOutputSimple>0</sumOutputSimple>
-        <sumOutputMedium>0</sumOutputMedium>
-        <sumOutputComplex>0</sumOutputComplex>
-        <sumDatasetSimple>0</sumDatasetSimple>
-        <sumDatasetMedium>0</sumDatasetMedium>
-        <sumDatasetComplex>0</sumDatasetComplex>
-        <sumReferenceSimple>0</sumReferenceSimple>
-        <sumReferenceMedium>0</sumReferenceMedium>
-        <sumReferenceComplex>0</sumReferenceComplex>
         <factor1>0</factor1>
         <factor2>0</factor2>
         <factor3>0</factor3>

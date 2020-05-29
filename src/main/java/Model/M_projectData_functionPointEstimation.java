@@ -34,6 +34,28 @@ public class M_projectData_functionPointEstimation extends M_project_Data_Estima
     public int countReferenceMedium = 0;
     public int countReferenceComplex = 0;
 
+
+    public int sumInputSimple = 0;
+    public int sumInputMedium = 0;
+    public int sumInputComplex = 0;
+
+    public int sumQuerySimple = 1;
+    public int sumQueryMedium = 2;
+    public int sumQueryComplex = 3;
+
+    public int sumOutputSimple = 0;
+    public int sumOutputMedium = 0;
+    public int sumOutputComplex = 0;
+
+    public int sumDatasetSimple = 0;
+    public int sumDatasetMedium = 0;
+    public int sumDatasetComplex = 0;
+
+    public int sumReferenceSimple = 0;
+    public int sumReferenceMedium = 0;
+    public int sumReferenceComplex = 0;
+
+
     public int factor1 = 0;
     public int factor2 = 0;
     public int factor3 = 0;
@@ -58,6 +80,34 @@ public class M_projectData_functionPointEstimation extends M_project_Data_Estima
 
     @Override
     public void estimate() {
+
+    }
+
+    /**
+     * calculates the row sum for each effort estimation field
+     * it therefore calls the method xxx() for each variable
+     */
+    public void calculateRowSum(){
+        //TODO: add implementation for row-sum
+        sumInputSimple = countInputSimple;
+        sumInputMedium = countInputMedium;
+        sumInputComplex = countInputComplex;
+
+        sumQuerySimple = countQuerySimple;
+        sumQueryMedium = countQueryMedium;
+        sumQueryComplex = countQueryComplex;
+
+        sumOutputSimple = countOutputSimple;
+        sumOutputMedium =  countOutputMedium;
+        sumOutputComplex = countOutputComplex;
+
+        sumDatasetSimple = countDatasetSimple;
+        sumDatasetMedium = countDatasetMedium;
+        sumDatasetComplex = countDatasetComplex;
+
+        sumReferenceSimple = countReferenceSimple;
+        sumReferenceMedium = countReferenceMedium;
+        sumReferenceComplex = countReferenceComplex;
 
     }
 
