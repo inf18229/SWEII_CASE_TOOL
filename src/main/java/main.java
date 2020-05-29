@@ -1,9 +1,3 @@
-//======================================================================================================================
-//  main
-//
-//  The main-Method creates a new Object of the type C_start and shouldn't be used after creation
-//======================================================================================================================
-
 import Controller.C_start;
 import Controller.I_C_start;
 

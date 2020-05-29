@@ -27,12 +27,12 @@ public class C_frame implements I_C_frame {
     M_projectData projectData;  //stores projectData before export TODO: clarify: projectData also stored before pressing the save button?
     M_projectData_export projectData_export;
 
-    public C_frame(M_projectData projectData, I_C_start conStart) {
+    public C_frame(M_projectData projData, I_C_start conStart) {
         System.out.println("C_frame created");
         controllerStart = conStart;
         viewFrame = new V_frame(this);
-        this.projectData = projectData;
-        this.projectData_export = new M_projectData_export(this.projectData);
+        projectData = projData;
+        projectData_export = new M_projectData_export(projectData);
         createTabControllers();
         I_V_basic.show(viewFrame.getJFrame());
         currentController = controllerGeneral;
@@ -115,6 +115,7 @@ public class C_frame implements I_C_frame {
     @Override
     public void notifyRefresh() {
         System.out.println("Controller of Tab notified to refresh View");
+        currentController.updateProjectData();
         //TODO: add implementation
     }
 

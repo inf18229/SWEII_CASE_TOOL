@@ -10,10 +10,11 @@
 package Model;
 
 public class M_projectData_productFunction extends M_projectData_productContent {
+    //TODO: renaming
     public String id = "";
     public String function = "";
     public String source = "";
-    public String protagonist = "";
+    public String actor = "";
     public String reference = "";
     public String description = "";
     public int functionPointWeighting;
@@ -33,8 +34,8 @@ public class M_projectData_productFunction extends M_projectData_productContent 
         return source;
     }
 
-    public String getProtagonist() {
-        return protagonist;
+    public String getActor() {
+        return actor;
     }
 
     public String getReference() {

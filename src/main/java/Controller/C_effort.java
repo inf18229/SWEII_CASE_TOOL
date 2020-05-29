@@ -12,9 +12,9 @@ public class C_effort implements I_C_effort{
     I_V_frame viewFrame;    //stores a reference to the viewFrame to update elements of it
     M_projectData projectData;      // stores a reference to the complete data modell
 
-    public C_effort(I_V_frame view, M_projectData projectData){
+    public C_effort(I_V_frame view, M_projectData projData){
         viewFrame = view;
-        this.projectData = projectData;
+        projectData = projData;
     }
 
     /**
@@ -23,8 +23,11 @@ public class C_effort implements I_C_effort{
      */
     @Override
     public void updateView() {
-        //viewFrame.
+        System.out.println("Effort - updateView was called");
         //TODO: add implementation
+        //projectData.getM_projectData_functionPointEstimation().countInputSimple = 0;
+        viewFrame.setEstimationCount(1,2,3,4,5,6,7,8,9,0,0,0,0,0,0);
+
     }
 
     @Override

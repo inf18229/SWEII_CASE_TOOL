@@ -9,10 +9,7 @@ import javax.swing.event.ChangeListener;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
 
 public class V_frame implements I_V_frame {
     I_C_frame controllerFrame;
@@ -138,6 +135,7 @@ public class V_frame implements I_V_frame {
     private JLabel labelSumSum;
     private JPanel panelHeadline;
     private JTextArea productEnvironment;
+    private JTable productFunctionList;
 
     /**
      * Constructor of the V_frame class
@@ -255,12 +253,14 @@ public class V_frame implements I_V_frame {
          */
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);//JFrame.EXIT_ON_CLOSE);
         frame.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent we) {
-                controllerFrame.notifyExit();
-            }
-        });
+                                    @Override
+                                    public void windowClosing(WindowEvent we) {
+                                        controllerFrame.notifyExit();
+                                    }
 
+                                });
+        String[] columnNames = {"ID","Beschreibung"};
+        productFunctionList=new JTable(null,columnNames);
         frame.pack(); //pack method sizes the frame so that all its contents are at or above their preferred size (form)
         frame.setLocationRelativeTo(null);  //places the window in the center of the screen
         frame.setVisible(true);
@@ -289,5 +289,65 @@ public class V_frame implements I_V_frame {
     @Override
     public JTextArea getProductEnvironment(){
         return productEnvironment;
+    }
+
+    @Override
+    public JLabel getLabel(JLabel label) {
+        //label =
+        return label;
+    }
+
+    /**
+     * this method gets the count values from the controller
+     * and adds all corresponding labels in the estimation tab of the view
+     *
+     * @param countInputSimple
+     * @param countInputMedium
+     * @param countInputComplex
+     * @param countQuerySimple
+     * @param countQueryMedium
+     * @param countQueryComplex
+     * @param countOutputSimple
+     * @param countOutputMedium
+     * @param countOutputComplex
+     * @param countDatasetSimple
+     * @param countDatasetMedium
+     * @param countDatasetComplex
+     * @param countReferenceSimple
+     * @param countReferenceMedium
+     * @param countReferenceComplex
+     */
+    @Override
+    public void setEstimationCount(int countInputSimple,
+                                   int countInputMedium,
+                                   int countInputComplex,
+                                   int countQuerySimple,
+                                   int countQueryMedium,
+                                   int countQueryComplex,
+                                   int countOutputSimple,
+                                   int countOutputMedium,
+                                   int countOutputComplex,
+                                   int countDatasetSimple,
+                                   int countDatasetMedium,
+                                   int countDatasetComplex,
+                                   int countReferenceSimple,
+                                   int countReferenceMedium,
+                                   int countReferenceComplex) {
+        System.out.println("setEstimationCount was called");
+        labelCountInputSimple.setText(String.valueOf(countInputSimple));
+        labelCountInputMedium.setText(String.valueOf(countInputMedium));
+        labelCountInputComplex.setText(String.valueOf(countInputComplex));
+        labelCountQuerySimple.setText(String.valueOf(countQuerySimple));
+        labelCountQueryMedium.setText(String.valueOf(countQueryMedium));
+        labelCountQueryComplex.setText(String.valueOf(countQueryComplex));
+        labelCountOutputSimple.setText(String.valueOf(countOutputSimple));
+        labelCountOutputMedium.setText(String.valueOf(countOutputMedium));
+        labelCountOutputComplex.setText(String.valueOf(countOutputComplex));
+        labelCountDatasetSimple.setText(String.valueOf(countDatasetSimple));
+        labelCountDatasetMedium.setText(String.valueOf(countDatasetMedium));
+        labelCountDatasetComplex.setText(String.valueOf(countDatasetComplex));
+        labelCountReferenceSimple.setText(String.valueOf(countReferenceSimple));
+        labelCountReferenceMedium.setText(String.valueOf(countReferenceMedium));
+        labelCountReferenceComplex.setText(String.valueOf(countReferenceComplex));
     }
 }

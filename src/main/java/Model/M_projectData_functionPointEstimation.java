@@ -18,9 +18,9 @@ public class M_projectData_functionPointEstimation extends M_project_Data_Estima
     public int countInputMedium = 0;
     public int countInputComplex = 0;
 
-    public int countQuerySimple = 0;
-    public int countQueryMedium = 0;
-    public int countQueryComplex = 0;
+    public int countQuerySimple = 1;
+    public int countQueryMedium = 2;
+    public int countQueryComplex = 3;
 
     public int countOutputSimple = 0;
     public int countOutputMedium = 0;

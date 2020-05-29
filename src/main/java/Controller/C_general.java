@@ -23,7 +23,9 @@ public class C_general implements  I_C_general {
     }
 
     /**
-     * TODO: add description
+     * updates the ProjectData Modell if somthing is changed in the View
+     * View will call Controllers updateProjectData function if somthing is changed.
+     * No Input validation for controller needed because only text areas are controlled.
      */
     @Override
     public void updateProjectData(){
