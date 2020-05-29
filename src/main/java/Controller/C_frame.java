@@ -44,7 +44,7 @@ public class C_frame implements I_C_frame {
      */
     @Override
     public void createTabControllers(/*I_C_frame.tabs tabs*/) {
-        //controllerEffort = new C_effort();
+        controllerEffort = new C_effort(viewFrame, projectData);
         controllerGeneral = new C_general(viewFrame, projectData);
         System.out.println("General Controller created");
     }
@@ -59,7 +59,7 @@ public class C_frame implements I_C_frame {
     public void notifyTabChange(int newTab) {
         switch (newTab) {
             case 0:
-                System.out.println("Tab: 0 - General");
+                System.out.println("Tab: 0 - General Tab Controller active!");
                 currentController = controllerGeneral;
                 break;
             case 1:
@@ -69,7 +69,7 @@ public class C_frame implements I_C_frame {
                 System.out.println("Tab: 2");
                 break;
             case 3:
-                System.out.println("Tab: 3 - Aufwandsschätzung");
+                System.out.println("Tab: 3 - Effort Tab Controller active");
                 currentController = controllerEffort;
                 break;
         }

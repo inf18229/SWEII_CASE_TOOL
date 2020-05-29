@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <M_projectData>
     <m_projectData_productUse>
-        <content>Test</content>
+        <content>1234</content>
         <title>Produkteinsatz</title>
     </m_projectData_productUse>
     <m_projectData_targetDefinition>
-        <content>Test123</content>
+        <content>test</content>
         <title>Zielbestimmung</title>
     </m_projectData_targetDefinition>
     <m_projectData_productEnvironment>
-        <content></content>
+        <content>Umgebung</content>
         <title>Produktumgebung</title>
     </m_projectData_productEnvironment>
     <m_projectData_functionPointEstimation>
         <actualValue>0.0</actualValue>
         <setpoint>0.0</setpoint>
-        <inputEasyNumber>0</inputEasyNumber>
-        <inputMiddleNumber>0</inputMiddleNumber>
-        <inputComplexNumber>0</inputComplexNumber>
-        <outputEasyNumber>0</outputEasyNumber>
-        <outputMiddleNumber>0</outputMiddleNumber>
-        <outputComplexNumber>0</outputComplexNumber>
-        <queryEasyNumber>0</queryEasyNumber>
-        <queryMiddleNumber>0</queryMiddleNumber>
-        <queryComplexNumber>0</queryComplexNumber>
-        <internEasyNumber>0</internEasyNumber>
-        <internMiddleNumber>0</internMiddleNumber>
-        <internComplexNumber>0</internComplexNumber>
-        <externEasyNumber>0</externEasyNumber>
-        <externMiddleNumber>0</externMiddleNumber>
-        <externComplexNumber>0</externComplexNumber>
+        <countInputSimple>0</countInputSimple>
+        <countInputMedium>0</countInputMedium>
+        <countInputComplex>0</countInputComplex>
+        <countQuerySimple>0</countQuerySimple>
+        <countQueryMedium>0</countQueryMedium>
+        <countQueryComplex>0</countQueryComplex>
+        <countOutputSimple>0</countOutputSimple>
+        <countOutputMedium>0</countOutputMedium>
+        <countOutputComplex>0</countOutputComplex>
+        <countDatasetSimple>0</countDatasetSimple>
+        <countDatasetMedium>0</countDatasetMedium>
+        <countDatasetComplex>0</countDatasetComplex>
+        <countReferenceSimple>0</countReferenceSimple>
+        <countReferenceMedium>0</countReferenceMedium>
+        <countReferenceComplex>0</countReferenceComplex>
         <factor1>0</factor1>
         <factor2>0</factor2>
         <factor3>0</factor3>

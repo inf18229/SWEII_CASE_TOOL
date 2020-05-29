@@ -137,6 +137,7 @@ public class V_frame implements I_V_frame {
     private JPanel panelSumSum;
     private JLabel labelSumSum;
     private JPanel panelHeadline;
+    private JTextArea productEnvironment;
 
     /**
      * Constructor of the V_frame class
@@ -228,6 +229,27 @@ public class V_frame implements I_V_frame {
             }
         });
         /**
+         * Document Listener for productEnvironment that informs current Controller on update
+         */
+        //TODO: Ersatzhandlungen bei change oder remove für Document Listener
+        productEnvironment.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent documentEvent) {
+                controllerFrame.getCurrentController().updateProjectData();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent documentEvent) {
+                controllerFrame.getCurrentController().updateProjectData();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent documentEvent) {
+                controllerFrame.getCurrentController().updateProjectData();
+            }
+        });
+
+        /**
          * handle what should be done when closing the window:
          * do nothing, but notify Controller Frame, that user wants to close the window
          */
@@ -258,7 +280,14 @@ public class V_frame implements I_V_frame {
     public JTextArea getTargetUse(){
         return targetUse;
     }
+
+    @Override
     public JTextArea getProductUse(){
         return productUse;
+    }
+
+    @Override
+    public JTextArea getProductEnvironment(){
+        return productEnvironment;
     }
 }

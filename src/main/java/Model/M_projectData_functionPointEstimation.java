@@ -14,25 +14,25 @@ public class M_projectData_functionPointEstimation extends M_project_Data_Estima
         super(actualValue, setpoint);
     }
 
-    public int inputEasyNumber = 0;
-    public int inputMiddleNumber = 0;
-    public int inputComplexNumber = 0;
+    public int countInputSimple = 0;
+    public int countInputMedium = 0;
+    public int countInputComplex = 0;
 
-    public int outputEasyNumber = 0;
-    public int outputMiddleNumber = 0;
-    public int outputComplexNumber = 0;
+    public int countQuerySimple = 0;
+    public int countQueryMedium = 0;
+    public int countQueryComplex = 0;
 
-    public int queryEasyNumber = 0;
-    public int queryMiddleNumber = 0;
-    public int queryComplexNumber = 0;
+    public int countOutputSimple = 0;
+    public int countOutputMedium = 0;
+    public int countOutputComplex = 0;
 
-    public int internEasyNumber = 0;
-    public int internMiddleNumber = 0;
-    public int internComplexNumber = 0;
+    public int countDatasetSimple = 0;
+    public int countDatasetMedium = 0;
+    public int countDatasetComplex = 0;
 
-    public int externEasyNumber = 0;
-    public int externMiddleNumber = 0;
-    public int externComplexNumber = 0;
+    public int countReferenceSimple = 0;
+    public int countReferenceMedium = 0;
+    public int countReferenceComplex = 0;
 
     public int factor1 = 0;
     public int factor2 = 0;

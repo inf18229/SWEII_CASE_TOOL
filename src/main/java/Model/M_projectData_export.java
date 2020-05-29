@@ -1,13 +1,11 @@
 package Model;
 
-import java.io.File;
-import java.io.StringWriter;
-
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.namespace.QName;
+import java.io.File;
 
 public class M_projectData_export {
 
@@ -38,7 +36,7 @@ public class M_projectData_export {
             //Store XML to File
             File file = new File("test.xml");
 
-            //Manually workaround for JAXB with class without annotations
+            //Manuall workaround for JAXB with class without annotations
             JAXBElement<M_projectData> jaxbElement = new JAXBElement<M_projectData>
                     ( new QName("root_projectData"), M_projectData.class, temp_projectData);
 
