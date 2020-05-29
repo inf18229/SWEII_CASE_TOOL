@@ -40,5 +40,10 @@ public interface I_C_frame{
      */
     void notifyRefresh();
 
+    /**
+     * notifies the Controller that the user wants to close the program window
+     */
+    void notifyExit();
+
     I_C_tab getCurrentController();
 }

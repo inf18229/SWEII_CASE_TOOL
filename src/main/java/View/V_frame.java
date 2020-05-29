@@ -11,8 +11,11 @@ import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class V_frame implements I_V_frame {
+    I_C_frame controllerFrame;
     I_C_effort conEffort;
     JFrame frame;
     /**
@@ -137,9 +140,10 @@ public class V_frame implements I_V_frame {
 
     /**
      * Constructor of the V_frame class
-     * @param conFrame
+     * @param conFrame Frame Controller
      */
     public V_frame(I_C_frame conFrame) {
+        controllerFrame = conFrame;
         frame = new JFrame("SWE CASE TOOL");
         frame.setContentPane(this.V_framePanel);
         frame.setResizable(false);
@@ -153,7 +157,7 @@ public class V_frame implements I_V_frame {
             @Override
             public void stateChanged(ChangeEvent e) {
                 //TODO: activate Controller depending on open tab
-                conFrame.notifyTabChange(tabbedPane.getSelectedIndex());
+                controllerFrame.notifyTabChange(tabbedPane.getSelectedIndex());
             }
         });
         b_closeProject.addActionListener(new ActionListener() {
@@ -162,7 +166,7 @@ public class V_frame implements I_V_frame {
              */
             @Override
             public void actionPerformed(ActionEvent e) {
-                conFrame.notifyClose();
+                controllerFrame.notifyClose();
             }
         });
         b_saveProject.addActionListener(new ActionListener() {
@@ -171,7 +175,7 @@ public class V_frame implements I_V_frame {
              */
             @Override
             public void actionPerformed(ActionEvent e) {
-                conFrame.notifySave();
+                controllerFrame.notifySave();
             }
         });
         b_refreshData.addActionListener(new ActionListener() {
@@ -180,7 +184,7 @@ public class V_frame implements I_V_frame {
              */
             @Override
             public void actionPerformed(ActionEvent e) {
-                conFrame.notifyRefresh();
+                controllerFrame.notifyRefresh();
             }
         });
 
@@ -190,17 +194,17 @@ public class V_frame implements I_V_frame {
         targetUse.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent documentEvent) {
-                conFrame.getCurrentController().updateProjectData();
+                controllerFrame.getCurrentController().updateProjectData();
             }
 
             @Override
             public void removeUpdate(DocumentEvent documentEvent) {
-                conFrame.getCurrentController().updateProjectData();
+                controllerFrame.getCurrentController().updateProjectData();
             }
 
             @Override
             public void changedUpdate(DocumentEvent documentEvent) {
-                conFrame.getCurrentController().updateProjectData();
+                controllerFrame.getCurrentController().updateProjectData();
             }
         });
 
@@ -210,20 +214,31 @@ public class V_frame implements I_V_frame {
         productUse.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent documentEvent) {
-                conFrame.getCurrentController().updateProjectData();
+                controllerFrame.getCurrentController().updateProjectData();
             }
 
             @Override
             public void removeUpdate(DocumentEvent documentEvent) {
-                conFrame.getCurrentController().updateProjectData();
+                controllerFrame.getCurrentController().updateProjectData();
             }
 
             @Override
             public void changedUpdate(DocumentEvent documentEvent) {
-                conFrame.getCurrentController().updateProjectData();
+                controllerFrame.getCurrentController().updateProjectData();
             }
         });
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        /**
+         * handle what should be done when closing the window:
+         * do nothing, but notify Controller Frame, that user wants to close the window
+         */
+        frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);//JFrame.EXIT_ON_CLOSE);
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent we) {
+                controllerFrame.notifyExit();
+            }
+        });
+
         frame.pack(); //pack method sizes the frame so that all its contents are at or above their preferred size (form)
         frame.setLocationRelativeTo(null);  //places the window in the center of the screen
         frame.setVisible(true);

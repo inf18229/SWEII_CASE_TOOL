@@ -18,7 +18,7 @@ import javax.swing.*;
  * implementation of I_C_Start
  * handles all programm functions not regarding special VIEWS.
  */
-public class C_frame implements I_C_frame{
+public class C_frame implements I_C_frame {
     I_V_frame viewFrame;
     I_C_start controllerStart;
     I_C_general controllerGeneral;
@@ -27,7 +27,7 @@ public class C_frame implements I_C_frame{
     M_projectData projectData;  //stores projectData before export TODO: clarify: projectData also stored before pressing the save button?
     M_projectData_export projectData_export;
 
-    public C_frame(M_projectData projectData, I_C_start conStart){
+    public C_frame(M_projectData projectData, I_C_start conStart) {
         System.out.println("C_frame created");
         controllerStart = conStart;
         viewFrame = new V_frame(this);
@@ -45,21 +45,22 @@ public class C_frame implements I_C_frame{
     @Override
     public void createTabControllers(/*I_C_frame.tabs tabs*/) {
         //controllerEffort = new C_effort();
-        controllerGeneral=new C_general(viewFrame,projectData);
+        controllerGeneral = new C_general(viewFrame, projectData);
         System.out.println("General Controller created");
     }
 
     /**
      * switches to the specified Tab
      * TODO: add better description
+     *
      * @param newTab integer of the newly selected tab
      */
     @Override
     public void notifyTabChange(int newTab) {
-        switch (newTab){
+        switch (newTab) {
             case 0:
                 System.out.println("Tab: 0 - General");
-                currentController=controllerGeneral;
+                currentController = controllerGeneral;
                 break;
             case 1:
                 System.out.println("Tab: 1");
@@ -81,16 +82,20 @@ public class C_frame implements I_C_frame{
      */
     @Override
     public void notifyClose() {
-        int confirm = JOptionPane.showConfirmDialog(
+        String ObjButtons[] = {"Ja","Nein"};
+        int promptResult = JOptionPane.showOptionDialog(
                 null,
                 "Wirklich zurück zum Startmenü? \nUngespeicherte Änderungen gehen verloren!",
                 "Achtung",
-                JOptionPane.YES_NO_OPTION);
-        if (confirm == 0){  // Back to Home by hiding viewFrame and showing viewStart again
+                JOptionPane.DEFAULT_OPTION,
+                JOptionPane.WARNING_MESSAGE,
+                null,
+                ObjButtons, // uses buttons defined in ObjButtons
+                ObjButtons[1]); // uses "Nein" Button as Standard option (when pressing enter without choosing)
+        if (promptResult == 0) {  // Back to Home by hiding viewFrame and showing viewStart again
             I_V_basic.hide(viewFrame.getJFrame());
             controllerStart.notifyShow();
-        }
-        else{
+        } else {
             //Do nothing
         }
     }
@@ -100,8 +105,7 @@ public class C_frame implements I_C_frame{
      * the controller therefore tells the model to save the data (and asks the user for export)
      */
     @Override
-    public void notifySave() {
-        System.out.println("Safe pressed");
+    public void notifySave() {  //TODO: clarify: save means export and changes will disappear when not exported/saved, but programm closed?
         projectData_export.export(projectData);
     }
 
@@ -114,9 +118,36 @@ public class C_frame implements I_C_frame{
         //TODO: add implementation
     }
 
+    /**
+     * notifies the Controller that the user wants to close the program window
+     * the controller therefore asks if the user really want to do it
+     * if prompt allowed -> close program
+     * else -> do nothing
+     */
+    @Override
+    public void notifyExit() {
+        String ObjButtons[] = {"Ja","Nein"};
+        int promptResult = JOptionPane.showOptionDialog(
+                null,
+                "Programm wirklich beenden? \nUngespeicherte Änderungen gehen verloren!",
+                "Achtung",
+                JOptionPane.DEFAULT_OPTION,
+                JOptionPane.WARNING_MESSAGE,
+                null,
+                ObjButtons,
+                ObjButtons[1]);
+        if (promptResult == 0) {  // close program by exiting
+            System.exit(0);
+        } else {
+            //Do nothing
+        }
+    }
+
+    //TODO: add prompt if window gets closed "Wirklich beenden? Alle ungespeicherten Änderungen gehen verloren!"
+
 
     @Override
-    public I_C_tab getCurrentController(){
+    public I_C_tab getCurrentController() {
         return currentController;
     }
 }
