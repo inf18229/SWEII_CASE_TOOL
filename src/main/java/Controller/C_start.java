@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.M_projectData;
+import Model.M_projectData_import;
 import View.I_V_basic;
 import View.I_V_start;
 import View.V_start;
@@ -13,6 +14,7 @@ public class C_start implements I_C_start {
     //TODO: create Model and store in local Variable
     //TODO: create VIEW and store in local Variable
     I_V_start viewStart;
+    M_projectData_import m_projectData_import;
     //I_C_frame controllerFrame;
 
     /**
@@ -24,6 +26,7 @@ public class C_start implements I_C_start {
     public C_start() {
         viewStart = new V_start(this);
         I_V_basic.show(viewStart.getJFrame());  // makes viewStart visible and enables user input
+        m_projectData_import = new M_projectData_import();
     }
 
     /**
@@ -50,6 +53,8 @@ public class C_start implements I_C_start {
         System.out.println("Öffne Projekt wurde gedrückt.");
         //viewStart.getPath();
         // TODO: an Model/M_projectData_import. den Pfad (an load(path)) übergeben
+        String path  = "";
+
         I_V_basic.hide(viewStart.getJFrame());  // makes viewStart invisible and disables user input
         //TODO: initialize C_Frame with Project Data from XML file
         I_C_frame controllerFrame = new C_frame(new M_projectData(), this);
