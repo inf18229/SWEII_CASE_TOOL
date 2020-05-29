@@ -16,10 +16,11 @@ public class C_effort implements I_C_effort{
 
     /**
      * this method updates the V_framePanel_effort
-     * therefore all current values ae set as View attributes
+     * therefore all current values are set as View attributes
      */
     @Override
     public void updateView() {
+
         //TODO: add implementation
     }
 
