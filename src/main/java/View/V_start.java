@@ -94,7 +94,7 @@ public class V_start implements I_V_start {
                     "Fehler",
                     JOptionPane.ERROR_MESSAGE);
         }
-        return "test";
+        return "test.xml";
     }
 
     /**

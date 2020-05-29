@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <M_projectData>
     <m_projectData_productUse>
-        <content>frjfw</content>
+        <content>ProdukteinsatzText</content>
         <title>Produkteinsatz</title>
     </m_projectData_productUse>
     <m_projectData_targetDefinition>
-        <content>Testbestimmung - Flo</content>
+        <content>Zielbestimmung1,
+Zielbestimmung2</content>
         <title>Zielbestimmung</title>
     </m_projectData_targetDefinition>
     <m_projectData_productEnvironment>
-        <content>eherer</content>
+        <content>Umgebung in der das Produkt zu nutzen ist</content>
         <title>Produktumgebung</title>
     </m_projectData_productEnvironment>
     <m_projectData_functionPointEstimation>
@@ -30,27 +31,12 @@
         <countReferenceSimple>0</countReferenceSimple>
         <countReferenceMedium>0</countReferenceMedium>
         <countReferenceComplex>0</countReferenceComplex>
-        <weightInputSimple>0</weightInputSimple>
-        <weightInputMedium>0</weightInputMedium>
-        <weightInputComplex>0</weightInputComplex>
-        <weightQuerySimple>1</weightQuerySimple>
-        <weightQueryMedium>2</weightQueryMedium>
-        <weightQueryComplex>3</weightQueryComplex>
-        <weightOutputSimple>0</weightOutputSimple>
-        <weightOutputMedium>0</weightOutputMedium>
-        <weightOutputComplex>0</weightOutputComplex>
-        <weightDatasetSimple>0</weightDatasetSimple>
-        <weightDatasetMedium>0</weightDatasetMedium>
-        <weightDatasetComplex>0</weightDatasetComplex>
-        <weightReferenceSimple>0</weightReferenceSimple>
-        <weightReferenceMedium>0</weightReferenceMedium>
-        <weightReferenceComplex>0</weightReferenceComplex>
         <sumInputSimple>0</sumInputSimple>
         <sumInputMedium>0</sumInputMedium>
         <sumInputComplex>0</sumInputComplex>
         <sumQuerySimple>1</sumQuerySimple>
-        <sumQueryMedium>4</sumQueryMedium>
-        <sumQueryComplex>9</sumQueryComplex>
+        <sumQueryMedium>2</sumQueryMedium>
+        <sumQueryComplex>3</sumQueryComplex>
         <sumOutputSimple>0</sumOutputSimple>
         <sumOutputMedium>0</sumOutputMedium>
         <sumOutputComplex>0</sumOutputComplex>
@@ -60,7 +46,6 @@
         <sumReferenceSimple>0</sumReferenceSimple>
         <sumReferenceMedium>0</sumReferenceMedium>
         <sumReferenceComplex>0</sumReferenceComplex>
-        <totalRowSumE1>14</totalRowSumE1>
         <factor1>0</factor1>
         <factor2>0</factor2>
         <factor3>0</factor3>

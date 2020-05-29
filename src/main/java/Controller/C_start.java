@@ -51,10 +51,12 @@ public class C_start implements I_C_start {
      */
     public void notifyOpen(){
         System.out.println("Öffne Projekt wurde gedrückt.");
-        //viewStart.getPath();
         // TODO: an Model/M_projectData_import. den Pfad (an load(path)) übergeben
-        String path  = "";
+        //String path  = viewStart.getPath();
+        //System.out.println(path);
         M_projectData projectData = new M_projectData();
+        //String path = "/Users/florianschiffel/Duale Hochschule Baden-Württemberg Stuttgart/Maier Stefan (inf18229) - TEAMORDNER_DHBW/SWE/Software-Projekt/SWEII_CASE_TOOL/test.xml"; //path Flo
+        String path = "test.xml"; // path relative
         projectData = m_projectData_import.importProject(path);
         I_V_basic.hide(viewStart.getJFrame());  // makes viewStart invisible and disables user input
         //TODO: initialize C_Frame with Project Data from XML file
