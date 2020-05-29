@@ -13,8 +13,6 @@
         <title>Produktumgebung</title>
     </m_projectData_productEnvironment>
     <m_projectData_functionPointEstimation>
-        <actualValue>0.0</actualValue>
-        <setpoint>0.0</setpoint>
         <countInputSimple>0</countInputSimple>
         <countInputMedium>0</countInputMedium>
         <countInputComplex>0</countInputComplex>
@@ -53,14 +51,14 @@
         <sumQueryComplex>9</sumQueryComplex>
         <sumOutputSimple>0</sumOutputSimple>
         <sumOutputMedium>0</sumOutputMedium>
-        <sumOutputComplex>0</sumOutputComplex>
+        <sumOutputComplex>6</sumOutputComplex>
         <sumDatasetSimple>0</sumDatasetSimple>
         <sumDatasetMedium>0</sumDatasetMedium>
         <sumDatasetComplex>0</sumDatasetComplex>
-        <sumReferenceSimple>0</sumReferenceSimple>
+        <sumReferenceSimple>2</sumReferenceSimple>
         <sumReferenceMedium>0</sumReferenceMedium>
         <sumReferenceComplex>0</sumReferenceComplex>
-        <totalRowSumE1>14</totalRowSumE1>
+        <totalRowSumE1>22</totalRowSumE1>
         <factor1>0</factor1>
         <factor2>0</factor2>
         <factor3>0</factor3>

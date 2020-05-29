@@ -70,23 +70,19 @@ public class V_start implements I_V_start {
      */
     @Override
     public String getPath(){
-        //TODO: open JFileChooser
+        String path = "";
         try{
             JFileChooser chooser = new JFileChooser();
             FileNameExtensionFilter filter = new FileNameExtensionFilter("XML", "xml");
             chooser.setFileFilter(filter);
             chooser.setAcceptAllFileFilterUsed(false);
             chooser.setMultiSelectionEnabled(false);
-
             int returnVal = chooser.showOpenDialog(null);
-
             if(returnVal == JFileChooser.APPROVE_OPTION)
             {
-                System.out.println("Gewählte Datei: " +
-                        chooser.getSelectedFile().getAbsolutePath());
+                path = chooser.getSelectedFile().getAbsolutePath();
+                System.out.println("Gewählte Datei: " + path);
             }
-
-            //TODO: Importfunktion aufrufen
         }
         catch (Exception exc){
             JOptionPane.showMessageDialog(null,
@@ -94,7 +90,7 @@ public class V_start implements I_V_start {
                     "Fehler",
                     JOptionPane.ERROR_MESSAGE);
         }
-        return "test.xml";
+        return path;
     }
 
     /**
