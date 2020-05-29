@@ -12,20 +12,24 @@ import View.I_V_basic;
 import View.I_V_frame;
 import View.V_frame;
 
+import javax.swing.*;
+
 /**
  * implementation of I_C_Start
  * handles all programm functions not regarding special VIEWS.
  */
 public class C_frame implements I_C_frame{
     I_V_frame viewFrame;
+    I_C_start controllerStart;
     I_C_general controllerGeneral;
     I_C_effort controllerEffort;
     I_C_tab currentController; //stores current active Controller
     M_projectData projectData;  //stores projectData before export TODO: clarify: projectData also stored before pressing the save button?
     M_projectData_export projectData_export;
 
-    public C_frame(M_projectData projectData){
+    public C_frame(M_projectData projectData, I_C_start conStart){
         System.out.println("C_frame created");
+        controllerStart = conStart;
         viewFrame = new V_frame(this);
         this.projectData = projectData;
         this.projectData_export = new M_projectData_export(this.projectData);
@@ -77,7 +81,18 @@ public class C_frame implements I_C_frame{
      */
     @Override
     public void notifyClose() {
-
+        int confirm = JOptionPane.showConfirmDialog(
+                null,
+                "Wirklich zurück zum Startmenü? \nUngespeicherte Änderungen gehen verloren!",
+                "Achtung",
+                JOptionPane.YES_NO_OPTION);
+        if (confirm == 0){  // Back to Home by hiding viewFrame and showing viewStart again
+            I_V_basic.hide(viewFrame.getJFrame());
+            controllerStart.notifyShow();
+        }
+        else{
+            //Do nothing
+        }
     }
 
     /**

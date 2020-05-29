@@ -14,4 +14,8 @@ public interface I_C_start {
      * it should run any functions necessary when opening a new project
      */
     void notifyOpen();
+    /**
+     * this method shows the viewStart and tells the Start Controller, that he is in charge now
+     */
+    void notifyShow();
 }

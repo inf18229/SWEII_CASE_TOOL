@@ -37,7 +37,7 @@ public class C_start implements I_C_start {
         //viewStart.getPath();
         //TODO: Model den Pfad (in createData(path)) übergeben
         I_V_basic.hide(viewStart.getJFrame());  // makes viewStart invisible and disables user input
-        I_C_frame controllerFrame = new C_frame(new M_projectData());
+        I_C_frame controllerFrame = new C_frame(new M_projectData(), this);
     }
 
     /**
@@ -52,6 +52,14 @@ public class C_start implements I_C_start {
         // TODO: an Model/M_projectData_import. den Pfad (an load(path)) übergeben
         I_V_basic.hide(viewStart.getJFrame());  // makes viewStart invisible and disables user input
         //TODO: initialize C_Frame with Project Data from XML file
-        I_C_frame controllerFrame = new C_frame(new M_projectData());
+        I_C_frame controllerFrame = new C_frame(new M_projectData(), this);
+    }
+
+    /**
+     * this method shows the viewStart and tells the Start Controller, that he is in charge now
+     */
+    @Override
+    public void notifyShow() {
+        I_V_basic.show(viewStart.getJFrame());
     }
 }
