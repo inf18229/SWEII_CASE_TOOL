@@ -80,4 +80,40 @@ public interface I_V_frame extends I_V_basic{
             int sumReferenceSimple,
             int sumReferenceMedium,
             int sumReferenceComplex);
+
+    /**
+     * this method gets the weight values from the controller
+     * and adds all corresponding labels in the estimation tab of the view
+     * @param weightInputSimple
+     * @param weightInputMedium
+     * @param weightInputComplex
+     * @param weightQuerySimple
+     * @param weightQueryMedium
+     * @param weightQueryComplex
+     * @param weightOutputSimple
+     * @param weightOutputMedium
+     * @param weightOutputComplex
+     * @param weightDatasetSimple
+     * @param weightDatasetMedium
+     * @param weightDatasetComplex
+     * @param weightReferenceSimple
+     * @param weightReferenceMedium
+     * @param weightReferenceComplex
+     */
+    public void setEstimationWeight(
+            int weightInputSimple,
+            int weightInputMedium,
+            int weightInputComplex,
+            int weightQuerySimple,
+            int weightQueryMedium,
+            int weightQueryComplex,
+            int weightOutputSimple,
+            int weightOutputMedium,
+            int weightOutputComplex,
+            int weightDatasetSimple,
+            int weightDatasetMedium,
+            int weightDatasetComplex,
+            int weightReferenceSimple,
+            int weightReferenceMedium,
+            int weightReferenceComplex);
 }

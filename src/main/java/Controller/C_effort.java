@@ -59,6 +59,22 @@ public class C_effort implements I_C_effort{
                 projectData.getM_projectData_functionPointEstimation().sumReferenceSimple,
                 projectData.getM_projectData_functionPointEstimation().sumReferenceMedium,
                 projectData.getM_projectData_functionPointEstimation().sumReferenceComplex);
+        viewFrame.setEstimationWeight(
+                projectData.getM_projectData_functionPointEstimation().weightInputSimple,
+                projectData.getM_projectData_functionPointEstimation().weightInputMedium,
+                projectData.getM_projectData_functionPointEstimation().weightInputComplex,
+                projectData.getM_projectData_functionPointEstimation().weightQuerySimple,
+                projectData.getM_projectData_functionPointEstimation().weightQueryMedium,
+                projectData.getM_projectData_functionPointEstimation().weightQueryComplex,
+                projectData.getM_projectData_functionPointEstimation().weightOutputSimple,
+                projectData.getM_projectData_functionPointEstimation().weightOutputMedium,
+                projectData.getM_projectData_functionPointEstimation().weightOutputComplex,
+                projectData.getM_projectData_functionPointEstimation().weightDatasetSimple,
+                projectData.getM_projectData_functionPointEstimation().weightDatasetMedium,
+                projectData.getM_projectData_functionPointEstimation().weightDatasetComplex,
+                projectData.getM_projectData_functionPointEstimation().weightReferenceSimple,
+                projectData.getM_projectData_functionPointEstimation().weightReferenceMedium,
+                projectData.getM_projectData_functionPointEstimation().weightReferenceComplex);
 
     }
 

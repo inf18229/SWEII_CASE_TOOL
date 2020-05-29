@@ -14,6 +14,7 @@ public class M_projectData_functionPointEstimation extends M_project_Data_Estima
         super(actualValue, setpoint);
     }
 
+    //variables for all counts
     public int countInputSimple = 0;
     public int countInputMedium = 0;
     public int countInputComplex = 0;
@@ -35,6 +36,29 @@ public class M_projectData_functionPointEstimation extends M_project_Data_Estima
     public int countReferenceComplex = 0;
 
 
+    //variables for all weights
+    public int weightInputSimple = 0;
+    public int weightInputMedium = 0;
+    public int weightInputComplex = 0;
+
+    public int weightQuerySimple = 1;
+    public int weightQueryMedium = 2;
+    public int weightQueryComplex = 3;
+
+    public int weightOutputSimple = 0;
+    public int weightOutputMedium = 0;
+    public int weightOutputComplex = 0;
+
+    public int weightDatasetSimple = 0;
+    public int weightDatasetMedium = 0;
+    public int weightDatasetComplex = 0;
+
+    public int weightReferenceSimple = 0;
+    public int weightReferenceMedium = 0;
+    public int weightReferenceComplex = 0;
+
+
+    //variables for all calculated sums
     public int sumInputSimple = 0;
     public int sumInputMedium = 0;
     public int sumInputComplex = 0;
@@ -84,10 +108,22 @@ public class M_projectData_functionPointEstimation extends M_project_Data_Estima
     }
 
     /**
+     * calculates the Sum for one row
+     * depending on the count and weight
+     * @param count total number of type
+     * @param weight importance of this factor
+     * @return result = count * weight
+     */
+    public int calculateRowSum(int count, int weight){
+        int result = count * weight;
+        return result;
+    }
+
+    /**
      * calculates the row sum for each effort estimation field
      * it therefore calls the method xxx() for each variable
      */
-    public void calculateRowSum(){
+    public void calculateAllRowSums(){ //TODO: eig. aufgabe des Controllers
         //TODO: add implementation for row-sum
         sumInputSimple = countInputSimple;
         sumInputMedium = countInputMedium;

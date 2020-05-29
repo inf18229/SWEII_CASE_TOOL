@@ -406,4 +406,59 @@ public class V_frame implements I_V_frame {
         labelSumReferenceMedium.setText(String.valueOf(sumReferenceMedium));
         labelSumReferenceComplex.setText(String.valueOf(sumReferenceComplex));
     }
+
+    /**
+     * this method gets the weight values from the controller
+     * and adds all corresponding labels in the estimation tab of the view
+     *
+     * @param weightInputSimple
+     * @param weightInputMedium
+     * @param weightInputComplex
+     * @param weightQuerySimple
+     * @param weightQueryMedium
+     * @param weightQueryComplex
+     * @param weightOutputSimple
+     * @param weightOutputMedium
+     * @param weightOutputComplex
+     * @param weightDatasetSimple
+     * @param weightDatasetMedium
+     * @param weightDatasetComplex
+     * @param weightReferenceSimple
+     * @param weightReferenceMedium
+     * @param weightReferenceComplex
+     */
+    @Override
+    public void setEstimationWeight(
+            int weightInputSimple,
+            int weightInputMedium,
+            int weightInputComplex,
+            int weightQuerySimple,
+            int weightQueryMedium,
+            int weightQueryComplex,
+            int weightOutputSimple,
+            int weightOutputMedium,
+            int weightOutputComplex,
+            int weightDatasetSimple,
+            int weightDatasetMedium,
+            int weightDatasetComplex,
+            int weightReferenceSimple,
+            int weightReferenceMedium,
+            int weightReferenceComplex) {
+        System.out.println("setEstimationWeight was called");
+        labelWeightInputSimple.setText("x " + String.valueOf(weightInputSimple));
+        labelWeightInputMedium.setText("x " + String.valueOf(weightInputMedium));
+        labelWeightInputComplex.setText("x " + String.valueOf(weightInputComplex));
+        labelWeightQuerySimple.setText("x " + String.valueOf(weightQuerySimple));
+        labelWeightQueryMedium.setText("x " + String.valueOf(weightQueryMedium));
+        labelWeightQueryComplex.setText("x " + String.valueOf(weightQueryComplex));
+        labelWeightOutputSimple.setText("x " + String.valueOf(weightOutputSimple));
+        labelWeightOutputMedium.setText("x " + String.valueOf(weightOutputMedium));
+        labelWeightOutputComplex.setText("x " + String.valueOf(weightOutputComplex));
+        labelWeightDatasetSimple.setText("x " + String.valueOf(weightDatasetSimple));
+        labelWeightDatasetMedium.setText("x " + String.valueOf(weightDatasetMedium));
+        labelWeightDatasetComplex.setText("x " + String.valueOf(weightDatasetComplex));
+        labelWeightReferenceSimple.setText("x " + String.valueOf(weightReferenceSimple));
+        labelWeightReferenceMedium.setText("x " + String.valueOf(weightReferenceMedium));
+        labelWeightReferenceComplex.setText("x " + String.valueOf(weightReferenceComplex));
+    }
 }
