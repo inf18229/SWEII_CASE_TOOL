@@ -35,7 +35,6 @@ public class M_projectData_functionPointEstimation extends M_project_Data_Estima
     public int countReferenceMedium = 0;
     public int countReferenceComplex = 0;
 
-
     //variables for all weights
     public int weightInputSimple = 0;
     public int weightInputMedium = 0;
@@ -57,7 +56,6 @@ public class M_projectData_functionPointEstimation extends M_project_Data_Estima
     public int weightReferenceMedium = 0;
     public int weightReferenceComplex = 0;
 
-
     //variables for all calculated sums
     public int sumInputSimple = 0;
     public int sumInputMedium = 0;
@@ -78,7 +76,6 @@ public class M_projectData_functionPointEstimation extends M_project_Data_Estima
     public int sumReferenceSimple = 0;
     public int sumReferenceMedium = 0;
     public int sumReferenceComplex = 0;
-
 
     public int factor1 = 0;
     public int factor2 = 0;
@@ -120,31 +117,31 @@ public class M_projectData_functionPointEstimation extends M_project_Data_Estima
     }
 
     /**
-     * calculates the row sum for each effort estimation field
-     * it therefore calls the method xxx() for each variable
+     * calculates and stores the row sum
+     * for each count variable
+     * it therefore runs the calculateRowSum Method for each count variable and
+     * stores the weight in the corresponding weight variables
      */
-    public void calculateAllRowSums(){ //TODO: eig. aufgabe des Controllers
-        //TODO: add implementation for row-sum
-        sumInputSimple = countInputSimple;
-        sumInputMedium = countInputMedium;
-        sumInputComplex = countInputComplex;
+    public void calculateAllRowSums(){ //TODO: aufgabe des Controllers?
+        sumInputSimple = calculateRowSum(countInputSimple, weightInputSimple);
+        sumInputMedium = calculateRowSum(countInputMedium, weightInputMedium);
+        sumInputComplex = calculateRowSum(countInputComplex, weightInputComplex);
 
-        sumQuerySimple = countQuerySimple;
-        sumQueryMedium = countQueryMedium;
-        sumQueryComplex = countQueryComplex;
+        sumQuerySimple = calculateRowSum(countQuerySimple, weightQuerySimple);
+        sumQueryMedium = calculateRowSum(countQueryMedium, weightQueryMedium);
+        sumQueryComplex = calculateRowSum(countQueryComplex, weightQueryComplex);
 
-        sumOutputSimple = countOutputSimple;
-        sumOutputMedium =  countOutputMedium;
-        sumOutputComplex = countOutputComplex;
+        sumOutputSimple = calculateRowSum(countOutputSimple, weightOutputSimple);
+        sumOutputMedium = calculateRowSum( countOutputMedium, weightOutputMedium);
+        sumOutputComplex = calculateRowSum(countOutputComplex, weightOutputComplex);
 
-        sumDatasetSimple = countDatasetSimple;
-        sumDatasetMedium = countDatasetMedium;
-        sumDatasetComplex = countDatasetComplex;
+        sumDatasetSimple = calculateRowSum(countDatasetSimple, weightDatasetSimple);
+        sumDatasetMedium = calculateRowSum(countDatasetMedium, weightDatasetMedium);
+        sumDatasetComplex = calculateRowSum(countDatasetComplex, weightDatasetComplex);
 
-        sumReferenceSimple = countReferenceSimple;
-        sumReferenceMedium = countReferenceMedium;
-        sumReferenceComplex = countReferenceComplex;
-
+        sumReferenceSimple = calculateRowSum(countReferenceSimple, weightReferenceSimple);
+        sumReferenceMedium = calculateRowSum(countReferenceMedium, weightReferenceMedium);
+        sumReferenceComplex = calculateRowSum(countReferenceComplex, weightReferenceComplex);
     }
 
     public void calcE2Sum() {
