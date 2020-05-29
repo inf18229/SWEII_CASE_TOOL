@@ -15,6 +15,7 @@ public class C_effort implements I_C_effort{
     public C_effort(I_V_frame view, M_projectData projData){
         viewFrame = view;
         projectData = projData;
+        updateProjectData();
     }
 
     /**
@@ -26,14 +27,29 @@ public class C_effort implements I_C_effort{
         System.out.println("Effort - updateView was called");
         //TODO: add implementation
         //projectData.getM_projectData_functionPointEstimation().countInputSimple = 0;
-        viewFrame.setEstimationCount(1,2,3,4,5,6,7,8,9,0,0,0,0,0,0);
+        viewFrame.setEstimationCount(
+                projectData.getM_projectData_functionPointEstimation().countInputSimple,
+                projectData.getM_projectData_functionPointEstimation().countInputMedium,
+                projectData.getM_projectData_functionPointEstimation().countInputComplex,
+                projectData.getM_projectData_functionPointEstimation().countQuerySimple,
+                projectData.getM_projectData_functionPointEstimation().countQueryMedium,
+                projectData.getM_projectData_functionPointEstimation().countQueryComplex,
+                projectData.getM_projectData_functionPointEstimation().countOutputSimple,
+                projectData.getM_projectData_functionPointEstimation().countOutputMedium,
+                projectData.getM_projectData_functionPointEstimation().countOutputComplex,
+                projectData.getM_projectData_functionPointEstimation().countDatasetSimple,
+                projectData.getM_projectData_functionPointEstimation().countDatasetMedium,
+                projectData.getM_projectData_functionPointEstimation().countDatasetComplex,
+                projectData.getM_projectData_functionPointEstimation().countReferenceSimple,
+                projectData.getM_projectData_functionPointEstimation().countReferenceMedium,
+                projectData.getM_projectData_functionPointEstimation().countReferenceComplex);
 
     }
 
     @Override
     public void updateProjectData(){
-
         //TODO: clarify: what should be done in this method?
         //TODO: add implementation
+        updateView();
     }
 }
