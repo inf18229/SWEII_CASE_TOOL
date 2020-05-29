@@ -54,10 +54,11 @@ public class C_start implements I_C_start {
         //viewStart.getPath();
         // TODO: an Model/M_projectData_import. den Pfad (an load(path)) übergeben
         String path  = "";
-
+        M_projectData projectData = new M_projectData();
+        projectData = m_projectData_import.importProject(path);
         I_V_basic.hide(viewStart.getJFrame());  // makes viewStart invisible and disables user input
         //TODO: initialize C_Frame with Project Data from XML file
-        I_C_frame controllerFrame = new C_frame(new M_projectData(), this);
+        I_C_frame controllerFrame = new C_frame(projectData, this);
     }
 
     /**
