@@ -59,20 +59,32 @@ public class C_frame implements I_C_frame {
     public void notifyTabChange(int newTab) {
         switch (newTab) {
             case 0:
+                viewFrame.hideNext();
+                viewFrame.hideLast();
                 System.out.println("Tab: 0 - General Tab Controller active!");
                 currentController = controllerGeneral;
                 break;
             case 1:
+                viewFrame.hideNext();
+                viewFrame.hideLast();
                 System.out.println("Tab: 1");
                 break;
             case 2:
+                viewFrame.hideNext();
+                viewFrame.hideLast();
                 System.out.println("Tab: 2");
                 break;
             case 3:
+                viewFrame.hideNext();
+                viewFrame.hideLast();
                 System.out.println("Tab: 3 - Effort Tab Controller active");
                 currentController = controllerEffort;
                 currentController.updateProjectData(); //reads project data and refreshes view TODO: maybe add updateView() for all Controllers?
+                viewFrame.showNext();
+                viewFrame.showLast();
                 break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + newTab);
         }
     }
 
@@ -114,9 +126,21 @@ public class C_frame implements I_C_frame {
      * when notified reload the project data for current view
      */
     @Override
-    public void notifyRefresh() {
-        System.out.println("Controller of Tab notified to refresh View");
-        currentController.updateProjectData();
+    public void notifyNext() {
+        //System.out.println("Controller of Tab notified to refresh View");
+        //currentController.notifyNext();
+        controllerEffort.notifyNext();
+        //TODO: add implementation
+    }
+
+    /**
+     * when notified reload the project data for current view
+     */
+    @Override
+    public void notifyLast() {
+        //System.out.println("Controller of Tab notified to refresh View");
+        //currentController.notifyNext();
+        controllerEffort.notifyLast();
         //TODO: add implementation
     }
 

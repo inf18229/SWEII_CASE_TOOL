@@ -9,7 +9,13 @@ import javax.swing.event.ChangeListener;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
 
 public class V_frame implements I_V_frame {
     I_C_frame controllerFrame;
@@ -27,7 +33,8 @@ public class V_frame implements I_V_frame {
     private JPanel V_frame_effort;
     private JTextArea targetUse;
     private JTextArea productUse;
-    private JButton b_refreshData;
+    private JButton b_nextStep; // button is only visible in effort view and brings the user to next step
+    private JButton b_lastStep; // button is only visible in effort view and brings the user to last step
     private JButton b_closeProject;
     private JButton b_saveProject;
     private JPanel panelMainContainer;
@@ -137,6 +144,7 @@ public class V_frame implements I_V_frame {
     private JTextArea productEnvironment;
     private JTable productFunctionList;
 
+
     /**
      * Constructor of the V_frame class
      * @param conFrame Frame Controller
@@ -177,13 +185,24 @@ public class V_frame implements I_V_frame {
                 controllerFrame.notifySave();
             }
         });
-        b_refreshData.addActionListener(new ActionListener() {
+        b_nextStep.addActionListener(new ActionListener() {
             /**
-             * notifies C_frame, that the refreshData button was pressed
+             * notifies C_frame, that the nextStep button was pressed
              */
             @Override
             public void actionPerformed(ActionEvent e) {
-                controllerFrame.notifyRefresh();
+                controllerFrame.notifyNext();
+            }
+        });
+        b_lastStep.addActionListener(new ActionListener() {
+            /**
+             * Invoked when an action occurs.
+             *
+             * @param e the event to be processed
+             */
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controllerFrame.notifyLast();
             }
         });
 
@@ -263,6 +282,8 @@ public class V_frame implements I_V_frame {
         productFunctionList=new JTable(null,columnNames);
         frame.pack(); //pack method sizes the frame so that all its contents are at or above their preferred size (form)
         frame.setLocationRelativeTo(null);  //places the window in the center of the screen
+        b_nextStep.setVisible(false);
+        b_lastStep.setVisible(false);
         frame.setVisible(true);
     }
 
@@ -471,5 +492,38 @@ public class V_frame implements I_V_frame {
     @Override
     public void setTotalRowSum(int sum) {
         labelSumSum.setText(String.valueOf(sum));
+    }
+
+    /**
+     * this method shows the next button
+     */
+    @Override
+    public void showNext() {
+        b_nextStep.setVisible(TRUE);
+    }
+
+
+    /**
+     * this method hides the next button
+     */
+    @Override
+    public void hideNext() {
+        b_nextStep.setVisible(FALSE);
+    }
+
+    /**
+     * this method shows the last button
+     */
+    @Override
+    public void showLast() {
+        b_lastStep.setVisible(TRUE);
+    }
+
+    /**
+     * this method hides the last button
+     */
+    @Override
+    public void hideLast() {
+        b_lastStep.setVisible(FALSE);
     }
 }

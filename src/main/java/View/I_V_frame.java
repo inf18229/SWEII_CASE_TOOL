@@ -3,7 +3,7 @@ package View;
 import javax.swing.*;
 
 public interface I_V_frame extends I_V_basic{
-    //TODO: alternativ solution to get access to elements of the view in the current tab controller
+    //TODO: alternative solution to get access to elements of the view in the current tab controller
     public JTextArea getTargetUse();
     public JTextArea getProductUse();
     public JTextArea getProductEnvironment();
@@ -123,4 +123,24 @@ public interface I_V_frame extends I_V_basic{
      * @param sum the totalRowSumE1 of M_projectData_fuctionPointEstimation
      */
     public void setTotalRowSum(int sum);
+
+    /**
+     * this method shows the next button
+     */
+    void showNext();
+
+    /**
+     * this method hides the next button
+     */
+    void hideNext();
+
+    /**
+     * this method shows the last button
+     */
+    void showLast();
+
+    /**
+     * this method hides the last button
+     */
+    void hideLast();
 }

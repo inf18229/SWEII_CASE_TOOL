@@ -10,4 +10,14 @@ public interface I_C_effort extends I_C_tab {
      * therefore all current values are set as View attributes //TODO: <- implement this
      */
     void updateView();
+
+    /**
+     * notifies the Controller that he should reload the project data for current view
+     */
+    void notifyNext();
+
+    /**
+     * notifies the Controller that he should reload the project data for current view
+     */
+    void notifyLast();
 }

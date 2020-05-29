@@ -36,9 +36,14 @@ public interface I_C_frame{
     void notifySave();
 
     /**
-     * notifies the Controller that he should reload the project data for current view
+     * notifies the Controller that the next button was pressed
      */
-    void notifyRefresh();
+    void notifyNext();
+
+    /**
+     * notifies the Controller that the last button was pressed
+     */
+    void notifyLast();
 
     /**
      * notifies the Controller that the user wants to close the program window

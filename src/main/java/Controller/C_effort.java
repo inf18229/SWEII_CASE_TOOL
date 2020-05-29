@@ -25,8 +25,6 @@ public class C_effort implements I_C_effort{
     @Override
     public void updateView() {
         System.out.println("Effort - updateView was called");
-        //TODO: add implementation
-        //projectData.getM_projectData_functionPointEstimation().countInputSimple = 0;
         viewFrame.setEstimationCount(
                 projectData.getM_projectData_functionPointEstimation().countInputSimple,
                 projectData.getM_projectData_functionPointEstimation().countInputMedium,
@@ -59,7 +57,6 @@ public class C_effort implements I_C_effort{
                 projectData.getM_projectData_functionPointEstimation().weightReferenceSimple,
                 projectData.getM_projectData_functionPointEstimation().weightReferenceMedium,
                 projectData.getM_projectData_functionPointEstimation().weightReferenceComplex);
-        projectData.getM_projectData_functionPointEstimation().calculateAllRowSums();
         viewFrame.setEstimationSum(
                 projectData.getM_projectData_functionPointEstimation().sumInputSimple,
                 projectData.getM_projectData_functionPointEstimation().sumInputMedium,
@@ -76,14 +73,31 @@ public class C_effort implements I_C_effort{
                 projectData.getM_projectData_functionPointEstimation().sumReferenceSimple,
                 projectData.getM_projectData_functionPointEstimation().sumReferenceMedium,
                 projectData.getM_projectData_functionPointEstimation().sumReferenceComplex);
-        projectData.getM_projectData_functionPointEstimation().calculateTotalRowSumE1();
         viewFrame.setTotalRowSum(projectData.getM_projectData_functionPointEstimation().totalRowSumE1);
+    }
+
+    /**
+     * notifies the controller, that the next Button was pressed
+     */
+    @Override
+    public void notifyNext() {
+        System.out.println("Next was pressed");
+    }
+
+    /**
+     * notifies the Controller that he should reload the project data for current view
+     */
+    @Override
+    public void notifyLast() {
+        System.out.println("Last was pressed");
     }
 
     @Override
     public void updateProjectData(){
         //TODO: clarify: what should be done in this method?
         //TODO: add implementation
+        projectData.getM_projectData_functionPointEstimation().calculateAllRowSums();
+        projectData.getM_projectData_functionPointEstimation().calculateTotalRowSumE1();
         updateView();
     }
 }
