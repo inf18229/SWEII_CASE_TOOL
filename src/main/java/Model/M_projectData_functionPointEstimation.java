@@ -77,6 +77,8 @@ public class M_projectData_functionPointEstimation extends M_project_Data_Estima
     public int sumReferenceMedium = 0;
     public int sumReferenceComplex = 0;
 
+    public int totalRowSumE1 = 0;
+
     public int factor1 = 0;
     public int factor2 = 0;
     public int factor3 = 0;
@@ -142,6 +144,27 @@ public class M_projectData_functionPointEstimation extends M_project_Data_Estima
         sumReferenceSimple = calculateRowSum(countReferenceSimple, weightReferenceSimple);
         sumReferenceMedium = calculateRowSum(countReferenceMedium, weightReferenceMedium);
         sumReferenceComplex = calculateRowSum(countReferenceComplex, weightReferenceComplex);
+    }
+
+    /**
+     * this method calculates the total row Sum E1
+     */
+    public void calculateTotalRowSumE1() {
+        totalRowSumE1 = sumInputSimple
+                + sumInputMedium
+                + sumInputComplex
+                + sumQuerySimple
+                + sumQueryMedium
+                + sumQueryComplex
+                + sumOutputSimple
+                + sumOutputMedium
+                + sumOutputComplex
+                + sumDatasetSimple
+                + sumDatasetMedium
+                + sumDatasetComplex
+                + sumReferenceSimple
+                + sumReferenceMedium
+                + sumReferenceComplex;
     }
 
     public void calcE2Sum() {

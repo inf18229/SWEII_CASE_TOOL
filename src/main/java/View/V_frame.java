@@ -461,4 +461,15 @@ public class V_frame implements I_V_frame {
         labelWeightReferenceMedium.setText("x " + String.valueOf(weightReferenceMedium));
         labelWeightReferenceComplex.setText("x " + String.valueOf(weightReferenceComplex));
     }
+
+    /**
+     * this method gets the weight values from the controller
+     * and adds all corresponding labels in the estimation tab of the view
+     *
+     * @param sum the totalRowSumE1 of M_projectData_fuctionPointEstimation
+     */
+    @Override
+    public void setTotalRowSum(int sum) {
+        labelSumSum.setText(String.valueOf(sum));
+    }
 }

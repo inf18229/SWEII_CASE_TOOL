@@ -116,4 +116,11 @@ public interface I_V_frame extends I_V_basic{
             int weightReferenceSimple,
             int weightReferenceMedium,
             int weightReferenceComplex);
+
+    /**
+     * this method gets the weight values from the controller
+     * and adds all corresponding labels in the estimation tab of the view
+     * @param sum the totalRowSumE1 of M_projectData_fuctionPointEstimation
+     */
+    public void setTotalRowSum(int sum);
 }
