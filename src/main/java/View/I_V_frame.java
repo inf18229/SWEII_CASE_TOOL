@@ -44,4 +44,40 @@ public interface I_V_frame extends I_V_basic{
             int countReferenceSimple,
             int countReferenceMedium,
             int countReferenceComplex);
+
+    /**
+     * this method gets the sum values from the controller
+     * and adds all corresponding labels in the estimation tab of the view
+     * @param sumInputSimple
+     * @param sumInputMedium
+     * @param sumInputComplex
+     * @param sumQuerySimple
+     * @param sumQueryMedium
+     * @param sumQueryComplex
+     * @param sumOutputSimple
+     * @param sumOutputMedium
+     * @param sumOutputComplex
+     * @param sumDatasetSimple
+     * @param sumDatasetMedium
+     * @param sumDatasetComplex
+     * @param sumReferenceSimple
+     * @param sumReferenceMedium
+     * @param sumReferenceComplex
+     */
+    public void setEstimationSum(
+            int sumInputSimple,
+            int sumInputMedium,
+            int sumInputComplex,
+            int sumQuerySimple,
+            int sumQueryMedium,
+            int sumQueryComplex,
+            int sumOutputSimple,
+            int sumOutputMedium,
+            int sumOutputComplex,
+            int sumDatasetSimple,
+            int sumDatasetMedium,
+            int sumDatasetComplex,
+            int sumReferenceSimple,
+            int sumReferenceMedium,
+            int sumReferenceComplex);
 }

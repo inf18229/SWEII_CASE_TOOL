@@ -318,21 +318,22 @@ public class V_frame implements I_V_frame {
      * @param countReferenceComplex
      */
     @Override
-    public void setEstimationCount(int countInputSimple,
-                                   int countInputMedium,
-                                   int countInputComplex,
-                                   int countQuerySimple,
-                                   int countQueryMedium,
-                                   int countQueryComplex,
-                                   int countOutputSimple,
-                                   int countOutputMedium,
-                                   int countOutputComplex,
-                                   int countDatasetSimple,
-                                   int countDatasetMedium,
-                                   int countDatasetComplex,
-                                   int countReferenceSimple,
-                                   int countReferenceMedium,
-                                   int countReferenceComplex) {
+    public void setEstimationCount(
+            int countInputSimple,
+            int countInputMedium,
+            int countInputComplex,
+            int countQuerySimple,
+            int countQueryMedium,
+            int countQueryComplex,
+            int countOutputSimple,
+            int countOutputMedium,
+            int countOutputComplex,
+            int countDatasetSimple,
+            int countDatasetMedium,
+            int countDatasetComplex,
+            int countReferenceSimple,
+            int countReferenceMedium,
+            int countReferenceComplex) {
         System.out.println("setEstimationCount was called");
         labelCountInputSimple.setText(String.valueOf(countInputSimple));
         labelCountInputMedium.setText(String.valueOf(countInputMedium));
@@ -349,5 +350,60 @@ public class V_frame implements I_V_frame {
         labelCountReferenceSimple.setText(String.valueOf(countReferenceSimple));
         labelCountReferenceMedium.setText(String.valueOf(countReferenceMedium));
         labelCountReferenceComplex.setText(String.valueOf(countReferenceComplex));
+    }
+
+    /**
+     * this method gets the sum values from the controller
+     * and adds all corresponding labels in the estimation tab of the view
+     *
+     * @param sumInputSimple
+     * @param sumInputMedium
+     * @param sumInputComplex
+     * @param sumQuerySimple
+     * @param sumQueryMedium
+     * @param sumQueryComplex
+     * @param sumOutputSimple
+     * @param sumOutputMedium
+     * @param sumOutputComplex
+     * @param sumDatasetSimple
+     * @param sumDatasetMedium
+     * @param sumDatasetComplex
+     * @param sumReferenceSimple
+     * @param sumReferenceMedium
+     * @param sumReferenceComplex
+     */
+    @Override
+    public void setEstimationSum(
+            int sumInputSimple,
+            int sumInputMedium,
+            int sumInputComplex,
+            int sumQuerySimple,
+            int sumQueryMedium,
+            int sumQueryComplex,
+            int sumOutputSimple,
+            int sumOutputMedium,
+            int sumOutputComplex,
+            int sumDatasetSimple,
+            int sumDatasetMedium,
+            int sumDatasetComplex,
+            int sumReferenceSimple,
+            int sumReferenceMedium,
+            int sumReferenceComplex) {
+        System.out.println("setEstimationSum was called");
+        labelSumInputSimple.setText(String.valueOf(sumInputSimple));
+        labelSumInputMedium.setText(String.valueOf(sumInputMedium));
+        labelSumInputComplex.setText(String.valueOf(sumInputComplex));
+        labelSumQuerySimple.setText(String.valueOf(sumQuerySimple));
+        labelSumQueryMedium.setText(String.valueOf(sumQueryMedium));
+        labelSumQueryComplex.setText(String.valueOf(sumQueryComplex));
+        labelSumOutputSimple.setText(String.valueOf(sumOutputSimple));
+        labelSumOutputMedium.setText(String.valueOf(sumOutputMedium));
+        labelSumOutputComplex.setText(String.valueOf(sumOutputComplex));
+        labelSumDatasetSimple.setText(String.valueOf(sumDatasetSimple));
+        labelSumDatasetMedium.setText(String.valueOf(sumDatasetMedium));
+        labelSumDatasetComplex.setText(String.valueOf(sumDatasetComplex));
+        labelSumReferenceSimple.setText(String.valueOf(sumReferenceSimple));
+        labelSumReferenceMedium.setText(String.valueOf(sumReferenceMedium));
+        labelSumReferenceComplex.setText(String.valueOf(sumReferenceComplex));
     }
 }

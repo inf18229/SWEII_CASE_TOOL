@@ -71,6 +71,7 @@ public class C_frame implements I_C_frame {
             case 3:
                 System.out.println("Tab: 3 - Effort Tab Controller active");
                 currentController = controllerEffort;
+                currentController.updateProjectData(); //reads project data and refreshes view TODO: maybe add updateView() for all Controllers?
                 break;
         }
     }
