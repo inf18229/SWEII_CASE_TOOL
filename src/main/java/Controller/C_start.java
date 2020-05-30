@@ -51,10 +51,17 @@ public class C_start implements I_C_start {
      */
     public void notifyOpen(){
         System.out.println("Öffne Projekt wurde gedrückt.");
-        //String path  = viewStart.getPath();
+        String path  = viewStart.getPath();
         M_projectData projectData = new M_projectData();
-        String path = "test.xml"; // fixed path relative
-        projectData = m__import.importProject(path);
+        //String path = "test.xml"; // fixed path relative
+        if (path instanceof String)
+        {
+            projectData = m__import.importProject(path);
+        }
+        else
+        {
+
+        }
         I_V_basic.hide(viewStart.getJFrame());  // makes viewStart invisible and disables user input
         //TODO: initialize C_Frame with Project Data from XML file
         I_C_frame controllerFrame = new C_frame(projectData, this);

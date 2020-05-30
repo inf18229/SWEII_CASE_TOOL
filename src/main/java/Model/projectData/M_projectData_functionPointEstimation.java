@@ -39,9 +39,9 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
     public int countReferenceComplex = 0;
 
     //variables for all weights
-    public int weightInputSimple = 1;
-    public int weightInputMedium = 1;
-    public int weightInputComplex = 1;
+    public int weightInputSimple = 3;
+    public int weightInputMedium = 4;
+    public int weightInputComplex = 6;
 
     public int weightQuerySimple = 1;
     public int weightQueryMedium = 2;

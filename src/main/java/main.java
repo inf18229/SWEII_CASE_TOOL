@@ -15,3 +15,5 @@ public class main {
 //TODO: add Interfaces to the Model-Classes
 //TODO: combine export and import into one file with export and import methods? if not -> Begründung in Doku
 //TODO: Maven???
+//TODO: rename packages and classes in CAPSLOCK
+//TODO: Optimierung nicht vergessen
