@@ -1,18 +1,24 @@
+/**
+ * @autor: David
+ * Responsible: David
+ * Last edit date: 30.05.2020
+ */
 package Model;
 
+import Model.projectData.M_projectData;
+
 import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
-import javax.xml.namespace.QName;
 import java.io.File;
 
-public class M_projectData_export {
-
-    M_projectData projectData;
-    public M_projectData_export(M_projectData projectData)
+public class M_export {
+    /**
+     *this class saves the current Project to XML
+     */
+    public M_export()
     {
-        this.projectData=projectData;
+
     }
     public void export(M_projectData temp_projectData)
     {
@@ -34,11 +40,7 @@ public class M_projectData_export {
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
             //Store XML to File
-            File file = new File("test.xml");
-
-            //Manuall workaround for JAXB with class without annotations
-            JAXBElement<M_projectData> jaxbElement = new JAXBElement<M_projectData>
-                    ( new QName("root_projectData"), M_projectData.class, temp_projectData);
+            File file = new File("test.xml"); //ToDo: Pathname aktualisieren
 
             //Writes XML file to file-system
             jaxbMarshaller.marshal(temp_projectData, file);

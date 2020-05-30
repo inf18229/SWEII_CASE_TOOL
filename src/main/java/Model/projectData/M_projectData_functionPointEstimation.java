@@ -7,7 +7,7 @@
  * Description:  Model for Function Point Estimation
  */
 
-package Model;
+package Model.projectData;
 
 public class M_projectData_functionPointEstimation/* extends M_project_Data_Estimation */{
     /*public M_projectData_functionPointEstimation(double actualValue, double setpoint) {

@@ -7,7 +7,7 @@
  * Description:  Main Model of software
  */
 
-package Model;
+package Model.projectData;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

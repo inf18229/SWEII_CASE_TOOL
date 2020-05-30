@@ -7,7 +7,7 @@
  * Description:  Model for Product Functions
  */
 
-package Model;
+package Model.projectData;
 
 public class M_projectData_productFunction extends M_projectData_productContent {
     //TODO: renaming

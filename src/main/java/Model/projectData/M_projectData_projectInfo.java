@@ -7,7 +7,7 @@
  * Description:  Model for Project Information
  */
 
-package Model;
+package Model.projectData;
 
 public class M_projectData_projectInfo {
     String title;

@@ -7,7 +7,7 @@
  * Description:  Model for Data Attributes
  */
 
-package Model;
+package Model.projectData;
 
 public class M_projectData_productDataAttribute {
     public String name;

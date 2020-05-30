@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <M_projectData>
     <m_projectData_productUse>
-        <content>frjfw</content>
+        <content>Test1234</content>
         <title>Produkteinsatz</title>
     </m_projectData_productUse>
     <m_projectData_targetDefinition>
-        <content>Testbestimmung - Flo</content>
+        <content>Test12345</content>
         <title>Zielbestimmung</title>
     </m_projectData_targetDefinition>
     <m_projectData_productEnvironment>
-        <content>eherer</content>
+        <content>Test1234</content>
         <title>Produktumgebung</title>
     </m_projectData_productEnvironment>
     <m_projectData_functionPointEstimation>
@@ -21,11 +21,11 @@
         <countQueryComplex>3</countQueryComplex>
         <countOutputSimple>0</countOutputSimple>
         <countOutputMedium>0</countOutputMedium>
-        <countOutputComplex>6</countOutputComplex>
+        <countOutputComplex>0</countOutputComplex>
         <countDatasetSimple>0</countDatasetSimple>
         <countDatasetMedium>0</countDatasetMedium>
         <countDatasetComplex>0</countDatasetComplex>
-        <countReferenceSimple>2</countReferenceSimple>
+        <countReferenceSimple>0</countReferenceSimple>
         <countReferenceMedium>0</countReferenceMedium>
         <countReferenceComplex>0</countReferenceComplex>
         <weightInputSimple>1</weightInputSimple>
@@ -51,14 +51,14 @@
         <sumQueryComplex>9</sumQueryComplex>
         <sumOutputSimple>0</sumOutputSimple>
         <sumOutputMedium>0</sumOutputMedium>
-        <sumOutputComplex>6</sumOutputComplex>
+        <sumOutputComplex>0</sumOutputComplex>
         <sumDatasetSimple>0</sumDatasetSimple>
         <sumDatasetMedium>0</sumDatasetMedium>
         <sumDatasetComplex>0</sumDatasetComplex>
-        <sumReferenceSimple>2</sumReferenceSimple>
+        <sumReferenceSimple>0</sumReferenceSimple>
         <sumReferenceMedium>0</sumReferenceMedium>
         <sumReferenceComplex>0</sumReferenceComplex>
-        <totalRowSumE1>22</totalRowSumE1>
+        <totalRowSumE1>14</totalRowSumE1>
         <factor1>0</factor1>
         <factor2>0</factor2>
         <factor3>0</factor3>

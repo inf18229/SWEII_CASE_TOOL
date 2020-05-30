@@ -7,7 +7,7 @@
  * Description:  Model for Product Environment
  */
 
-package Model;
+package Model.projectData;
 
 public class M_projectData_productEnvironment extends M_projectData_projectInfo {
     public M_projectData_productEnvironment() {

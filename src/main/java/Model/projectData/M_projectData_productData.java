@@ -7,7 +7,7 @@
  * Description:  Model for Product Data
  */
 
-package Model;
+package Model.projectData;
 
 import java.util.ArrayList;
 import java.util.List;

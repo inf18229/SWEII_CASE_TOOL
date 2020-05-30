@@ -7,7 +7,7 @@
  * Description:  Model for Product Content
  */
 
-package Model;
+package Model.projectData;
 
 public abstract class M_projectData_productContent {
     public String _id = "";

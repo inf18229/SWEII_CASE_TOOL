@@ -6,8 +6,8 @@
 
 package Controller;
 
-import Model.M_projectData;
-import Model.M_projectData_export;
+import Model.projectData.M_projectData;
+import Model.M_export;
 import View.I_V_basic;
 import View.I_V_frame;
 import View.V_frame;
@@ -25,14 +25,14 @@ public class C_frame implements I_C_frame {
     I_C_effort controllerEffort;
     I_C_tab currentController; //stores current active Controller
     M_projectData projectData;  //stores projectData before export TODO: clarify: projectData also stored before pressing the save button?
-    M_projectData_export projectData_export;
+    M_export projectData_export;
 
     public C_frame(M_projectData projData, I_C_start conStart) {
         System.out.println("C_frame created");
         controllerStart = conStart;
-        viewFrame = new V_frame(this);
         projectData = projData;
-        projectData_export = new M_projectData_export(projectData);
+        viewFrame = new V_frame(this,projectData);
+        projectData_export = new M_export();
         createTabControllers();
         I_V_basic.show(viewFrame.getJFrame());
         currentController = controllerGeneral;

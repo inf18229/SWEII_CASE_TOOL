@@ -2,6 +2,7 @@ package View;
 
 import Controller.I_C_effort;
 import Controller.I_C_frame;
+import Model.projectData.M_projectData;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -149,12 +150,16 @@ public class V_frame implements I_V_frame {
      * Constructor of the V_frame class
      * @param conFrame Frame Controller
      */
-    public V_frame(I_C_frame conFrame) {
+    public V_frame(I_C_frame conFrame, M_projectData projData) {
         controllerFrame = conFrame;
         frame = new JFrame("SWE CASE TOOL");
         frame.setContentPane(this.V_framePanel);
         frame.setResizable(false);
         frame.getContentPane().setPreferredSize(new Dimension(1000, 460));
+        //Set initial Values here
+        targetUse.setText(projData.getM_projectData_targetDefinition().getContent());
+        productUse.setText(projData.getM_projectData_productUse().getContent());
+        productEnvironment.setText(projData.getM_projectData_productEnvironment().getContent());
         tabbedPane.addChangeListener(new ChangeListener() {
             /**
              * Invoked when the target of the listener has changed its state.
@@ -225,7 +230,6 @@ public class V_frame implements I_V_frame {
                 controllerFrame.getCurrentController().updateProjectData();
             }
         });
-
         /**
          * Document Listener for productUse that informs current Controller on update
          */
@@ -265,7 +269,6 @@ public class V_frame implements I_V_frame {
                 controllerFrame.getCurrentController().updateProjectData();
             }
         });
-
         /**
          * handle what should be done when closing the window:
          * do nothing, but notify Controller Frame, that user wants to close the window

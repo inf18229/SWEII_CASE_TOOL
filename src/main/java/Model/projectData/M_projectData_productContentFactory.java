@@ -7,7 +7,7 @@
  * Description:  Model for Product Content Factory
  */
 
-package Model;
+package Model.projectData;
 
 public class M_projectData_productContentFactory {
     public static M_projectData_productData createProductData(String id) {
