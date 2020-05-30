@@ -1,6 +1,6 @@
 package View;
 
-import Controller.I_C_effort;
+import Controller.tab.I_C_effort;
 import Controller.I_C_frame;
 import Model.projectData.M_projectData;
 
@@ -160,6 +160,7 @@ public class V_frame implements I_V_frame {
         targetUse.setText(projData.getM_projectData_targetDefinition().getContent());
         productUse.setText(projData.getM_projectData_productUse().getContent());
         productEnvironment.setText(projData.getM_projectData_productEnvironment().getContent());
+
         tabbedPane.addChangeListener(new ChangeListener() {
             /**
              * Invoked when the target of the listener has changed its state.

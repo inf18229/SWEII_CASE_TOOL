@@ -1,4 +1,4 @@
-package Controller;
+package Controller.tab;
 
 /**
  * TODO: add description

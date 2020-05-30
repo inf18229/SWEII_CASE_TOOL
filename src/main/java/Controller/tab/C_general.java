@@ -1,4 +1,4 @@
-package Controller;
+package Controller.tab;
 
 import Model.projectData.M_projectData;
 import View.I_V_frame;

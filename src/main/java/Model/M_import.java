@@ -1,18 +1,18 @@
 package Model;
 /**
  * @autor: David
- *
+ * Resposible: David
+ * Last edit date: 30.05.2020
  */
 
 import Model.projectData.M_projectData;
-
-import java.io.File;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.transform.stream.StreamSource;
+import java.io.File;
 
 // This class imports an Object/Project from an XML file
 public class M_import {
@@ -25,7 +25,9 @@ public class M_import {
     public M_projectData importProject(String path)
     {
         /**
-         * This function returns the loaded projectData
+         * this function calls the jaxXmlFileToObject function to import a project
+         * @param path the path for the project that has to be imported
+         * @return projectData returns the loaded project
          */
         jaxbXmlFileToObject(path);
         return projectData;
@@ -35,7 +37,8 @@ public class M_import {
     private void jaxbXmlFileToObject(String fileName)
     {
         /**
-         * This function converts the XML file to the projectData Java Object
+         * This function imports a project by converting an XML file to the projectData Java Object
+         * @param fileName the path for the project that has to be imported
          */
         File xmlFile = new File(fileName);
         JAXBContext jaxbContext;

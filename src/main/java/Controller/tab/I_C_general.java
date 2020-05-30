@@ -1,4 +1,4 @@
-package Controller;
+package Controller.tab;
 
 /**
  * I_C_general is responsible for all actions regarding the general tab in I_C_frame

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <M_projectData>
     <m_projectData_productUse>
-        <content>Test1234</content>
+        <content>Test Produkteinsatz</content>
         <title>Produkteinsatz</title>
     </m_projectData_productUse>
     <m_projectData_targetDefinition>
-        <content>Test12345</content>
+        <content>Test123</content>
         <title>Zielbestimmung</title>
     </m_projectData_targetDefinition>
     <m_projectData_productEnvironment>
-        <content>Test1234</content>
+        <content></content>
         <title>Produktumgebung</title>
     </m_projectData_productEnvironment>
     <m_projectData_functionPointEstimation>

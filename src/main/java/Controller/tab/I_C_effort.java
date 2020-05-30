@@ -1,4 +1,4 @@
-package Controller;
+package Controller.tab;
 
 /**
  * This Interface manages all actions regarding the "Aufwandsschätzung" tab
