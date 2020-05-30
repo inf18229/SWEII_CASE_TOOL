@@ -20,9 +20,9 @@ public class M_export {
     {
 
     }
-    public void export(M_projectData temp_projectData)
+    public void export(M_projectData projData)
     {
-        jaxbObjectToXML(temp_projectData);
+        jaxbObjectToXML(projData);
     }
 
     //code from: https://howtodoinjava.com/jaxb/write-object-to-xml/
