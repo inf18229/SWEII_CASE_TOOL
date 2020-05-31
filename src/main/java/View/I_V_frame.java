@@ -125,6 +125,14 @@ public interface I_V_frame extends I_V_basic{
     public void setTotalRowSum(int sum);
 
     /**
+     * sets the value of the corresponding text field to the value given
+     *
+     * @param sliderNo integer to identify the slider that was changed
+     * @param value    integer to which the slider was changed to
+     */
+    void setSliderText(int sliderNo, int value);
+
+    /**
      * this method shows the next button
      */
     void showNext();

@@ -92,6 +92,21 @@ public class C_effort implements I_C_effort{
         System.out.println("Last was pressed");
     }
 
+    /**
+     * notifies the Controller, that a slider was changed
+     *
+     * @param sliderNo integer to identify the slider that was changed
+     * @param value    integer to which the slider was changed to
+     */
+    @Override
+    public void notifySlider(int sliderNo, int value) {
+        //TODO: add actions to perform
+        //System.out.println("Slider " + String.valueOf(sliderNo) + " was changed to Value " + String.valueOf(value));
+        //TODO: change values in Model
+        //projectData.setFactor(sliderNo value);
+        viewFrame.setSliderText(sliderNo, value);
+    }
+
     @Override
     public void updateProjectData(){
         //TODO: clarify: what should be done in this method?

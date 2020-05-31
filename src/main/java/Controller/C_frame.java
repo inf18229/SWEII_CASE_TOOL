@@ -90,6 +90,22 @@ public class C_frame implements I_C_frame {
     }
 
     /**
+     * notifies the Controller, that a slider was changed
+     *
+     * @param sliderNo integer to identify the slider that was changed
+     * @param value    integer to which the slider was changed to
+     */
+    @Override
+    public void notifySlider(int sliderNo, int value) {
+        if (currentController == controllerEffort){ //TODO: Test! May not work correctly
+            controllerEffort.notifySlider(sliderNo, value);
+        }
+        else {
+            //do nothing
+        }
+    }
+
+    /**
      * notifies the Controller that he should close the project and open the welcome window
      * the controller therefore creates a "Do you really want to close and reject unsaved changes" windows
      * if allowed, the controller opens V_Start again

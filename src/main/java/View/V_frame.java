@@ -10,10 +10,7 @@ import javax.swing.event.ChangeListener;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
@@ -357,6 +354,117 @@ public class V_frame implements I_V_frame {
         b_nextStep.setVisible(false);
         b_lastStep.setVisible(false);
         frame.setVisible(true);
+        //change listeners to notify changes on sliders in factor tab and notify frame controller
+        sliderEntanglement.addChangeListener(new ChangeListener() {
+                /**
+                 * Invoked when the target of the listener has changed its state.
+                 *
+                 * @param e a ChangeEvent object
+                 */
+                @Override
+                public void stateChanged(ChangeEvent e) {
+                    controllerFrame.notifySlider(1, sliderEntanglement.getValue()); //TODO: check if correct listener (always gives more than one event per change)
+                }
+            });
+        sliderDecentralization.addChangeListener(new ChangeListener() {
+            /**
+             * Invoked when the target of the listener has changed its state.
+             *
+             * @param e a ChangeEvent object
+             */
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                controllerFrame.notifySlider(2, sliderDecentralization.getValue());
+            }
+        });
+        sliderTransactionrate.addChangeListener(new ChangeListener() {
+            /**
+             * Invoked when the target of the listener has changed its state.
+             *
+             * @param e a ChangeEvent object
+             */
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                controllerFrame.notifySlider(3, sliderTransactionrate.getValue());
+            }
+        });
+        sliderProcessingCalculation.addChangeListener(new ChangeListener() {
+            /**
+             * Invoked when the target of the listener has changed its state.
+             *
+             * @param e a ChangeEvent object
+             */
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                controllerFrame.notifySlider(41, sliderProcessingCalculation.getValue());
+            }
+        });
+        sliderProcessingControl.addChangeListener(new ChangeListener() {
+            /**
+             * Invoked when the target of the listener has changed its state.
+             *
+             * @param e a ChangeEvent object
+             */
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                controllerFrame.notifySlider(42, sliderProcessingControl.getValue());
+            }
+        });
+        sliderProcessingException.addChangeListener(new ChangeListener() {
+            /**
+             * Invoked when the target of the listener has changed its state.
+             *
+             * @param e a ChangeEvent object
+             */
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                controllerFrame.notifySlider(43, sliderProcessingException.getValue());
+            }
+        });
+        sliderProcessingLogic.addChangeListener(new ChangeListener() {
+            /**
+             * Invoked when the target of the listener has changed its state.
+             *
+             * @param e a ChangeEvent object
+             */
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                controllerFrame.notifySlider(44, sliderProcessingLogic.getValue());
+            }
+        });
+        sliderReusability.addChangeListener(new ChangeListener() {
+            /**
+             * Invoked when the target of the listener has changed its state.
+             *
+             * @param e a ChangeEvent object
+             */
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                controllerFrame.notifySlider(5, sliderReusability.getValue());
+            }
+        });
+        sliderConversion.addChangeListener(new ChangeListener() {
+            /**
+             * Invoked when the target of the listener has changed its state.
+             *
+             * @param e a ChangeEvent object
+             */
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                controllerFrame.notifySlider(6, sliderConversion.getValue());
+            }
+        });
+        sliderCustomizability.addChangeListener(new ChangeListener() {
+            /**
+             * Invoked when the target of the listener has changed its state.
+             *
+             * @param e a ChangeEvent object
+             */
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                controllerFrame.notifySlider(7, sliderCustomizability.getValue());
+            }
+        });
     }
 
     /**
@@ -564,6 +672,50 @@ public class V_frame implements I_V_frame {
     @Override
     public void setTotalRowSum(int sum) {
         labelSumSum.setText(String.valueOf(sum));
+    }
+
+    /**
+     * sets the value of the corresponding text field to the value given
+     *
+     * @param sliderNo integer to identify the slider that was changed
+     * @param value    integer to which the slider was changed to
+     */
+    @Override
+    public void setSliderText(int sliderNo, int value) {
+        switch (sliderNo) {
+            case 1:
+                labelEntaglementValue.setText(String.valueOf(value));
+                break;
+            case 2:
+                labelDecentralizationValue.setText(String.valueOf(value));
+                break;
+            case 3:
+                labelTransactionrateValue.setText(String.valueOf(value));
+                break;
+            case 41:
+                labelProcessingCalculationValue.setText(String.valueOf(value));
+                break;
+            case 42:
+                labelProcessingControlValue.setText(String.valueOf(value));
+                break;
+            case 43:
+                labelProcessingExceptionValue.setText(String.valueOf(value));
+                break;
+            case 44:
+                labelProcessingLogicValue.setText(String.valueOf(value));
+                break;
+            case 5:
+                labelReusabilityValue.setText(String.valueOf(value));
+                break;
+            case 6:
+                labelConversionValue.setText(String.valueOf(value));
+                break;
+            case 7:
+                labelCustomizabilityValue.setText(String.valueOf(value));
+                break;
+            default:
+                // TODO: evtl. besser try catch -> prüfen und wenn besser implementieren
+        }
     }
 
     /**

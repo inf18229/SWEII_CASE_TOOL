@@ -28,6 +28,13 @@ public interface I_C_frame{
     void notifyTabChange(int newTab);
 
     /**
+     * notifies the Controller, that a slider was changed
+     * @param sliderNo  integer to identify the slider that was changed
+     * @param value integer to which the slider was changed to
+     */
+    void notifySlider(int sliderNo, int value);
+
+    /**
      * notifies the Controller that he should close the project and open the welcome window
      */
     void notifyClose();

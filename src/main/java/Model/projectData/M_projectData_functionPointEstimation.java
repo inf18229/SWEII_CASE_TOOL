@@ -82,18 +82,18 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
 
     public int totalRowSumE1 = 0;
 
-    public int factor1 = 0;
-    public int factor2 = 0;
-    public int factor3 = 0;
-    public int factor4a = 0;
-    public int factor4b = 0;
-    public int factor4c = 0;
-    public int factor4d = 0;
-    public int factor5 = 0;
-    public int factor6 = 0;
-    public int factor7 = 0;
+    //variables for factors
+    public int factorEntanglement = 0;
+    public int factorDecentralization = 0;
+    public int factorTransactionrate = 0;
+    public int factorProcessingCalculation = 0;
+    public int factorProcessingControl = 0;
+    public int factorProcessingException = 0;
+    public int factorProcessingLogic = 0;
+    public int factorReusability = 0;
+    public int factorConversion = 0;
+    public int factorCustomizability = 0;
 
-    public int e1Sum = 0;
     public int e2Sum = 0;
     public double e3Sum = 0;
 
@@ -108,6 +108,49 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
     public void estimate() {
 
     }*/
+
+    //TODO: fix not working yet!!!
+    /**
+     * sets one factor to the provided value
+     * @param factorNo  which factor to change
+     * @param value     what value to set it to
+     */
+    public void setFactor(int factorNo, int value) {
+        switch (factorNo) {
+            case 1:
+                factorEntanglement = value;
+                break;
+            case 2:
+                factorDecentralization = value;
+                break;
+            case 3:
+                factorTransactionrate = value;
+                break;
+            case 41:
+                factorProcessingCalculation = value;
+                break;
+            case 42:
+                factorProcessingControl = value;
+                break;
+            case 43:
+                factorProcessingException = value;
+                break;
+            case 44:
+                factorProcessingLogic = value;
+                break;
+            case 5:
+                factorReusability = value;
+                break;
+            case 6:
+                factorConversion = value;
+                break;
+            case 7:
+                factorCustomizability = value;
+                break;
+            default:
+                // TODO: evtl. besser try catch -> prüfen und wenn besser implementieren
+        }
+    }
 
     /**
      * calculates the Sum for one row
@@ -172,7 +215,7 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
 
     public void calcE2Sum() {
         //Calculation for E2
-        e2Sum = factor1 + factor2 + factor3 + factor4a + factor4b + factor4c + factor4d + factor5 + factor6 + factor7;
+        e2Sum = factorEntanglement + factorDecentralization + factorTransactionrate + factorProcessingCalculation + factorProcessingControl + factorProcessingException + factorProcessingLogic + factorReusability + factorConversion + factorCustomizability;
     }
 
     public void calcE3() {
