@@ -37,10 +37,10 @@ public class C_start implements I_C_start {
      */
     public void notifyCreate(){
         System.out.println("Neues Projekt wurde gedrückt.");
-        //viewStart.getPath();
-        //TODO: Model den Pfad (in createData(path)) übergeben
+        String path = viewStart.getPath();
+        //TODO: Model den Pfad (in createData(path)) übergeben --> Beachten: im path muss pfad und name des files ein
         I_V_basic.hide(viewStart.getJFrame());  // makes viewStart invisible and disables user input
-        I_C_frame controllerFrame = new C_frame(new M_projectData(), this);
+        I_C_frame controllerFrame = new C_frame(new M_projectData(), this, path);
     }
 
     /**
@@ -60,11 +60,11 @@ public class C_start implements I_C_start {
         }
         else
         {
-
+            //TODO: return an error that a path has to be chosen for import
         }
         I_V_basic.hide(viewStart.getJFrame());  // makes viewStart invisible and disables user input
-        //TODO: initialize C_Frame with Project Data from XML file
-        I_C_frame controllerFrame = new C_frame(projectData, this);
+        //TODO: initialize C_Frame with Project Data from XML file (und pfad übergeben)
+        I_C_frame controllerFrame = new C_frame(projectData, this, path);
     }
 
     /**

@@ -20,13 +20,13 @@ public class M_export {
     {
 
     }
-    public void export(M_projectData projData)
+    public void export(M_projectData projData, String projPath)
     {
-        jaxbObjectToXML(projData);
+        jaxbObjectToXML(projData, projPath);
     }
 
     //code from: https://howtodoinjava.com/jaxb/write-object-to-xml/
-    private static void jaxbObjectToXML(M_projectData projData)
+    private static void jaxbObjectToXML(M_projectData projData, String path)
     {
         /**
          * this function converts the current project to XML and saves the new XML file
@@ -34,6 +34,7 @@ public class M_export {
          */
         try
         {
+            //path = "test.xml"; //TODO: This is only for testing purpose
             //Create JAXB Context
             JAXBContext jaxbContext = JAXBContext.newInstance(M_projectData.class);
 
@@ -44,7 +45,7 @@ public class M_export {
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
             //Store XML to File
-            File file = new File("test.xml"); //ToDo: Pathname aktualisieren
+            File file = new File(path); //ToDo: Pathname aktualisieren
 
             //Writes XML file to file-system
             jaxbMarshaller.marshal(projData, file);

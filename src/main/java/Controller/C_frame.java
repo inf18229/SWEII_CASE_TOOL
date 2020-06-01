@@ -27,8 +27,9 @@ public class C_frame implements I_C_frame {
     I_C_tab currentController; //stores current active Controller
     M_projectData projectData;  //stores projectData before export TODO: clarify: projectData also stored before pressing the save button?
     M_export projectData_export;
+    String projPath = "";
 
-    public C_frame(M_projectData projData, I_C_start conStart) {
+    public C_frame(M_projectData projData, I_C_start conStart, String path) {
         System.out.println("C_frame created");
         controllerStart = conStart;
         projectData = projData;
@@ -37,6 +38,7 @@ public class C_frame implements I_C_frame {
         createTabControllers();
         I_V_basic.show(viewFrame.getJFrame());
         currentController = controllerGeneral;
+        projPath = path;
     }
 
     /**
@@ -136,7 +138,7 @@ public class C_frame implements I_C_frame {
      */
     @Override
     public void notifySave() {  //TODO: clarify: save means export and changes will disappear when not exported/saved, but programm closed?
-        projectData_export.export(projectData);
+        projectData_export.export(projectData, projPath);
     }
 
     /**
