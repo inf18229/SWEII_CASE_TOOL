@@ -479,6 +479,7 @@ public class V_frame implements I_V_frame {
         frame.setLocationRelativeTo(null);  //places the window in the center of the screen
         b_nextStep.setVisible(false);
         b_lastStep.setVisible(false);
+        b_calculateNew.setVisible(false);
         frame.setVisible(true);
         //change listeners to notify changes on sliders in factor tab and notify frame controller
         slider1Entanglement.addChangeListener(new ChangeListener() {
@@ -937,6 +938,22 @@ public class V_frame implements I_V_frame {
     @Override
     public void hideLast() {
         b_lastStep.setVisible(FALSE);
+    }
+
+    /**
+     * this method shows the calculate New button
+     */
+    @Override
+    public void showCalculateNew() {
+        b_calculateNew.setVisible(TRUE);
+    }
+
+    /**
+     * this method hides the calculate New button
+     */
+    @Override
+    public void hideCalculateNew() {
+        b_calculateNew.setVisible(FALSE);
     }
 
     /**

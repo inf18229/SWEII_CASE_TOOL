@@ -64,27 +64,33 @@ public class C_frame implements I_C_frame {
             case 0:
                 viewFrame.hideNext();
                 viewFrame.hideLast();
+                viewFrame.hideCalculateNew();
+                viewFrame.hideCalculateNew();
                 System.out.println("Tab: 0 - General Tab Controller active!");
                 currentController = controllerGeneral;
                 break;
             case 1:
                 viewFrame.hideNext();
                 viewFrame.hideLast();
+                viewFrame.hideCalculateNew();
+                viewFrame.hideCalculateNew();
                 System.out.println("Tab: 1");
                 break;
             case 2:
                 viewFrame.hideNext();
                 viewFrame.hideLast();
+                viewFrame.hideCalculateNew();
+                viewFrame.hideCalculateNew();
                 System.out.println("Tab: 2");
                 break;
             case 3:
-                viewFrame.hideNext();
-                viewFrame.hideLast();
                 System.out.println("Tab: 3 - Effort Tab Controller active");
                 currentController = controllerEffort;
                 currentController.updateProjectData(); //reads project data and refreshes view TODO: maybe add updateView() for all Controllers?
                 viewFrame.showNext();
                 viewFrame.showLast();
+                viewFrame.showCalculateNew();
+                viewFrame.showCalculateNew();
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + newTab);

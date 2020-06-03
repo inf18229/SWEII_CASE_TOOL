@@ -182,6 +182,16 @@ public interface I_V_frame extends I_V_basic{
     void hideLast();
 
     /**
+     * this method shows the calculate New button
+     */
+    void showCalculateNew();
+
+    /**
+     * this method hides the calculate New button
+     */
+    void hideCalculateNew();
+
+    /**
      * method goes to the next step in effort analysis
      */
     void nextStepEffort();
