@@ -221,10 +221,16 @@ public class V_frame implements I_V_frame {
     private JLabel labelCalculationE2Value;
     private JButton b_calculateNew;
     private JList functionalReqIDList;
-    private JTextField textField1;
-    private JTextField textField2;
-    private JTextField textField3;
-    private JTextArea textArea1;
+    private JTextField textFieldReqID;
+    private JTextField textFieldReqFunction;
+    private JTextField textFieldReqProtagonist;
+    private JTextArea textAreaReqDescription;
+    private JComboBox comboBoxReqCategory;
+    private JComboBox comboBoxReqWeight;
+    private JSpinner spinnerReqFTR;
+    private JSpinner spinnerReqDET;
+    private JLabel labelReqDetails;
+    private JLabel labelReqFunctionpointDefinition;
 
 
     /**
@@ -364,6 +370,111 @@ public class V_frame implements I_V_frame {
 
                                 });
 
+        //Initialize Functional Requirement Tab
+        labelReqDetails.setFont(labelReqDetails.getFont().deriveFont(labelReqDetails.getFont().getStyle() | Font.BOLD,18));
+        labelReqFunctionpointDefinition.setFont(labelReqFunctionpointDefinition.getFont().deriveFont(labelReqFunctionpointDefinition.getFont().getStyle() | Font.BOLD,18));
+        textFieldReqID.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                System.out.println("Functional Requirement ID: "+textFieldReqID.getText());
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                System.out.println("Functional Requirement ID: "+textFieldReqID.getText());
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                System.out.println("Functional Requirement ID: "+textFieldReqID.getText());
+            }
+        });
+        textFieldReqFunction.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                System.out.println("Functional Requirement Function: "+textFieldReqFunction.getText());
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                System.out.println("Functional Requirement ID: "+textFieldReqFunction.getText());
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                System.out.println("Functional Requirement ID: "+textFieldReqFunction.getText());
+            }
+        });
+        textFieldReqProtagonist.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                System.out.println("Functional Requirement Protagonist: "+textFieldReqProtagonist.getText());
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                System.out.println("Functional Requirement Protagonist: "+textFieldReqProtagonist.getText());
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                System.out.println("Functional Requirement Protagonist: "+textFieldReqProtagonist.getText());
+            }
+        });
+        textAreaReqDescription.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                System.out.println("Functional Requirement Description: "+textAreaReqDescription.getText());
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                System.out.println("Functional Requirement Description: "+textAreaReqDescription.getText());
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                System.out.println("Functional Requirement Description: "+textAreaReqDescription.getText());
+            }
+        });
+        comboBoxReqCategory.addItem("EI-Eingabe");
+        comboBoxReqCategory.addItem("EO-Ausgabe");
+        comboBoxReqCategory.addItem("EQ-Abfrage");
+        comboBoxReqCategory.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println(comboBoxReqCategory.getSelectedItem());
+            }
+        });
+        comboBoxReqWeight.addItem(1);
+        comboBoxReqWeight.addItem(2);
+        comboBoxReqWeight.addItem(3);
+        comboBoxReqWeight.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println(comboBoxReqWeight.getSelectedItem());
+            }
+        });
+        SpinnerNumberModel nMspinnerReqFTR=new SpinnerNumberModel(0,0,1000,1);
+        spinnerReqFTR.setModel(nMspinnerReqFTR);
+        spinnerReqFTR.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                System.out.println("Functional Requirment Function Point FTR: "+spinnerReqFTR.getValue());
+            }
+        });
+        SpinnerNumberModel nMspinnerReqDET=new SpinnerNumberModel(0,0,1000,1);
+        spinnerReqDET.setModel(nMspinnerReqDET);
+        spinnerReqDET.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                System.out.println("Functional Requirment Function Point DET: "+spinnerReqDET.getValue());
+            }
+        });
+
+
+
+
         frame.pack(); //pack method sizes the frame so that all its contents are at or above their preferred size (form)
         frame.setLocationRelativeTo(null);  //places the window in the center of the screen
         b_nextStep.setVisible(false);
@@ -491,6 +602,7 @@ public class V_frame implements I_V_frame {
                 controllerFrame.notifyCalculate();
             }
         });
+
     }
 
     /**
