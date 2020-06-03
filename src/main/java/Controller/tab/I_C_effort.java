@@ -12,12 +12,12 @@ public interface I_C_effort extends I_C_tab {
     void updateView();
 
     /**
-     * notifies the Controller that he should reload the project data for current view
+     * notifies the Controller that the nextButton was pressed
      */
     void notifyNext();
 
     /**
-     * notifies the Controller that he should reload the project data for current view
+     * notifies the Controller that the lastButton was pressed
      */
     void notifyLast();
 

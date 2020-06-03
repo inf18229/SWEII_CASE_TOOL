@@ -9,7 +9,7 @@ import View.I_V_frame;
  */
 public class C_effort implements I_C_effort{
 
-    I_V_frame viewFrame;    //stores a reference to the viewFrame to update elements of it
+    I_V_frame viewFrame;    //  stores a reference to the viewFrame to update elements of it
     M_projectData projectData;      // stores a reference to the complete data modell
 
     public C_effort(I_V_frame view, M_projectData projData){
