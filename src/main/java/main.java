@@ -19,3 +19,4 @@ public class main {
 //TODO: Maven???
 //TODO: rename packages and classes in CAPSLOCK
 //TODO: Optimierung nicht vergessen
+//TODO: add notifyButton(int id); which calls the required functions depending on the id

@@ -610,6 +610,19 @@ public class V_frame implements I_V_frame {
             }
         });
 
+        neuButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Functional Reqirement Tab - New Button Pressed");
+                controllerFrame.getCurrentController().updateProjectData();
+            }
+        });
+        speichernButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Functional Reqirement Tab - Save Button Pressed");
+            }
+        });
     }
 
     /**
