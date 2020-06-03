@@ -40,6 +40,7 @@ public class C_start implements I_C_start {
         //String path = viewStart.getPath();
         String path = "test.xml";
         //TODO: Model den Pfad (in createData(path)) übergeben --> Beachten: im path muss pfad und name des files ein
+        //TODO: Idee: Pfad auswählen lassen und Namen separat angeben + erweitern mit .xml --> überprüfen auf leeren Namen
         I_V_basic.hide(viewStart.getJFrame());  // makes viewStart invisible and disables user input
         I_C_frame controllerFrame = new C_frame(new M_projectData(), this, path);
     }
