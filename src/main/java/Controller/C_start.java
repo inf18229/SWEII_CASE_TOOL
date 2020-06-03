@@ -52,9 +52,9 @@ public class C_start implements I_C_start {
      */
     public void notifyOpen(){
         System.out.println("Öffne Projekt wurde gedrückt.");
-        String path  = viewStart.getPath();
+        String path = "test.xml"; // fixed path relative
+        //String path  = viewStart.getPath();
         M_projectData projectData = new M_projectData();
-        //String path = "test.xml"; // fixed path relative
         if (path instanceof String)
         {
             projectData = m__import.importProject(path);

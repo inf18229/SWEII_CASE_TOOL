@@ -74,7 +74,9 @@ public class C_effort implements I_C_effort{
                 projectData.getM_projectData_functionPointEstimation().sumReferenceMedium,
                 projectData.getM_projectData_functionPointEstimation().sumReferenceComplex);
         viewFrame.setTotalRowSum(projectData.getM_projectData_functionPointEstimation().totalRowSumE1);
-        viewFrame.setSliderValues(
+        System.out.println("Set Slider Position");
+        //TODO: initialize slider position
+        /*viewFrame.setSliderValues(
                 projectData.getM_projectData_functionPointEstimation().getFactor(1),
                 projectData.getM_projectData_functionPointEstimation().getFactor(2),
                 projectData.getM_projectData_functionPointEstimation().getFactor(3),
@@ -84,7 +86,7 @@ public class C_effort implements I_C_effort{
                 projectData.getM_projectData_functionPointEstimation().getFactor(44),
                 projectData.getM_projectData_functionPointEstimation().getFactor(5),
                 projectData.getM_projectData_functionPointEstimation().getFactor(6),
-                projectData.getM_projectData_functionPointEstimation().getFactor(7));
+                projectData.getM_projectData_functionPointEstimation().getFactor(7));*/
         // use the setSliderText Function to initialize the text fields for each slider
         viewFrame.setSliderText(1, projectData.getM_projectData_functionPointEstimation().getFactor(1));
         viewFrame.setSliderText(2, projectData.getM_projectData_functionPointEstimation().getFactor(2));
@@ -122,10 +124,8 @@ public class C_effort implements I_C_effort{
      */
     @Override
     public void notifySlider(int sliderNo, int value) {
-        //TODO: add actions to perform
-        //System.out.println("Slider " + String.valueOf(sliderNo) + " was changed to Value " + String.valueOf(value));
-        //TODO: change values in Model
-        //projectData.setFactor(sliderNo value);
+        //System.out.println("Slider " + String.valueOf(sliderNo) + " was changed to Value " + String.valueOf(value));  //just for debugging
+        projectData.getM_projectData_functionPointEstimation().setFactor(sliderNo, value);
         viewFrame.setSliderText(sliderNo, value);
     }
 

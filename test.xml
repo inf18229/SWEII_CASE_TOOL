@@ -59,16 +59,16 @@
         <sumReferenceMedium>0</sumReferenceMedium>
         <sumReferenceComplex>0</sumReferenceComplex>
         <totalRowSumE1>14</totalRowSumE1>
-        <factorEntanglement>2</factorEntanglement>
-        <factorDecentralization>0</factorDecentralization>
-        <factorTransactionrate>0</factorTransactionrate>
-        <factorProcessingCalculation>0</factorProcessingCalculation>
-        <factorProcessingControl>0</factorProcessingControl>
-        <factorProcessingException>0</factorProcessingException>
-        <factorProcessingLogic>0</factorProcessingLogic>
-        <factorReusability>0</factorReusability>
-        <factorConversion>0</factorConversion>
-        <factorCustomizability>0</factorCustomizability>
+        <factorEntanglement>0</factorEntanglement>
+        <factorDecentralization>1</factorDecentralization>
+        <factorTransactionrate>2</factorTransactionrate>
+        <factorProcessingCalculation>3</factorProcessingCalculation>
+        <factorProcessingControl>4</factorProcessingControl>
+        <factorProcessingException>10</factorProcessingException>
+        <factorProcessingLogic>2</factorProcessingLogic>
+        <factorReusability>4</factorReusability>
+        <factorConversion>5</factorConversion>
+        <factorCustomizability>2</factorCustomizability>
         <e2Sum>0</e2Sum>
         <e3Sum>0.0</e3Sum>
         <jonesDuration>0.0</jonesDuration>
