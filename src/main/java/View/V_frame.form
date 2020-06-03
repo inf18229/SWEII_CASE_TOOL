@@ -1225,7 +1225,7 @@
                                       <text value="1) Verflechtung mit anderen Anwendungssystemen"/>
                                     </properties>
                                   </component>
-                                  <component id="61bd1" class="javax.swing.JSlider" binding="sliderEntanglement">
+                                  <component id="61bd1" class="javax.swing.JSlider" binding="slider1Entanglement">
                                     <constraints>
                                       <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                                     </constraints>
@@ -1249,7 +1249,7 @@
                                 <properties/>
                                 <border type="none"/>
                                 <children>
-                                  <component id="2a67d" class="javax.swing.JLabel" binding="labelEntaglementValue">
+                                  <component id="2a67d" class="javax.swing.JLabel" binding="label1EntaglementValue">
                                     <constraints>
                                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                                     </constraints>
@@ -1285,7 +1285,7 @@
                                       <text value="2) Dezentrale Daten/Dezentrale Verarbeitung"/>
                                     </properties>
                                   </component>
-                                  <component id="63303" class="javax.swing.JSlider" binding="sliderDecentralization">
+                                  <component id="63303" class="javax.swing.JSlider" binding="slider2Decentralization">
                                     <constraints>
                                       <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                                     </constraints>
@@ -1309,7 +1309,7 @@
                                 <properties/>
                                 <border type="none"/>
                                 <children>
-                                  <component id="77e7e" class="javax.swing.JLabel" binding="labelDecentralizationValue">
+                                  <component id="77e7e" class="javax.swing.JLabel" binding="label2DecentralizationValue">
                                     <constraints>
                                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                                     </constraints>
@@ -1345,7 +1345,7 @@
                                       <text value="3) Transaktionsrate"/>
                                     </properties>
                                   </component>
-                                  <component id="ce8f1" class="javax.swing.JSlider" binding="sliderTransactionrate">
+                                  <component id="ce8f1" class="javax.swing.JSlider" binding="slider3Transactionrate">
                                     <constraints>
                                       <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                                     </constraints>
@@ -1369,7 +1369,7 @@
                                 <properties/>
                                 <border type="none"/>
                                 <children>
-                                  <component id="cdeb9" class="javax.swing.JLabel" binding="labelTransactionrateValue">
+                                  <component id="cdeb9" class="javax.swing.JLabel" binding="label3TransactionrateValue">
                                     <constraints>
                                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                                     </constraints>
@@ -1405,7 +1405,7 @@
                                       <text value="5) Wiederverwendbarkeit"/>
                                     </properties>
                                   </component>
-                                  <component id="255c1" class="javax.swing.JSlider" binding="sliderReusability">
+                                  <component id="255c1" class="javax.swing.JSlider" binding="slider5Reusability">
                                     <constraints>
                                       <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                                     </constraints>
@@ -1429,7 +1429,7 @@
                                 <properties/>
                                 <border type="none"/>
                                 <children>
-                                  <component id="2fb3c" class="javax.swing.JLabel" binding="labelReusabilityValue">
+                                  <component id="2fb3c" class="javax.swing.JLabel" binding="label5ReusabilityValue">
                                     <constraints>
                                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                                     </constraints>
@@ -1465,7 +1465,7 @@
                                       <text value="6) Datenbestandskonvertierungen"/>
                                     </properties>
                                   </component>
-                                  <component id="c291a" class="javax.swing.JSlider" binding="sliderConversion">
+                                  <component id="c291a" class="javax.swing.JSlider" binding="slider6Conversion">
                                     <constraints>
                                       <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                                     </constraints>
@@ -1489,7 +1489,7 @@
                                 <properties/>
                                 <border type="none"/>
                                 <children>
-                                  <component id="15058" class="javax.swing.JLabel" binding="labelConversionValue">
+                                  <component id="15058" class="javax.swing.JLabel" binding="label6ConversionValue">
                                     <constraints>
                                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                                     </constraints>
@@ -1525,7 +1525,7 @@
                                       <text value="7) Anpassbarkeit"/>
                                     </properties>
                                   </component>
-                                  <component id="a42e7" class="javax.swing.JSlider" binding="sliderCustomizability">
+                                  <component id="a42e7" class="javax.swing.JSlider" binding="slider7Customizability">
                                     <constraints>
                                       <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                                     </constraints>
@@ -1549,7 +1549,7 @@
                                 <properties/>
                                 <border type="none"/>
                                 <children>
-                                  <component id="8cba2" class="javax.swing.JLabel" binding="labelCustomizabilityValue">
+                                  <component id="8cba2" class="javax.swing.JLabel" binding="label7CustomizabilityValue">
                                     <constraints>
                                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                                     </constraints>
@@ -1601,7 +1601,7 @@
                                               <text value="     a) Rechenoperationen"/>
                                             </properties>
                                           </component>
-                                          <component id="f489e" class="javax.swing.JSlider" binding="sliderProcessingCalculation">
+                                          <component id="f489e" class="javax.swing.JSlider" binding="slider41ProcessingCalculation">
                                             <constraints>
                                               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                                             </constraints>
@@ -1625,7 +1625,7 @@
                                         <properties/>
                                         <border type="none"/>
                                         <children>
-                                          <component id="bc52f" class="javax.swing.JLabel" binding="labelProcessingCalculationValue">
+                                          <component id="bc52f" class="javax.swing.JLabel" binding="label41ProcessingCalculationValue">
                                             <constraints>
                                               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                                             </constraints>
@@ -1661,7 +1661,7 @@
                                               <text value="     b) Kontrollverfahren"/>
                                             </properties>
                                           </component>
-                                          <component id="d22d5" class="javax.swing.JSlider" binding="sliderProcessingControl">
+                                          <component id="d22d5" class="javax.swing.JSlider" binding="slider42ProcessingControl">
                                             <constraints>
                                               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                                             </constraints>
@@ -1685,7 +1685,7 @@
                                         <properties/>
                                         <border type="none"/>
                                         <children>
-                                          <component id="99d3a" class="javax.swing.JLabel" binding="labelProcessingControlValue">
+                                          <component id="99d3a" class="javax.swing.JLabel" binding="label42ProcessingControlValue">
                                             <constraints>
                                               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                                             </constraints>
@@ -1721,7 +1721,7 @@
                                               <text value="     c) Ausnahmeregelungen"/>
                                             </properties>
                                           </component>
-                                          <component id="8a941" class="javax.swing.JSlider" binding="sliderProcessingException">
+                                          <component id="8a941" class="javax.swing.JSlider" binding="slider43ProcessingException">
                                             <constraints>
                                               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                                             </constraints>
@@ -1745,7 +1745,7 @@
                                         <properties/>
                                         <border type="none"/>
                                         <children>
-                                          <component id="78b09" class="javax.swing.JLabel" binding="labelProcessingExceptionValue">
+                                          <component id="78b09" class="javax.swing.JLabel" binding="label43ProcessingExceptionValue">
                                             <constraints>
                                               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                                             </constraints>
@@ -1781,7 +1781,7 @@
                                               <text value="     d) Logik"/>
                                             </properties>
                                           </component>
-                                          <component id="b41ae" class="javax.swing.JSlider" binding="sliderProcessingLogic">
+                                          <component id="b41ae" class="javax.swing.JSlider" binding="slider44ProcessingLogic">
                                             <constraints>
                                               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                                             </constraints>
@@ -1805,7 +1805,7 @@
                                         <properties/>
                                         <border type="none"/>
                                         <children>
-                                          <component id="fed06" class="javax.swing.JLabel" binding="labelProcessingLogicValue">
+                                          <component id="fed06" class="javax.swing.JLabel" binding="label44ProcessingLogicValue">
                                             <constraints>
                                               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                                             </constraints>

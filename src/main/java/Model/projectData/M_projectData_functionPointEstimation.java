@@ -109,6 +109,38 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
 
     }*/
 
+    /**
+     * gets the value of the factor
+     * @param factorNo  which factor to get
+     */
+    public int getFactor(int factorNo) {
+        switch (factorNo) {
+            case 1:
+                return factorEntanglement;
+            case 2:
+                return factorDecentralization;
+            case 3:
+                return factorTransactionrate;
+            case 41:
+                return factorProcessingCalculation;
+            case 42:
+                return factorProcessingControl;
+            case 43:
+                return factorProcessingException;
+            case 44:
+                return factorProcessingLogic;
+            case 5:
+                return factorReusability;
+            case 6:
+                return factorConversion;
+            case 7:
+                return factorCustomizability;
+            default:
+                return 0;
+                // TODO: evtl. besser try catch -> prüfen und wenn besser implementieren
+        }
+    }
+
     //TODO: fix not working yet!!!
     /**
      * sets one factor to the provided value
