@@ -7,7 +7,14 @@ public interface I_V_frame extends I_V_basic{
     public JTextArea getTargetUse();
     public JTextArea getProductUse();
     public JTextArea getProductEnvironment();
-    public JLabel getLabel(JLabel label);
+    public JTextField getTextFieldReqID();
+    public JTextField getTextFieldReqFunction();
+    public JTextField getTextFieldReqProtagonist();
+    public JTextArea getTextAreaReqDescription();
+    public JComboBox getComboBoxReqCategory();
+    public JComboBox getComboBoxReqWeight();
+    public JSpinner getSpinnerReqFTR();
+    public JSpinner getSpinnerReqDET();
 
     /**
      * this method gets the count values from the controller
@@ -153,13 +160,13 @@ public interface I_V_frame extends I_V_basic{
      */
     void setFactorSumE2(int e2sum);
 
-    //Methods for Effort Analysis Calculation Tab
     /**
-     * this method updates the value for E1 in the Calculation Tab
+     * this method updates the value for E1, E2 and E3 in the Calculation Tab
      * @param e1 value of the function point sum e1
      * @param e2 value of the factor sum e2
+     * @param e3 value of influence e3
      */
-    void updateCalculationTab(int e1, int e2);
+    void updateCalculationTab(int e1, int e2, double e3);
 
     /**
      * this method shows the next button

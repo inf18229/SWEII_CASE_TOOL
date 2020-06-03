@@ -23,6 +23,7 @@ public class C_frame implements I_C_frame {
     I_V_frame viewFrame;
     I_C_start controllerStart;
     I_C_general controllerGeneral;
+    I_C_functionalReqirement controllerFunctionalReqirement;
     I_C_effort controllerEffort;
     I_C_tab currentController; //stores current active Controller
     M_projectData projectData;  //stores projectData before export TODO: clarify: projectData also stored before pressing the save button?
@@ -48,6 +49,7 @@ public class C_frame implements I_C_frame {
     @Override
     public void createTabControllers(/*I_C_frame.tabs tabs*/) {
         controllerEffort = new C_effort(viewFrame, projectData);
+        controllerFunctionalReqirement=new C_functionalReqirement(viewFrame,projectData);
         controllerGeneral = new C_general(viewFrame, projectData);
         System.out.println("General Controller created");
     }
@@ -74,7 +76,8 @@ public class C_frame implements I_C_frame {
                 viewFrame.hideLast();
                 viewFrame.hideCalculateNew();
                 viewFrame.hideCalculateNew();
-                System.out.println("Tab: 1");
+                System.out.println("Tab: 1 - Functional Reqirement Controller acitve");
+                currentController = controllerFunctionalReqirement;
                 break;
             case 2:
                 viewFrame.hideNext();

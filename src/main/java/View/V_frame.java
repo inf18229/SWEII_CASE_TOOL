@@ -213,11 +213,7 @@ public class V_frame implements I_V_frame {
     private JLabel labelE2SumDescription;
     private JLabel labelE2;
     private JLabel labelE2Sum;
-    private JPanel panelCalculationE1;
-    private JPanel panelCalculationE2;
-    private JLabel labelCalculationE1;
     private JLabel labelCalculationE1Value;
-    private JLabel labelCalculationE2;
     private JLabel labelCalculationE2Value;
     private JButton b_calculateNew;
     private JList functionalReqIDList;
@@ -231,6 +227,16 @@ public class V_frame implements I_V_frame {
     private JSpinner spinnerReqDET;
     private JLabel labelReqDetails;
     private JLabel labelReqFunctionpointDefinition;
+    private JPanel panelCalculationDescription;
+    private JPanel panelCalculationE1;
+    private JLabel labelCalculationE1;
+    private JPanel panelCalculationE2;
+    private JLabel labelCalculationE2;
+    private JPanel panelCalculationE3;
+    private JLabel labelCalculationE3;
+    private JLabel labelCalculationE3Value;
+    private JButton speichernButton;
+    private JButton neuButton;
 
 
     /**
@@ -632,9 +638,43 @@ public class V_frame implements I_V_frame {
     }
 
     @Override
-    public JLabel getLabel(JLabel label) {
-        //label =
-        return label;
+    public JTextField getTextFieldReqID() {
+        return textFieldReqID;
+    }
+
+    @Override
+    public JTextField getTextFieldReqFunction() {
+        return textFieldReqFunction;
+    }
+
+    @Override
+    public JTextField getTextFieldReqProtagonist() {
+        return textFieldReqProtagonist;
+    }
+
+    @Override
+    public JTextArea getTextAreaReqDescription() {
+        return textAreaReqDescription;
+    }
+
+    @Override
+    public JComboBox getComboBoxReqCategory() {
+        return comboBoxReqCategory;
+    }
+
+    @Override
+    public JComboBox getComboBoxReqWeight() {
+        return comboBoxReqWeight;
+    }
+
+    @Override
+    public JSpinner getSpinnerReqFTR() {
+        return spinnerReqFTR;
+    }
+
+    @Override
+    public JSpinner getSpinnerReqDET() {
+        return spinnerReqDET;
     }
 
     /**
@@ -900,11 +940,13 @@ public class V_frame implements I_V_frame {
      *
      * @param e1 value of the function point sum e1
      * @param e2 value of the factor sum e2
+     * @param e3 value of influence e3
      */
     @Override
-    public void updateCalculationTab(int e1, int e2) {
+    public void updateCalculationTab(int e1, int e2, double e3) {
         labelCalculationE1Value.setText(String.valueOf(e1));
         labelCalculationE2Value.setText(String.valueOf(e2));
+        labelCalculationE3Value.setText(String.valueOf(e3));
     }
 
     /**

@@ -86,10 +86,12 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
     public int factorEntanglement = 0;
     public int factorDecentralization = 0;
     public int factorTransactionrate = 0;
+
     public int factorProcessingCalculation = 0;
     public int factorProcessingControl = 0;
     public int factorProcessingException = 0;
     public int factorProcessingLogic = 0;
+
     public int factorReusability = 0;
     public int factorConversion = 0;
     public int factorCustomizability = 0;
@@ -261,9 +263,11 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
                 + factorCustomizability;
     }
 
-    public void calcE3() {
-        //Calculation for E3
-        e3Sum = (float) e2Sum / 100 + 0.7;
+    /**
+     * method calculates and sets the influence sum e3
+     */
+    public void calcInfluenceE3() {
+        e3Sum = (double) e2Sum / 100 + 0.7;
     }
 
     /*   public void calcFunctionPointResult() {

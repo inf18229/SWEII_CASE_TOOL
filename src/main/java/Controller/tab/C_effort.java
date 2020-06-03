@@ -74,7 +74,6 @@ public class C_effort implements I_C_effort{
                 projectData.getM_projectData_functionPointEstimation().sumReferenceMedium,
                 projectData.getM_projectData_functionPointEstimation().sumReferenceComplex);
         viewFrame.setTotalRowSum(projectData.getM_projectData_functionPointEstimation().totalRowSumE1);
-        System.out.println("Set Slider Position");
         //TODO: initialize slider position
         /*viewFrame.setSliderValues(
                 projectData.getM_projectData_functionPointEstimation().getFactor(1),
@@ -100,7 +99,10 @@ public class C_effort implements I_C_effort{
         viewFrame.setSliderText(7, projectData.getM_projectData_functionPointEstimation().getFactor(7));
         viewFrame.setFactorSumE2(projectData.getM_projectData_functionPointEstimation().e2Sum);
         // update values in tab Calculation
-        viewFrame.updateCalculationTab(projectData.getM_projectData_functionPointEstimation().totalRowSumE1, projectData.getM_projectData_functionPointEstimation().e2Sum);
+        viewFrame.updateCalculationTab(
+                projectData.getM_projectData_functionPointEstimation().totalRowSumE1,
+                projectData.getM_projectData_functionPointEstimation().e2Sum,
+                projectData.getM_projectData_functionPointEstimation().e3Sum);
     }
 
     /**
@@ -108,6 +110,7 @@ public class C_effort implements I_C_effort{
      */
     @Override
     public void notifyNext() {
+        updateProjectData();    // garanties that the shown values in the next tab are up to date
         viewFrame.nextStepEffort();
     }
 
@@ -116,6 +119,7 @@ public class C_effort implements I_C_effort{
      */
     @Override
     public void notifyLast() {
+        updateProjectData();    // garanties that the shown values in the last tab are up to date
         viewFrame.lastStepEffort();
     }
 
@@ -134,6 +138,7 @@ public class C_effort implements I_C_effort{
 
     /**
      * this method triggers all necessary functions to recalculate and show the new values
+     * garanties that the shown values are up to date
      */
     @Override
     public void notifyCalculate() {
@@ -147,6 +152,7 @@ public class C_effort implements I_C_effort{
         projectData.getM_projectData_functionPointEstimation().calculateAllRowSums();
         projectData.getM_projectData_functionPointEstimation().calculateTotalRowSumE1();
         projectData.getM_projectData_functionPointEstimation().calcFactorSumE2();
+        projectData.getM_projectData_functionPointEstimation().calcInfluenceE3();
         updateView();
     }
 }
