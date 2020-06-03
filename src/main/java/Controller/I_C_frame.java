@@ -11,6 +11,7 @@ public interface I_C_frame{
     //TODO: create CONTROLLERS for each special VIEW
     //TODO: create the main frame of the programm V_frame
 
+    //TODO: check if this can be deleted
     /**
      * in the enum tab every tab of the V_frame should be specified
      */
@@ -19,7 +20,7 @@ public interface I_C_frame{
     /**
      * creates Controller for each tab
      */
-    void createTabControllers(/*I_C_frame.tabs tabs*/);
+    void createTabControllers();
 
     /**
      * switches to the specified Tab
