@@ -99,6 +99,8 @@ public class C_effort implements I_C_effort{
         viewFrame.setSliderText(6, projectData.getM_projectData_functionPointEstimation().getFactor(6));
         viewFrame.setSliderText(7, projectData.getM_projectData_functionPointEstimation().getFactor(7));
         viewFrame.setFactorSumE2(projectData.getM_projectData_functionPointEstimation().e2Sum);
+        // update values in tab Calculation
+        viewFrame.updateCalculationTab(projectData.getM_projectData_functionPointEstimation().totalRowSumE1, projectData.getM_projectData_functionPointEstimation().e2Sum);
     }
 
     /**
@@ -128,6 +130,14 @@ public class C_effort implements I_C_effort{
         //System.out.println("Slider " + String.valueOf(sliderNo) + " was changed to Value " + String.valueOf(value));  //just for debugging
         projectData.getM_projectData_functionPointEstimation().setFactor(sliderNo, value);
         viewFrame.setSliderText(sliderNo, value);
+    }
+
+    /**
+     * this method triggers all necessary functions to recalculate and show the new values
+     */
+    @Override
+    public void notifyCalculate() {
+        updateProjectData();
     }
 
     @Override

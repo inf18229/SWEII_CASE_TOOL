@@ -219,6 +219,7 @@ public class V_frame implements I_V_frame {
     private JLabel labelCalculationE1Value;
     private JLabel labelCalculationE2;
     private JLabel labelCalculationE2Value;
+    private JButton b_calculateNew;
 
 
     /**
@@ -472,6 +473,17 @@ public class V_frame implements I_V_frame {
             @Override
             public void stateChanged(ChangeEvent e) {
                 controllerFrame.notifySlider(7, slider7Customizability.getValue());
+            }
+        });
+        b_calculateNew.addActionListener(new ActionListener() {
+            /**
+             * Invoked when an action occurs.
+             *
+             * @param e the event to be processed
+             */
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controllerFrame.notifyCalculate();
             }
         });
     }
@@ -763,6 +775,18 @@ public class V_frame implements I_V_frame {
     @Override
     public void setFactorSumE2(int e2sum) {
         labelE2Sum.setText(String.valueOf(e2sum));
+    }
+
+    /**
+     * this method updates the value for E1 in the Calculation Tab
+     *
+     * @param e1 value of the function point sum e1
+     * @param e2 value of the factor sum e2
+     */
+    @Override
+    public void updateCalculationTab(int e1, int e2) {
+        labelCalculationE1Value.setText(String.valueOf(e1));
+        labelCalculationE2Value.setText(String.valueOf(e2));
     }
 
     /**

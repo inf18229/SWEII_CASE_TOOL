@@ -108,6 +108,16 @@ public class C_frame implements I_C_frame {
     }
 
     /**
+     * notifies the effort controller to recalculate time
+     */
+    @Override
+    public void notifyCalculate() {
+        if (currentController == controllerEffort) {
+            controllerEffort.notifyCalculate();
+        }
+    }
+
+    /**
      * notifies the Controller that he should close the project and open the welcome window
      * the controller therefore creates a "Do you really want to close and reject unsaved changes" windows
      * if allowed, the controller opens V_Start again

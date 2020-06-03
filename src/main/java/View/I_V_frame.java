@@ -153,6 +153,14 @@ public interface I_V_frame extends I_V_basic{
      */
     void setFactorSumE2(int e2sum);
 
+    //Methods for Effort Analysis Calculation Tab
+    /**
+     * this method updates the value for E1 in the Calculation Tab
+     * @param e1 value of the function point sum e1
+     * @param e2 value of the factor sum e2
+     */
+    void updateCalculationTab(int e1, int e2);
+
     /**
      * this method shows the next button
      */

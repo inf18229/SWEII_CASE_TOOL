@@ -27,4 +27,9 @@ public interface I_C_effort extends I_C_tab {
      * @param value integer to which the slider was changed to
      */
     void notifySlider(int sliderNo, int value);
+
+    /**
+     * this method triggers all necessary functions to recalculate and show the new values
+     */
+    void notifyCalculate();
 }

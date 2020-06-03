@@ -35,6 +35,11 @@ public interface I_C_frame{
     void notifySlider(int sliderNo, int value);
 
     /**
+     * notifies the effort controller to recalculate time
+     */
+    void notifyCalculate();
+
+    /**
      * notifies the Controller that he should close the project and open the welcome window
      */
     void notifyClose();
