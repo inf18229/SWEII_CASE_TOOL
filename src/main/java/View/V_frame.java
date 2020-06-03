@@ -750,4 +750,42 @@ public class V_frame implements I_V_frame {
     public void hideLast() {
         b_lastStep.setVisible(FALSE);
     }
+
+    /**
+     * method goes to the next step in effort analysis
+     * it therefore checks which tab is selected currently and goes back one tab
+     * if the rightmost tab (2) is selected it does nothing
+     */
+    @Override
+    public void nextStepEffort() {
+        switch (V_Effort_Tabs.getSelectedIndex()){
+            case 0:
+                V_Effort_Tabs.setSelectedIndex(1);
+                break;
+            case 1:
+                V_Effort_Tabs.setSelectedIndex(2);
+                break;
+            case 2:
+                break;
+        }
+    }
+
+    /**
+     * method goes to the last step in effort analysis
+     * it therefore checks which tab is selected currently and goes back one tab
+     * if the leftmost tab (0) is selected it does nothing
+     */
+    @Override
+    public void lastStepEffort() {
+        switch (V_Effort_Tabs.getSelectedIndex()){
+            case 0:
+                break;
+            case 1:
+                V_Effort_Tabs.setSelectedIndex(0);
+                break;
+            case 2:
+                V_Effort_Tabs.setSelectedIndex(1);
+                break;
+        }
+    }
 }

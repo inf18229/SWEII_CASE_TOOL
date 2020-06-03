@@ -151,4 +151,14 @@ public interface I_V_frame extends I_V_basic{
      * this method hides the last button
      */
     void hideLast();
+
+    /**
+     * method goes to the next step in effort analysis
+     */
+    void nextStepEffort();
+
+    /**
+     * method goes to the last step in effort analysis
+     */
+    void lastStepEffort();
 }

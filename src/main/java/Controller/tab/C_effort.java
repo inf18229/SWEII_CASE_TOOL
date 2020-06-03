@@ -81,7 +81,7 @@ public class C_effort implements I_C_effort{
      */
     @Override
     public void notifyNext() {
-        System.out.println("Next was pressed");
+        viewFrame.nextStepEffort();
     }
 
     /**
@@ -89,7 +89,7 @@ public class C_effort implements I_C_effort{
      */
     @Override
     public void notifyLast() {
-        System.out.println("Last was pressed");
+        viewFrame.lastStepEffort();
     }
 
     /**
