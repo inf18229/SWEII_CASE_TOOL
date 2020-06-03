@@ -13,9 +13,9 @@ public class M_projectData_productFunction extends M_projectData_productContent 
     //TODO: renaming
     public String id = "";
     public String function = "";
-    public String source = "";
+    //public String source = "";
     public String actor = "";
-    public String reference = "";
+    //public String reference = "";
     public String description = "";
     public int functionPointWeighting;
     public String functionPointCategory = "";
@@ -30,17 +30,17 @@ public class M_projectData_productFunction extends M_projectData_productContent 
         return function;
     }
 
-    public String getSource() {
+    /*public String getSource() {
         return source;
-    }
+    }*/
 
     public String getActor() {
         return actor;
     }
 
-    public String getReference() {
+    /*public String getReference() {
         return reference;
-    }
+    }*/
 
     public String getDescription() {
         return description;
