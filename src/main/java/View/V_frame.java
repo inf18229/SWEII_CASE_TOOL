@@ -220,6 +220,11 @@ public class V_frame implements I_V_frame {
     private JLabel labelCalculationE2;
     private JLabel labelCalculationE2Value;
     private JButton b_calculateNew;
+    private JList functionalReqIDList;
+    private JTextField textField1;
+    private JTextField textField2;
+    private JTextField textField3;
+    private JTextArea textArea1;
 
 
     /**
