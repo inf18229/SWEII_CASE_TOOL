@@ -98,6 +98,7 @@ public class C_effort implements I_C_effort{
         viewFrame.setSliderText(5, projectData.getM_projectData_functionPointEstimation().getFactor(5));
         viewFrame.setSliderText(6, projectData.getM_projectData_functionPointEstimation().getFactor(6));
         viewFrame.setSliderText(7, projectData.getM_projectData_functionPointEstimation().getFactor(7));
+        viewFrame.setFactorSumE2(projectData.getM_projectData_functionPointEstimation().e2Sum);
     }
 
     /**
@@ -135,6 +136,7 @@ public class C_effort implements I_C_effort{
         //TODO: add implementation
         projectData.getM_projectData_functionPointEstimation().calculateAllRowSums();
         projectData.getM_projectData_functionPointEstimation().calculateTotalRowSumE1();
+        projectData.getM_projectData_functionPointEstimation().calcFactorSumE2();
         updateView();
     }
 }

@@ -82,7 +82,6 @@ public class V_frame implements I_V_frame {
     private JLabel labelSumReferenceComplex;
     private JLabel labelSumSum;
     private JTextArea productEnvironment;
-    private JTable productFunctionList;
     private JTabbedPane V_Effort_Tabs;
     private JPanel panelMainContainer;
     private JPanel panelCategory;
@@ -209,6 +208,17 @@ public class V_frame implements I_V_frame {
     private JSlider slider6Conversion;
     private JLabel labelCustomizabilityInformation;
     private JSlider slider7Customizability;
+    private JLabel label;
+    private JPanel panelE2Sum;
+    private JLabel labelE2SumDescription;
+    private JLabel labelE2;
+    private JLabel labelE2Sum;
+    private JPanel panelCalculationE1;
+    private JPanel panelCalculationE2;
+    private JLabel labelCalculationE1;
+    private JLabel labelCalculationE1Value;
+    private JLabel labelCalculationE2;
+    private JLabel labelCalculationE2Value;
 
 
     /**
@@ -347,8 +357,7 @@ public class V_frame implements I_V_frame {
                                     }
 
                                 });
-        String[] columnNames = {"ID","Beschreibung"};
-        productFunctionList=new JTable(null,columnNames);
+
         frame.pack(); //pack method sizes the frame so that all its contents are at or above their preferred size (form)
         frame.setLocationRelativeTo(null);  //places the window in the center of the screen
         b_nextStep.setVisible(false);
@@ -744,6 +753,16 @@ public class V_frame implements I_V_frame {
             default:
                 // TODO: evtl. besser try catch -> prüfen und wenn besser implementieren
         }
+    }
+
+    /**
+     * set the value of E2
+     *
+     * @param e2sum sum of all factors
+     */
+    @Override
+    public void setFactorSumE2(int e2sum) {
+        labelE2Sum.setText(String.valueOf(e2sum));
     }
 
     /**

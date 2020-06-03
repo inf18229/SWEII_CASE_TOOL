@@ -148,6 +148,12 @@ public interface I_V_frame extends I_V_basic{
     void setSliderText(int sliderNo, int value);
 
     /**
+     * set the value of E2
+     * @param e2sum sum of all factors
+     */
+    void setFactorSumE2(int e2sum);
+
+    /**
      * this method shows the next button
      */
     void showNext();

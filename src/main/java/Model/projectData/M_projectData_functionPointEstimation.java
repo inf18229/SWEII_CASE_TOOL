@@ -245,9 +245,20 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
                 + sumReferenceComplex;
     }
 
-    public void calcE2Sum() {
-        //Calculation for E2
-        e2Sum = factorEntanglement + factorDecentralization + factorTransactionrate + factorProcessingCalculation + factorProcessingControl + factorProcessingException + factorProcessingLogic + factorReusability + factorConversion + factorCustomizability;
+    /**
+     * method adds all factors and therefore calculates the total sum of all factors E2
+     */
+    public void calcFactorSumE2() {
+        e2Sum = factorEntanglement
+                + factorDecentralization
+                + factorTransactionrate
+                + factorProcessingCalculation
+                + factorProcessingControl
+                + factorProcessingException
+                + factorProcessingLogic
+                + factorReusability
+                + factorConversion
+                + factorCustomizability;
     }
 
     public void calcE3() {

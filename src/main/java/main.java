@@ -12,6 +12,7 @@ public class main {
 }
 
 //TODO: change Open Dialogue -> no file should be selected when opening
+// wenn ich nen neues Projekt anlegen will, habe ich ja noch keine XML-Datei?
 //TODO: Information hiding - variable prefix public/private aktualisieren
 //TODO: add Interfaces to the Model-Classes
 //TODO: combine export and import into one file with export and import methods? if not -> Begründung in Doku
