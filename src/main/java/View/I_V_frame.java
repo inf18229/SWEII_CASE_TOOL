@@ -165,8 +165,20 @@ public interface I_V_frame extends I_V_basic{
      * @param e1 value of the function point sum e1
      * @param e2 value of the factor sum e2
      * @param e3 value of influence e3
+     * @param afp value of Adjusted Function Points
+     * @param jDuration total duration, according to jones estimation
+     * @param jPersons number of persons working, according to jones estimation
+     * @param jPersonMonths person months, according to jones estimation
      */
-    void updateCalculationTab(int e1, int e2, double e3);
+    void updateCalculationTab(int e1, int e2, double e3, double afp, double jDuration, int jPersons, double jPersonMonths);
+
+    /**
+     * this method updates all values of the correction factor panel
+     * @param calcEff effort calculated before
+     * @param corrFact correction factor calculated
+     * @param corrEff corrected effort
+     */
+    void updateCorrectionPanel(double calcEff, double corrFact, int corrEff);
 
     /**
      * this method shows the next button

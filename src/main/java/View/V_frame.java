@@ -237,6 +237,16 @@ public class V_frame implements I_V_frame {
     private JLabel labelCalculationE3Value;
     private JButton speichernButton;
     private JButton neuButton;
+    private JLabel labelCalculationAFPValue;
+    private JLabel labelCalculationJPersonMonthsValue;
+    private JLabel labelCalculationJPersonNoValue;
+    private JLabel labelCalculationJDurationValue;
+    private JLabel labelCorrectionCalculated;
+    private JSpinner spinnerCorrectionActualValue;
+    private JButton newCorrectionFactorButton;
+    private JPanel panelCorrection;
+    private JLabel labelCorrectionFactor;
+    private JLabel labelCorrectionCalculation;
 
 
     /**
@@ -954,12 +964,34 @@ public class V_frame implements I_V_frame {
      * @param e1 value of the function point sum e1
      * @param e2 value of the factor sum e2
      * @param e3 value of influence e3
+     * @param afp value of Adjusted Function Points
+     * @param jDuration total duration, according to jones estimation
+     * @param jPersons number of persons working, according to jones estimation
+     * @param jPersonMonths person months, according to jones estimation
      */
     @Override
-    public void updateCalculationTab(int e1, int e2, double e3) {
+    public void updateCalculationTab(int e1, int e2, double e3, double afp, double jDuration, int jPersons, double jPersonMonths) {
         labelCalculationE1Value.setText(String.valueOf(e1));
         labelCalculationE2Value.setText(String.valueOf(e2));
         labelCalculationE3Value.setText(String.valueOf(e3));
+        labelCalculationAFPValue.setText(String.valueOf(afp));
+        labelCalculationJDurationValue.setText(String.valueOf(jDuration));
+        labelCalculationJPersonNoValue.setText(String.valueOf(jPersons));
+        labelCalculationJPersonMonthsValue.setText(String.valueOf(jPersonMonths));
+    }
+
+    /**
+     * this method updates all values of the correction factor panel
+     *
+     * @param calcEff  effort calculated before
+     * @param corrFact correction factor calculated
+     * @param corrEff  corrected effort
+     */
+    @Override
+    public void updateCorrectionPanel(double calcEff, double corrFact, int corrEff) {
+        labelCorrectionCalculated.setText(String.valueOf(calcEff));
+        labelCorrectionFactor.setText(String.valueOf(corrFact));
+        labelCorrectionCalculation.setText(String.valueOf(calcEff) + " * e^1 = " + String.valueOf(corrEff));
     }
 
     /**

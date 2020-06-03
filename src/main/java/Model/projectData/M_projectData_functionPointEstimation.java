@@ -80,7 +80,7 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
     public int sumReferenceMedium = 0;
     public int sumReferenceComplex = 0;
 
-    public int totalRowSumE1 = 0;
+    public int e1Sum = 0;
 
     //variables for factors
     public int factorEntanglement = 0;
@@ -99,12 +99,15 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
     public int e2Sum = 0;
     public double e3Sum = 0;
 
+    public double afp = 0;
+
     public double jonesDuration = 0;
-    public int jonesPersons = 0;
-    public double jonesPersonMoths = 0;
+    public int jonesPersonNo = 0;
+    public double jonesPersonMonths = 0;
 
+    public double actualDuration = 0;
     public double correctionFactor = 0;
-
+    public double correctedDuration = 0;
 
     /*@Override
     public void estimate() {
@@ -230,7 +233,7 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
      * this method calculates the total row Sum E1
      */
     public void calculateTotalRowSumE1() {
-        totalRowSumE1 = sumInputSimple
+        e1Sum = sumInputSimple
                 + sumInputMedium
                 + sumInputComplex
                 + sumQuerySimple
@@ -270,18 +273,18 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
         e3Sum = (double) e2Sum / 100 + 0.7;
     }
 
-    /*   public void calcFunctionPointResult() {
-        //Calculation for Function Point Result
-        setpoint = e1Sum * e3Sum;
+    /**
+     * method calculates the value for the Adjusted Function Points AFP
+     */
+    public void calcAdjustedFunctionPoints() {
+        afp = e1Sum * e3Sum;
     }
 
-    public void updateValues() {
-        //Update Calculation functions
-        calcE2Sum();
-        calcE3();
-        calcFunctionPointResult();
-        calcJonesEstimation();
-    }*/
+    public void calcJonesEstimation(){
+        jonesDuration = Math.pow(afp, 0.4);
+        jonesPersonNo = (int) Math.ceil(afp/150);
+        jonesPersonMonths = jonesDuration * jonesPersonNo;
+    }
 
 
     /*private void calcJonesEstimation() {
