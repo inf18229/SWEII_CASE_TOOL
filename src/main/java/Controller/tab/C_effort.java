@@ -24,6 +24,7 @@ public class C_effort implements I_C_effort{
      */
     @Override
     public void updateView() {
+        //TODO: evtl. aufteilen je gewähltem Tab
         System.out.println("Effort - updateView was called");
         viewFrame.setEstimationCount(
                 projectData.getM_projectData_functionPointEstimation().countInputSimple,
@@ -73,7 +74,7 @@ public class C_effort implements I_C_effort{
                 projectData.getM_projectData_functionPointEstimation().sumReferenceSimple,
                 projectData.getM_projectData_functionPointEstimation().sumReferenceMedium,
                 projectData.getM_projectData_functionPointEstimation().sumReferenceComplex);
-        viewFrame.setTotalRowSum(projectData.getM_projectData_functionPointEstimation().totalRowSumE1);
+        viewFrame.setTotalRowSum(projectData.getM_projectData_functionPointEstimation().e1Sum);
         //TODO: initialize slider position
         /*viewFrame.setSliderValues(
                 projectData.getM_projectData_functionPointEstimation().getFactor(1),
@@ -100,9 +101,18 @@ public class C_effort implements I_C_effort{
         viewFrame.setFactorSumE2(projectData.getM_projectData_functionPointEstimation().e2Sum);
         // update values in tab Calculation
         viewFrame.updateCalculationTab(
-                projectData.getM_projectData_functionPointEstimation().totalRowSumE1,
+                projectData.getM_projectData_functionPointEstimation().e1Sum,
                 projectData.getM_projectData_functionPointEstimation().e2Sum,
-                projectData.getM_projectData_functionPointEstimation().e3Sum);
+                projectData.getM_projectData_functionPointEstimation().e3Sum,
+                projectData.getM_projectData_functionPointEstimation().afp,
+                projectData.getM_projectData_functionPointEstimation().jonesDuration,
+                projectData.getM_projectData_functionPointEstimation().jonesPersonNo,
+                projectData.getM_projectData_functionPointEstimation().jonesPersonMonths);
+        viewFrame.updateCorrectionPanel(
+                projectData.getM_projectData_functionPointEstimation().jonesPersonMonths,
+                projectData.getM_projectData_functionPointEstimation().correctionFactor,
+                1
+        );
     }
 
     /**
@@ -153,6 +163,8 @@ public class C_effort implements I_C_effort{
         projectData.getM_projectData_functionPointEstimation().calculateTotalRowSumE1();
         projectData.getM_projectData_functionPointEstimation().calcFactorSumE2();
         projectData.getM_projectData_functionPointEstimation().calcInfluenceE3();
+        projectData.getM_projectData_functionPointEstimation().calcAdjustedFunctionPoints();
+        projectData.getM_projectData_functionPointEstimation().calcJonesEstimation();
         updateView();
     }
 }
