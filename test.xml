@@ -2,25 +2,25 @@
 <M_projectData>
     <productFunctionList>
         <_id></_id>
-        <id>Test</id>
-        <function>123</function>
-        <actor>41231</actor>
-        <description>fasdfklasjdfjkldsf</description>
+        <id>1</id>
+        <function>Test</function>
+        <actor>Julia</actor>
+        <description>Irgendeine Beschreibung</description>
         <functionPointWeighting>0</functionPointWeighting>
         <functionPointCategory>EI-Eingabe</functionPointCategory>
-        <functionPointDET>200</functionPointDET>
-        <functionPointFTR>12</functionPointFTR>
+        <functionPointDET>500</functionPointDET>
+        <functionPointFTR>20</functionPointFTR>
     </productFunctionList>
     <productFunctionList>
         <_id></_id>
-        <id>Test23</id>
-        <function>123</function>
-        <actor>41231</actor>
-        <description>fasdfklasjdfjkldsf</description>
+        <id>2</id>
+        <function>Test</function>
+        <actor>Julia</actor>
+        <description>Irgendeine Beschreibung</description>
         <functionPointWeighting>0</functionPointWeighting>
         <functionPointCategory>EI-Eingabe</functionPointCategory>
-        <functionPointDET>200</functionPointDET>
-        <functionPointFTR>12</functionPointFTR>
+        <functionPointDET>500</functionPointDET>
+        <functionPointFTR>20</functionPointFTR>
     </productFunctionList>
     <m_projectData_productUse>
         <content></content>

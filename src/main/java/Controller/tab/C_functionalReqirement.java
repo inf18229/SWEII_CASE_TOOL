@@ -6,6 +6,7 @@ import Model.projectData.M_projectData_productFunction;
 import View.I_V_frame;
 
 import javax.swing.*;
+import java.util.ArrayList;
 
 public class C_functionalReqirement implements I_C_functionalReqirement{
     private I_V_frame frameView;
@@ -40,17 +41,30 @@ public class C_functionalReqirement implements I_C_functionalReqirement{
     public void newFuncReqElement(){
         //TODO: Rename Product Function to Functional Reqirement!
         System.out.println("Notified Tab Func Req that a new Element is requested");
-        M_projectData_productFunction newProducFunction=new M_projectData_productContentFactory().createProductFunction(funcReqID.getText());
-        newProducFunction.actor=funcReqProtagonist.getText();
-        newProducFunction.function=funcReqFunction.getText();
-        newProducFunction.description=funcReqDescription.getText();
-        newProducFunction.functionPointCategory=funcReqFPCategory.getSelectedItem().toString();
-        newProducFunction.functionPointFTR=(int)funcReqFPFTR.getValue();
-        newProducFunction.functionPointDET=(int)funcReqFPDET.getValue();
+        boolean alreadyexists=false;
+        for(M_projectData_productFunction projectDataFunction : projectData.getProductFunctionList()){
+            if(projectDataFunction.id.equals(funcReqID.getText())){
+                alreadyexists=true;
+                break;
+            }
+        }
+        if(!alreadyexists){
+            M_projectData_productFunction newProducFunction=new M_projectData_productContentFactory().createProductFunction(funcReqID.getText());
+            newProducFunction.actor=funcReqProtagonist.getText();
+            newProducFunction.function=funcReqFunction.getText();
+            newProducFunction.description=funcReqDescription.getText();
+            newProducFunction.functionPointCategory=funcReqFPCategory.getSelectedItem().toString();
+            newProducFunction.functionPointFTR=(int)funcReqFPFTR.getValue();
+            newProducFunction.functionPointDET=(int)funcReqFPDET.getValue();
 
-        System.out.println(newProducFunction.toString());
-        projectData.getProductFunctionList().add(newProducFunction);
-        frameView.updateFuncReqIDList(funcReqID.getText());
+            System.out.println(newProducFunction.toString());
+            projectData.getProductFunctionList().add(newProducFunction);
+            frameView.updateFuncReqIDList(funcReqID.getText());
+        }
+        else{
+            System.out.println("ID already exists in project Function");
+        }
+
 
     }
 }
