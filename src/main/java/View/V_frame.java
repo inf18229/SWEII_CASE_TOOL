@@ -1098,7 +1098,8 @@ public class V_frame implements I_V_frame {
     @Override
     public void updateFuncReqIDList(String id){
         functionalReqListModell.addElement(id);
-        functionalReqIDList.setModel(functionalReqListModell);
+        System.out.println(functionalReqIDList.getLastVisibleIndex());
+        functionalReqIDList.setSelectedIndex(functionalReqIDList.getLastVisibleIndex());
     }
     public void updateFuncReqInfo(M_projectData_productFunction projDataFunction){
         textFieldReqID.setText(projDataFunction.id);
@@ -1107,23 +1108,23 @@ public class V_frame implements I_V_frame {
         textAreaReqDescription.setText(projDataFunction.description);
         switch (projDataFunction.functionPointCategory){
             case "EI-Eingabe":
-                comboBoxReqCategory.setSelectedIndex(1);
+                comboBoxReqCategory.setSelectedIndex(0);
                 break;
             case "EO-Ausgabe":
-                comboBoxReqCategory.setSelectedIndex(2);
+                comboBoxReqCategory.setSelectedIndex(1);
                 break;
             case "EQ-Abfrage":
-                comboBoxReqCategory.setSelectedIndex(3);
+                comboBoxReqCategory.setSelectedIndex(2);
         }
         switch (projDataFunction.functionPointWeighting){
             case 1:
-                comboBoxReqWeight.setSelectedIndex(1);
+                comboBoxReqWeight.setSelectedIndex(0);
                 break;
             case 2:
-                comboBoxReqWeight.setSelectedIndex(2);
+                comboBoxReqWeight.setSelectedIndex(1);
                 break;
             case 3:
-                comboBoxReqWeight.setSelectedIndex(3);
+                comboBoxReqWeight.setSelectedIndex(2);
                 break;
         }
         spinnerReqFTR.setValue(projDataFunction.functionPointFTR);
