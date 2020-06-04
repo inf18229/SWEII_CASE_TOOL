@@ -1,9 +1,14 @@
+/**
+ * @autor: David
+ * Responsible: David
+ * Last edit date: 04.06.2020
+ */
 package Model;
 // helpful links: https://junit.org/junit5/docs/current/user-guide/
+
 import Model.projectData.M_projectData;
+import org.junit.jupiter.api.Test;
 import java.nio.file.InvalidPathException;
-
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class M_exportTest {
@@ -13,7 +18,7 @@ class M_exportTest {
     // 3. filename with special signs (&,|, ³,\, ...)
     
     // 1. Testcase:
-    @org.junit.jupiter.api.Test
+    @Test
     void export_nullProjectTest()
     {
         M_export export_test = null;
@@ -24,7 +29,7 @@ class M_exportTest {
     }
 
     // 2. Testcase:
-    @org.junit.jupiter.api.Test
+    @Test
     void export_emptyFilenameTest()
     {
         M_export export_test = new M_export();
@@ -48,8 +53,8 @@ class M_exportTest {
     }
 
     // 3. Testcase:
-    @org.junit.jupiter.api.Test
-    void export_FilenameTest()
+    @Test
+    void export_weirdFilenameTest()
     {
         M_export export_test = new M_export();
         M_projectData projData_test = new M_projectData();

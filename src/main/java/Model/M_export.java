@@ -1,7 +1,7 @@
 /**
  * @autor: David
  * Responsible: David
- * Last edit date: 30.05.2020
+ * Last edit date: 04.06.2020
  */
 package Model;
 
@@ -50,6 +50,7 @@ public class M_export {
                 jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
                 //Store XML to File
+                projPath = projPath.trim(); //delete whitespaces at beginning and ending
                 File file = new File(projPath); //ToDo: Pathname aktualisieren
 
                 //Writes XML file to file-system

@@ -1,18 +1,22 @@
-package Model;
 /**
  * @autor: David
- * Resposible: David
- * Last edit date: 30.05.2020
+ * Responsible: David
+ * Last edit date: 04.06.2020
  */
+package Model;
+
 
 import Model.projectData.M_projectData;
 
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.transform.stream.StreamSource;
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 // This class imports an Object/Project from an XML file
 public class M_import {
@@ -22,25 +26,27 @@ public class M_import {
         projectData = new M_projectData();
     }
 
+    // code idea from: https://howtodoinjava.com/jaxb/unmarshal-without-xmlrootelement/
     public M_projectData importProject(String path)
     {
         /**
-         * this function calls the jaxXmlFileToObject function to import a project
-         * @param path the path for the project that has to be imported
-         * @return projectData returns the loaded project
-         */
-        jaxbXmlFileToObject(path);
-        return projectData;
-    }
-
-    // code from: https://howtodoinjava.com/jaxb/unmarshal-without-xmlrootelement/
-    private void jaxbXmlFileToObject(String fileName)
-    {
-        /**
          * This function imports a project by converting an XML file to the projectData Java Object
-         * @param fileName the path for the project that has to be imported
+         * @param path the path for the project that has to be imported
+         * @return projectData returns the loaded project in a M_projectData object
          */
-        File xmlFile = new File(fileName);
+        try{
+            Paths.get(path);
+        }
+        finally {
+
+        }
+
+        File xmlFile = new File(path);
+        if (!xmlFile.exists())
+        {
+            throw new RuntimeException("File does not exist");
+        }
+
         JAXBContext jaxbContext;
         try
         {
@@ -58,5 +64,6 @@ public class M_import {
         {
             e.printStackTrace();
         }
+        return projectData;
     }
 }
