@@ -83,4 +83,10 @@ public interface I_C_frame{
      * notifies the controller that save Button in Functional Reqirement Tab is pressed
      */
     void notifyFuncReqSAVE();
+
+    /**
+     * notify Controller that selected List Item has changed
+     * @param selectedID
+     */
+    public void notifyselectedListChange(String selectedID);
 }

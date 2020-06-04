@@ -6,10 +6,7 @@ import Model.projectData.M_projectData;
 import Model.projectData.M_projectData_productFunction;
 
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
+import javax.swing.event.*;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -644,6 +641,13 @@ public class V_frame implements I_V_frame {
         });
 
 
+        functionalReqIDList.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                System.out.println(functionalReqIDList.getSelectedValue().toString());
+                controllerFrame.notifyselectedListChange(functionalReqIDList.getSelectedValue().toString());
+            }
+        });
     }
 
     /**
@@ -1095,5 +1099,34 @@ public class V_frame implements I_V_frame {
     public void updateFuncReqIDList(String id){
         functionalReqListModell.addElement(id);
         functionalReqIDList.setModel(functionalReqListModell);
+    }
+    public void updateFuncReqInfo(M_projectData_productFunction projDataFunction){
+        textFieldReqID.setText(projDataFunction.id);
+        textFieldReqFunction.setText(projDataFunction.function);
+        textFieldReqProtagonist.setText(projDataFunction.actor);
+        textAreaReqDescription.setText(projDataFunction.description);
+        switch (projDataFunction.functionPointCategory){
+            case "EI-Eingabe":
+                comboBoxReqCategory.setSelectedIndex(1);
+                break;
+            case "EO-Ausgabe":
+                comboBoxReqCategory.setSelectedIndex(2);
+                break;
+            case "EQ-Abfrage":
+                comboBoxReqCategory.setSelectedIndex(3);
+        }
+        switch (projDataFunction.functionPointWeighting){
+            case 1:
+                comboBoxReqWeight.setSelectedIndex(1);
+                break;
+            case 2:
+                comboBoxReqWeight.setSelectedIndex(2);
+                break;
+            case 3:
+                comboBoxReqWeight.setSelectedIndex(3);
+                break;
+        }
+        spinnerReqFTR.setValue(projDataFunction.functionPointFTR);
+        spinnerReqDET.setValue(projDataFunction.functionPointDET);
     }
 }

@@ -1,5 +1,7 @@
 package View;
 
+import Model.projectData.M_projectData_productFunction;
+
 import javax.swing.*;
 
 public interface I_V_frame extends I_V_basic{
@@ -224,4 +226,9 @@ public interface I_V_frame extends I_V_basic{
      * updates the FuncReqID List in Tab
      */
     void updateFuncReqIDList(String id);
+
+    /**
+     * updates texboxes depending on Index
+     */
+    void updateFuncReqInfo(M_projectData_productFunction projDataFunction);
 }

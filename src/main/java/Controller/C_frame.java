@@ -224,4 +224,8 @@ public class C_frame implements I_C_frame {
     public void notifyFuncReqSAVE(){
 
     }
+    @Override
+    public void notifyselectedListChange(String selectedID){
+        controllerFunctionalReqirement.notifyChangeSelectedListItem(selectedID);
+    }
 }

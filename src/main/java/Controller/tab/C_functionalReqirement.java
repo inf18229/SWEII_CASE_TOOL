@@ -67,4 +67,21 @@ public class C_functionalReqirement implements I_C_functionalReqirement{
 
 
     }
+
+    @Override
+    public void notifyChangeSelectedListItem(String selectedID){
+        M_projectData_productFunction selectedProjectData=null;
+        for(M_projectData_productFunction projectDataFunction : projectData.getProductFunctionList()){
+            if(projectDataFunction.id.equals(selectedID)){
+                selectedProjectData=projectDataFunction;
+
+            }
+        }
+        if(selectedProjectData==null){
+            System.out.println("Selected ID does not exist no update of Info can occure");
+        }
+        else{
+            frameView.updateFuncReqInfo(selectedProjectData);
+        }
+    }
 }
