@@ -61,4 +61,8 @@ public class M_projectData_productFunction extends M_projectData_productContent 
     public int getFunctionPointFTR() {
         return functionPointFTR;
     }
+
+    public String toString(){
+     return "ProductDataElement:" +id+", "+function+", "+actor+", "+description+", "+functionPointCategory+", "+functionPointWeighting+", "+functionPointFTR+", "+getFunctionPointDET();
+    }
 }

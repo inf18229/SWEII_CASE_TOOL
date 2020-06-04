@@ -73,4 +73,14 @@ public interface I_C_frame{
     void notifyExit();
 
     I_C_tab getCurrentController();
+
+    /**
+     * notfies the controller that the new Button in Functional Reqirement Tab is pressed
+     */
+    void notifyFuncReqNEW();
+
+    /**
+     * notifies the controller that save Button in Functional Reqirement Tab is pressed
+     */
+    void notifyFuncReqSAVE();
 }

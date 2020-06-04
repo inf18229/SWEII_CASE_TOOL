@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <M_projectData>
+    <productFunctionList>
+        <_id></_id>
+        <id>Test</id>
+        <function>123</function>
+        <actor>41231</actor>
+        <description>fasdfklasjdfjkldsf</description>
+        <functionPointWeighting>0</functionPointWeighting>
+        <functionPointCategory>EI-Eingabe</functionPointCategory>
+        <functionPointDET>200</functionPointDET>
+        <functionPointFTR>12</functionPointFTR>
+    </productFunctionList>
+    <productFunctionList>
+        <_id></_id>
+        <id>Test23</id>
+        <function>123</function>
+        <actor>41231</actor>
+        <description>fasdfklasjdfjkldsf</description>
+        <functionPointWeighting>0</functionPointWeighting>
+        <functionPointCategory>EI-Eingabe</functionPointCategory>
+        <functionPointDET>200</functionPointDET>
+        <functionPointFTR>12</functionPointFTR>
+    </productFunctionList>
     <m_projectData_productUse>
         <content></content>
         <title>Produkteinsatz</title>
@@ -58,22 +80,25 @@
         <sumReferenceSimple>0</sumReferenceSimple>
         <sumReferenceMedium>0</sumReferenceMedium>
         <sumReferenceComplex>0</sumReferenceComplex>
-        <totalRowSumE1>14</totalRowSumE1>
+        <e1Sum>14</e1Sum>
         <factorEntanglement>0</factorEntanglement>
-        <factorDecentralization>1</factorDecentralization>
-        <factorTransactionrate>2</factorTransactionrate>
-        <factorProcessingCalculation>3</factorProcessingCalculation>
-        <factorProcessingControl>4</factorProcessingControl>
-        <factorProcessingException>10</factorProcessingException>
-        <factorProcessingLogic>2</factorProcessingLogic>
-        <factorReusability>4</factorReusability>
-        <factorConversion>5</factorConversion>
-        <factorCustomizability>2</factorCustomizability>
+        <factorDecentralization>0</factorDecentralization>
+        <factorTransactionrate>0</factorTransactionrate>
+        <factorProcessingCalculation>0</factorProcessingCalculation>
+        <factorProcessingControl>0</factorProcessingControl>
+        <factorProcessingException>0</factorProcessingException>
+        <factorProcessingLogic>0</factorProcessingLogic>
+        <factorReusability>0</factorReusability>
+        <factorConversion>0</factorConversion>
+        <factorCustomizability>0</factorCustomizability>
         <e2Sum>0</e2Sum>
-        <e3Sum>0.0</e3Sum>
-        <jonesDuration>0.0</jonesDuration>
-        <jonesPersons>0</jonesPersons>
-        <jonesPersonMoths>0.0</jonesPersonMoths>
+        <e3Sum>0.7</e3Sum>
+        <afp>9.799999999999999</afp>
+        <jonesDuration>2.491669466459315</jonesDuration>
+        <jonesPersonNo>1</jonesPersonNo>
+        <jonesPersonMonths>2.491669466459315</jonesPersonMonths>
+        <actualDuration>0.0</actualDuration>
         <correctionFactor>0.0</correctionFactor>
+        <correctedDuration>0.0</correctedDuration>
     </m_projectData_functionPointEstimation>
 </M_projectData>

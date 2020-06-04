@@ -219,4 +219,9 @@ public interface I_V_frame extends I_V_basic{
      * method goes to the last step in effort analysis
      */
     void lastStepEffort();
+
+    /**
+     * updates the FuncReqID List in Tab
+     */
+    void updateFuncReqIDList(String id);
 }

@@ -214,4 +214,14 @@ public class C_frame implements I_C_frame {
     public I_C_tab getCurrentController() {
         return currentController;
     }
+
+    @Override
+    public void notifyFuncReqNEW(){
+        controllerFunctionalReqirement.newFuncReqElement();
+    }
+
+    @Override
+    public void notifyFuncReqSAVE(){
+
+    }
 }

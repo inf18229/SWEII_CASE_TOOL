@@ -3,6 +3,7 @@ package View;
 import Controller.tab.I_C_effort;
 import Controller.I_C_frame;
 import Model.projectData.M_projectData;
+import Model.projectData.M_projectData_productFunction;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -247,6 +248,7 @@ public class V_frame implements I_V_frame {
     private JPanel panelCorrection;
     private JLabel labelCorrectionFactor;
     private JLabel labelCorrectionCalculation;
+    DefaultListModel functionalReqListModell;
 
 
     /**
@@ -387,6 +389,13 @@ public class V_frame implements I_V_frame {
                                 });
 
         //Initialize Functional Requirement Tab
+
+        functionalReqIDList.setSelectionMode(2);
+        functionalReqListModell=new DefaultListModel();
+        for(M_projectData_productFunction productFunction:projData.getProductFunctionList()){
+            functionalReqListModell.addElement(productFunction.id);
+        }
+        functionalReqIDList.setModel(functionalReqListModell);
         labelReqDetails.setFont(labelReqDetails.getFont().deriveFont(labelReqDetails.getFont().getStyle() | Font.BOLD,18));
         labelReqFunctionpointDefinition.setFont(labelReqFunctionpointDefinition.getFont().deriveFont(labelReqFunctionpointDefinition.getFont().getStyle() | Font.BOLD,18));
         textFieldReqID.getDocument().addDocumentListener(new DocumentListener() {
@@ -488,6 +497,20 @@ public class V_frame implements I_V_frame {
             }
         });
 
+        neuButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controllerFrame.notifyFuncReqNEW();
+                System.out.println("Functional Reqirement Tab - New Button Pressed");
+                controllerFrame.getCurrentController().updateProjectData();
+            }
+        });
+        speichernButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Functional Reqirement Tab - Save Button Pressed");
+            }
+        });
 
 
 
@@ -620,19 +643,7 @@ public class V_frame implements I_V_frame {
             }
         });
 
-        neuButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("Functional Reqirement Tab - New Button Pressed");
-                controllerFrame.getCurrentController().updateProjectData();
-            }
-        });
-        speichernButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("Functional Reqirement Tab - Save Button Pressed");
-            }
-        });
+
     }
 
     /**
@@ -1079,5 +1090,10 @@ public class V_frame implements I_V_frame {
                 V_Effort_Tabs.setSelectedIndex(1);
                 break;
         }
+    }
+    @Override
+    public void updateFuncReqIDList(String id){
+        functionalReqListModell.addElement(id);
+        functionalReqIDList.setModel(functionalReqListModell);
     }
 }
