@@ -1,52 +1,65 @@
 package Model;
 // helpful links: https://junit.org/junit5/docs/current/user-guide/
 import Model.projectData.M_projectData;
+import java.nio.file.InvalidPathException;
 
-import java.io.FileNotFoundException;
-import java.rmi.MarshalException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class M_exportTest {
     // Testcases:
-    // 1. test whether marshalling works with empty projectdata object
-    // 2. empty filename
+    // 1. tests whether marshalling works with M_projectdata pointing to null
+    // 2. empty filename or with blanks or null
     // 3. filename with special signs (&,|, ³,\, ...)
-    // --> alle 3 liefern Fehler --> d.h. keine Exception ist aufgetreten
-
     
     // 1. Testcase:
     @org.junit.jupiter.api.Test
-    void jaxbObjectToXML_emptyProjectTest()
+    void export_nullProjectTest()
     {
-        M_export export_test = new M_export();
+        M_export export_test = null;
         M_projectData projData_test = new M_projectData();
-        String path = "test.xml";
+        String path = "test_export.xml";
         //Tests whether an error has occured by transforming from java into xml
-        assertThrows(MarshalException.class, () ->export_test.export(projData_test, path));
+        assertThrows(RuntimeException.class, () ->export_test.export(projData_test, path));
     }
 
     // 2. Testcase:
     @org.junit.jupiter.api.Test
-    void jaxbObjectToXML_emptyFilenameTest()
+    void export_emptyFilenameTest()
     {
         M_export export_test = new M_export();
         M_projectData projData_test = new M_projectData();
         projData_test.getM_projectData_productUse().setContent("TestProductUse");
-        String path = "";
+
+        //Class 1 --> string with blanks
+        String path1 = " ";
         //Tests whether the file at location path can be found
-        assertThrows(FileNotFoundException.class, () ->export_test.export(projData_test, path));
+        assertThrows(RuntimeException.class, () -> export_test.export(projData_test, path1));
+
+        //Class 2 --> Empty String
+        String path2 = "";
+        //Tests whether the file at location path can be found
+        assertThrows(RuntimeException.class, () -> export_test.export(projData_test, path2));
+
+        //Class 3 --> null
+        String path3 = null;
+        //Tests whether the file at location path can be found
+        assertThrows(RuntimeException.class, () -> export_test.export(projData_test, path3));
     }
 
     // 3. Testcase:
     @org.junit.jupiter.api.Test
-    void jaxbObjectToXML_FilenameTest()
+    void export_FilenameTest()
     {
         M_export export_test = new M_export();
         M_projectData projData_test = new M_projectData();
         projData_test.getM_projectData_productUse().setContent("TestProductUse");
-        String path = "$test/test=test(&%||)";
-        //Tests whether the file at location path can be found
-        assertThrows(FileNotFoundException.class, () ->export_test.export(projData_test, path));
+        String path1 = "$test/test=test(&%|?|).xml";
+        //Tests whether the weird path from path1 is valid
+        assertThrows(InvalidPathException.class, () ->export_test.export(projData_test, path1));
+
+        //Tests whether the more realistic path from path2 is valid
+        String path2 = "test_export?.xml";
+        assertThrows(InvalidPathException.class, () ->export_test.export(projData_test, path2));
     }
 }
