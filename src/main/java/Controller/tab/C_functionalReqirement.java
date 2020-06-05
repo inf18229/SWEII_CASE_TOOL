@@ -6,7 +6,6 @@ import Model.projectData.M_projectData_productFunction;
 import View.I_V_frame;
 
 import javax.swing.*;
-import java.util.ArrayList;
 
 public class C_functionalReqirement implements I_C_functionalReqirement{
     private I_V_frame frameView;
@@ -40,6 +39,8 @@ public class C_functionalReqirement implements I_C_functionalReqirement{
     @Override
     public void newFuncReqElement(){
         //TODO: Rename Product Function to Functional Reqirement!
+        //TODO: the weight isn't entered but calculated depending on DET and FTR
+        //TODO: evtl. calclWeight function in productFunction?
         System.out.println("Notified Tab Func Req that a new Element is requested");
         boolean alreadyexists=false;
         for(M_projectData_productFunction projectDataFunction : projectData.getProductFunctionList()){

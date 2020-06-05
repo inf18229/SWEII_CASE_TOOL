@@ -158,8 +158,8 @@ public class C_effort implements I_C_effort{
 
     @Override
     public void updateProjectData(){
-        //TODO: clarify: what should be done in this method?
-        //TODO: add implementation
+        //TODO: get Data from Model
+
         projectData.getM_projectData_functionPointEstimation().calculateAllRowSums();
         projectData.getM_projectData_functionPointEstimation().calculateTotalRowSumE1();
         projectData.getM_projectData_functionPointEstimation().calcFactorSumE2();

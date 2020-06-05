@@ -55,9 +55,8 @@ public class C_frame implements I_C_frame {
     }
 
     /**
-     * switches to the specified Tab
-     * TODO: add better description
-     *
+     * depending on the int newTab it switches to the specified Tab
+     * and runs the necessary functions in the view to show/hide buttons needed/not needed
      * @param newTab integer of the newly selected tab
      */
     @Override
@@ -108,12 +107,10 @@ public class C_frame implements I_C_frame {
      */
     @Override
     public void notifySlider(int sliderNo, int value) {
-        if (currentController == controllerEffort){ //TODO: Test! May not work correctly
+        if (currentController == controllerEffort){
             controllerEffort.notifySlider(sliderNo, value);
         }
-        else {
-            //do nothing
-        }
+        //else do nothing
     }
 
     /**
@@ -165,10 +162,9 @@ public class C_frame implements I_C_frame {
      */
     @Override
     public void notifyNext() {
-        //System.out.println("Controller of Tab notified to refresh View");
-        //currentController.notifyNext();
-        controllerEffort.notifyNext();
-        //TODO: add implementation
+        if (currentController == controllerEffort){
+            controllerEffort.notifyNext();
+        }
     }
 
     /**
@@ -176,10 +172,9 @@ public class C_frame implements I_C_frame {
      */
     @Override
     public void notifyLast() {
-        //System.out.println("Controller of Tab notified to refresh View");
-        //currentController.notifyNext();
-        controllerEffort.notifyLast();
-        //TODO: add implementation
+        if (currentController == controllerEffort){
+            controllerEffort.notifyLast();
+        }
     }
 
     /**
@@ -200,15 +195,10 @@ public class C_frame implements I_C_frame {
                 null,
                 ObjButtons,
                 ObjButtons[1]);
-        if (promptResult == 0) {  // close program by exiting
+        if (promptResult == 0) {  // if desired (promptResult == 0) close program by exiting
             System.exit(0);
-        } else {
-            //Do nothing
         }
     }
-
-    //TODO: add prompt if window gets closed "Wirklich beenden? Alle ungespeicherten Änderungen gehen verloren!"
-
 
     @Override
     public I_C_tab getCurrentController() {

@@ -22,9 +22,9 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
     public int countInputMedium = 0;
     public int countInputComplex = 0;
 
-    public int countQuerySimple = 1;
-    public int countQueryMedium = 2;
-    public int countQueryComplex = 3;
+    public int countQuerySimple = 0;
+    public int countQueryMedium = 0;
+    public int countQueryComplex = 0;
 
     public int countOutputSimple = 0;
     public int countOutputMedium = 0;
@@ -39,13 +39,13 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
     public int countReferenceComplex = 0;
 
     //variables for all weights
-    public int weightInputSimple = 3;
-    public int weightInputMedium = 4;
-    public int weightInputComplex = 6;
+    public int weightInputSimple = 1;
+    public int weightInputMedium = 1;
+    public int weightInputComplex = 1;
 
     public int weightQuerySimple = 1;
-    public int weightQueryMedium = 2;
-    public int weightQueryComplex = 3;
+    public int weightQueryMedium = 1;
+    public int weightQueryComplex = 1;
 
     public int weightOutputSimple = 1;
     public int weightOutputMedium = 1;
@@ -64,9 +64,9 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
     public int sumInputMedium = 0;
     public int sumInputComplex = 0;
 
-    public int sumQuerySimple = 1;
-    public int sumQueryMedium = 2;
-    public int sumQueryComplex = 3;
+    public int sumQuerySimple = 0;
+    public int sumQueryMedium = 0;
+    public int sumQueryComplex = 0;
 
     public int sumOutputSimple = 0;
     public int sumOutputMedium = 0;

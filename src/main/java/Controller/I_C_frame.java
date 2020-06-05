@@ -8,26 +8,20 @@ import Controller.tab.I_C_tab;
  * views
  */
 public interface I_C_frame{
-    //TODO: create CONTROLLERS for each special VIEW
-    //TODO: create the main frame of the programm V_frame
-
-    //TODO: check if this can be deleted
-    /**
-     * in the enum tab every tab of the V_frame should be specified
-     */
-    enum tabs{};
 
     /**
      * creates Controller for each tab
      */
     void createTabControllers();
 
+    //TODO: decide if this should be implemented?
     /**
      * calls the required functions dependend on the id given
      * @param id identifier which button was pressed
      *           0: button x
      *           1: button y
      */
+
 
     /**
      * switches to the specified Tab
