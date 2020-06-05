@@ -175,6 +175,11 @@ public interface I_V_frame extends I_V_basic{
     void updateCalculationTab(int e1, int e2, double e3, double afp, double jDuration, int jPersons, double jPersonMonths);
 
     /**
+     * this method returns the value of the real Duration entered by the user
+     */
+    int getRealTime();
+
+    /**
      * this method updates all values of the correction factor panel
      * @param calcEff effort calculated before
      * @param corrFact correction factor calculated

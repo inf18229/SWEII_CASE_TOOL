@@ -43,7 +43,7 @@ public interface I_C_frame{
     void notifySlider(int sliderNo, int value);
 
     /**
-     * notifies the effort controller to recalculate time
+     * notifies the effort controller to recalculate the estimation
      */
     void notifyCalculate();
 

@@ -648,6 +648,17 @@ public class V_frame implements I_V_frame {
                 controllerFrame.notifyselectedListChange(functionalReqIDList.getSelectedValue().toString());
             }
         });
+        newCorrectionFactorButton.addActionListener(new ActionListener() {
+            /**
+             * Invoked when an action occurs.
+             *
+             * @param e the event to be processed
+             */
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controllerFrame.notifyCalculate();
+            }
+        });
     }
 
     /**
@@ -996,6 +1007,14 @@ public class V_frame implements I_V_frame {
     }
 
     /**
+     * this method returns the value of the real Duration entered by the user
+     */
+    @Override
+    public int getRealTime() {
+        return (int) spinnerCorrectionActualValue.getValue();
+    }
+
+    /**
      * this method updates all values of the correction factor panel
      *
      * @param calcEff  effort calculated before
@@ -1004,9 +1023,9 @@ public class V_frame implements I_V_frame {
      */
     @Override
     public void updateCorrectionPanel(double calcEff, double corrFact, int corrEff) {
-        labelCorrectionCalculated.setText(String.valueOf(calcEff));
+        labelCorrectionCalculated.setText(String.valueOf(calcEff) + " Mannmonate");
         labelCorrectionFactor.setText(String.valueOf(corrFact));
-        labelCorrectionCalculation.setText(String.valueOf(calcEff) + " * e^1 = " + String.valueOf(corrEff));
+        labelCorrectionCalculation.setText(String.valueOf(calcEff) + " * e^" + corrFact + " = " + String.valueOf(corrEff));
     }
 
     /**

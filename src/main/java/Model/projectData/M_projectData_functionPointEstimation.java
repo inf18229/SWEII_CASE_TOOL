@@ -286,14 +286,12 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
         jonesPersonMonths = jonesDuration * jonesPersonNo;
     }
 
-
-    /*private void calcJonesEstimation() {
-        //Calculation for Jones Estimation
-        jonesDuration = Math.pow(setpoint, 0.4);
-
-        jonesPersons = (int) Math.round(setpoint/150);
-        if (jonesPersons < 1 & setpoint != 0) jonesPersons = 1;
-
-        jonesPersonMoths = jonesDuration * jonesPersons;
-    }*/
+    /**
+     * this method uses an input for the real duration and calculates a correction factor
+     * to estimate the duration better next time
+     * @param realTime
+     */
+    public void calcCorrection(int realTime){
+        correctionFactor = Math.log(jonesPersonMonths/realTime);
+    }
 }

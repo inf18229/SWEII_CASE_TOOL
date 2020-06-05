@@ -108,11 +108,6 @@ public class C_effort implements I_C_effort{
                 projectData.getM_projectData_functionPointEstimation().jonesDuration,
                 projectData.getM_projectData_functionPointEstimation().jonesPersonNo,
                 projectData.getM_projectData_functionPointEstimation().jonesPersonMonths);
-        viewFrame.updateCorrectionPanel(
-                projectData.getM_projectData_functionPointEstimation().jonesPersonMonths,
-                projectData.getM_projectData_functionPointEstimation().correctionFactor,
-                1
-        );
     }
 
     /**
@@ -153,6 +148,12 @@ public class C_effort implements I_C_effort{
     @Override
     public void notifyCalculate() {
         updateProjectData();
+        projectData.getM_projectData_functionPointEstimation().calcCorrection(viewFrame.getRealTime());
+        viewFrame.updateCorrectionPanel(
+                projectData.getM_projectData_functionPointEstimation().jonesPersonMonths,
+                projectData.getM_projectData_functionPointEstimation().correctionFactor,
+                1
+        );
     }
 
     @Override
