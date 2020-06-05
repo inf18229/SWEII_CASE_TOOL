@@ -1016,16 +1016,16 @@ public class V_frame implements I_V_frame {
 
     /**
      * this method updates all values of the correction factor panel
-     *
+     * the float cast is used to provide better readability as high precision isn't needed here
      * @param calcEff  effort calculated before
      * @param corrFact correction factor calculated
      * @param corrEff  corrected effort
      */
     @Override
     public void updateCorrectionPanel(double calcEff, double corrFact, int corrEff) {
-        labelCorrectionCalculated.setText(String.valueOf(calcEff) + " Mannmonate");
-        labelCorrectionFactor.setText(String.valueOf(corrFact));
-        labelCorrectionCalculation.setText(String.valueOf(calcEff) + " * e^" + corrFact + " = " + String.valueOf(corrEff));
+        labelCorrectionCalculated.setText(String.valueOf((float) calcEff) + " Mannmonate");
+        labelCorrectionFactor.setText(String.valueOf((float) corrFact));
+        labelCorrectionCalculation.setText(String.valueOf((float) calcEff) + " * e^" + (float) corrFact + " = " + String.valueOf(corrEff));
     }
 
     /**
