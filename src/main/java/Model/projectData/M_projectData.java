@@ -18,6 +18,7 @@ import java.util.ArrayList;
 @XmlRootElement(name = "M_projectData")
 @XmlAccessorType(XmlAccessType.FIELD)
 
+//TODO: Make to Singleton
 public class M_projectData {
     @XmlTransient
     ArrayList<M_projectData_productData> productDataList = new ArrayList<>();

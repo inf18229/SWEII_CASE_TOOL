@@ -24,3 +24,4 @@ public class main {
 
 //TODO: check variable names (english or german?)
 //TODO: ADD DESCRIPTIONS WHENEVER POSSIBLE!
+//TODO: Controller and ProjectData to Singleton
