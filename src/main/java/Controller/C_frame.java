@@ -211,7 +211,7 @@ public class C_frame implements I_C_frame {
     }
 
     @Override
-    public void notifyFuncReqSAVE(){
+    public void notifyFuncReqDELETE(){
 
     }
     @Override

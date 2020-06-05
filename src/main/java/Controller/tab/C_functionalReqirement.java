@@ -17,24 +17,37 @@ public class C_functionalReqirement implements I_C_functionalReqirement{
     private JComboBox funcReqFPWeight;
     private JSpinner funcReqFPFTR;
     private JSpinner funcReqFPDET;
+    private JList funcReqIDList;
     private M_projectData projectData;
 
     public C_functionalReqirement(I_V_frame mainFrame, M_projectData projData){
         frameView=mainFrame;
-    funcReqID=mainFrame.getTextFieldReqID();
-    funcReqFunction=mainFrame.getTextFieldReqFunction();
-    funcReqProtagonist=mainFrame.getTextFieldReqProtagonist();
-    funcReqDescription=mainFrame.getTextAreaReqDescription();
-    funcReqFPCategory=mainFrame.getComboBoxReqCategory();
-    funcReqFPWeight=mainFrame.getComboBoxReqWeight();
-    funcReqFPFTR=mainFrame.getSpinnerReqFTR();
-    funcReqFPDET=mainFrame.getSpinnerReqDET();
-    projectData=projData;
+        funcReqIDList=mainFrame.getfunctionalReqIDList();
+        funcReqID=mainFrame.getTextFieldReqID();
+        funcReqFunction=mainFrame.getTextFieldReqFunction();
+        funcReqProtagonist=mainFrame.getTextFieldReqProtagonist();
+        funcReqDescription=mainFrame.getTextAreaReqDescription();
+        funcReqFPCategory=mainFrame.getComboBoxReqCategory();
+        funcReqFPFTR=mainFrame.getSpinnerReqFTR();
+        funcReqFPDET=mainFrame.getSpinnerReqDET();
+        projectData=projData;
 
     }
     @Override
     public void updateProjectData(){
-
+        for(M_projectData_productFunction projectDataFunction : projectData.getProductFunctionList()){
+            if(projectDataFunction.id.equals(funcReqIDList.getSelectedValue())){
+                projectDataFunction.id=funcReqID.getText();
+                projectDataFunction.actor=funcReqProtagonist.getText();
+                projectDataFunction.function=funcReqFunction.getText();
+                projectDataFunction.description=funcReqDescription.getText();
+                projectDataFunction.functionPointCategory=funcReqFPCategory.getSelectedItem().toString();
+                projectDataFunction.functionPointFTR=(int)funcReqFPFTR.getValue();
+                projectDataFunction.functionPointDET=(int)funcReqFPDET.getValue();
+                projectDataFunction.calculateWeight();
+                frameView.changeReqIDListElement(projectDataFunction.id);
+            }
+        }
     }
     @Override
     public void newFuncReqElement(){
@@ -50,6 +63,7 @@ public class C_functionalReqirement implements I_C_functionalReqirement{
             }
         }
         if(!alreadyexists){
+            //Using ProductContentFactory to create object
             M_projectData_productFunction newProducFunction=new M_projectData_productContentFactory().createProductFunction(funcReqID.getText());
             newProducFunction.actor=funcReqProtagonist.getText();
             newProducFunction.function=funcReqFunction.getText();
@@ -57,10 +71,11 @@ public class C_functionalReqirement implements I_C_functionalReqirement{
             newProducFunction.functionPointCategory=funcReqFPCategory.getSelectedItem().toString();
             newProducFunction.functionPointFTR=(int)funcReqFPFTR.getValue();
             newProducFunction.functionPointDET=(int)funcReqFPDET.getValue();
+            newProducFunction.calculateWeight();
 
             System.out.println(newProducFunction.toString());
             projectData.getProductFunctionList().add(newProducFunction);
-            frameView.updateFuncReqIDList(funcReqID.getText());
+            frameView.addFuncReqIDListElement(funcReqID.getText());
         }
         else{
             System.out.println("ID already exists in project Function");

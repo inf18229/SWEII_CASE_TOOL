@@ -32,4 +32,11 @@ public interface I_C_effort extends I_C_tab {
      * this method triggers all necessary functions to recalculate and show the new values
      */
     void notifyCalculate();
+
+    /**
+     * method iterates through all product functions,
+     * adds up the number of elements
+     * and saves the calculated value in the corresponding count variable
+     */
+    void calculateCounts();
 }
