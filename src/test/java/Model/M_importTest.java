@@ -21,7 +21,7 @@ class M_importTest {
     void import_fileFromPathExists()
     {
         M_import import_test = new M_import();
-        String path = "test.xml";
+        String path = "non_existing_file.xml";
 
         //Tests whether the file at location path exists
         assertThrows(RuntimeException.class, () -> import_test.importProject(path));
