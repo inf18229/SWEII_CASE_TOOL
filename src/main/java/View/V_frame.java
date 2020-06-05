@@ -245,6 +245,7 @@ public class V_frame implements I_V_frame {
     private JPanel panelCorrection;
     private JLabel labelCorrectionFactor;
     private JLabel labelCorrectionCalculation;
+    private JLabel labelWeightDescription;
     DefaultListModel functionalReqListModell;
 
 
@@ -724,6 +725,30 @@ public class V_frame implements I_V_frame {
     @Override
     public JSpinner getSpinnerReqDET() {
         return spinnerReqDET;
+    }
+
+    /**
+     * this methods sets the description for the weight label in productfunctions view
+     * dependent on input value
+     *
+     * @param weight
+     */
+    @Override
+    public void setWeightDescription(int weight) {
+        switch (weight){
+            case 0:
+                labelWeightDescription.setText("Einfach");
+                break;
+            case 1:
+                labelWeightDescription.setText("Mittel");
+                break;
+            case 2:
+                labelWeightDescription.setText("Komplex");
+                break;
+            default:
+                labelWeightDescription.setText("Fehler bei der Bestimmung eines Gewichts");
+                break;
+        }
     }
 
     /**

@@ -19,6 +19,13 @@ public interface I_V_frame extends I_V_basic{
     public JSpinner getSpinnerReqDET();
 
     /**
+     * this methods sets the description for the weight label in productfunctions view
+     * dependent on input value
+     * @param weight
+     */
+    public void setWeightDescription(int weight);
+
+    /**
      * this method gets the count values from the controller
      * and adds all corresponding labels in the estimation tab of the view
      * @param countInputSimple
