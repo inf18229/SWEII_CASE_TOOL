@@ -12,6 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.text.DecimalFormat;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
@@ -21,6 +22,10 @@ public class V_frame implements I_V_frame {
     I_C_frame controllerFrame;
     I_C_effort conEffort;
     JFrame frame;
+
+    // declaration for the desired decimal format -> improves readability
+    private static DecimalFormat df2 = new DecimalFormat("#.##");
+
     /**
      * Declarations of Variables for V_frame
      * all detailed information are saved in V_frame.form
@@ -252,6 +257,7 @@ public class V_frame implements I_V_frame {
     private JLabel labelWeightDescription;
     private JButton b_deleteProductFunction;
     DefaultListModel functionalReqListModell;
+
 
 
     /**
@@ -664,7 +670,7 @@ public class V_frame implements I_V_frame {
             }
         });
         //sets min/max Values for spinnerCorrectionActualValue
-        SpinnerNumberModel spinnerCorrectionActualValue2 = new SpinnerNumberModel(0, 0, 1000, 1);
+        SpinnerNumberModel spinnerCorrectionActualValue2 = new SpinnerNumberModel(0, 0, 1000, 0.1);
         spinnerCorrectionActualValue.setModel(spinnerCorrectionActualValue2);
         /*spinnerCorrectionActualValue.addChangeListener(new ChangeListener() {
             @Override
@@ -1037,19 +1043,19 @@ public class V_frame implements I_V_frame {
     public void updateCalculationTab(int e1, int e2, double e3, double afp, double jDuration, int jPersons, double jPersonMonths) {
         labelCalculationE1Value.setText(String.valueOf(e1));
         labelCalculationE2Value.setText(String.valueOf(e2));
-        labelCalculationE3Value.setText(String.valueOf((float) e3));
-        labelCalculationAFPValue.setText(String.valueOf((float) afp));
-        labelCalculationJDurationValue.setText(String.valueOf((float) jDuration));
+        labelCalculationE3Value.setText(String.valueOf(df2.format(e3)));
+        labelCalculationAFPValue.setText(String.valueOf(df2.format(afp)));
+        labelCalculationJDurationValue.setText(String.valueOf(df2.format(jDuration)));
         labelCalculationJPersonNoValue.setText(String.valueOf(jPersons));
-        labelCalculationJPersonMonthsValue.setText(String.valueOf((float) jPersonMonths));
+        labelCalculationJPersonMonthsValue.setText(String.valueOf(df2.format(jPersonMonths)));
     }
 
     /**
      * this method returns the value of the real Duration entered by the user
      */
     @Override
-    public int getRealTime() {
-        return (int) spinnerCorrectionActualValue.getValue();
+    public double getRealTime() {
+        return (double) spinnerCorrectionActualValue.getValue();
     }
 
     /**
@@ -1061,9 +1067,9 @@ public class V_frame implements I_V_frame {
      */
     @Override
     public void updateCorrectionPanel(double calcEff, double corrFact) {
-        labelCorrectionCalculated.setText(String.valueOf((float) calcEff) + " Mannmonate");
-        labelCorrectionFactor.setText(String.valueOf((float) corrFact));
-        labelCorrectionCalculation.setText(String.valueOf((float) calcEff) + " * e^" + (float) corrFact + " = " + String.valueOf(getRealTime()));
+        labelCorrectionCalculated.setText(String.valueOf(df2.format(calcEff)) + " Mannmonate");
+        labelCorrectionFactor.setText(String.valueOf(df2.format(corrFact)));
+        labelCorrectionCalculation.setText(String.valueOf(df2.format(calcEff) + " * e^" + df2.format(corrFact) + " = " + String.valueOf(df2.format((calcEff*Math.exp(corrFact))))));
     }
 
     /**

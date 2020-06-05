@@ -353,7 +353,7 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
      * to estimate the duration better next time
      * @param realTime
      */
-    public void calcCorrection(int realTime){
-        correctionFactor = Math.log(jonesPersonMonths/realTime);
+    public void calcCorrection(double realTime){
+        correctionFactor = Math.log(realTime/jonesPersonMonths);
     }
 }

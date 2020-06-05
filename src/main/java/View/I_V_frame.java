@@ -185,7 +185,7 @@ public interface I_V_frame extends I_V_basic{
     /**
      * this method returns the value of the real Duration entered by the user
      */
-    int getRealTime();
+    double getRealTime();
 
     /**
      * this method updates all values of the correction factor panel
