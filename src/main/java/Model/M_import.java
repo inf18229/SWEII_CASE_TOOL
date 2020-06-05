@@ -18,6 +18,8 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+//TODO: INFORMATION HIDING
+//TODO: KONTROLLFLUSSGRAPH
 // This class imports an Object/Project from an XML file
 public class M_import {
     M_projectData projectData;
