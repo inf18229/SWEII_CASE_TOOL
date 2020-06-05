@@ -90,7 +90,7 @@ public class M_projectData_productFunction extends M_projectData_productContent 
                     }
                 }
                 break;
-            case "EQ-Abrage":
+            case "EQ-Abfrage":
                 if(functionPointFTR<=1){
                     if(functionPointDET<=19){
                         functionPointWeighting=0;
