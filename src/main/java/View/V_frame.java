@@ -16,6 +16,7 @@ import java.awt.event.WindowEvent;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
+
 public class V_frame implements I_V_frame {
     I_C_frame controllerFrame;
     I_C_effort conEffort;
@@ -662,6 +663,16 @@ public class V_frame implements I_V_frame {
                 controllerFrame.notifyCalculate();
             }
         });
+        //sets min/max Values for spinnerCorrectionActualValue
+        SpinnerNumberModel spinnerCorrectionActualValue2 = new SpinnerNumberModel(0, 0, 1000, 1);
+        spinnerCorrectionActualValue.setModel(spinnerCorrectionActualValue2);
+        /*spinnerCorrectionActualValue.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                System.out.println("Functional Requirment Function Point FTR: " + spinnerReqFTR.getValue());
+            }
+        });
+        spinnerCorrectionActualValue.addComponentListener(new ComponentAdapter() {});*/
     }
 
     /**
