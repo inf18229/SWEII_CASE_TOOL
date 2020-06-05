@@ -259,7 +259,6 @@ public class V_frame implements I_V_frame {
     DefaultListModel functionalReqListModell;
 
 
-
     /**
      * Constructor of the V_frame class
      *
@@ -655,7 +654,7 @@ public class V_frame implements I_V_frame {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 System.out.println(functionalReqIDList.getSelectedValue().toString());  //TODO: fix NullPointerException in this line (occurs when creating a new product function in an empty list see fault1.txt)
-                controllerFrame.notifyselectedListChange(functionalReqIDList.getSelectedValue().toString());
+                controllerFrame.notifySelectedListChange(functionalReqIDList.getSelectedValue().toString());
             }
         });
         newCorrectionFactorButton.addActionListener(new ActionListener() {
@@ -1069,7 +1068,7 @@ public class V_frame implements I_V_frame {
     public void updateCorrectionPanel(double calcEff, double corrFact) {
         labelCorrectionCalculated.setText(String.valueOf(df2.format(calcEff)) + " Mannmonate");
         labelCorrectionFactor.setText(String.valueOf(df2.format(corrFact)));
-        labelCorrectionCalculation.setText(String.valueOf(df2.format(calcEff) + " * e^" + df2.format(corrFact) + " = " + String.valueOf(df2.format((calcEff*Math.exp(corrFact))))));
+        labelCorrectionCalculation.setText(String.valueOf(df2.format(calcEff) + " * e^" + df2.format(corrFact) + " = " + String.valueOf(df2.format((calcEff * Math.exp(corrFact))))));
     }
 
     /**

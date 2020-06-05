@@ -215,7 +215,7 @@ public class C_frame implements I_C_frame {
         controllerFunctionalReqirement.deleteFuncReqElement();
     }
     @Override
-    public void notifyselectedListChange(String selectedID){
+    public void notifySelectedListChange(String selectedID){
         controllerFunctionalReqirement.notifyChangeSelectedListItem(selectedID);
     }
 }

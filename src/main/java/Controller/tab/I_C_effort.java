@@ -23,8 +23,9 @@ public interface I_C_effort extends I_C_tab {
 
     /**
      * notifies the Controller, that a slider was changed
-     * @param sliderNo  integer to identify the slider that was changed
-     * @param value integer to which the slider was changed to
+     *
+     * @param sliderNo integer to identify the slider that was changed
+     * @param value    integer to which the slider was changed to
      */
     void notifySlider(int sliderNo, int value);
 

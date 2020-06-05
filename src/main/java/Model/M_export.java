@@ -1,8 +1,3 @@
-/**
- * @autor: David
- * Responsible: David
- * Last edit date: 04.06.2020
- */
 package Model;
 
 import Model.projectData.M_projectData;

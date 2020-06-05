@@ -1,22 +1,14 @@
-/**
- * @autor: David
- * Responsible: David
- * Last edit date: 04.06.2020
- */
 package Model;
 
 
 import Model.projectData.M_projectData;
 
-import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.transform.stream.StreamSource;
 import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 //TODO: INFORMATION HIDING
 //TODO: KONTROLLFLUSSGRAPH

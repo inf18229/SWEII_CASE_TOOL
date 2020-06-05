@@ -20,6 +20,7 @@ public class V_start implements I_V_start {
     /**
      * Constructor of the V_start Class
      * it needs a reference to the C_start Controller as param con
+     *
      * @param controllerStart
      */
     public V_start(I_C_start controllerStart) {
@@ -27,7 +28,7 @@ public class V_start implements I_V_start {
         frame = new JFrame("SWE CASE TOOL");
         frame.setContentPane(this.V_startPanel);
         frame.setResizable(false);
-        frame.getContentPane().setPreferredSize(new Dimension (400, 120));
+        frame.getContentPane().setPreferredSize(new Dimension(400, 120));
 
 
         b_createProject.addActionListener(new ActionListener() {
@@ -56,35 +57,34 @@ public class V_start implements I_V_start {
 
     /**
      * method to simply print the string output as text to console
+     *
      * @param output
      */
     @Override
-    public void debugPrint(String output){
+    public void debugPrint(String output) {
         System.out.println(output);
     }
 
     /**
      * opens the JFileChooser and asks the user to choose the file to open
-     * 
+     *
      * @return path to the chosen file
      */
     @Override
-    public String getPath(){
+    public String getPath() {
         String path = "";
-        try{
+        try {
             JFileChooser chooser = new JFileChooser();
             FileNameExtensionFilter filter = new FileNameExtensionFilter("XML", "xml");
             chooser.setFileFilter(filter);
             chooser.setAcceptAllFileFilterUsed(false);
             chooser.setMultiSelectionEnabled(false);
             int returnVal = chooser.showOpenDialog(null);
-            if(returnVal == JFileChooser.APPROVE_OPTION)
-            {
+            if (returnVal == JFileChooser.APPROVE_OPTION) {
                 path = chooser.getSelectedFile().getAbsolutePath();
                 System.out.println("Gewählte Datei: " + path);
             }
-        }
-        catch (Exception exc){
+        } catch (Exception exc) {
             JOptionPane.showMessageDialog(null,
                     "Dateiauswahl fehlgeschlagen!\n Probiere es erneut.\n" + exc.getMessage(),
                     "Fehler",

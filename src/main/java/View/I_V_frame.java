@@ -5,30 +5,42 @@ import Model.projectData.M_projectData_productFunction;
 
 import javax.swing.*;
 
-public interface I_V_frame extends I_V_basic{
+public interface I_V_frame extends I_V_basic {
     //TODO: alternative solution to get access to elements of the view in the current tab controller
-    public JTextArea getTargetUse();
-    public JTextArea getProductUse();
-    public JTextArea getProductEnvironment();
-    public JTextField getTextFieldReqID();
-    public JTextField getTextFieldReqFunction();
-    public JTextField getTextFieldReqProtagonist();
-    public JTextArea getTextAreaReqDescription();
-    public JComboBox getComboBoxReqCategory();
-    public JSpinner getSpinnerReqFTR();
-    public JSpinner getSpinnerReqDET();
-    public JList getfunctionalReqIDList();
+    JTextArea getTargetUse();
+
+    JTextArea getProductUse();
+
+    JTextArea getProductEnvironment();
+
+    JTextField getTextFieldReqID();
+
+    JTextField getTextFieldReqFunction();
+
+    JTextField getTextFieldReqProtagonist();
+
+    JTextArea getTextAreaReqDescription();
+
+    JComboBox getComboBoxReqCategory();
+
+    JSpinner getSpinnerReqFTR();
+
+    JSpinner getSpinnerReqDET();
+
+    JList getfunctionalReqIDList();
 
     /**
      * this methods sets the description for the weight label in productfunctions view
      * dependent on input value
+     *
      * @param weight
      */
-    public void setWeightDescription(int weight);
+    void setWeightDescription(int weight);
 
     /**
      * this method gets the count values from the controller
      * and adds all corresponding labels in the estimation tab of the view
+     *
      * @param countInputSimple
      * @param countInputMedium
      * @param countInputComplex
@@ -45,7 +57,7 @@ public interface I_V_frame extends I_V_basic{
      * @param countReferenceMedium
      * @param countReferenceComplex
      */
-    public void setEstimationCount(
+    void setEstimationCount(
             int countInputSimple,
             int countInputMedium,
             int countInputComplex,
@@ -65,6 +77,7 @@ public interface I_V_frame extends I_V_basic{
     /**
      * this method gets the sum values from the controller
      * and adds all corresponding labels in the estimation tab of the view
+     *
      * @param sumInputSimple
      * @param sumInputMedium
      * @param sumInputComplex
@@ -81,7 +94,7 @@ public interface I_V_frame extends I_V_basic{
      * @param sumReferenceMedium
      * @param sumReferenceComplex
      */
-    public void setEstimationSum(
+    void setEstimationSum(
             int sumInputSimple,
             int sumInputMedium,
             int sumInputComplex,
@@ -101,6 +114,7 @@ public interface I_V_frame extends I_V_basic{
     /**
      * this method gets the weight values from the controller
      * and adds all corresponding labels in the estimation tab of the view
+     *
      * @param weightInputSimple
      * @param weightInputMedium
      * @param weightInputComplex
@@ -117,7 +131,7 @@ public interface I_V_frame extends I_V_basic{
      * @param weightReferenceMedium
      * @param weightReferenceComplex
      */
-    public void setEstimationWeight(
+    void setEstimationWeight(
             int weightInputSimple,
             int weightInputMedium,
             int weightInputComplex,
@@ -137,12 +151,14 @@ public interface I_V_frame extends I_V_basic{
     /**
      * this method gets the weight values from the controller
      * and adds all corresponding labels in the estimation tab of the view
+     *
      * @param sum the totalRowSumE1 of M_projectData_fuctionPointEstimation
      */
-    public void setTotalRowSum(int sum);
+    void setTotalRowSum(int sum);
 
     /**
      * sets sliders to the passed possitions
+     *
      * @param slider1
      * @param slider2
      * @param slider3
@@ -154,7 +170,16 @@ public interface I_V_frame extends I_V_basic{
      * @param slider6
      * @param slider7
      */
-    void setSliderValues(int slider1, int slider2, int slider3, int slider41, int slider42, int slider43, int slider44, int slider5, int slider6, int slider7);
+    void setSliderValues(int slider1,
+                         int slider2,
+                         int slider3,
+                         int slider41,
+                         int slider42,
+                         int slider43,
+                         int slider44,
+                         int slider5,
+                         int slider6,
+                         int slider7);
 
     /**
      * sets the value of the corresponding text field to the value given
@@ -166,18 +191,20 @@ public interface I_V_frame extends I_V_basic{
 
     /**
      * set the value of E2
+     *
      * @param e2sum sum of all factors
      */
     void setFactorSumE2(int e2sum);
 
     /**
      * this method updates the value for E1, E2 and E3 in the Calculation Tab
-     * @param e1 value of the function point sum e1
-     * @param e2 value of the factor sum e2
-     * @param e3 value of influence e3
-     * @param afp value of Adjusted Function Points
-     * @param jDuration total duration, according to jones estimation
-     * @param jPersons number of persons working, according to jones estimation
+     *
+     * @param e1            value of the function point sum e1
+     * @param e2            value of the factor sum e2
+     * @param e3            value of influence e3
+     * @param afp           value of Adjusted Function Points
+     * @param jDuration     total duration, according to jones estimation
+     * @param jPersons      number of persons working, according to jones estimation
      * @param jPersonMonths person months, according to jones estimation
      */
     void updateCalculationTab(int e1, int e2, double e3, double afp, double jDuration, int jPersons, double jPersonMonths);
@@ -189,7 +216,8 @@ public interface I_V_frame extends I_V_basic{
 
     /**
      * this method updates all values of the correction factor panel
-     * @param calcEff effort calculated before
+     *
+     * @param calcEff  effort calculated before
      * @param corrFact correction factor calculated
      */
     void updateCorrectionPanel(double calcEff, double corrFact);
@@ -241,11 +269,13 @@ public interface I_V_frame extends I_V_basic{
 
     /**
      * cgabge ReqID List element with String i
+     *
      * @param id is the new value for the list element
      */
     void changeReqIDListElement(String id);
 
     void reinitializeReqIDList(M_projectData projData);
+
     /**
      * updates texboxes depending on selected Index
      */

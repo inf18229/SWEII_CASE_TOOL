@@ -7,7 +7,7 @@ import Controller.tab.I_C_tab;
  * Its only purpose is to create CONTROLLERS for the special VIEWS and handle USER-IO to "switch" between the different
  * views
  */
-public interface I_C_frame{
+public interface I_C_frame {
 
     /**
      * creates Controller for each tab
@@ -25,14 +25,16 @@ public interface I_C_frame{
 
     /**
      * switches to the specified Tab
+     *
      * @param newTab integer of the newly selected tab
      */
     void notifyTabChange(int newTab);
 
     /**
      * notifies the Controller, that a slider was changed
-     * @param sliderNo  integer to identify the slider that was changed
-     * @param value integer to which the slider was changed to
+     *
+     * @param sliderNo integer to identify the slider that was changed
+     * @param value    integer to which the slider was changed to
      */
     void notifySlider(int sliderNo, int value);
 
@@ -80,7 +82,8 @@ public interface I_C_frame{
 
     /**
      * notify Controller that selected List Item has changed
+     *
      * @param selectedID
      */
-    public void notifyselectedListChange(String selectedID);
+    void notifySelectedListChange(String selectedID);
 }
