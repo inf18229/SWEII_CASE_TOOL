@@ -11,6 +11,7 @@ public class main {
     }
 }
 
+//================================================wichtige Änderungen===================================================
 //TODO: change Open Dialogue -> no file should be selected when opening
 // wenn ich nen neues Projekt anlegen will, habe ich ja noch keine XML-Datei?
 //TODO: Information hiding - variable prefix public/private aktualisieren
@@ -25,8 +26,9 @@ public class main {
 //TODO: check variable names (english or german?)
 //TODO: ADD DESCRIPTIONS WHENEVER POSSIBLE!
 //TODO: Controller and ProjectData to Singleton
-
+//TODO: updateProjectData bei jedem Controller triggern bevor gespeichert wird -> geänderte Werte in Berechnung mit einbeziehen z.B. Art des FunctionPoints in Estimation Count übernehmen
 
 //============================================sonstige Ideen und Anmerkungen============================================
 //TODO: Verwirrung zwischen neu und speichern welcher Knopf bewirkt was -> besser darstellen bloß wie?
 //TODO: löschen Knopf entfernen/deaktivieren, wenn Liste leer
+//TODO:

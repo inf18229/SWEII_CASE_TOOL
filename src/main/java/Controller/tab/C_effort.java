@@ -203,7 +203,7 @@ public class C_effort implements I_C_effort {
                             break;
                     }
                     break;
-                case "EQ-Abrage":
+                case "EQ-Abfrage":
                     switch (productFunction.functionPointWeighting) {
                         case 0:
                             countQuerySimple += 1;
