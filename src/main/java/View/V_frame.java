@@ -648,7 +648,7 @@ public class V_frame implements I_V_frame {
         functionalReqIDList.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
-                System.out.println(functionalReqIDList.getSelectedValue().toString());
+                System.out.println(functionalReqIDList.getSelectedValue().toString());  //TODO: fix NullPointerException in this line (occurs when creating a new product function in an empty list see fault1.txt)
                 controllerFrame.notifyselectedListChange(functionalReqIDList.getSelectedValue().toString());
             }
         });

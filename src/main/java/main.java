@@ -25,3 +25,8 @@ public class main {
 //TODO: check variable names (english or german?)
 //TODO: ADD DESCRIPTIONS WHENEVER POSSIBLE!
 //TODO: Controller and ProjectData to Singleton
+
+
+//============================================sonstige Ideen und Anmerkungen============================================
+//TODO: Verwirrung zwischen neu und speichern welcher Knopf bewirkt was -> besser darstellen bloß wie?
+//TODO: löschen Knopf entfernen/deaktivieren, wenn Liste leer
