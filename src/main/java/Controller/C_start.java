@@ -58,6 +58,10 @@ public class C_start implements I_C_start {
         M_projectData projectData = new M_projectData();
         if (path instanceof String)
         {
+            /*if (!xmlFile.exists())
+            {
+                throw new RuntimeException("File does not exist");
+            }*/
             projectData = m__import.importProject(path);
         }
         else

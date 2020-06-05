@@ -12,7 +12,7 @@ import java.nio.file.InvalidPathException;
 import static org.junit.jupiter.api.Assertions.*;
 
 class M_exportTest {
-    // Testcases:
+    // Equivilence classes:
     // 1. tests whether marshalling works with M_projectdata pointing to null
     // 2. empty filename or with blanks or null
     // 3. filename with special signs (&,|, ³,\, ...)
@@ -21,8 +21,8 @@ class M_exportTest {
     @Test
     void export_nullProjectTest()
     {
-        M_export export_test = null;
-        M_projectData projData_test = new M_projectData();
+        M_export export_test = new M_export();
+        M_projectData projData_test = null;
         String path = "test_export.xml";
         //Tests whether an error has occured by transforming from java into xml
         assertThrows(RuntimeException.class, () ->export_test.export(projData_test, path));

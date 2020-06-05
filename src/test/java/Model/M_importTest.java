@@ -18,8 +18,7 @@ class M_importTest {
 
     // 1. Testcase:
     @Test
-    void import_fileFromPathExists()
-    {
+    void import_fileFromPathExists() {
         M_import import_test = new M_import();
         String path = "non_existing_file.xml";
 

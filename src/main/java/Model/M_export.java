@@ -15,31 +15,29 @@ import java.nio.file.Paths;
 
 public class M_export {
     /**
-     *this class saves the current Project to XML
+     * this class saves the current Project to XML
      */
-    public M_export()
-    {
+    public M_export() {
 
     }
 
     //code idea from: https://howtodoinjava.com/jaxb/write-object-to-xml/
-    public void export(M_projectData projData, String projPath)  {
+    public void export(M_projectData projData, String projPath) {
         /**
          * this function converts the current project to XML and saves the new XML file
          * @param projData the projectData of the current project
          * @param projPath the Path that defines where to save the data into a XML file
          */
-        if(projPath != null && !projPath.isEmpty() && !projPath.isBlank() && projData!=null) {
+        if (projPath != null && !projPath.isEmpty() && !projPath.isBlank() && projData != null) {
             //check for a valid path
-            try{
+            try {
                 Paths.get(projPath);
             }
+            // finally used because using the try block without catch or finally not possible
             finally {
 
             }
             try {
-
-                //path = "test.xml"; //TODO: This is only for testing purpose
                 //Create JAXB Context
                 JAXBContext jaxbContext = JAXBContext.newInstance(M_projectData.class);
 
@@ -58,9 +56,7 @@ public class M_export {
             } catch (JAXBException e) {
                 e.printStackTrace();
             }
-        }
-        else
-        {
+        } else {
             throw new RuntimeException("Invalid filename");
         }
     }
