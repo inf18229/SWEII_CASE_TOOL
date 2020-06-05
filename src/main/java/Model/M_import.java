@@ -34,12 +34,6 @@ public class M_import {
          * @param path the path for the project that has to be imported
          * @return projectData returns the loaded project in a M_projectData object
          */
-        try{
-            Paths.get(path);
-        }
-        finally {
-
-        }
 
         File xmlFile = new File(path);
         if (!xmlFile.exists())
