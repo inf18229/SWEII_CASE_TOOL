@@ -338,6 +338,7 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
         afp = e1Sum * e3Sum;
     }
 
+    //TODO: Warum kein Test -> nur Mathe Klasse getestet (die sollte ja korrekt sein)
     /**
      * method calculates values according to the jones estimation and saves them into the model variables
      */

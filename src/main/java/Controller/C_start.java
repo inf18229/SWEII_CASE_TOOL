@@ -1,14 +1,17 @@
 package Controller;
 
-import Model.projectData.M_projectData;
 import Model.M_import;
+import Model.projectData.M_projectData;
 import View.I_V_basic;
 import View.I_V_start;
 import View.V_start;
 
+import javax.swing.*;
+import java.io.File;
+
 /**
- *  C_start is the basic controller, that is always created first.
- *  Its only purpose is to handle USER-IO during the start sequence
+ * C_start is the basic controller, that is always created first.
+ * Its only purpose is to handle USER-IO during the start sequence
  */
 public class C_start implements I_C_start {
     //TODO: create Model and store in local Variable
@@ -35,42 +38,54 @@ public class C_start implements I_C_start {
      * after getting the path the Controller has to close viewStart (hide) and pass the job of handeling the project
      * to the newly created controllerFrame
      */
-    public void notifyCreate(){
+    public void notifyCreate() {
         System.out.println("Neues Projekt wurde gedrückt.");
-        //String path = viewStart.getPath();
-        String path = "test.xml";
-        //TODO: Model den Pfad (in createData(path)) übergeben --> Beachten: im path muss pfad und name des files ein
-        //TODO: Idee: Pfad auswählen lassen und Namen separat angeben + erweitern mit .xml --> überprüfen auf leeren Namen
-        I_V_basic.hide(viewStart.getJFrame());  // makes viewStart invisible and disables user input
-        I_C_frame controllerFrame = new C_frame(new M_projectData(), this, path);
+        String path = viewStart.getPath();
+        if (path == "" | path == null) {
+            //go to start view
+        } else {
+            //TODO: Model den Pfad (in createData(path)) übergeben --> Beachten: im path muss pfad und name des files ein
+            //TODO: Idee: Pfad auswählen lassen und Namen separat angeben + erweitern mit .xml --> überprüfen auf leeren Namen
+            I_V_basic.hide(viewStart.getJFrame());  // makes viewStart invisible and disables user input
+            I_C_frame controllerFrame = new C_frame(new M_projectData(), this, path);
+        }
+
+        //String path = "test.xml";
+
     }
 
     /**
      * notifyOpen()
-     *
+     * <p>
      * this message gets called by Views to notify the start Controller that a existing project should be opened
      * the Controller therefore asks the viewStart for a path to the file that should be opened
      */
-    public void notifyOpen(){
+    public void notifyOpen() {
         System.out.println("Öffne Projekt wurde gedrückt.");
         String path = "test.xml"; // fixed path relative
         //String path  = viewStart.getPath(); //TODO: abfangen wenn man name von nicht existierender Datei eingegeben und auf open gedrückt wird
-        M_projectData projectData = new M_projectData();
-        if (path instanceof String)
-        {
+        File xmlFile = new File(path);
+        if (xmlFile.exists()) {
+            M_projectData projectData = new M_projectData();
+            if (path instanceof String) {
             /*if (!xmlFile.exists())
             {
                 throw new RuntimeException("File does not exist");
             }*/
-            projectData = m__import.importProject(path);
+                projectData = m__import.importProject(path);
+            } else {
+                //TODO: return an error that a path has to be chosen for import
+            }
+            I_V_basic.hide(viewStart.getJFrame());  // makes viewStart invisible and disables user input
+            //TODO: initialize C_Frame with Project Data from XML file (und pfad übergeben)
+            I_C_frame controllerFrame = new C_frame(projectData, this, path);
+        } else {
+            JOptionPane.showMessageDialog(null,
+                    "Sie müssen einen korrekten Dateipfad angeben",
+                    "Achtung",
+                    JOptionPane.WARNING_MESSAGE);
         }
-        else
-        {
-            //TODO: return an error that a path has to be chosen for import
-        }
-        I_V_basic.hide(viewStart.getJFrame());  // makes viewStart invisible and disables user input
-        //TODO: initialize C_Frame with Project Data from XML file (und pfad übergeben)
-        I_C_frame controllerFrame = new C_frame(projectData, this, path);
+
     }
 
     /**
