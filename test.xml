@@ -30,8 +30,8 @@
         <description>Die Software muss den Requirements Engineer die Möglichkeit bieten Projekte löschen zu können.</description>
         <functionPointWeighting>0</functionPointWeighting>
         <functionPointCategory>EQ-Abfrage</functionPointCategory>
-        <functionPointDET>51</functionPointDET>
-        <functionPointFTR>20</functionPointFTR>
+        <functionPointDET>50</functionPointDET>
+        <functionPointFTR>120</functionPointFTR>
     </productFunctionList>
     <m_projectData_productUse>
         <content>Das Produkt soll in der Firma DHBW Software Solutions gGmbH eingesetzt werden. Es dient den Projektleitern bei neuen Projekten als Unterstützung zum Erstellen von Anforderungssammlungen. Dabei werden sie durch den notwendigen Prozess geführt und können Ergänzungen hinzufügen. Im Austausch mit dem Kunden können ganze Anforderungssammlungen über das Requirements Interchange Format weitergegeben und mit anderen Tools geöffnet werden. Außerdem können Ergebnisdokumente erstellt werden, um Kunden über den aktuellen Stand der Anforderungssammlung zu informieren. Zusätzlich bietet die Software den Software-Engineers ein Plugin um in einer IDE die zu bearbeitenden Anforderungen anzuzeigen.</content>

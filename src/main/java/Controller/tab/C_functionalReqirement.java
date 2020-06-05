@@ -8,7 +8,7 @@ import View.I_V_frame;
 import javax.swing.*;
 
 public class C_functionalReqirement implements I_C_functionalReqirement {
-    private I_V_frame frameView;
+    private I_V_frame viewFrame;
     private JTextField funcReqID;
     private JTextField funcReqFunction;
     private JTextField funcReqProtagonist;
@@ -21,7 +21,7 @@ public class C_functionalReqirement implements I_C_functionalReqirement {
     private M_projectData projectData;
 
     public C_functionalReqirement(I_V_frame mainFrame, M_projectData projData) {
-        frameView = mainFrame;
+        viewFrame = mainFrame;
         funcReqIDList = mainFrame.getfunctionalReqIDList();
         funcReqID = mainFrame.getTextFieldReqID();
         funcReqFunction = mainFrame.getTextFieldReqFunction();
@@ -46,7 +46,8 @@ public class C_functionalReqirement implements I_C_functionalReqirement {
                 projectDataFunction.functionPointFTR = (int) funcReqFPFTR.getValue();
                 projectDataFunction.functionPointDET = (int) funcReqFPDET.getValue();
                 projectDataFunction.calculateWeight();
-                frameView.changeReqIDListElement(projectDataFunction.id);
+                viewFrame.changeReqIDListElement(projectDataFunction.id);
+                viewFrame.setWeightDescription(projectDataFunction.functionPointWeighting);
             }
         }
     }
@@ -63,18 +64,19 @@ public class C_functionalReqirement implements I_C_functionalReqirement {
         }
         if (!alreadyexists) {
             //Using ProductContentFactory to create object
-            M_projectData_productFunction newProducFunction = new M_projectData_productContentFactory().createProductFunction(funcReqID.getText());
-            newProducFunction.actor = funcReqProtagonist.getText();
-            newProducFunction.function = funcReqFunction.getText();
-            newProducFunction.description = funcReqDescription.getText();
-            newProducFunction.functionPointCategory = funcReqFPCategory.getSelectedItem().toString();
-            newProducFunction.functionPointFTR = (int) funcReqFPFTR.getValue();
-            newProducFunction.functionPointDET = (int) funcReqFPDET.getValue();
-            newProducFunction.calculateWeight();
+            M_projectData_productFunction newProductFunction = new M_projectData_productContentFactory().createProductFunction(funcReqID.getText());
+            newProductFunction.actor = funcReqProtagonist.getText();
+            newProductFunction.function = funcReqFunction.getText();
+            newProductFunction.description = funcReqDescription.getText();
+            newProductFunction.functionPointCategory = funcReqFPCategory.getSelectedItem().toString();
+            newProductFunction.functionPointFTR = (int) funcReqFPFTR.getValue();
+            newProductFunction.functionPointDET = (int) funcReqFPDET.getValue();
+            newProductFunction.calculateWeight();
+            viewFrame.setWeightDescription(newProductFunction.functionPointWeighting);
 
-            System.out.println(newProducFunction.toString());
-            projectData.getProductFunctionList().add(newProducFunction);
-            frameView.addFuncReqIDListElement(funcReqID.getText());
+            System.out.println(newProductFunction.toString());
+            projectData.getProductFunctionList().add(newProductFunction);
+            viewFrame.addFuncReqIDListElement(funcReqID.getText());
         } else {
             System.out.println("ID already exists in project Function");
         }
@@ -94,8 +96,9 @@ public class C_functionalReqirement implements I_C_functionalReqirement {
         if (selectedProjectData == null) {
             System.out.println("Selected ID does not exist no update of Info can occure");
         } else {
-            frameView.updateFuncReqInfo(selectedProjectData);
+            viewFrame.updateFuncReqInfo(selectedProjectData);
         }
+        viewFrame.setWeightDescription(selectedProjectData.functionPointWeighting);
     }
 
     @Override
@@ -111,7 +114,7 @@ public class C_functionalReqirement implements I_C_functionalReqirement {
         }
         if (removedelement >= 0) {
             projectData.getProductFunctionList().remove(removedelement);
-            frameView.reinitializeReqIDList(projectData);
+            viewFrame.reinitializeReqIDList(projectData);
         }
 
     }
