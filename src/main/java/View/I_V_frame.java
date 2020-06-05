@@ -1,5 +1,6 @@
 package View;
 
+import Model.projectData.M_projectData;
 import Model.projectData.M_projectData_productFunction;
 
 import javax.swing.*;
@@ -238,7 +239,13 @@ public interface I_V_frame extends I_V_basic{
      */
     void addFuncReqIDListElement(String id);
 
-    void changeReqIDListElement(String i);
+    /**
+     * cgabge ReqID List element with String i
+     * @param id is the new value for the list element
+     */
+    void changeReqIDListElement(String id);
+
+    void reinitializeReqIDList(M_projectData projData);
     /**
      * updates texboxes depending on selected Index
      */

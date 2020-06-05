@@ -353,6 +353,6 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
      * @param realTime
      */
     public void calcCorrection(int realTime){
-        correctionFactor = Math.log(realTime/jonesPersonMonths);
+        correctionFactor = Math.log(jonesPersonMonths/realTime);
     }
 }

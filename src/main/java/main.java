@@ -20,6 +20,7 @@ public class main {
 //TODO: rename packages and classes in CAPSLOCK
 //TODO: Optimierung nicht vergessen
 //TODO: add notifyButton(int id); which calls the required functions depending on the id
+//TODO: refactor funcReq to product function
 
 //TODO: check variable names (english or german?)
 //TODO: ADD DESCRIPTIONS WHENEVER POSSIBLE!
