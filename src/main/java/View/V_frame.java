@@ -12,7 +12,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.text.DecimalFormat;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
@@ -250,13 +249,13 @@ public class V_frame implements I_V_frame {
     private JLabel labelCorrectionFactor;
     private JLabel labelCorrectionCalculation;
     private JLabel labelWeightDescription;
+    private JButton b_deleteProductFunction;
     DefaultListModel functionalReqListModell;
-
-    private static DecimalFormat df = new DecimalFormat("#.###");
 
 
     /**
      * Constructor of the V_frame class
+     *
      * @param conFrame Frame Controller
      */
     public V_frame(I_C_frame conFrame, M_projectData projData) {
@@ -318,6 +317,12 @@ public class V_frame implements I_V_frame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 controllerFrame.notifyLast();
+            }
+        });
+        b_deleteProductFunction.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controllerFrame.notifyFuncReqDELETE();
             }
         });
 
@@ -385,85 +390,85 @@ public class V_frame implements I_V_frame {
          */
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);//JFrame.EXIT_ON_CLOSE);
         frame.addWindowListener(new WindowAdapter() {
-                                    @Override
-                                    public void windowClosing(WindowEvent we) {
-                                        controllerFrame.notifyExit();
-                                    }
+            @Override
+            public void windowClosing(WindowEvent we) {
+                controllerFrame.notifyExit();
+            }
 
-                                });
+        });
 
         //Initialize Functional Requirement Tab
 
         functionalReqIDList.setSelectionMode(2);
-        functionalReqListModell=new DefaultListModel();
-        for(M_projectData_productFunction productFunction:projData.getProductFunctionList()){
+        functionalReqListModell = new DefaultListModel();
+        for (M_projectData_productFunction productFunction : projData.getProductFunctionList()) {
             functionalReqListModell.addElement(productFunction.id);
         }
         functionalReqIDList.setModel(functionalReqListModell);
-        labelReqDetails.setFont(labelReqDetails.getFont().deriveFont(labelReqDetails.getFont().getStyle() | Font.BOLD,18));
-        labelReqFunctionpointDefinition.setFont(labelReqFunctionpointDefinition.getFont().deriveFont(labelReqFunctionpointDefinition.getFont().getStyle() | Font.BOLD,18));
+        labelReqDetails.setFont(labelReqDetails.getFont().deriveFont(labelReqDetails.getFont().getStyle() | Font.BOLD, 18));
+        labelReqFunctionpointDefinition.setFont(labelReqFunctionpointDefinition.getFont().deriveFont(labelReqFunctionpointDefinition.getFont().getStyle() | Font.BOLD, 18));
         textFieldReqID.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                System.out.println("Functional Requirement ID: "+textFieldReqID.getText());
+                System.out.println("Functional Requirement ID: " + textFieldReqID.getText());
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-                System.out.println("Functional Requirement ID: "+textFieldReqID.getText());
+                System.out.println("Functional Requirement ID: " + textFieldReqID.getText());
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                System.out.println("Functional Requirement ID: "+textFieldReqID.getText());
+                System.out.println("Functional Requirement ID: " + textFieldReqID.getText());
             }
         });
         textFieldReqFunction.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                System.out.println("Functional Requirement Function: "+textFieldReqFunction.getText());
+                System.out.println("Functional Requirement Function: " + textFieldReqFunction.getText());
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-                System.out.println("Functional Requirement ID: "+textFieldReqFunction.getText());
+                System.out.println("Functional Requirement ID: " + textFieldReqFunction.getText());
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                System.out.println("Functional Requirement ID: "+textFieldReqFunction.getText());
+                System.out.println("Functional Requirement ID: " + textFieldReqFunction.getText());
             }
         });
         textFieldReqProtagonist.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                System.out.println("Functional Requirement Protagonist: "+textFieldReqProtagonist.getText());
+                System.out.println("Functional Requirement Protagonist: " + textFieldReqProtagonist.getText());
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-                System.out.println("Functional Requirement Protagonist: "+textFieldReqProtagonist.getText());
+                System.out.println("Functional Requirement Protagonist: " + textFieldReqProtagonist.getText());
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                System.out.println("Functional Requirement Protagonist: "+textFieldReqProtagonist.getText());
+                System.out.println("Functional Requirement Protagonist: " + textFieldReqProtagonist.getText());
             }
         });
         textAreaReqDescription.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                System.out.println("Functional Requirement Description: "+textAreaReqDescription.getText());
+                System.out.println("Functional Requirement Description: " + textAreaReqDescription.getText());
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-                System.out.println("Functional Requirement Description: "+textAreaReqDescription.getText());
+                System.out.println("Functional Requirement Description: " + textAreaReqDescription.getText());
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                System.out.println("Functional Requirement Description: "+textAreaReqDescription.getText());
+                System.out.println("Functional Requirement Description: " + textAreaReqDescription.getText());
             }
         });
         comboBoxReqCategory.addItem("EI-Eingabe");
@@ -475,21 +480,21 @@ public class V_frame implements I_V_frame {
                 System.out.println(comboBoxReqCategory.getSelectedItem());
             }
         });
-
-        SpinnerNumberModel nMspinnerReqFTR=new SpinnerNumberModel(0,0,1000,1);
+        //TODO: add same limits for estimation Mannmonate
+        SpinnerNumberModel nMspinnerReqFTR = new SpinnerNumberModel(0, 0, 1000, 1);
         spinnerReqFTR.setModel(nMspinnerReqFTR);
         spinnerReqFTR.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                System.out.println("Functional Requirment Function Point FTR: "+spinnerReqFTR.getValue());
+                System.out.println("Functional Requirment Function Point FTR: " + spinnerReqFTR.getValue());
             }
         });
-        SpinnerNumberModel nMspinnerReqDET=new SpinnerNumberModel(0,0,1000,1);
+        SpinnerNumberModel nMspinnerReqDET = new SpinnerNumberModel(0, 0, 1000, 1);
         spinnerReqDET.setModel(nMspinnerReqDET);
         spinnerReqDET.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
-                System.out.println("Functional Requirment Function Point DET: "+spinnerReqDET.getValue());
+                System.out.println("Functional Requirment Function Point DET: " + spinnerReqDET.getValue());
             }
         });
 
@@ -509,7 +514,6 @@ public class V_frame implements I_V_frame {
         });
 
 
-
         frame.pack(); //pack method sizes the frame so that all its contents are at or above their preferred size (form)
         frame.setLocationRelativeTo(null);  //places the window in the center of the screen
         b_nextStep.setVisible(false);
@@ -518,16 +522,16 @@ public class V_frame implements I_V_frame {
         frame.setVisible(true);
         //change listeners to notify changes on sliders in factor tab and notify frame controller
         slider1Entanglement.addChangeListener(new ChangeListener() {
-                /**
-                 * Invoked when the target of the listener has changed its state.
-                 *
-                 * @param e a ChangeEvent object
-                 */
-                @Override
-                public void stateChanged(ChangeEvent e) {
-                    controllerFrame.notifySlider(1, slider1Entanglement.getValue()); //TODO: check if correct listener (always gives more than one event per change)
-                }
-            });
+            /**
+             * Invoked when the target of the listener has changed its state.
+             *
+             * @param e a ChangeEvent object
+             */
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                controllerFrame.notifySlider(1, slider1Entanglement.getValue()); //TODO: check if correct listener (always gives more than one event per change)
+            }
+        });
         slider2Decentralization.addChangeListener(new ChangeListener() {
             /**
              * Invoked when the target of the listener has changed its state.
@@ -671,17 +675,17 @@ public class V_frame implements I_V_frame {
     }
 
     @Override
-    public JTextArea getTargetUse(){
+    public JTextArea getTargetUse() {
         return targetUse;
     }
 
     @Override
-    public JTextArea getProductUse(){
+    public JTextArea getProductUse() {
         return productUse;
     }
 
     @Override
-    public JTextArea getProductEnvironment(){
+    public JTextArea getProductEnvironment() {
         return productEnvironment;
     }
 
@@ -721,7 +725,7 @@ public class V_frame implements I_V_frame {
     }
 
     @Override
-    public JList getfunctionalReqIDList(){
+    public JList getfunctionalReqIDList() {
         return functionalReqIDList;
     }
 
@@ -733,7 +737,7 @@ public class V_frame implements I_V_frame {
      */
     @Override
     public void setWeightDescription(int weight) {
-        switch (weight){
+        switch (weight) {
             case 0:
                 labelWeightDescription.setText("Einfach");
                 break;
@@ -1010,23 +1014,23 @@ public class V_frame implements I_V_frame {
     /**
      * this method updates the value for E1 in the Calculation Tab
      *
-     * @param e1 value of the function point sum e1
-     * @param e2 value of the factor sum e2
-     * @param e3 value of influence e3
-     * @param afp value of Adjusted Function Points
-     * @param jDuration total duration, according to jones estimation
-     * @param jPersons number of persons working, according to jones estimation
+     * @param e1            value of the function point sum e1
+     * @param e2            value of the factor sum e2
+     * @param e3            value of influence e3
+     * @param afp           value of Adjusted Function Points
+     * @param jDuration     total duration, according to jones estimation
+     * @param jPersons      number of persons working, according to jones estimation
      * @param jPersonMonths person months, according to jones estimation
      */
     @Override
     public void updateCalculationTab(int e1, int e2, double e3, double afp, double jDuration, int jPersons, double jPersonMonths) {
         labelCalculationE1Value.setText(String.valueOf(e1));
         labelCalculationE2Value.setText(String.valueOf(e2));
-        labelCalculationE3Value.setText(String.valueOf((df.format(e3))));
-        labelCalculationAFPValue.setText(String.valueOf(df.format(afp)));
-        labelCalculationJDurationValue.setText(String.valueOf(df.format(jDuration)));
+        labelCalculationE3Value.setText(String.valueOf((float) e3));
+        labelCalculationAFPValue.setText(String.valueOf((float) afp));
+        labelCalculationJDurationValue.setText(String.valueOf((float) jDuration));
         labelCalculationJPersonNoValue.setText(String.valueOf(jPersons));
-        labelCalculationJPersonMonthsValue.setText(String.valueOf((df.format(jPersonMonths))));
+        labelCalculationJPersonMonthsValue.setText(String.valueOf((float) jPersonMonths));
     }
 
     /**
@@ -1040,14 +1044,15 @@ public class V_frame implements I_V_frame {
     /**
      * this method updates all values of the correction factor panel
      * the float cast is used to provide better readability as high precision isn't needed here
+     *
      * @param calcEff  effort calculated before
      * @param corrFact correction factor calculated
      */
     @Override
     public void updateCorrectionPanel(double calcEff, double corrFact) {
-        labelCorrectionCalculated.setText(String.valueOf((df.format(calcEff))) + " Mannmonate");
-        labelCorrectionFactor.setText(String.valueOf(df.format(corrFact)));
-        labelCorrectionCalculation.setText(String.valueOf(df.format(calcEff)) + " * e^" + df.format(corrFact) + " = " + String.valueOf(getRealTime()));
+        labelCorrectionCalculated.setText(String.valueOf((float) calcEff) + " Mannmonate");
+        labelCorrectionFactor.setText(String.valueOf((float) corrFact));
+        labelCorrectionCalculation.setText(String.valueOf((float) calcEff) + " * e^" + (float) corrFact + " = " + String.valueOf(getRealTime()));
     }
 
     /**
@@ -1106,7 +1111,7 @@ public class V_frame implements I_V_frame {
      */
     @Override
     public void nextStepEffort() {
-        switch (V_Effort_Tabs.getSelectedIndex()){
+        switch (V_Effort_Tabs.getSelectedIndex()) {
             case 0:
                 V_Effort_Tabs.setSelectedIndex(1);
                 break;
@@ -1125,7 +1130,7 @@ public class V_frame implements I_V_frame {
      */
     @Override
     public void lastStepEffort() {
-        switch (V_Effort_Tabs.getSelectedIndex()){
+        switch (V_Effort_Tabs.getSelectedIndex()) {
             case 0:
                 break;
             case 1:
@@ -1136,18 +1141,20 @@ public class V_frame implements I_V_frame {
                 break;
         }
     }
+
     @Override
-    public void addFuncReqIDListElement(String id){
+    public void addFuncReqIDListElement(String id) {
         functionalReqListModell.addElement(id);
         System.out.println(functionalReqIDList.getLastVisibleIndex());
         functionalReqIDList.setSelectedIndex(functionalReqIDList.getLastVisibleIndex());
     }
-    public void updateFuncReqInfo(M_projectData_productFunction projDataFunction){
+
+    public void updateFuncReqInfo(M_projectData_productFunction projDataFunction) {
         textFieldReqID.setText(projDataFunction.id);
         textFieldReqFunction.setText(projDataFunction.function);
         textFieldReqProtagonist.setText(projDataFunction.actor);
         textAreaReqDescription.setText(projDataFunction.description);
-        switch (projDataFunction.functionPointCategory){
+        switch (projDataFunction.functionPointCategory) {
             case "EI-Eingabe":
                 comboBoxReqCategory.setSelectedIndex(0);
                 break;
@@ -1162,9 +1169,23 @@ public class V_frame implements I_V_frame {
     }
 
     @Override
-    public void changeReqIDListElement(String id){
+    public void changeReqIDListElement(String id) {
+        functionalReqListModell.setElementAt(id, functionalReqIDList.getSelectedIndex());
+    }
 
-        functionalReqListModell.setElementAt(id,functionalReqIDList.getSelectedIndex());
+    @Override
+    public void reinitializeReqIDList(M_projectData projData) {
+
+        functionalReqListModell = new DefaultListModel();
+        for (M_projectData_productFunction productFunction : projData.getProductFunctionList()) {
+            functionalReqListModell.addElement(productFunction.id);
+        }
+        try {
+            functionalReqIDList.setModel(functionalReqListModell);
+        } catch (NullPointerException exception) {
+
+        }
+
 
     }
 }

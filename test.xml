@@ -2,17 +2,6 @@
 <M_projectData>
     <productFunctionList>
         <_id></_id>
-        <id>10</id>
-        <function>Test10</function>
-        <actor>Test</actor>
-        <description>noch mehr Test</description>
-        <functionPointWeighting>0</functionPointWeighting>
-        <functionPointCategory>EI-Eingabe</functionPointCategory>
-        <functionPointDET>0</functionPointDET>
-        <functionPointFTR>0</functionPointFTR>
-    </productFunctionList>
-    <productFunctionList>
-        <_id></_id>
         <id>30</id>
         <function>Test20</function>
         <actor>Test</actor>
@@ -24,14 +13,14 @@
     </productFunctionList>
     <productFunctionList>
         <_id></_id>
-        <id>41</id>
-        <function>Test-Funktion 4</function>
-        <actor>Ich</actor>
-        <description>kvdsbnilvdsfb</description>
-        <functionPointWeighting>1</functionPointWeighting>
-        <functionPointCategory>EO-Ausgabe</functionPointCategory>
-        <functionPointDET>4</functionPointDET>
-        <functionPointFTR>15</functionPointFTR>
+        <id>20</id>
+        <function>Test20</function>
+        <actor>Test</actor>
+        <description>noch mehr Test</description>
+        <functionPointWeighting>2</functionPointWeighting>
+        <functionPointCategory>EI-Eingabe</functionPointCategory>
+        <functionPointDET>7</functionPointDET>
+        <functionPointFTR>7</functionPointFTR>
     </productFunctionList>
     <m_projectData_productUse>
         <content></content>
@@ -46,14 +35,14 @@
         <title>Produktumgebung</title>
     </m_projectData_productEnvironment>
     <m_projectData_functionPointEstimation>
-        <countInputSimple>1</countInputSimple>
+        <countInputSimple>0</countInputSimple>
         <countInputMedium>0</countInputMedium>
-        <countInputComplex>1</countInputComplex>
+        <countInputComplex>3</countInputComplex>
         <countQuerySimple>0</countQuerySimple>
         <countQueryMedium>0</countQueryMedium>
         <countQueryComplex>0</countQueryComplex>
         <countOutputSimple>0</countOutputSimple>
-        <countOutputMedium>1</countOutputMedium>
+        <countOutputMedium>0</countOutputMedium>
         <countOutputComplex>0</countOutputComplex>
         <countDatasetSimple>0</countDatasetSimple>
         <countDatasetMedium>0</countDatasetMedium>
@@ -76,14 +65,14 @@
         <weightReferenceSimple>5</weightReferenceSimple>
         <weightReferenceMedium>7</weightReferenceMedium>
         <weightReferenceComplex>10</weightReferenceComplex>
-        <sumInputSimple>3</sumInputSimple>
+        <sumInputSimple>0</sumInputSimple>
         <sumInputMedium>0</sumInputMedium>
-        <sumInputComplex>6</sumInputComplex>
+        <sumInputComplex>18</sumInputComplex>
         <sumQuerySimple>0</sumQuerySimple>
         <sumQueryMedium>0</sumQueryMedium>
         <sumQueryComplex>0</sumQueryComplex>
         <sumOutputSimple>0</sumOutputSimple>
-        <sumOutputMedium>5</sumOutputMedium>
+        <sumOutputMedium>0</sumOutputMedium>
         <sumOutputComplex>0</sumOutputComplex>
         <sumDatasetSimple>0</sumDatasetSimple>
         <sumDatasetMedium>0</sumDatasetMedium>
@@ -91,7 +80,7 @@
         <sumReferenceSimple>0</sumReferenceSimple>
         <sumReferenceMedium>0</sumReferenceMedium>
         <sumReferenceComplex>0</sumReferenceComplex>
-        <e1Sum>14</e1Sum>
+        <e1Sum>18</e1Sum>
         <factorEntanglement>1</factorEntanglement>
         <factorDecentralization>1</factorDecentralization>
         <factorTransactionrate>3</factorTransactionrate>
@@ -104,10 +93,10 @@
         <factorCustomizability>2</factorCustomizability>
         <e2Sum>30</e2Sum>
         <e3Sum>1.0</e3Sum>
-        <afp>14.0</afp>
-        <jonesDuration>2.8737647560281374</jonesDuration>
+        <afp>18.0</afp>
+        <jonesDuration>3.177671523146437</jonesDuration>
         <jonesPersonNo>1</jonesPersonNo>
-        <jonesPersonMonths>2.8737647560281374</jonesPersonMonths>
+        <jonesPersonMonths>3.177671523146437</jonesPersonMonths>
         <actualDuration>0.0</actualDuration>
         <correctionFactor>-0.04298935682200618</correctionFactor>
         <correctedDuration>0.0</correctedDuration>

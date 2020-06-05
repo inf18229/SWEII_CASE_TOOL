@@ -212,7 +212,7 @@ public class C_frame implements I_C_frame {
 
     @Override
     public void notifyFuncReqDELETE(){
-
+        controllerFunctionalReqirement.deleteFuncReqElement();
     }
     @Override
     public void notifyselectedListChange(String selectedID){
