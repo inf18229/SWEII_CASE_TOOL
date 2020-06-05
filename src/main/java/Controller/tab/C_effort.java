@@ -1,6 +1,7 @@
 package Controller.tab;
 
 import Model.projectData.M_projectData;
+import Model.projectData.M_projectData_productFunction;
 import View.I_V_frame;
 
 /**
@@ -15,7 +16,6 @@ public class C_effort implements I_C_effort{
     public C_effort(I_V_frame view, M_projectData projData){
         viewFrame = view;
         projectData = projData;
-        updateProjectData();
     }
 
     /**
@@ -115,7 +115,6 @@ public class C_effort implements I_C_effort{
      */
     @Override
     public void notifyNext() {
-        updateProjectData();    // garanties that the shown values in the next tab are up to date
         viewFrame.nextStepEffort();
     }
 
@@ -124,7 +123,6 @@ public class C_effort implements I_C_effort{
      */
     @Override
     public void notifyLast() {
-        updateProjectData();    // garanties that the shown values in the last tab are up to date
         viewFrame.lastStepEffort();
     }
 
@@ -147,19 +145,124 @@ public class C_effort implements I_C_effort{
      */
     @Override
     public void notifyCalculate() {
-        updateProjectData();
+        updateProjectData();    // guaranties that the shown/used values are up to date
         projectData.getM_projectData_functionPointEstimation().calcCorrection(viewFrame.getRealTime());
         viewFrame.updateCorrectionPanel(
                 projectData.getM_projectData_functionPointEstimation().jonesPersonMonths,
-                projectData.getM_projectData_functionPointEstimation().correctionFactor,
-                1
+                projectData.getM_projectData_functionPointEstimation().correctionFactor
         );
+    }
+
+    /**
+     * method iterates through all product functions,
+     * adds up the number of elements
+     * and saves the calculated value in the corresponding count variable
+     */
+    @Override
+    public void calculateCounts() {
+        int countInputSimple = 0;
+        int countInputMedium = 0;
+        int countInputComplex = 0;
+
+        int countQuerySimple = 0;
+        int countQueryMedium = 0;
+        int countQueryComplex = 0;
+
+        int countOutputSimple = 0;
+        int countOutputMedium = 0;
+        int countOutputComplex = 0;
+
+        int countDatasetSimple = 0;
+        int countDatasetMedium = 0;
+        int countDatasetComplex = 0;
+
+        int countReferenceSimple = 0;
+        int countReferenceMedium = 0;
+        int countReferenceComplex = 0;
+
+        //iterate through all stored product functions
+        for (M_projectData_productFunction productFunction : projectData.getProductFunctionList()){
+            /**
+             * switches on type
+             * in type switches on weight
+             * according to case adds 1 to the corresponding variable
+             */
+            switch  (productFunction.functionPointCategory) {
+                case "EI-Eingabe":
+                    switch (productFunction.functionPointWeighting){
+                        case 0:
+                            countInputSimple += 1;
+                            break;
+                        case 1:
+                            countInputMedium += 1;
+                            break;
+                        case 2:
+                            countInputComplex += 1;
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                case "EQ-Abrage":
+                    switch (productFunction.functionPointWeighting){
+                        case 0:
+                            countQuerySimple += 1;
+                            break;
+                        case 1:
+                            countQueryMedium += 1;
+                            break;
+                        case 2:
+                            countQueryComplex += 1;
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                case "EO-Ausgabe":
+                    switch (productFunction.functionPointWeighting){
+                        case 0:
+                            countOutputSimple += 1;
+                            break;
+                        case 1:
+                            countOutputMedium += 1;
+                            break;
+                        case 2:
+                            countOutputComplex += 1;
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+        //store calculated values in project data
+        projectData.getM_projectData_functionPointEstimation().setCountVariable(10, countInputSimple);
+        projectData.getM_projectData_functionPointEstimation().setCountVariable(11, countInputMedium);
+        projectData.getM_projectData_functionPointEstimation().setCountVariable(12, countInputComplex);
+
+        projectData.getM_projectData_functionPointEstimation().setCountVariable(20, countQuerySimple);
+        projectData.getM_projectData_functionPointEstimation().setCountVariable(21, countQueryMedium);
+        projectData.getM_projectData_functionPointEstimation().setCountVariable(22, countQueryComplex);
+
+        projectData.getM_projectData_functionPointEstimation().setCountVariable(30, countOutputSimple);
+        projectData.getM_projectData_functionPointEstimation().setCountVariable(31, countOutputMedium);
+        projectData.getM_projectData_functionPointEstimation().setCountVariable(32, countOutputComplex);
+
+        projectData.getM_projectData_functionPointEstimation().setCountVariable(40, countDatasetSimple);
+        projectData.getM_projectData_functionPointEstimation().setCountVariable(41, countDatasetMedium);
+        projectData.getM_projectData_functionPointEstimation().setCountVariable(42, countDatasetComplex);
+
+        projectData.getM_projectData_functionPointEstimation().setCountVariable(50, countReferenceSimple);
+        projectData.getM_projectData_functionPointEstimation().setCountVariable(51, countReferenceMedium);
+        projectData.getM_projectData_functionPointEstimation().setCountVariable(52, countReferenceComplex);
     }
 
     @Override
     public void updateProjectData(){
         //TODO: get Data from Model
-
+        calculateCounts();
         projectData.getM_projectData_functionPointEstimation().calculateAllRowSums();
         projectData.getM_projectData_functionPointEstimation().calculateTotalRowSumE1();
         projectData.getM_projectData_functionPointEstimation().calcFactorSumE2();

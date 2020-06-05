@@ -109,40 +109,66 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
     public double correctionFactor = 0;
     public double correctedDuration = 0;
 
-    /*@Override
-    public void estimate() {
-
-    }*/
-
     /**
-     * gets the value of the factor
-     * @param factorNo  which factor to get
+     * this method sets the corresponding count variable depending on countNo
+     * @param countNo
+     * @param value
      */
-    public int getFactor(int factorNo) {
-        switch (factorNo) {
-            case 1:
-                return factorEntanglement;
-            case 2:
-                return factorDecentralization;
-            case 3:
-                return factorTransactionrate;
+    public void setCountVariable(int countNo, int value){
+        switch (countNo) {
+            case 10:
+                countInputSimple = value;
+                break;
+            case 11:
+                countInputMedium = value;
+                break;
+            case 12:
+                countInputComplex = value;
+                break;
+
+            case 20:
+                countQuerySimple = value;
+                break;
+            case 21:
+                countQueryMedium = value;
+                break;
+            case 22:
+                countQueryComplex = value;
+                break;
+
+            case 30:
+                countOutputSimple = value;
+                break;
+            case 31:
+                countOutputMedium = value;
+                break;
+            case 32:
+                countOutputComplex = value;
+                break;
+
+
+            case 40:
+                countDatasetSimple = value;
+                break;
             case 41:
-                return factorProcessingCalculation;
+                countDatasetMedium = value;
+                break;
             case 42:
-                return factorProcessingControl;
-            case 43:
-                return factorProcessingException;
-            case 44:
-                return factorProcessingLogic;
-            case 5:
-                return factorReusability;
-            case 6:
-                return factorConversion;
-            case 7:
-                return factorCustomizability;
+                countDatasetComplex = value;
+                break;
+
+            case 50:
+                countReferenceSimple = value;
+                break;
+            case 51:
+                countReferenceMedium = value;
+                break;
+            case 52:
+                countReferenceComplex = value;
+                break;
+
             default:
-                return 0;
-                // TODO: evtl. besser try catch -> prüfen und wenn besser implementieren
+                break;
         }
     }
 
@@ -185,6 +211,38 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
                 factorCustomizability = value;
                 break;
             default:
+                // TODO: evtl. besser try catch -> prüfen und wenn besser implementieren
+        }
+    }
+
+    /**
+     * gets the value of the factor
+     * @param factorNo  which factor to get
+     */
+    public int getFactor(int factorNo) {
+        switch (factorNo) {
+            case 1:
+                return factorEntanglement;
+            case 2:
+                return factorDecentralization;
+            case 3:
+                return factorTransactionrate;
+            case 41:
+                return factorProcessingCalculation;
+            case 42:
+                return factorProcessingControl;
+            case 43:
+                return factorProcessingException;
+            case 44:
+                return factorProcessingLogic;
+            case 5:
+                return factorReusability;
+            case 6:
+                return factorConversion;
+            case 7:
+                return factorCustomizability;
+            default:
+                return 0;
                 // TODO: evtl. besser try catch -> prüfen und wenn besser implementieren
         }
     }
@@ -280,6 +338,9 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
         afp = e1Sum * e3Sum;
     }
 
+    /**
+     * method calculates values according to the jones estimation and saves them into the model variables
+     */
     public void calcJonesEstimation(){
         jonesDuration = Math.pow(afp, 0.4);
         jonesPersonNo = (int) Math.ceil(afp/150);

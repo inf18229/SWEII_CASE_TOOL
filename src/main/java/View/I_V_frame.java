@@ -14,9 +14,9 @@ public interface I_V_frame extends I_V_basic{
     public JTextField getTextFieldReqProtagonist();
     public JTextArea getTextAreaReqDescription();
     public JComboBox getComboBoxReqCategory();
-    public JComboBox getComboBoxReqWeight();
     public JSpinner getSpinnerReqFTR();
     public JSpinner getSpinnerReqDET();
+    public JList getfunctionalReqIDList();
 
     /**
      * this methods sets the description for the weight label in productfunctions view
@@ -190,9 +190,8 @@ public interface I_V_frame extends I_V_basic{
      * this method updates all values of the correction factor panel
      * @param calcEff effort calculated before
      * @param corrFact correction factor calculated
-     * @param corrEff corrected effort
      */
-    void updateCorrectionPanel(double calcEff, double corrFact, int corrEff);
+    void updateCorrectionPanel(double calcEff, double corrFact);
 
     /**
      * this method shows the next button
@@ -235,12 +234,13 @@ public interface I_V_frame extends I_V_basic{
     void lastStepEffort();
 
     /**
-     * updates the FuncReqID List in Tab
+     * adds the FuncReqID List in Tab
      */
-    void updateFuncReqIDList(String id);
+    void addFuncReqIDListElement(String id);
 
+    void changeReqIDListElement(String i);
     /**
-     * updates texboxes depending on Index
+     * updates texboxes depending on selected Index
      */
     void updateFuncReqInfo(M_projectData_productFunction projDataFunction);
 }

@@ -1,14 +1,18 @@
 package View;
 
-import Controller.tab.I_C_effort;
 import Controller.I_C_frame;
+import Controller.tab.I_C_effort;
 import Model.projectData.M_projectData;
 import Model.projectData.M_projectData_productFunction;
 
 import javax.swing.*;
 import javax.swing.event.*;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.text.DecimalFormat;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
@@ -248,6 +252,8 @@ public class V_frame implements I_V_frame {
     private JLabel labelWeightDescription;
     DefaultListModel functionalReqListModell;
 
+    private static DecimalFormat df = new DecimalFormat("#.###");
+
 
     /**
      * Constructor of the V_frame class
@@ -469,15 +475,7 @@ public class V_frame implements I_V_frame {
                 System.out.println(comboBoxReqCategory.getSelectedItem());
             }
         });
-        comboBoxReqWeight.addItem(1);
-        comboBoxReqWeight.addItem(2);
-        comboBoxReqWeight.addItem(3);
-        comboBoxReqWeight.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println(comboBoxReqWeight.getSelectedItem());
-            }
-        });
+
         SpinnerNumberModel nMspinnerReqFTR=new SpinnerNumberModel(0,0,1000,1);
         spinnerReqFTR.setModel(nMspinnerReqFTR);
         spinnerReqFTR.addChangeListener(new ChangeListener() {
@@ -500,13 +498,13 @@ public class V_frame implements I_V_frame {
             public void actionPerformed(ActionEvent e) {
                 controllerFrame.notifyFuncReqNEW();
                 System.out.println("Functional Reqirement Tab - New Button Pressed");
-                controllerFrame.getCurrentController().updateProjectData();
             }
         });
         speichernButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Functional Reqirement Tab - Save Button Pressed");
+                conFrame.getCurrentController().updateProjectData();
             }
         });
 
@@ -713,11 +711,6 @@ public class V_frame implements I_V_frame {
     }
 
     @Override
-    public JComboBox getComboBoxReqWeight() {
-        return comboBoxReqWeight;
-    }
-
-    @Override
     public JSpinner getSpinnerReqFTR() {
         return spinnerReqFTR;
     }
@@ -725,6 +718,11 @@ public class V_frame implements I_V_frame {
     @Override
     public JSpinner getSpinnerReqDET() {
         return spinnerReqDET;
+    }
+
+    @Override
+    public JList getfunctionalReqIDList(){
+        return functionalReqIDList;
     }
 
     /**
@@ -1024,11 +1022,11 @@ public class V_frame implements I_V_frame {
     public void updateCalculationTab(int e1, int e2, double e3, double afp, double jDuration, int jPersons, double jPersonMonths) {
         labelCalculationE1Value.setText(String.valueOf(e1));
         labelCalculationE2Value.setText(String.valueOf(e2));
-        labelCalculationE3Value.setText(String.valueOf(e3));
-        labelCalculationAFPValue.setText(String.valueOf(afp));
-        labelCalculationJDurationValue.setText(String.valueOf(jDuration));
+        labelCalculationE3Value.setText(String.valueOf((df.format(e3))));
+        labelCalculationAFPValue.setText(String.valueOf(df.format(afp)));
+        labelCalculationJDurationValue.setText(String.valueOf(df.format(jDuration)));
         labelCalculationJPersonNoValue.setText(String.valueOf(jPersons));
-        labelCalculationJPersonMonthsValue.setText(String.valueOf(jPersonMonths));
+        labelCalculationJPersonMonthsValue.setText(String.valueOf((df.format(jPersonMonths))));
     }
 
     /**
@@ -1044,13 +1042,12 @@ public class V_frame implements I_V_frame {
      * the float cast is used to provide better readability as high precision isn't needed here
      * @param calcEff  effort calculated before
      * @param corrFact correction factor calculated
-     * @param corrEff  corrected effort
      */
     @Override
-    public void updateCorrectionPanel(double calcEff, double corrFact, int corrEff) {
-        labelCorrectionCalculated.setText(String.valueOf((float) calcEff) + " Mannmonate");
-        labelCorrectionFactor.setText(String.valueOf((float) corrFact));
-        labelCorrectionCalculation.setText(String.valueOf((float) calcEff) + " * e^" + (float) corrFact + " = " + String.valueOf(corrEff));
+    public void updateCorrectionPanel(double calcEff, double corrFact) {
+        labelCorrectionCalculated.setText(String.valueOf((df.format(calcEff))) + " Mannmonate");
+        labelCorrectionFactor.setText(String.valueOf(df.format(corrFact)));
+        labelCorrectionCalculation.setText(String.valueOf(df.format(calcEff)) + " * e^" + df.format(corrFact) + " = " + String.valueOf(getRealTime()));
     }
 
     /**
@@ -1140,7 +1137,7 @@ public class V_frame implements I_V_frame {
         }
     }
     @Override
-    public void updateFuncReqIDList(String id){
+    public void addFuncReqIDListElement(String id){
         functionalReqListModell.addElement(id);
         System.out.println(functionalReqIDList.getLastVisibleIndex());
         functionalReqIDList.setSelectedIndex(functionalReqIDList.getLastVisibleIndex());
@@ -1160,18 +1157,14 @@ public class V_frame implements I_V_frame {
             case "EQ-Abfrage":
                 comboBoxReqCategory.setSelectedIndex(2);
         }
-        switch (projDataFunction.functionPointWeighting){
-            case 1:
-                comboBoxReqWeight.setSelectedIndex(0);
-                break;
-            case 2:
-                comboBoxReqWeight.setSelectedIndex(1);
-                break;
-            case 3:
-                comboBoxReqWeight.setSelectedIndex(2);
-                break;
-        }
         spinnerReqFTR.setValue(projDataFunction.functionPointFTR);
         spinnerReqDET.setValue(projDataFunction.functionPointDET);
+    }
+
+    @Override
+    public void changeReqIDListElement(String id){
+
+        functionalReqListModell.setElementAt(id,functionalReqIDList.getSelectedIndex());
+
     }
 }
