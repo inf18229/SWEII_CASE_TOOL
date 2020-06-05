@@ -37,7 +37,7 @@
     <m_projectData_functionPointEstimation>
         <countInputSimple>0</countInputSimple>
         <countInputMedium>0</countInputMedium>
-        <countInputComplex>3</countInputComplex>
+        <countInputComplex>2</countInputComplex>
         <countQuerySimple>0</countQuerySimple>
         <countQueryMedium>0</countQueryMedium>
         <countQueryComplex>0</countQueryComplex>
@@ -67,7 +67,7 @@
         <weightReferenceComplex>10</weightReferenceComplex>
         <sumInputSimple>0</sumInputSimple>
         <sumInputMedium>0</sumInputMedium>
-        <sumInputComplex>18</sumInputComplex>
+        <sumInputComplex>12</sumInputComplex>
         <sumQuerySimple>0</sumQuerySimple>
         <sumQueryMedium>0</sumQueryMedium>
         <sumQueryComplex>0</sumQueryComplex>
@@ -80,7 +80,7 @@
         <sumReferenceSimple>0</sumReferenceSimple>
         <sumReferenceMedium>0</sumReferenceMedium>
         <sumReferenceComplex>0</sumReferenceComplex>
-        <e1Sum>18</e1Sum>
+        <e1Sum>12</e1Sum>
         <factorEntanglement>1</factorEntanglement>
         <factorDecentralization>1</factorDecentralization>
         <factorTransactionrate>3</factorTransactionrate>
@@ -90,15 +90,15 @@
         <factorProcessingLogic>2</factorProcessingLogic>
         <factorReusability>3</factorReusability>
         <factorConversion>5</factorConversion>
-        <factorCustomizability>2</factorCustomizability>
+        <factorCustomizability>1</factorCustomizability>
         <e2Sum>30</e2Sum>
         <e3Sum>1.0</e3Sum>
-        <afp>18.0</afp>
-        <jonesDuration>3.177671523146437</jonesDuration>
+        <afp>12.0</afp>
+        <jonesDuration>2.701920077041227</jonesDuration>
         <jonesPersonNo>1</jonesPersonNo>
-        <jonesPersonMonths>3.177671523146437</jonesPersonMonths>
+        <jonesPersonMonths>2.701920077041227</jonesPersonMonths>
         <actualDuration>0.0</actualDuration>
-        <correctionFactor>-0.04298935682200618</correctionFactor>
+        <correctionFactor>INF</correctionFactor>
         <correctedDuration>0.0</correctedDuration>
     </m_projectData_functionPointEstimation>
 </M_projectData>

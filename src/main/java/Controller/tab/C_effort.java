@@ -8,12 +8,12 @@ import View.I_V_frame;
  * is the implementation of I_C_effort
  * this Controller has to manage all action regarding the "Aufwandsschätzung" tab
  */
-public class C_effort implements I_C_effort{
+public class C_effort implements I_C_effort {
 
     I_V_frame viewFrame;    //  stores a reference to the viewFrame to update elements of it
     M_projectData projectData;      // stores a reference to the complete data modell
 
-    public C_effort(I_V_frame view, M_projectData projData){
+    public C_effort(I_V_frame view, M_projectData projData) {
         viewFrame = view;
         projectData = projData;
     }
@@ -76,7 +76,7 @@ public class C_effort implements I_C_effort{
                 projectData.getM_projectData_functionPointEstimation().sumReferenceComplex);
         viewFrame.setTotalRowSum(projectData.getM_projectData_functionPointEstimation().e1Sum);
         //TODO: initialize slider position
-        /*viewFrame.setSliderValues(
+        viewFrame.setSliderValues(
                 projectData.getM_projectData_functionPointEstimation().getFactor(1),
                 projectData.getM_projectData_functionPointEstimation().getFactor(2),
                 projectData.getM_projectData_functionPointEstimation().getFactor(3),
@@ -86,7 +86,7 @@ public class C_effort implements I_C_effort{
                 projectData.getM_projectData_functionPointEstimation().getFactor(44),
                 projectData.getM_projectData_functionPointEstimation().getFactor(5),
                 projectData.getM_projectData_functionPointEstimation().getFactor(6),
-                projectData.getM_projectData_functionPointEstimation().getFactor(7));*/
+                projectData.getM_projectData_functionPointEstimation().getFactor(7));
         // use the setSliderText Function to initialize the text fields for each slider
         viewFrame.setSliderText(1, projectData.getM_projectData_functionPointEstimation().getFactor(1));
         viewFrame.setSliderText(2, projectData.getM_projectData_functionPointEstimation().getFactor(2));
@@ -181,15 +181,15 @@ public class C_effort implements I_C_effort{
         int countReferenceComplex = 0;
 
         //iterate through all stored product functions
-        for (M_projectData_productFunction productFunction : projectData.getProductFunctionList()){
+        for (M_projectData_productFunction productFunction : projectData.getProductFunctionList()) {
             /**
              * switches on type
              * in type switches on weight
              * according to case adds 1 to the corresponding variable
              */
-            switch  (productFunction.functionPointCategory) {
+            switch (productFunction.functionPointCategory) {
                 case "EI-Eingabe":
-                    switch (productFunction.functionPointWeighting){
+                    switch (productFunction.functionPointWeighting) {
                         case 0:
                             countInputSimple += 1;
                             break;
@@ -204,7 +204,7 @@ public class C_effort implements I_C_effort{
                     }
                     break;
                 case "EQ-Abrage":
-                    switch (productFunction.functionPointWeighting){
+                    switch (productFunction.functionPointWeighting) {
                         case 0:
                             countQuerySimple += 1;
                             break;
@@ -219,7 +219,7 @@ public class C_effort implements I_C_effort{
                     }
                     break;
                 case "EO-Ausgabe":
-                    switch (productFunction.functionPointWeighting){
+                    switch (productFunction.functionPointWeighting) {
                         case 0:
                             countOutputSimple += 1;
                             break;
@@ -260,7 +260,7 @@ public class C_effort implements I_C_effort{
     }
 
     @Override
-    public void updateProjectData(){
+    public void updateProjectData() {
         //TODO: get Data from Model
         calculateCounts();
         projectData.getM_projectData_functionPointEstimation().calculateAllRowSums();
