@@ -10,11 +10,13 @@ import javax.xml.bind.Unmarshaller;
 import javax.xml.transform.stream.StreamSource;
 import java.io.File;
 
-//TODO: INFORMATION HIDING
 //TODO: KONTROLLFLUSSGRAPH
 // This class imports an Object/Project from an XML file
 public class M_import {
-    M_projectData projectData;
+    /**
+     * this class imports a Project from an XML file
+     */
+    private M_projectData projectData;
 
     public M_import() {
         projectData = new M_projectData();

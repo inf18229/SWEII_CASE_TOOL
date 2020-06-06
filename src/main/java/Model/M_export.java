@@ -8,9 +8,7 @@ import javax.xml.bind.Marshaller;
 import java.io.File;
 import java.nio.file.Paths;
 
-//TODO: INFORMATION HIDING
 //TODO: KONTROLLFLUSSGRAPH
-
 
 public class M_export {
     /**
