@@ -259,6 +259,8 @@ public class V_frame implements I_V_frame {
     private JLabel labelE2Correction;
     private JLabel labelE2CorrectioDescription;
     private JButton b_automaticSliderValues;
+    private JLabel labelE2SumGoalDescription;
+    private JLabel labelE2SumGoal;
     DefaultListModel functionalReqListModell;
 
 
@@ -1115,6 +1117,7 @@ public class V_frame implements I_V_frame {
         if (e2Correction >= 0 & e2Correction<60) {
             labelE2CorrectioDescription.setText("Die Einflussfaktoren müssen geändert werden auf:");
             labelE2Correction.setText(String.valueOf(e2Correction));
+            labelE2SumGoal.setText(String.valueOf(e2Correction));
         } else {
             labelE2CorrectioDescription.setText("Anpassung der Einflussfaktoren nicht erfolgreich!");
             labelE2Correction.setText("Selbst durch maximale Anpassung kommen Sie nicht auf den tatsächlichen Aufwand.");
