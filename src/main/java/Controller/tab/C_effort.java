@@ -147,11 +147,13 @@ public class C_effort implements I_C_effort {
     public void notifyCalculate() {
         updateProjectData();    // guaranties that the shown/used values are up to date
         projectData.getM_projectData_functionPointEstimation().calcCorrection(viewFrame.getRealTime());
+        projectData.getM_projectData_functionPointEstimation().calcE2Needed(viewFrame.getRealTime());
         viewFrame.updateCorrectionPanel(
                 projectData.getM_projectData_functionPointEstimation().jonesPersonMonths,
-                projectData.getM_projectData_functionPointEstimation().correctionFactor
+                projectData.getM_projectData_functionPointEstimation().correctionFactor,
+                projectData.getM_projectData_functionPointEstimation().e2Correction
         );
-        System.out.println("E2: " + String.valueOf(projectData.getM_projectData_functionPointEstimation().calcE2Needed(viewFrame.getRealTime())));
+
     }
 
     /**

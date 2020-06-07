@@ -219,8 +219,9 @@ public interface I_V_frame extends I_V_basic {
      *
      * @param calcEff  effort calculated before
      * @param corrFact correction factor calculated
+     * @param e2Correction
      */
-    void updateCorrectionPanel(double calcEff, double corrFact);
+    void updateCorrectionPanel(double calcEff, double corrFact, int e2Correction);
 
     /**
      * this method shows the next button

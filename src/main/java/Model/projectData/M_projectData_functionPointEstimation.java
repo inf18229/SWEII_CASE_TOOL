@@ -109,6 +109,8 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
     public double correctionFactor = 0;
     public double correctedDuration = 0;
 
+    public int e2Correction = 0;
+
     /**
      * this method sets the corresponding count variable depending on countNo
      * @param countNo
@@ -363,7 +365,19 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
      * calculates the sum of all factors needed to achieve the real time
      * @param realTime time, the project really took till completion
      */
-    public int calcE2Needed(double realTime) {
-        return (int) (((Math.pow(realTime/(correctionFactor*jonesPersonNo), 0.4))/e1Sum)-0.7)*100;
+    public void calcE2Needed(double realTime) {
+        double temp = realTime/(Math.exp(0)*jonesPersonNo);
+        double temp1 = Math.pow(temp, 1/0.4);
+        double temp2 = temp1/e1Sum;
+        double temp3 = temp2 - 0.7;
+        double tempFinal = (temp3 * 100);
+        e2Correction = (int) tempFinal;
+
+        /*double temp = realTime/(Math.exp(correctionFactor)*jonesPersonNo);
+        double temp1 = Math.pow(temp, 1/0.4);
+        double temp2 = temp1/e1Sum;
+        double temp3 = temp2 - 0.7;
+        double tempFinal = temp3 * 100;
+        return (int) tempFinal;*/
     }
 }

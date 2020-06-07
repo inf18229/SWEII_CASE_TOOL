@@ -256,6 +256,7 @@ public class V_frame implements I_V_frame {
     private JLabel labelCorrectionCalculation;
     private JLabel labelWeightDescription;
     private JButton b_deleteProductFunction;
+    private JLabel labelE2Correction;
     DefaultListModel functionalReqListModell;
 
 
@@ -649,12 +650,12 @@ public class V_frame implements I_V_frame {
             }
         });
 
-
+        //TODO: add description, what does this listen for?
         functionalReqIDList.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 System.out.println(functionalReqIDList.getSelectedValue().toString());  //TODO: fix NullPointerException
-                controllerFrame.notifySelectedListChange(functionalReqIDList.getSelectedValue().toString());
+                //controllerFrame.notifySelectedListChange(functionalReqIDList.getSelectedValue().toString());    //TODO: fix error during compilation ("cannot find symbol")
             }
         });
         newCorrectionFactorButton.addActionListener(new ActionListener() {
@@ -1063,12 +1064,14 @@ public class V_frame implements I_V_frame {
      *
      * @param calcEff  effort calculated before
      * @param corrFact correction factor calculated
+     * @param e2Correction
      */
     @Override
-    public void updateCorrectionPanel(double calcEff, double corrFact) {
+    public void updateCorrectionPanel(double calcEff, double corrFact, int e2Correction) {
         labelCorrectionCalculated.setText(String.valueOf(df2.format(calcEff)) + " Mannmonate");
         labelCorrectionFactor.setText(String.valueOf(df2.format(corrFact)));
         labelCorrectionCalculation.setText(String.valueOf(df2.format(calcEff) + " * e^" + df2.format(corrFact) + " = " + String.valueOf(df2.format((calcEff * Math.exp(corrFact))))));
+        labelE2Correction.setText(String.valueOf(e2Correction));
     }
 
     /**
