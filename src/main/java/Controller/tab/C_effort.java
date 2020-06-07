@@ -151,6 +151,7 @@ public class C_effort implements I_C_effort {
                 projectData.getM_projectData_functionPointEstimation().jonesPersonMonths,
                 projectData.getM_projectData_functionPointEstimation().correctionFactor
         );
+        System.out.println("E2: " + String.valueOf(projectData.getM_projectData_functionPointEstimation().calcE2Needed(viewFrame.getRealTime())));
     }
 
     /**

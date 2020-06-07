@@ -1,19 +1,19 @@
 /**
  * Main: This file is part of CASE-Tool
- *
+ * <p>
  * With the CASE-Tool it is possible to create feasibility studies
  * and save them. The software is based on a student project.
- *
+ * <p>
  * Description:  Model for Function Point Estimation
  */
 
 package Model.projectData;
 
-public class M_projectData_functionPointEstimation/* extends M_project_Data_Estimation */{
+public class M_projectData_functionPointEstimation/* extends M_project_Data_Estimation */ {
     /*public M_projectData_functionPointEstimation(double actualValue, double setpoint) {
         super(actualValue, setpoint);
     }*/
-    public M_projectData_functionPointEstimation(){
+    public M_projectData_functionPointEstimation() {
 
     }
 
@@ -114,7 +114,7 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
      * @param countNo
      * @param value
      */
-    public void setCountVariable(int countNo, int value){
+    public void setCountVariable(int countNo, int value) {
         switch (countNo) {
             case 10:
                 countInputSimple = value;
@@ -173,6 +173,7 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
     }
 
     //TODO: fix not working yet!!!
+
     /**
      * sets one factor to the provided value
      * @param factorNo  which factor to change
@@ -243,7 +244,7 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
                 return factorCustomizability;
             default:
                 return 0;
-                // TODO: evtl. besser try catch -> prüfen und wenn besser implementieren
+            // TODO: evtl. besser try catch -> prüfen und wenn besser implementieren
         }
     }
 
@@ -254,7 +255,7 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
      * @param weight importance of this factor
      * @return result = count * weight
      */
-    public int calculateRowSum(int count, int weight){
+    public int calculateRowSum(int count, int weight) {
         int result = count * weight;
         return result;
     }
@@ -265,7 +266,7 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
      * it therefore runs the calculateRowSum Method for each count variable and
      * stores the weight in the corresponding weight variables
      */
-    public void calculateAllRowSums(){ //TODO: aufgabe des Controllers?
+    public void calculateAllRowSums() { //TODO: aufgabe des Controllers?
         sumInputSimple = calculateRowSum(countInputSimple, weightInputSimple);
         sumInputMedium = calculateRowSum(countInputMedium, weightInputMedium);
         sumInputComplex = calculateRowSum(countInputComplex, weightInputComplex);
@@ -275,7 +276,7 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
         sumQueryComplex = calculateRowSum(countQueryComplex, weightQueryComplex);
 
         sumOutputSimple = calculateRowSum(countOutputSimple, weightOutputSimple);
-        sumOutputMedium = calculateRowSum( countOutputMedium, weightOutputMedium);
+        sumOutputMedium = calculateRowSum(countOutputMedium, weightOutputMedium);
         sumOutputComplex = calculateRowSum(countOutputComplex, weightOutputComplex);
 
         sumDatasetSimple = calculateRowSum(countDatasetSimple, weightDatasetSimple);
@@ -339,21 +340,30 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
     }
 
     //TODO: Warum kein Test -> nur Mathe Klasse getestet (die sollte ja korrekt sein)
+
     /**
      * method calculates values according to the jones estimation and saves them into the model variables
      */
-    public void calcJonesEstimation(){
+    public void calcJonesEstimation() {
         jonesDuration = Math.pow(afp, 0.4);
-        jonesPersonNo = (int) Math.ceil(afp/150);
+        jonesPersonNo = (int) Math.ceil(afp / 150);
         jonesPersonMonths = jonesDuration * jonesPersonNo;
     }
 
     /**
      * this method uses an input for the real duration and calculates a correction factor
      * to estimate the duration better next time
-     * @param realTime
+     * @param realTime time, the project really took till completion
      */
-    public void calcCorrection(double realTime){
-        correctionFactor = Math.log(realTime/jonesPersonMonths);
+    public void calcCorrection(double realTime) {
+        correctionFactor = Math.log(realTime / jonesPersonMonths);
+    }
+
+    /**
+     * calculates the sum of all factors needed to achieve the real time
+     * @param realTime time, the project really took till completion
+     */
+    public int calcE2Needed(double realTime) {
+        return (int) (((Math.pow(realTime/(correctionFactor*jonesPersonNo), 0.4))/e1Sum)-0.7)*100;
     }
 }
