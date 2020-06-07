@@ -655,7 +655,7 @@ public class V_frame implements I_V_frame {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 System.out.println(functionalReqIDList.getSelectedValue().toString());  //TODO: fix NullPointerException
-                //controllerFrame.notifySelectedListChange(functionalReqIDList.getSelectedValue().toString());    //TODO: fix error during compilation ("cannot find symbol")
+                controllerFrame.notifySelectedListChange(functionalReqIDList.getSelectedValue().toString());    //TODO: fix error during compilation ("cannot find symbol")
             }
         });
         newCorrectionFactorButton.addActionListener(new ActionListener() {

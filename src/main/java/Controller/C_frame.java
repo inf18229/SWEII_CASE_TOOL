@@ -1,9 +1,3 @@
-//======================================================================================================================
-//  C_frame
-//
-//  C_frame is the implementation of I_C_frame
-//======================================================================================================================
-
 package Controller;
 
 import Controller.tab.*;
@@ -16,7 +10,7 @@ import View.V_frame;
 import javax.swing.*;
 
 /**
- * implementation of I_C_Start
+ * implementation of I_C_frame
  * handles all programm functions not regarding special VIEWS.
  */
 public class C_frame implements I_C_frame {
@@ -214,8 +208,16 @@ public class C_frame implements I_C_frame {
     public void notifyFuncReqDELETE(){
         controllerFunctionalReqirement.deleteFuncReqElement();
     }
+
+    /**
+     * notify Controller that selected List Item has changed
+     *
+     * @param selectedID
+     */
     @Override
-    public void notifySelectedListChange(String selectedID){
-        controllerFunctionalReqirement.notifyChangeSelectedListItem(selectedID);
+    public void notifySelectedListChange(String selectedID) {
+        if (currentController == controllerFunctionalReqirement){
+            controllerFunctionalReqirement.notifyChangeSelectedListItem(selectedID);
+        }
     }
 }
