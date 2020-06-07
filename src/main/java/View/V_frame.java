@@ -257,6 +257,7 @@ public class V_frame implements I_V_frame {
     private JLabel labelWeightDescription;
     private JButton b_deleteProductFunction;
     private JLabel labelE2Correction;
+    private JLabel labelE2CorrectioDescription;
     DefaultListModel functionalReqListModell;
 
 
@@ -946,6 +947,7 @@ public class V_frame implements I_V_frame {
         labelSumSum.setText(String.valueOf(sum));
     }
 
+
     /**
      * sets sliders to the passed possitions
      *
@@ -1071,7 +1073,17 @@ public class V_frame implements I_V_frame {
         labelCorrectionCalculated.setText(String.valueOf(df2.format(calcEff)) + " Mannmonate");
         labelCorrectionFactor.setText(String.valueOf(df2.format(corrFact)));
         labelCorrectionCalculation.setText(String.valueOf(df2.format(calcEff) + " * e^" + df2.format(corrFact) + " = " + String.valueOf(df2.format((calcEff * Math.exp(corrFact))))));
-        labelE2Correction.setText(String.valueOf(e2Correction));
+        /**
+         * checks if e2Correction is within the boundaries
+         * TODO: maybe better in controller but not so efficient
+         */
+        if (e2Correction >= 0 & e2Correction<60) {
+            labelE2CorrectioDescription.setText("Die Einflussfaktoren müssen geändert werden auf:");
+            labelE2Correction.setText(String.valueOf(e2Correction));
+        } else {
+            labelE2CorrectioDescription.setText("Anpassung der Einflussfaktoren nicht erfolgreich!");
+            labelE2Correction.setText("Selbst durch maximale Anpassung kommen Sie nicht auf den tatsächlichen Aufwand.");
+        }
     }
 
     /**
