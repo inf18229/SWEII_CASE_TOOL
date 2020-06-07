@@ -134,9 +134,10 @@ public class C_effort implements I_C_effort {
      */
     @Override
     public void notifySlider(int sliderNo, int value) {
-        //System.out.println("Slider " + String.valueOf(sliderNo) + " was changed to Value " + String.valueOf(value));  //just for debugging
         projectData.getM_projectData_functionPointEstimation().setFactor(sliderNo, value);
+        projectData.getM_projectData_functionPointEstimation().calcFactorSumE2();
         viewFrame.setSliderText(sliderNo, value);
+        viewFrame.setFactorSumE2(projectData.getM_projectData_functionPointEstimation().e2Sum);
     }
 
     /**

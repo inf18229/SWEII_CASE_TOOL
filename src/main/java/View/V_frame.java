@@ -258,6 +258,7 @@ public class V_frame implements I_V_frame {
     private JButton b_deleteProductFunction;
     private JLabel labelE2Correction;
     private JLabel labelE2CorrectioDescription;
+    private JButton b_automaticSliderValues;
     DefaultListModel functionalReqListModell;
 
 
