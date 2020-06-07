@@ -200,8 +200,9 @@ public interface I_V_frame extends I_V_basic {
      * set the value of E2
      *
      * @param e2sum sum of all factors
+     * @param e2Goal sum to achieve the same effort in calculation as in the real project
      */
-    void setFactorSumE2(int e2sum);
+    void setFactorSumE2(int e2sum, int e2Goal);
 
     /**
      * this method updates the value for E1, E2 and E3 in the Calculation Tab

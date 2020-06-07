@@ -1058,13 +1058,24 @@ public class V_frame implements I_V_frame {
     }
 
     /**
-     * set the value of E2
+     * sets the value of E2
+     * and set the color of the label which shows e2Sum corresponding on deviation from e2Goal
      *
-     * @param e2sum sum of all factors
+     * @param e2Sum  sum of all factors
+     * @param e2Goal sum to achieve the same effort in calculation as in the real project
      */
     @Override
-    public void setFactorSumE2(int e2sum) {
-        labelE2Sum.setText(String.valueOf(e2sum));
+    public void setFactorSumE2(int e2Sum, int e2Goal) {
+        if (e2Sum == e2Goal) {
+            labelE2Sum.setForeground(Color.green.darker());
+        } else if (e2Sum <= e2Goal + 5 & e2Sum >= e2Goal - 5) { // e2Sum == e2Goal +-5
+            labelE2Sum.setForeground(Color.orange.darker());
+        } else if (e2Goal == -1 | e2Goal < 0 | e2Goal > 60) {  // e2Goal was not yet calculated or is out of the correctable range
+            labelE2Sum.setForeground(Color.black);
+        } else {
+            labelE2Sum.setForeground(Color.red.darker());   // e2Goal was calculated but e2Sum is more than 5 off its value
+        }
+        labelE2Sum.setText(String.valueOf(e2Sum));
     }
 
     /**
@@ -1101,8 +1112,8 @@ public class V_frame implements I_V_frame {
      * this method updates all values of the correction factor panel
      * the float cast is used to provide better readability as high precision isn't needed here
      *
-     * @param calcEff  effort calculated before
-     * @param corrFact correction factor calculated
+     * @param calcEff      effort calculated before
+     * @param corrFact     correction factor calculated
      * @param e2Correction
      */
     @Override
@@ -1114,7 +1125,7 @@ public class V_frame implements I_V_frame {
          * checks if e2Correction is within the boundaries
          * TODO: maybe better in controller but not so efficient
          */
-        if (e2Correction >= 0 & e2Correction<60) {
+        if (e2Correction >= 0 & e2Correction < 60) {
             labelE2CorrectioDescription.setText("Die Einflussfaktoren müssen geändert werden auf:");
             labelE2Correction.setText(String.valueOf(e2Correction));
             labelE2SumGoal.setText(String.valueOf(e2Correction));

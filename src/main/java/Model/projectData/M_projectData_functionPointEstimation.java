@@ -109,7 +109,7 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
     public double correctionFactor = 0;
     public double correctedDuration = 0;
 
-    public int e2Correction = 0;
+    public int e2Correction = -1;    //propably better initialized with -1 or 0?
 
     /**
      * this method sets the corresponding count variable depending on countNo
