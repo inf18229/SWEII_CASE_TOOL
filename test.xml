@@ -52,7 +52,7 @@ In der weiteren Entwicklung der Software ist es vorgesehen, eine automatische Ko
         <countInputComplex>1</countInputComplex>
         <countQuerySimple>0</countQuerySimple>
         <countQueryMedium>0</countQueryMedium>
-        <countQueryComplex>0</countQueryComplex>
+        <countQueryComplex>1</countQueryComplex>
         <countOutputSimple>0</countOutputSimple>
         <countOutputMedium>0</countOutputMedium>
         <countOutputComplex>1</countOutputComplex>
@@ -82,7 +82,7 @@ In der weiteren Entwicklung der Software ist es vorgesehen, eine automatische Ko
         <sumInputComplex>6</sumInputComplex>
         <sumQuerySimple>0</sumQuerySimple>
         <sumQueryMedium>0</sumQueryMedium>
-        <sumQueryComplex>0</sumQueryComplex>
+        <sumQueryComplex>6</sumQueryComplex>
         <sumOutputSimple>0</sumOutputSimple>
         <sumOutputMedium>0</sumOutputMedium>
         <sumOutputComplex>7</sumOutputComplex>
@@ -92,25 +92,26 @@ In der weiteren Entwicklung der Software ist es vorgesehen, eine automatische Ko
         <sumReferenceSimple>0</sumReferenceSimple>
         <sumReferenceMedium>0</sumReferenceMedium>
         <sumReferenceComplex>0</sumReferenceComplex>
-        <e1Sum>13</e1Sum>
+        <e1Sum>19</e1Sum>
         <factorEntanglement>1</factorEntanglement>
         <factorDecentralization>1</factorDecentralization>
         <factorTransactionrate>3</factorTransactionrate>
         <factorProcessingCalculation>3</factorProcessingCalculation>
-        <factorProcessingControl>2</factorProcessingControl>
-        <factorProcessingException>8</factorProcessingException>
+        <factorProcessingControl>1</factorProcessingControl>
+        <factorProcessingException>0</factorProcessingException>
         <factorProcessingLogic>2</factorProcessingLogic>
-        <factorReusability>3</factorReusability>
+        <factorReusability>1</factorReusability>
         <factorConversion>5</factorConversion>
         <factorCustomizability>1</factorCustomizability>
-        <e2Sum>29</e2Sum>
+        <e2Sum>18</e2Sum>
         <e3Sum>0.99</e3Sum>
-        <afp>12.87</afp>
-        <jonesDuration>2.778634468498354</jonesDuration>
+        <afp>18.81</afp>
+        <jonesDuration>3.2341154434750554</jonesDuration>
         <jonesPersonNo>1</jonesPersonNo>
-        <jonesPersonMonths>2.778634468498354</jonesPersonMonths>
+        <jonesPersonMonths>3.2341154434750554</jonesPersonMonths>
         <actualDuration>0.0</actualDuration>
         <correctionFactor>INF</correctionFactor>
         <correctedDuration>0.0</correctedDuration>
+        <e2Correction>-1</e2Correction>
     </m_projectData_functionPointEstimation>
 </M_projectData>

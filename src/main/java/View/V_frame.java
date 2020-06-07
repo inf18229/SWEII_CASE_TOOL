@@ -260,6 +260,8 @@ public class V_frame implements I_V_frame {
     private JLabel labelE2SumGoal;
     private JButton b_factorImport;             // button is only visible in effort view and imports a saved set of factors from XML
     private JButton b_factorExport;             // button is only visible in effort view and exports a saved set of factors to XML
+    private JProgressBar pb_E2Sum;
+    private JLabel labelprogressBarE2SumDescription;
     DefaultListModel functionalReqListModell;
 
 
@@ -1077,6 +1079,8 @@ public class V_frame implements I_V_frame {
             labelE2Sum.setForeground(Color.red.darker());   // e2Goal was calculated but e2Sum is more than 5 off its value
         }
         labelE2Sum.setText(String.valueOf(e2Sum));
+        pb_E2Sum.setValue(e2Sum);
+        labelprogressBarE2SumDescription.setText(String.valueOf(e2Sum-30) + " %");
     }
 
     /**
