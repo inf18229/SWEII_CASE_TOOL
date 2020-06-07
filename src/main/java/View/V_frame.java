@@ -947,6 +947,40 @@ public class V_frame implements I_V_frame {
         labelSumSum.setText(String.valueOf(sum));
     }
 
+    /**
+     * returns the value of the selected slider
+     *
+     * @param sliderNo
+     * @return value of the selected slider
+     */
+    @Override
+    public int getSliderValue(int sliderNo) {
+        switch (sliderNo) {
+            case 1:
+                return slider1Entanglement.getValue();
+            case 2:
+                return slider2Decentralization.getValue();
+            case 3:
+                return slider3Transactionrate.getValue();
+            case 41:
+                return slider41ProcessingCalculation.getValue();
+            case 42:
+                return slider42ProcessingControl.getValue();
+            case 43:
+                return slider43ProcessingException.getValue();
+            case 44:
+                return slider44ProcessingLogic.getValue();
+            case 5:
+                return slider5Reusability.getValue();
+            case 6:
+                return slider6Conversion.getValue();
+            case 7:
+                return slider7Customizability.getValue();
+            default:
+                return 0;
+        }
+
+    }
 
     /**
      * sets sliders to the passed possitions
