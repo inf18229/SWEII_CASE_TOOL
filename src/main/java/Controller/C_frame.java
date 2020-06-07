@@ -60,7 +60,8 @@ public class C_frame implements I_C_frame {
                 viewFrame.hideNext();
                 viewFrame.hideLast();
                 viewFrame.hideCalculateNew();
-                viewFrame.hideCalculateNew();
+                viewFrame.hideFactorImport();
+                viewFrame.hideFactorExport();
                 System.out.println("Tab: 0 - General Tab Controller active!");
                 currentController = controllerGeneral;
                 break;
@@ -68,7 +69,8 @@ public class C_frame implements I_C_frame {
                 viewFrame.hideNext();
                 viewFrame.hideLast();
                 viewFrame.hideCalculateNew();
-                viewFrame.hideCalculateNew();
+                viewFrame.hideFactorImport();
+                viewFrame.hideFactorExport();
                 System.out.println("Tab: 1 - Functional Reqirement Controller acitve");
                 currentController = controllerFunctionalReqirement;
                 break;
@@ -76,7 +78,8 @@ public class C_frame implements I_C_frame {
                 viewFrame.hideNext();
                 viewFrame.hideLast();
                 viewFrame.hideCalculateNew();
-                viewFrame.hideCalculateNew();
+                viewFrame.hideFactorImport();
+                viewFrame.hideFactorExport();
                 System.out.println("Tab: 2");
                 break;
             case 3:
@@ -86,7 +89,8 @@ public class C_frame implements I_C_frame {
                 viewFrame.showNext();
                 viewFrame.showLast();
                 viewFrame.showCalculateNew();
-                viewFrame.showCalculateNew();
+                viewFrame.showFactorImport();
+                viewFrame.showFactorExport();
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + newTab);

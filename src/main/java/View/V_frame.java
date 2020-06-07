@@ -14,9 +14,6 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.text.DecimalFormat;
 
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
-
 
 public class V_frame implements I_V_frame {
     I_C_frame controllerFrame;
@@ -222,7 +219,7 @@ public class V_frame implements I_V_frame {
     private JLabel labelE2Sum;
     private JLabel labelCalculationE1Value;
     private JLabel labelCalculationE2Value;
-    private JButton b_calculateNew;
+    private JButton b_calculateNew; // button is only visible in effort view and updates all calculations
     private JList functionalReqIDList;
     private JTextField textFieldReqID;
     private JTextField textFieldReqFunction;
@@ -258,9 +255,11 @@ public class V_frame implements I_V_frame {
     private JButton b_deleteProductFunction;
     private JLabel labelE2Correction;
     private JLabel labelE2CorrectioDescription;
-    private JButton b_automaticSliderValues;
+    private JButton b_automaticSliderValues;    // button is only visible in effort view/factors and randomly updates some slider to achieve the desired project effort
     private JLabel labelE2SumGoalDescription;
     private JLabel labelE2SumGoal;
+    private JButton b_factorImport;             // button is only visible in effort view and imports a saved set of factors from XML
+    private JButton b_factorExport;             // button is only visible in effort view and exports a saved set of factors to XML
     DefaultListModel functionalReqListModell;
 
 
@@ -274,7 +273,7 @@ public class V_frame implements I_V_frame {
         frame = new JFrame("SWE CASE TOOL");
         frame.setContentPane(this.V_framePanel);
         frame.setResizable(false);
-        frame.getContentPane().setPreferredSize(new Dimension(1000, 800)); //460
+        frame.getContentPane().setPreferredSize(new Dimension(1200, 800)); //460
         //Set initial Values here
         targetUse.setText(projData.getM_projectData_targetDefinition().getContent());
         productUse.setText(projData.getM_projectData_productUse().getContent());
@@ -530,6 +529,8 @@ public class V_frame implements I_V_frame {
         b_nextStep.setVisible(false);
         b_lastStep.setVisible(false);
         b_calculateNew.setVisible(false);
+        b_factorImport.setVisible(false);
+        b_factorExport.setVisible(false);
         frame.setVisible(true);
         //change listeners to notify changes on sliders in factor tab and notify frame controller
         slider1Entanglement.addChangeListener(new ChangeListener() {
@@ -1140,7 +1141,7 @@ public class V_frame implements I_V_frame {
      */
     @Override
     public void showNext() {
-        b_nextStep.setVisible(TRUE);
+        b_nextStep.setVisible(true);
     }
 
 
@@ -1149,7 +1150,7 @@ public class V_frame implements I_V_frame {
      */
     @Override
     public void hideNext() {
-        b_nextStep.setVisible(FALSE);
+        b_nextStep.setVisible(false);
     }
 
     /**
@@ -1157,7 +1158,7 @@ public class V_frame implements I_V_frame {
      */
     @Override
     public void showLast() {
-        b_lastStep.setVisible(TRUE);
+        b_lastStep.setVisible(true);
     }
 
     /**
@@ -1165,7 +1166,7 @@ public class V_frame implements I_V_frame {
      */
     @Override
     public void hideLast() {
-        b_lastStep.setVisible(FALSE);
+        b_lastStep.setVisible(false);
     }
 
     /**
@@ -1173,7 +1174,7 @@ public class V_frame implements I_V_frame {
      */
     @Override
     public void showCalculateNew() {
-        b_calculateNew.setVisible(TRUE);
+        b_calculateNew.setVisible(true);
     }
 
     /**
@@ -1181,7 +1182,39 @@ public class V_frame implements I_V_frame {
      */
     @Override
     public void hideCalculateNew() {
-        b_calculateNew.setVisible(FALSE);
+        b_calculateNew.setVisible(false);
+    }
+
+    /**
+     * this method shows the import button to import all factors
+     */
+    @Override
+    public void showFactorImport() {
+        b_factorImport.setVisible(true);
+    }
+
+    /**
+     * this method hides the import button to import all factors
+     */
+    @Override
+    public void hideFactorImport() {
+        b_factorImport.setVisible(false);
+    }
+
+    /**
+     * this method shows the export button to export all factors
+     */
+    @Override
+    public void showFactorExport() {
+        b_factorExport.setVisible(true);
+    }
+
+    /**
+     * this method hides the export button to export all factors
+     */
+    @Override
+    public void hideFactorExport() {
+        b_factorExport.setVisible(false);
     }
 
     /**

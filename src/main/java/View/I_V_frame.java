@@ -262,6 +262,26 @@ public interface I_V_frame extends I_V_basic {
     void hideCalculateNew();
 
     /**
+     * this method shows the import button to import all factors
+     */
+    void showFactorImport();
+
+    /**
+     * this method hides the import button to import all factors
+     */
+    void hideFactorImport();
+
+    /**
+     * this method shows the export button to export all factors
+     */
+    void showFactorExport();
+
+    /**
+     * this method hides the export button to export all factors
+     */
+    void hideFactorExport();
+
+    /**
      * method goes to the next step in effort analysis
      */
     void nextStepEffort();
