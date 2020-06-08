@@ -28,7 +28,7 @@ public class C_frame implements I_C_frame {
         System.out.println("C_frame created");
         controllerStart = conStart;
         projectData = projData;
-        viewFrame = new V_frame(this,projectData);
+        viewFrame = new V_frame(this, projectData);
         projectData_export = new M_export();
         createTabControllers();
         I_V_basic.show(viewFrame.getJFrame());
@@ -43,7 +43,7 @@ public class C_frame implements I_C_frame {
     @Override
     public void createTabControllers(/*I_C_frame.tabs tabs*/) {
         controllerEffort = new C_effort(viewFrame, projectData);
-        controllerFunctionalReqirement=new C_functionalReqirement(viewFrame,projectData);
+        controllerFunctionalReqirement = new C_functionalReqirement(viewFrame, projectData);
         controllerGeneral = new C_general(viewFrame, projectData);
         System.out.println("General Controller created");
     }
@@ -51,6 +51,7 @@ public class C_frame implements I_C_frame {
     /**
      * depending on the int newTab it switches to the specified Tab
      * and runs the necessary functions in the view to show/hide buttons needed/not needed
+     *
      * @param newTab integer of the newly selected tab
      */
     @Override
@@ -98,6 +99,17 @@ public class C_frame implements I_C_frame {
     }
 
     /**
+     * should notify C_effort that the tab in V_Effort_Tabs has changed
+     */
+    @Override
+    public void notifyTabChangeEffort() {
+        if (currentController == controllerEffort) {
+            controllerEffort.updateProjectData();
+        }
+        //else do nothing
+    }
+
+    /**
      * notifies the Controller, that a slider was changed
      *
      * @param sliderNo integer to identify the slider that was changed
@@ -105,7 +117,7 @@ public class C_frame implements I_C_frame {
      */
     @Override
     public void notifySlider(int sliderNo, int value) {
-        if (currentController == controllerEffort){
+        if (currentController == controllerEffort) {
             controllerEffort.notifySlider(sliderNo, value);
         }
         //else do nothing
@@ -128,7 +140,7 @@ public class C_frame implements I_C_frame {
      */
     @Override
     public void notifyClose() {
-        String ObjButtons[] = {"Ja","Nein"};
+        String ObjButtons[] = {"Ja", "Nein"};
         int promptResult = JOptionPane.showOptionDialog(
                 null,
                 "Wirklich zurück zum Startmenü? \nUngespeicherte Änderungen gehen verloren!",
@@ -160,7 +172,7 @@ public class C_frame implements I_C_frame {
      */
     @Override
     public void notifyNext() {
-        if (currentController == controllerEffort){
+        if (currentController == controllerEffort) {
             controllerEffort.notifyNext();
         }
     }
@@ -170,7 +182,7 @@ public class C_frame implements I_C_frame {
      */
     @Override
     public void notifyLast() {
-        if (currentController == controllerEffort){
+        if (currentController == controllerEffort) {
             controllerEffort.notifyLast();
         }
     }
@@ -180,7 +192,7 @@ public class C_frame implements I_C_frame {
      */
     @Override
     public void notifyAdjustFactors() {
-        if (currentController == controllerEffort){
+        if (currentController == controllerEffort) {
             controllerEffort.notifyAdjustFactors();
         }
     }
@@ -193,7 +205,7 @@ public class C_frame implements I_C_frame {
      */
     @Override
     public void notifyExit() {
-        String ObjButtons[] = {"Ja","Nein"};
+        String ObjButtons[] = {"Ja", "Nein"};
         int promptResult = JOptionPane.showOptionDialog(
                 null,
                 "Programm wirklich beenden? \nUngespeicherte Änderungen gehen verloren!",
@@ -214,12 +226,12 @@ public class C_frame implements I_C_frame {
     }
 
     @Override
-    public void notifyFuncReqNEW(){
+    public void notifyFuncReqNEW() {
         controllerFunctionalReqirement.newFuncReqElement();
     }
 
     @Override
-    public void notifyFuncReqDELETE(){
+    public void notifyFuncReqDELETE() {
         controllerFunctionalReqirement.deleteFuncReqElement();
     }
 
@@ -230,7 +242,7 @@ public class C_frame implements I_C_frame {
      */
     @Override
     public void notifySelectedListChange(String selectedID) {
-        if (currentController == controllerFunctionalReqirement){
+        if (currentController == controllerFunctionalReqirement) {
             controllerFunctionalReqirement.notifyChangeSelectedListItem(selectedID);
         }
     }

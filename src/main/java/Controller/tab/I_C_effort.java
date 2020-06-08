@@ -48,12 +48,14 @@ public interface I_C_effort extends I_C_tab {
 
     /**
      * increases Factors by given value
+     *
      * @param increase value how much the factors should be increased
      */
     void increaseFactors(int increase);
 
     /**
      * decreases Factors by given value
+     *
      * @param decrease value how much the factors should be decreased
      */
     void decreaseFactors(int decrease);

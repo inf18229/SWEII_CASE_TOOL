@@ -31,6 +31,11 @@ public interface I_C_frame {
     void notifyTabChange(int newTab);
 
     /**
+     * should notify C_effort that the tab in V_Effort_Tabs has changed
+     */
+    void notifyTabChangeEffort();
+
+    /**
      * notifies the Controller, that a slider was changed
      *
      * @param sliderNo integer to identify the slider that was changed

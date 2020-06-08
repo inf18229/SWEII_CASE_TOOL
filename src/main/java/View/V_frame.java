@@ -697,6 +697,17 @@ public class V_frame implements I_V_frame {
                 controllerFrame.notifyAdjustFactors();
             }
         });
+        V_Effort_Tabs.addChangeListener(new ChangeListener() {
+            /**
+             * Invoked when the target of the listener has changed its state.
+             *
+             * @param e a ChangeEvent object
+             */
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                controllerFrame.notifyTabChangeEffort();
+            }
+        });
     }
 
     /**
@@ -1091,7 +1102,7 @@ public class V_frame implements I_V_frame {
         }
         labelE2Sum.setText(String.valueOf(e2Sum));
         pb_E2Sum.setValue(e2Sum);
-        labelprogressBarE2SumDescription.setText(String.valueOf(e2Sum-30) + " %");
+        labelprogressBarE2SumDescription.setText(String.valueOf(e2Sum - 30) + " %");
     }
 
     /**

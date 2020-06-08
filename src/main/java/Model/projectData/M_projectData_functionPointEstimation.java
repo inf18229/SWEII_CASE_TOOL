@@ -113,6 +113,7 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
 
     /**
      * this method sets the corresponding count variable depending on countNo
+     *
      * @param countNo
      * @param value
      */
@@ -178,8 +179,9 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
 
     /**
      * sets one factor to the provided value
-     * @param factorNo  which factor to change
-     * @param value     what value to set it to
+     *
+     * @param factorNo which factor to change
+     * @param value    what value to set it to
      */
     public void setFactor(int factorNo, int value) {
         switch (factorNo) {
@@ -220,7 +222,8 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
 
     /**
      * gets the value of the factor
-     * @param factorNo  which factor to get
+     *
+     * @param factorNo which factor to get
      */
     public int getFactor(int factorNo) {
         switch (factorNo) {
@@ -253,7 +256,8 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
     /**
      * calculates the Sum for one row
      * depending on the count and weight
-     * @param count total number of type
+     *
+     * @param count  total number of type
      * @param weight importance of this factor
      * @return result = count * weight
      */
@@ -355,6 +359,7 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
     /**
      * this method uses an input for the real duration and calculates a correction factor
      * to estimate the duration better next time
+     *
      * @param realTime time, the project really took till completion
      */
     public void calcCorrection(double realTime) {
@@ -363,12 +368,13 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
 
     /**
      * calculates the sum of all factors needed to achieve the real time
+     *
      * @param realTime time, the project really took till completion
      */
     public void calcE2Needed(double realTime) {
-        double temp = realTime/(Math.exp(0)*jonesPersonNo);
-        double temp1 = Math.pow(temp, 1/0.4);
-        double temp2 = temp1/e1Sum;
+        double temp = realTime / (Math.exp(0) * jonesPersonNo);
+        double temp1 = Math.pow(temp, 1 / 0.4);
+        double temp2 = temp1 / e1Sum;
         double temp3 = temp2 - 0.7;
         double tempFinal = (temp3 * 100);
         e2Correction = (int) tempFinal;

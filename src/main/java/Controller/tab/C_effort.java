@@ -99,7 +99,7 @@ public class C_effort implements I_C_effort {
         viewFrame.setSliderText(6, projectData.getM_projectData_functionPointEstimation().getFactor(6));
         viewFrame.setSliderText(7, projectData.getM_projectData_functionPointEstimation().getFactor(7));
         viewFrame.setFactorSumE2(projectData.getM_projectData_functionPointEstimation().e2Sum,
-                                projectData.getM_projectData_functionPointEstimation().e2Correction);
+                projectData.getM_projectData_functionPointEstimation().e2Correction);
         // update values in tab Calculation
         viewFrame.updateCalculationTab(
                 projectData.getM_projectData_functionPointEstimation().e1Sum,
@@ -141,7 +141,7 @@ public class C_effort implements I_C_effort {
         projectData.getM_projectData_functionPointEstimation().calcFactorSumE2();
         viewFrame.setSliderText(sliderNo, value);
         viewFrame.setFactorSumE2(projectData.getM_projectData_functionPointEstimation().e2Sum,
-                                projectData.getM_projectData_functionPointEstimation().e2Correction);
+                projectData.getM_projectData_functionPointEstimation().e2Correction);
     }
 
     /**
@@ -313,92 +313,92 @@ public class C_effort implements I_C_effort {
             switch (factorIterator) {
                 case 0: // factorEntanglement
                     adjustment = Math.abs(5 - projectData.getM_projectData_functionPointEstimation().factorEntanglement);
-                        if (adjustment > 0){
-                            projectData.getM_projectData_functionPointEstimation().factorEntanglement ++;
-                            increase --;
-                        } else {
-                            factorIterator ++;
-                        }
+                    if (adjustment > 0) {
+                        projectData.getM_projectData_functionPointEstimation().factorEntanglement++;
+                        increase--;
+                    } else {
+                        factorIterator++;
+                    }
                     break;
                 case 1: // factorDecentralization
                     adjustment = Math.abs(5 - projectData.getM_projectData_functionPointEstimation().factorDecentralization);
-                    if (adjustment > 0){
-                        projectData.getM_projectData_functionPointEstimation().factorDecentralization ++;
-                        increase --;
+                    if (adjustment > 0) {
+                        projectData.getM_projectData_functionPointEstimation().factorDecentralization++;
+                        increase--;
                     } else {
-                        factorIterator ++;
+                        factorIterator++;
                     }
                     break;
                 case 2: // factorTransactionrate
                     adjustment = Math.abs(5 - projectData.getM_projectData_functionPointEstimation().factorTransactionrate);
-                    if (adjustment > 0){
-                        projectData.getM_projectData_functionPointEstimation().factorTransactionrate ++;
-                        increase --;
+                    if (adjustment > 0) {
+                        projectData.getM_projectData_functionPointEstimation().factorTransactionrate++;
+                        increase--;
                     } else {
-                        factorIterator ++;
+                        factorIterator++;
                     }
                     break;
                 case 3: // factorProcessingCalculation
                     adjustment = Math.abs(10 - projectData.getM_projectData_functionPointEstimation().factorProcessingCalculation);
-                    if (adjustment > 0){
-                        projectData.getM_projectData_functionPointEstimation().factorProcessingCalculation ++;
-                        increase --;
+                    if (adjustment > 0) {
+                        projectData.getM_projectData_functionPointEstimation().factorProcessingCalculation++;
+                        increase--;
                     } else {
-                        factorIterator ++;
+                        factorIterator++;
                     }
                     break;
                 case 4: // // factorProcessingControl
                     adjustment = Math.abs(5 - projectData.getM_projectData_functionPointEstimation().factorProcessingControl);
-                    if (adjustment > 0){
-                        projectData.getM_projectData_functionPointEstimation().factorProcessingControl ++;
-                        increase --;
+                    if (adjustment > 0) {
+                        projectData.getM_projectData_functionPointEstimation().factorProcessingControl++;
+                        increase--;
                     } else {
-                        factorIterator ++;
+                        factorIterator++;
                     }
                     break;
                 case 5: // factorProcessingException
                     adjustment = Math.abs(10 - projectData.getM_projectData_functionPointEstimation().factorProcessingException);
-                    if (adjustment > 0){
-                        projectData.getM_projectData_functionPointEstimation().factorProcessingException ++;
-                        increase --;
+                    if (adjustment > 0) {
+                        projectData.getM_projectData_functionPointEstimation().factorProcessingException++;
+                        increase--;
                     } else {
-                        factorIterator ++;
+                        factorIterator++;
                     }
                     break;
                 case 6: // factorProcessingLogic
                     adjustment = Math.abs(5 - projectData.getM_projectData_functionPointEstimation().factorProcessingLogic);
-                    if (adjustment > 0){
-                        projectData.getM_projectData_functionPointEstimation().factorProcessingLogic ++;
-                        increase --;
+                    if (adjustment > 0) {
+                        projectData.getM_projectData_functionPointEstimation().factorProcessingLogic++;
+                        increase--;
                     } else {
-                        factorIterator ++;
+                        factorIterator++;
                     }
                     break;
                 case 7: // factorReusability
                     adjustment = Math.abs(5 - projectData.getM_projectData_functionPointEstimation().factorReusability);
-                    if (adjustment > 0){
-                        projectData.getM_projectData_functionPointEstimation().factorReusability ++;
-                        increase --;
+                    if (adjustment > 0) {
+                        projectData.getM_projectData_functionPointEstimation().factorReusability++;
+                        increase--;
                     } else {
-                        factorIterator ++;
+                        factorIterator++;
                     }
                     break;
                 case 8: // factorConversion
                     adjustment = Math.abs(5 - projectData.getM_projectData_functionPointEstimation().factorConversion);
-                    if (adjustment > 0){
-                        projectData.getM_projectData_functionPointEstimation().factorConversion ++;
-                        increase --;
+                    if (adjustment > 0) {
+                        projectData.getM_projectData_functionPointEstimation().factorConversion++;
+                        increase--;
                     } else {
-                        factorIterator ++;
+                        factorIterator++;
                     }
                     break;
                 case 9: // factorCustomizability
                     adjustment = Math.abs(5 - projectData.getM_projectData_functionPointEstimation().factorCustomizability);
-                    if (adjustment > 0){
-                        projectData.getM_projectData_functionPointEstimation().factorCustomizability ++;
-                        increase --;
+                    if (adjustment > 0) {
+                        projectData.getM_projectData_functionPointEstimation().factorCustomizability++;
+                        increase--;
                     } else {
-                        factorIterator ++;
+                        factorIterator++;
                     }
                     break;
                 default:
@@ -422,91 +422,91 @@ public class C_effort implements I_C_effort {
                 case 0:  // factorEntanglement
                     adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation().factorEntanglement);
                     if (adjustment > 0) {
-                        projectData.getM_projectData_functionPointEstimation().factorEntanglement --;
-                         decrease --;
+                        projectData.getM_projectData_functionPointEstimation().factorEntanglement--;
+                        decrease--;
                     } else {
-                        factorIterator ++;
+                        factorIterator++;
                     }
                     break;
                 case 1: // factorDecentralization
                     adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation().factorDecentralization);
-                    if (adjustment > 0){
-                        projectData.getM_projectData_functionPointEstimation().factorDecentralization --;
-                        decrease --;
+                    if (adjustment > 0) {
+                        projectData.getM_projectData_functionPointEstimation().factorDecentralization--;
+                        decrease--;
                     } else {
-                        factorIterator ++;
+                        factorIterator++;
                     }
                     break;
                 case 2: // factorTransactionrate
                     adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation().factorTransactionrate);
-                    if (adjustment > 0){
-                        projectData.getM_projectData_functionPointEstimation().factorTransactionrate --;
-                        decrease --;
+                    if (adjustment > 0) {
+                        projectData.getM_projectData_functionPointEstimation().factorTransactionrate--;
+                        decrease--;
                     } else {
-                        factorIterator ++;
+                        factorIterator++;
                     }
                     break;
                 case 3: // factorProcessingCalculation
                     adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation().factorProcessingCalculation);
-                    if (adjustment > 0){
-                        projectData.getM_projectData_functionPointEstimation().factorProcessingCalculation --;
-                        decrease --;
+                    if (adjustment > 0) {
+                        projectData.getM_projectData_functionPointEstimation().factorProcessingCalculation--;
+                        decrease--;
                     } else {
-                        factorIterator ++;
+                        factorIterator++;
                     }
                     break;
                 case 4: // factorProcessingControl
                     adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation().factorProcessingControl);
-                    if (adjustment > 0){
-                        projectData.getM_projectData_functionPointEstimation().factorProcessingControl --;
-                        decrease --;
+                    if (adjustment > 0) {
+                        projectData.getM_projectData_functionPointEstimation().factorProcessingControl--;
+                        decrease--;
                     } else {
-                        factorIterator ++;
+                        factorIterator++;
                     }
                     break;
                 case 5: // factorProcessingException
                     adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation().factorProcessingException);
-                    if (adjustment > 0){
-                        projectData.getM_projectData_functionPointEstimation().factorProcessingException --;
-                        decrease --;
+                    if (adjustment > 0) {
+                        projectData.getM_projectData_functionPointEstimation().factorProcessingException--;
+                        decrease--;
                     } else {
-                        factorIterator ++;
+                        factorIterator++;
                     }
                     break;
                 case 6: // factorProcessingLogic
                     adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation().factorProcessingLogic);
-                    if (adjustment > 0){
-                        projectData.getM_projectData_functionPointEstimation().factorProcessingLogic --;
-                        decrease --;
+                    if (adjustment > 0) {
+                        projectData.getM_projectData_functionPointEstimation().factorProcessingLogic--;
+                        decrease--;
                     } else {
-                        factorIterator ++;
+                        factorIterator++;
                     }
                     break;
                 case 7: // factorReusability
                     adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation().factorReusability);
-                    if (adjustment > 0){
-                        projectData.getM_projectData_functionPointEstimation().factorReusability --;
-                        decrease --;
+                    if (adjustment > 0) {
+                        projectData.getM_projectData_functionPointEstimation().factorReusability--;
+                        decrease--;
                     } else {
-                        factorIterator ++;
+                        factorIterator++;
                     }
                     break;
                 case 8: // factorConversion
                     adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation().factorConversion);
-                    if (adjustment > 0){
-                        projectData.getM_projectData_functionPointEstimation().factorConversion --;
-                        decrease --;
+                    if (adjustment > 0) {
+                        projectData.getM_projectData_functionPointEstimation().factorConversion--;
+                        decrease--;
                     } else {
-                        factorIterator ++;
+                        factorIterator++;
                     }
                     break;
                 case 9: // factorCustomizability
                     adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation().factorCustomizability);
-                    if (adjustment > 0){
-                        projectData.getM_projectData_functionPointEstimation().factorCustomizability --;
-                        decrease --;
+                    if (adjustment > 0) {
+                        projectData.getM_projectData_functionPointEstimation().factorCustomizability--;
+                        decrease--;
                     } else {
-                        factorIterator ++;
+                        factorIterator++;
                     }
                     break;
                 default:
