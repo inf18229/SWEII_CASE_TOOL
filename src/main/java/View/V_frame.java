@@ -219,7 +219,6 @@ public class V_frame implements I_V_frame {
     private JLabel labelE2Sum;
     private JLabel labelCalculationE1Value;
     private JLabel labelCalculationE2Value;
-    private JButton b_calculateNew; // button is only visible in effort view and updates all calculations
     private JList functionalReqIDList;
     private JTextField textFieldReqID;
     private JTextField textFieldReqFunction;
@@ -530,7 +529,6 @@ public class V_frame implements I_V_frame {
         frame.setLocationRelativeTo(null);  //places the window in the center of the screen
         b_nextStep.setVisible(false);
         b_lastStep.setVisible(false);
-        b_calculateNew.setVisible(false);
         b_factorImport.setVisible(false);
         b_factorExport.setVisible(false);
         frame.setVisible(true);
@@ -643,17 +641,6 @@ public class V_frame implements I_V_frame {
             @Override
             public void stateChanged(ChangeEvent e) {
                 controllerFrame.notifySlider(7, slider7Customizability.getValue());
-            }
-        });
-        b_calculateNew.addActionListener(new ActionListener() {
-            /**
-             * Invoked when an action occurs.
-             *
-             * @param e the event to be processed
-             */
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                controllerFrame.notifyCalculate();
             }
         });
 
@@ -1220,22 +1207,6 @@ public class V_frame implements I_V_frame {
     @Override
     public void hideLast() {
         b_lastStep.setVisible(false);
-    }
-
-    /**
-     * this method shows the calculate New button
-     */
-    @Override
-    public void showCalculateNew() {
-        b_calculateNew.setVisible(true);
-    }
-
-    /**
-     * this method hides the calculate New button
-     */
-    @Override
-    public void hideCalculateNew() {
-        b_calculateNew.setVisible(false);
     }
 
     /**

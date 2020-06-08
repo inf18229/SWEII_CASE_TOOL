@@ -65,7 +65,6 @@ public class C_frame implements I_C_frame {
             case 0:
                 viewFrame.hideNext();
                 viewFrame.hideLast();
-                viewFrame.hideCalculateNew();
                 viewFrame.hideFactorImport();
                 viewFrame.hideFactorExport();
                 System.out.println("Tab: 0 - General Tab Controller active!");
@@ -74,7 +73,6 @@ public class C_frame implements I_C_frame {
             case 1:
                 viewFrame.hideNext();
                 viewFrame.hideLast();
-                viewFrame.hideCalculateNew();
                 viewFrame.hideFactorImport();
                 viewFrame.hideFactorExport();
                 System.out.println("Tab: 1 - Functional Reqirement Controller acitve");
@@ -83,7 +81,6 @@ public class C_frame implements I_C_frame {
             case 2:
                 viewFrame.hideNext();
                 viewFrame.hideLast();
-                viewFrame.hideCalculateNew();
                 viewFrame.hideFactorImport();
                 viewFrame.hideFactorExport();
                 System.out.println("Tab: 2");
@@ -94,7 +91,6 @@ public class C_frame implements I_C_frame {
                 currentController.updateProjectData(); //reads project data and refreshes view TODO: maybe add updateView() for all Controllers?
                 viewFrame.showNext();
                 viewFrame.showLast();
-                viewFrame.showCalculateNew();
                 viewFrame.showFactorImport();
                 viewFrame.showFactorExport();
                 break;
