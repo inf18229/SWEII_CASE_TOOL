@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import java.util.ArrayList;
 
-@XmlRootElement(name = "M_projectData")
+@XmlRootElement(name="M_projectData")
 @XmlAccessorType(XmlAccessType.FIELD)
 
 //TODO: Make to Singleton
