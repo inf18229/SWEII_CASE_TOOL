@@ -265,6 +265,46 @@ public class C_effort implements I_C_effort {
         projectData.getM_projectData_functionPointEstimation().setCountVariable(52, countReferenceComplex);
     }
 
+    /**
+     * this method should automatically update the values for the factors to meet the e2goal
+     */
+    @Override
+    public void notifyAdjustFactors() {
+        System.out.println("Automatische Anpassung gedrückt");
+        int e2Sum = projectData.getM_projectData_functionPointEstimation().e2Sum;
+        int e2Goal = projectData.getM_projectData_functionPointEstimation().e2Correction;
+        // e2Failure positive if e2Sum > e2Goal
+        // e2Failure negative if e2Sum < e2Goal
+        int e2Failure = e2Sum - e2Goal;
+        // TODO: check if e2Failure can be corrected
+        // e2Failure > 0  -  e2Sum - e2Failure >= 0?
+        // e2Failure < 0  -  e2Sum + e2Failure <= 60?
+        int factorIterator = 0; // Iterator to decide which factor to switch
+        if (e2Failure != 0) { // the goal sum is not achieved yet
+            switch (factorIterator) {
+                case 0:
+                    if (e2Failure > 0){ // e2Sum > e2Goal -> factors should be decreased
+                        int adjustmentNegative = Math.abs(0 - projectData.getM_projectData_functionPointEstimation().factorEntanglement);
+                        if (adjustmentNegative > 0){
+                            projectData.getM_projectData_functionPointEstimation().factorEntanglement = projectData.getM_projectData_functionPointEstimation().factorEntanglement - 1;
+                            //e2Failure = e2Failure - 1;
+                        }
+                    } else if (e2Failure < 0) { // e2Sum < e2Goal -> factors should be increased
+                        int adjustmentPositive = Math.abs(5 - projectData.getM_projectData_functionPointEstimation().factorEntanglement);
+                        if (adjustmentPositive > 0) {
+                            projectData.getM_projectData_functionPointEstimation().factorEntanglement = projectData.getM_projectData_functionPointEstimation().factorEntanglement + 1;
+                            //e2Failure = e2Failure + 1;
+                        }
+                    }
+                    updateProjectData();
+                    break;
+                default:
+                    updateProjectData();
+                    break;
+            }
+        }
+    }
+
     @Override
     public void updateProjectData() {
         //TODO: get Data from Model

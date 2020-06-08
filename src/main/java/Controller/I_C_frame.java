@@ -64,6 +64,11 @@ public interface I_C_frame {
     void notifyLast();
 
     /**
+     * this method should automatically update the values for the factors to meet the e2goal
+     */
+    void notifyAdjustFactors();
+
+    /**
      * notifies the Controller that the user wants to close the program window
      */
     void notifyExit();

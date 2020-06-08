@@ -40,4 +40,9 @@ public interface I_C_effort extends I_C_tab {
      * and saves the calculated value in the corresponding count variable
      */
     void calculateCounts();
+
+    /**
+     * this method should automatically update the values for the factors to meet the e2goal
+     */
+    void notifyAdjustFactors();
 }

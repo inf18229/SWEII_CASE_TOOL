@@ -176,6 +176,16 @@ public class C_frame implements I_C_frame {
     }
 
     /**
+     * this method should automatically update the values for the factors to meet the e2goal
+     */
+    @Override
+    public void notifyAdjustFactors() {
+        if (currentController == controllerEffort){
+            controllerEffort.notifyAdjustFactors();
+        }
+    }
+
+    /**
      * notifies the Controller that the user wants to close the program window
      * the controller therefore asks if the user really want to do it
      * if prompt allowed -> close program

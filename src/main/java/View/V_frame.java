@@ -686,6 +686,17 @@ public class V_frame implements I_V_frame {
             }
         });
         spinnerCorrectionActualValue.addComponentListener(new ComponentAdapter() {});*/
+        b_automaticSliderValues.addActionListener(new ActionListener() {
+            /**
+             * Invoked when an action occurs.
+             *
+             * @param e the event to be processed
+             */
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controllerFrame.notifyAdjustFactors();
+            }
+        });
     }
 
     /**
