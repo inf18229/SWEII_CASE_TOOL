@@ -276,33 +276,78 @@ public class C_effort implements I_C_effort {
         // e2Failure positive if e2Sum > e2Goal
         // e2Failure negative if e2Sum < e2Goal
         int e2Failure = e2Sum - e2Goal;
-        // TODO: check if e2Failure can be corrected
-        // e2Failure > 0  -  e2Sum - e2Failure >= 0?
-        // e2Failure < 0  -  e2Sum + e2Failure <= 60?
+        // checks if e2Failure can be corrected
+        if (e2Failure > 0) {    // e2Sum > e2Goal -> factors should be decreased
+            System.out.println("e2Sum needs to be decreased");
+            if (e2Sum - e2Failure >= 0) {
+                System.out.println("Correcting Factors");
+                decreaseFactors(Math.abs(e2Failure));
+            } else {
+                System.out.println("Failure can't be corrected by adjusting factors.");
+            }
+        } else if (e2Failure < 0) { // e2Sum < e2Goal -> factors should be increased
+            System.out.println("e2Sum needs to be increased");
+            if (e2Sum + Math.abs(e2Failure) <= 60) {
+                System.out.println("Correcting Factors");
+                increaseFactors(Math.abs(e2Failure));
+            } else {
+                System.out.println("Failure can't be corrected by adjusting factors.");
+            }
+        } else {
+            System.out.println("no failure to correct");
+        }
+    }
+
+    /**
+     * increases Factors by given value
+     *
+     * @param increase value how much the factors should be increased
+     */
+    @Override
+    public void increaseFactors(int increase) {
         int factorIterator = 0; // Iterator to decide which factor to switch
-        if (e2Failure != 0) { // the goal sum is not achieved yet
+        if (increase > 0) { // the goal sum is not achieved yet
             switch (factorIterator) {
                 case 0:
-                    if (e2Failure > 0){ // e2Sum > e2Goal -> factors should be decreased
-                        int adjustmentNegative = Math.abs(0 - projectData.getM_projectData_functionPointEstimation().factorEntanglement);
-                        if (adjustmentNegative > 0){
-                            projectData.getM_projectData_functionPointEstimation().factorEntanglement = projectData.getM_projectData_functionPointEstimation().factorEntanglement - 1;
-                            //e2Failure = e2Failure - 1;
-                        }
-                    } else if (e2Failure < 0) { // e2Sum < e2Goal -> factors should be increased
-                        int adjustmentPositive = Math.abs(5 - projectData.getM_projectData_functionPointEstimation().factorEntanglement);
-                        if (adjustmentPositive > 0) {
+                    int adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation().factorEntanglement);
+                        if (adjustment > 0){
                             projectData.getM_projectData_functionPointEstimation().factorEntanglement = projectData.getM_projectData_functionPointEstimation().factorEntanglement + 1;
-                            //e2Failure = e2Failure + 1;
+                            //increase = increase - 1;
                         }
-                    }
-                    updateProjectData();
+                    //updateProjectData();
                     break;
                 default:
-                    updateProjectData();
+                    //updateProjectData();
                     break;
             }
         }
+        updateProjectData();
+    }
+
+    /**
+     * decreases Factors by given value
+     *
+     * @param decrease value how much the factors should be decreased
+     */
+    @Override
+    public void decreaseFactors(int decrease) {
+        int factorIterator = 0; // Iterator to decide which factor to switch
+        if (decrease > 0) { // the goal sum is not achieved yet
+            switch (factorIterator) {
+                case 0:
+                    int adjustment = Math.abs(5 - projectData.getM_projectData_functionPointEstimation().factorEntanglement);
+                    if (adjustment > 0) {
+                        projectData.getM_projectData_functionPointEstimation().factorEntanglement = projectData.getM_projectData_functionPointEstimation().factorEntanglement - 1;
+                         //decrease = decrease - 1;
+                    }
+                    //updateProjectData();
+                    break;
+                default:
+                    //updateProjectData();
+                    break;
+            }
+        }
+        updateProjectData();
     }
 
     @Override

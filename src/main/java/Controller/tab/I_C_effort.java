@@ -45,4 +45,16 @@ public interface I_C_effort extends I_C_tab {
      * this method should automatically update the values for the factors to meet the e2goal
      */
     void notifyAdjustFactors();
+
+    /**
+     * increases Factors by given value
+     * @param increase value how much the factors should be increased
+     */
+    void increaseFactors(int increase);
+
+    /**
+     * decreases Factors by given value
+     * @param decrease value how much the factors should be decreased
+     */
+    void decreaseFactors(int decrease);
 }
