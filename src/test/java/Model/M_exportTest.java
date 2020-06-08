@@ -8,6 +8,7 @@ import java.nio.file.InvalidPathException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+//TODO: JAXBException --> Kein Test weil wir davon ausgehen dass JAXB korrekt durchläuft
 class M_exportTest {
     // Equivilence classes:
     // 1. tests whether marshalling works with M_projectdata pointing to null
@@ -60,5 +61,21 @@ class M_exportTest {
         //Tests whether the more realistic path from path2 is valid
         String path2 = "test_export?.xml";
         assertThrows(InvalidPathException.class, () -> export_test.export(projData_test, path2));
+    }
+
+    //4. Testcase
+    @Test
+    void export_cleanRun() {
+        try{
+            M_export export_test = new M_export();
+            M_projectData projData_test = new M_projectData();
+            projData_test.getM_projectData_productUse().setContent("TestProductUse");
+            String path = "test.xml";
+            export_test.export(projData_test,path);
+        }
+        catch(Exception e){
+            e.getStackTrace();
+        }
+
     }
 }

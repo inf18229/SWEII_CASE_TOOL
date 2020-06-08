@@ -2,6 +2,7 @@ package Model;
 
 
 import Model.projectData.M_projectData;
+import Model.projectData.M_projectData_functionPointEstimation;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
@@ -16,10 +17,12 @@ public class M_import {
     /**
      * this class imports a Project from an XML file
      */
-    private M_projectData projectData;
+    private M_projectData projData;
+    private M_projectData_functionPointEstimation_configData confData;
 
     public M_import() {
-        projectData = new M_projectData();
+        projData = new M_projectData();
+        confData = new M_projectData_functionPointEstimation_configData();
     }
 
     // code idea from: https://howtodoinjava.com/jaxb/unmarshal-without-xmlrootelement/
@@ -34,21 +37,52 @@ public class M_import {
         if (!xmlFile.exists()) {
             throw new RuntimeException("File does not exist");
         }
+        else {
+            JAXBContext jaxbContext;
+            try {
+                jaxbContext = JAXBContext.newInstance(M_projectData.class);
+                Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 
-        JAXBContext jaxbContext;
-        try {
-            jaxbContext = JAXBContext.newInstance(M_projectData.class);
-            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+                JAXBElement<M_projectData> jaxbElement = (JAXBElement<M_projectData>) jaxbUnmarshaller
+                        .unmarshal(new StreamSource(xmlFile), M_projectData.class);
 
-            JAXBElement<M_projectData> jaxbElement = (JAXBElement<M_projectData>) jaxbUnmarshaller
-                    .unmarshal(new StreamSource(xmlFile), M_projectData.class);
-
-            M_projectData projectData_temp = jaxbElement.getValue();
-            projectData = projectData_temp;
-            System.out.println(projectData_temp);
-        } catch (JAXBException e) {
-            e.printStackTrace();
+                M_projectData projectData_temp = jaxbElement.getValue();
+                projData = projectData_temp;
+                System.out.println(projectData_temp);
+            } catch (JAXBException e) {
+                e.printStackTrace();
+            }
         }
-        return projectData;
+        return projData;
+    }
+
+    public M_projectData_functionPointEstimation_configData import_configData(String path) {
+        /**
+         * This function imports a project by converting an XML file to the projectData Java Object
+         * @param path the path for the project that has to be imported
+         * @return projectData returns the loaded project in a M_projectData object
+         */
+
+        File xmlFile = new File(path);
+        if (!xmlFile.exists()) {
+            throw new RuntimeException("File does not exist");
+        }
+        else {
+            JAXBContext jaxbContext;
+            try {
+                jaxbContext = JAXBContext.newInstance(M_projectData_functionPointEstimation_configData.class);
+                Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+
+                JAXBElement<M_projectData> jaxbElement = (JAXBElement<M_projectData>) jaxbUnmarshaller
+                        .unmarshal(new StreamSource(xmlFile), M_projectData.class);
+
+                M_projectData_functionPointEstimation_configData confData_temp = jaxbElement.getValue();
+                confData = confData_temp;
+                System.out.println(confData);
+            } catch (JAXBException e) {
+                e.printStackTrace();
+            }
+        }
+        return confData;
     }
 }

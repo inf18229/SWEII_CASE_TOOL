@@ -26,5 +26,19 @@ class M_importTest {
         assertThrows(RuntimeException.class, () -> import_test.importProject(path));
     }
 
+    // 2. Testcase:
+    @Test
+    void import_cleanRun() {
+       try{
+           M_import import_test = new M_import();
+           String path = "test.xml";
+           import_test.importProject(path);
+       }
+       catch(Exception e){
+            e.getStackTrace();
+       }
+
+    }
+
 
 }
