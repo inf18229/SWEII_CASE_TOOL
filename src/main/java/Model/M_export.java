@@ -1,6 +1,7 @@
 package Model;
 
 import Model.projectData.M_projectData;
+import Model.projectData.M_projectData_functionPointEstimation_configData;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -59,7 +60,7 @@ public class M_export {
         }
     }
 
-    public void export_configData(M_projectData_functionPointEstimation_configData confData, String confPath) {
+    public void export(M_projectData_functionPointEstimation_configData confData, String confPath) {
         /**
          * this function converts the current project to XML and saves the new XML file
          * @param projData the projectData of the current project

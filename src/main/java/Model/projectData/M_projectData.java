@@ -1,12 +1,3 @@
-/**
- * Main: This file is part of CASE-Tool
- *
- * With the CASE-Tool it is possible to create feasibility studies
- * and save them. The software is based on a student project.
- *
- * Description:  Main Model of software
- */
-
 package Model.projectData;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -30,6 +21,8 @@ public class M_projectData {
 
     M_projectData_functionPointEstimation m_projectData_functionPointEstimation = new M_projectData_functionPointEstimation(/*0,0*/);
 
+    M_projectData_functionPointEstimation_configData m_projectData_functionPointEstimation_configData = new M_projectData_functionPointEstimation_configData(/*0,0*/);
+
     public M_projectData_productUse getM_projectData_productUse() {
         return m_projectData_productUse;
     }
@@ -52,6 +45,14 @@ public class M_projectData {
 
     public M_projectData_functionPointEstimation getM_projectData_functionPointEstimation() {
         return m_projectData_functionPointEstimation;
+    }
+
+    public M_projectData_functionPointEstimation_configData getM_projectData_functionPointEstimation_configData() {
+        return m_projectData_functionPointEstimation_configData;
+    }
+
+    public void setM_projectData_functionPointEstimation_configData(M_projectData_functionPointEstimation_configData confData) {
+        m_projectData_functionPointEstimation_configData = confData;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package Controller;
 
 import Controller.tab.*;
+import Model.M_import;
 import Model.projectData.M_projectData;
 import Model.M_export;
 import View.I_V_basic;
@@ -22,7 +23,9 @@ public class C_frame implements I_C_frame {
     I_C_tab currentController; //stores current active Controller
     M_projectData projectData;  //stores projectData before export TODO: clarify: projectData also stored before pressing the save button?
     M_export projectData_export;
+    M_import projectData_import;
     String projPath = "";
+    String confPath = "";
 
     public C_frame(M_projectData projData, I_C_start conStart, String path) {
         System.out.println("C_frame created");
@@ -30,10 +33,12 @@ public class C_frame implements I_C_frame {
         projectData = projData;
         viewFrame = new V_frame(this, projectData);
         projectData_export = new M_export();
+        projectData_import = new M_import();    //TODO: check if necessary or better when used?
         createTabControllers();
         I_V_basic.show(viewFrame.getJFrame());
         currentController = controllerGeneral;
         projPath = path;
+        confPath = path.replace(".xml","_config.xml");
     }
 
     /**
@@ -165,6 +170,25 @@ public class C_frame implements I_C_frame {
     @Override
     public void notifySave() {  //TODO: clarify: save means export and changes will disappear when not exported/saved, but programm closed?
         projectData_export.export(projectData, projPath);
+    }
+
+    /**
+     * notifies the Controller that he should import new factors
+     */
+    @Override
+    public void notifyImportFactor() {
+        System.out.println("Importiere Faktoren !");
+        projectData_import.importProject(projectData, confPath);
+        System.out.println("Importiere Faktoren fertig !");
+    }
+
+    /**
+     * notifies the Controller that he should export the factors
+     */
+    @Override
+    public void notifyExportFactor() {
+        System.out.println("Exportiere Faktoren !");
+        projectData_export.export(projectData.getM_projectData_functionPointEstimation_configData(), confPath);
     }
 
     /**

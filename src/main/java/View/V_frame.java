@@ -697,6 +697,7 @@ public class V_frame implements I_V_frame {
                 controllerFrame.notifyAdjustFactors();
             }
         });
+        b_automaticSliderValues.setEnabled(false);
         V_Effort_Tabs.addChangeListener(new ChangeListener() {
             /**
              * Invoked when the target of the listener has changed its state.
@@ -706,6 +707,28 @@ public class V_frame implements I_V_frame {
             @Override
             public void stateChanged(ChangeEvent e) {
                 controllerFrame.notifyTabChangeEffort();
+            }
+        });
+        b_factorImport.addActionListener(new ActionListener() {
+            /**
+             * Invoked when an action occurs.
+             *
+             * @param e the event to be processed
+             */
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controllerFrame.notifyImportFactor();
+            }
+        });
+        b_factorExport.addActionListener(new ActionListener() {
+            /**
+             * Invoked when an action occurs.
+             *
+             * @param e the event to be processed
+             */
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controllerFrame.notifyExportFactor();
             }
         });
     }
@@ -1092,12 +1115,16 @@ public class V_frame implements I_V_frame {
     @Override
     public void setFactorSumE2(int e2Sum, int e2Goal) {
         if (e2Sum == e2Goal) {
+            b_automaticSliderValues.setEnabled(true);
             labelE2Sum.setForeground(Color.green.darker());
         } else if (e2Sum <= e2Goal + 5 & e2Sum >= e2Goal - 5) { // e2Sum == e2Goal +-5
+            b_automaticSliderValues.setEnabled(true);
             labelE2Sum.setForeground(Color.orange.darker());
         } else if (e2Goal == -1 | e2Goal < 0 | e2Goal > 60) {  // e2Goal was not yet calculated or is out of the correctable range
+            b_automaticSliderValues.setEnabled(false);
             labelE2Sum.setForeground(Color.black);
         } else {
+            b_automaticSliderValues.setEnabled(true);
             labelE2Sum.setForeground(Color.red.darker());   // e2Goal was calculated but e2Sum is more than 5 off its value
         }
         labelE2Sum.setText(String.valueOf(e2Sum));

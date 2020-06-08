@@ -59,6 +59,16 @@ public interface I_C_frame {
     void notifySave();
 
     /**
+     * notifies the Controller that he should import new factors
+     */
+    void notifyImportFactor();
+
+    /**
+     * notifies the Controller that he should export the factors
+     */
+    void notifyExportFactor();
+
+    /**
      * notifies the Controller that the next button was pressed
      */
     void notifyNext();
