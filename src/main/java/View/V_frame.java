@@ -1,5 +1,7 @@
 package View;
 
+//TODO: add Automatische Anpassung button to second effort tab
+
 import Controller.I_C_frame;
 import Controller.tab.I_C_effort;
 import Model.projectData.M_projectData;
