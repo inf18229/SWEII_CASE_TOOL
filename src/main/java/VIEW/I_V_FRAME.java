@@ -29,6 +29,18 @@ public interface I_V_FRAME extends I_V_BASIC {
 
     JList getProdFuncIDList();
 
+    public JList getListproductDataID();
+
+    public JTextField getTextFieldproductDataID();
+
+    public JTextField getTextFieldproductDataReference();
+
+    public JTextArea getTextAreaproductDataDescription();
+
+    public JSpinner getSpinnerproductDataRET();
+
+    public JSpinner getSpinnerproductDataDET();
+
     /**
      * this methods sets the description for the weight label in productfunctions view
      * dependent on input value

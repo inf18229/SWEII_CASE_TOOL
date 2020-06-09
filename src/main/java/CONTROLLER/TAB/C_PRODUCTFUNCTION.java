@@ -7,76 +7,70 @@ import VIEW.I_V_FRAME;
 
 import javax.swing.*;
 
-public class C_PRODUCTFUNCTION implements I_C_PRODUCTFUNCTION {
+public class C_PRODUCTFUNCTION implements I_C_PRODUCTCONTENT {
     private I_V_FRAME viewFrame;
-    private JTextField prodFuncID;
-    private JTextField prodFuncFunction;
-    private JTextField prodFuncProtagonist;
-    private JTextArea prodFuncDescription;
-    private JComboBox prodFuncFPCategory;
-    private JComboBox prodFuncFPWeight;
-    private JSpinner prodFuncFPFTR;
-    private JSpinner prodFuncFPDET;
-    private JList prodFuncIDList;
     private M_PROJECTDATA projectData;
 
+    /**
+     * initialize Productfunction Object
+     * @param mainFrame refernece to main frame
+     * @param projData referenecte to project Data
+     */
     public C_PRODUCTFUNCTION(I_V_FRAME mainFrame, M_PROJECTDATA projData) {
         viewFrame = mainFrame;
-        prodFuncIDList = mainFrame.getProdFuncIDList();
-        prodFuncID = mainFrame.getTextFieldProdFuncID();
-        prodFuncFunction = mainFrame.getTextFieldProdFunc();
-        prodFuncProtagonist = mainFrame.getTextFieldProdFuncProtagonist();
-        prodFuncDescription = mainFrame.getTextAreaprodFuncDescription();
-        prodFuncFPCategory = mainFrame.getComboBoxProdFuncCategory();
-        prodFuncFPFTR = mainFrame.getSpinnerProdFuncFTR();
-        prodFuncFPDET = mainFrame.getSpinnerProdFuncDET();
         projectData = projData;
-
     }
 
+    /**
+     * updates the Project Data mainly called by SAVE action
+     */
     @Override
     public void updateProjectData() {
         for (M_PROJECTDATA_PRODUCTFUNCTION projectDataFunction : projectData.getProductFunctionList()) {
-            if (projectDataFunction.id.equals(prodFuncIDList.getSelectedValue())) {
-                projectDataFunction.id = prodFuncID.getText();
-                projectDataFunction.actor = prodFuncProtagonist.getText();
-                projectDataFunction.function = prodFuncFunction.getText();
-                projectDataFunction.description = prodFuncDescription.getText();
-                projectDataFunction.functionPointCategory = prodFuncFPCategory.getSelectedItem().toString();
-                projectDataFunction.functionPointFTR = (int) prodFuncFPFTR.getValue();
-                projectDataFunction.functionPointDET = (int) prodFuncFPDET.getValue();
-                projectDataFunction.calculateWeight();
+            if (projectDataFunction.id.equals(viewFrame.getProdFuncIDList().getSelectedValue())) {
+                projectDataFunction.id = viewFrame.getTextFieldProdFuncID().getText();
+                setProductFunctionElements(projectDataFunction);
                 viewFrame.changeprodFuncIDListElement(projectDataFunction.id);
                 viewFrame.setWeightDescription(projectDataFunction.functionPointWeighting);
             }
         }
     }
 
+    /**
+     * set the Project Data Function object that is given as an argument
+     * @param projectDataFunction contains a project data element that wants to be configured by the function
+     */
+    private void setProductFunctionElements(M_PROJECTDATA_PRODUCTFUNCTION projectDataFunction) {
+        projectDataFunction.actor = viewFrame.getTextFieldProdFuncProtagonist().getText();
+        projectDataFunction.function = viewFrame.getTextFieldProdFunc().getText();
+        projectDataFunction.description = viewFrame.getTextAreaprodFuncDescription().getText();
+        projectDataFunction.functionPointCategory = viewFrame.getComboBoxProdFuncCategory().getSelectedItem().toString();
+        projectDataFunction.functionPointFTR = (int) viewFrame.getSpinnerProdFuncFTR().getValue();
+        projectDataFunction.functionPointDET = (int) viewFrame.getSpinnerProdFuncDET().getValue();
+        projectDataFunction.calculateWeight();
+    }
+
+    /**
+     * creates a new Product Function Item in the Project. Implments the abstract Function of a Product Content Item
+     */
     @Override
-    public void newProductFunction() {
+    public void newProductContent() {
         System.out.println("Notified Tab Product Function that a new Element is requested");
         boolean alreadyexists = false;
         for (M_PROJECTDATA_PRODUCTFUNCTION projectDataFunction : projectData.getProductFunctionList()) {
-            if (projectDataFunction.id.equals(prodFuncID.getText())) {
+            if (projectDataFunction.id.equals(viewFrame.getTextFieldProdFuncID().getText())) {
                 alreadyexists = true;
                 break;
             }
         }
         if (!alreadyexists) {
             //Using ProductContentFactory to create object
-            M_PROJECTDATA_PRODUCTFUNCTION newProductFunction = new M_PROJECTDATA_PRODUCTCONTENTFACTORY().createProductFunction(prodFuncID.getText());
-            newProductFunction.actor = prodFuncProtagonist.getText();
-            newProductFunction.function = prodFuncFunction.getText();
-            newProductFunction.description = prodFuncDescription.getText();
-            newProductFunction.functionPointCategory = prodFuncFPCategory.getSelectedItem().toString();
-            newProductFunction.functionPointFTR = (int) prodFuncFPFTR.getValue();
-            newProductFunction.functionPointDET = (int) prodFuncFPDET.getValue();
-            newProductFunction.calculateWeight();
+            M_PROJECTDATA_PRODUCTFUNCTION newProductFunction = new M_PROJECTDATA_PRODUCTCONTENTFACTORY().createProductFunction(viewFrame.getTextFieldProdFuncID().getText());
+            setProductFunctionElements(newProductFunction);
             viewFrame.setWeightDescription(newProductFunction.functionPointWeighting);
-
             System.out.println(newProductFunction.toString());
             projectData.getProductFunctionList().add(newProductFunction);
-            viewFrame.addProdFuncIDListElement(prodFuncID.getText());
+            viewFrame.addProdFuncIDListElement(viewFrame.getTextFieldProdFuncID().getText());
         } else {
             System.out.println("ID already exists in project Function");
         }
@@ -84,8 +78,12 @@ public class C_PRODUCTFUNCTION implements I_C_PRODUCTFUNCTION {
 
     }
 
+    /**
+     * Saves the elements of the selected Product Function ID
+     * @param selectedID is the current selected ID from JList Panel
+     */
     @Override
-    public void notifyChangeSelectedListItem(String selectedID) {
+    public void saveProductContent(String selectedID) {
         M_PROJECTDATA_PRODUCTFUNCTION selectedProjectData = null;
         for (M_PROJECTDATA_PRODUCTFUNCTION projectDataFunction : projectData.getProductFunctionList()) {
             if (projectDataFunction.id.equals(selectedID)) {
@@ -101,12 +99,15 @@ public class C_PRODUCTFUNCTION implements I_C_PRODUCTFUNCTION {
         viewFrame.setWeightDescription(selectedProjectData.functionPointWeighting);
     }
 
+    /**
+     * Deletes the Product Function
+     */
     @Override
-    public void deleteProductFunction() {
+    public void deleteProductContent() {
         int index = 0;
         int removedElement = -1;
         for (M_PROJECTDATA_PRODUCTFUNCTION projectDataFunction : projectData.getProductFunctionList()) {
-            if (projectDataFunction.id.equals(prodFuncIDList.getSelectedValue())) {
+            if (projectDataFunction.id.equals(viewFrame.getProdFuncIDList().getSelectedValue())) {
                 removedElement = index;
             }
             index++;

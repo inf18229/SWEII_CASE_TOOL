@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <M_PROJECTDATA>
+    <productFunctionList>
+        <_id></_id>
+        <id>1234</id>
+        <function></function>
+        <actor></actor>
+        <description>Test</description>
+        <functionPointWeighting>0</functionPointWeighting>
+        <functionPointCategory>EI-Eingabe</functionPointCategory>
+        <functionPointDET>0</functionPointDET>
+        <functionPointFTR>0</functionPointFTR>
+    </productFunctionList>
+    <productFunctionList>
+        <_id></_id>
+        <id>123424</id>
+        <function>Test</function>
+        <actor></actor>
+        <description>Test</description>
+        <functionPointWeighting>0</functionPointWeighting>
+        <functionPointCategory>EI-Eingabe</functionPointCategory>
+        <functionPointDET>0</functionPointDET>
+        <functionPointFTR>0</functionPointFTR>
+    </productFunctionList>
     <m_projectData_productUse>
         <content>TestProductUse</content>
         <title>Produkteinsatz</title>
