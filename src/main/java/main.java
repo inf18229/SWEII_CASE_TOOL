@@ -7,7 +7,7 @@ public class main {
      * the project is created and started when running the main method
      */
     public static void main(String[] args) {
-        I_C_start con = C_start.getInstance();    //create a new Object con which is capable to manage all further actions
+        C_start.getInstance();    //create a new Object con which is capable to manage all further actions
     }
 }
 
