@@ -1115,6 +1115,7 @@ public class V_FRAME implements I_V_FRAME {
      * @param e2Sum  sum of all factors
      * @param e2Goal sum to achieve the same effort in calculation as in the real project
      */
+    //TODO: check why color orange when no e2Goal calculated/at start
     @Override
     public void setFactorSumE2(int e2Sum, int e2Goal) {
         if (e2Sum == e2Goal) {

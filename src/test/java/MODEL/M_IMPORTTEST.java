@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class M_IMPORTTest {
+class M_IMPORTTEST {
     // Testcases:
     // 1. test if file from path exists
 

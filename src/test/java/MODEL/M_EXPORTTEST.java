@@ -5,12 +5,10 @@ import MODEL.PROJECTDATA.M_PROJECTDATA;
 import MODEL.PROJECTDATA.M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA;
 import org.junit.jupiter.api.Test;
 
-import java.nio.file.InvalidPathException;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 //TODO: JAXBException --> Kein Test weil wir davon ausgehen dass JAXB korrekt durchläuft
-class M_EXPORTTest {
+class M_EXPORTTEST {
     // Equivalence classes:
     // 1. tests whether marshalling works with M_projectdata pointing to null
     // 2. empty filename or with blanks or null
@@ -49,22 +47,8 @@ class M_EXPORTTest {
         assertThrows(RuntimeException.class, () -> export_test.export(projData_test, path3));
     }
 
-    // 3. Testcase:
-    @Test
-    void export_projectData_weirdFilenameTest() {
-        M_EXPORT export_test = new M_EXPORT();
-        M_PROJECTDATA projData_test = new M_PROJECTDATA();
-        projData_test.getM_projectData_productUse().setContent("TestProductUse");
-        String path1 = "$test/test=test(&%|?|).xml";
-        //Tests whether the weird path from path1 is valid
-        assertThrows(InvalidPathException.class, () -> export_test.export(projData_test, path1));
 
-        //Tests whether the more realistic path from path2 is valid
-        String path2 = "test_export?.xml";
-        assertThrows(InvalidPathException.class, () -> export_test.export(projData_test, path2));
-    }
-
-    //4. Testcase
+    //3. Testcase
     @Test
     void export_projectData_cleanRun() {
         try {
@@ -79,7 +63,7 @@ class M_EXPORTTest {
 
     }
 
-    // 5. Testcase:
+    // 4. Testcase:
     @Test
     void export_configData_nullProjectDataTest() {
         M_EXPORT export_test = new M_EXPORT();
@@ -89,7 +73,7 @@ class M_EXPORTTest {
         assertThrows(RuntimeException.class, () -> export_test.export(confData_test, path));
     }
 
-    // 6. Testcase:
+    // 5. Testcase:
     @Test
     void export_configData_emptyFilenameTest() {
         M_EXPORT export_test = new M_EXPORT();
@@ -111,21 +95,8 @@ class M_EXPORTTest {
         assertThrows(RuntimeException.class, () -> export_test.export(confData_test, path3));
     }
 
-    // 7. Testcase:
-    @Test
-    void export_configData_weirdFilenameTest() {
-        M_EXPORT export_test = new M_EXPORT();
-        M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA confData_test = M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA.getConfigData();
-        String path1 = "$test/test=test(&%|?|).xml";
-        //Tests whether the weird path from path1 is valid
-        assertThrows(InvalidPathException.class, () -> export_test.export(confData_test, path1));
 
-        //Tests whether the more realistic path from path2 is valid
-        String path2 = "test_export?.xml";
-        assertThrows(InvalidPathException.class, () -> export_test.export(confData_test, path2));
-    }
-
-    // 8. Testcase
+    // 6. Testcase
     @Test
     void export_configData_cleanRun() {
         try {

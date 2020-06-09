@@ -3,7 +3,7 @@ package CONTROLLER.TAB;
 
 import org.junit.jupiter.api.Test;
 
-class C_EFFORTTest {
+class C_EFFORTTEST {
 
     @Test
     void notifyAdjustFactors() {

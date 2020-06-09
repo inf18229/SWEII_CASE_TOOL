@@ -31,14 +31,7 @@ public class M_EXPORT {
          * @param projPath the Path that defines where to save the data into a XML file
          */
         if (projPath != null && !projPath.isEmpty() && !projPath.isBlank() && projData != null) {
-            //check for a valid path
-            try {
-                Paths.get(projPath);
-            }
-            // finally used because using the try block without catch or finally not possible
-            finally {
 
-            }
             try {
                 //Create JAXB Context
                 JAXBContext jaxbContext = JAXBContext.newInstance(M_PROJECTDATA.class);
