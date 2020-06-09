@@ -26,7 +26,7 @@ public class main {
 //TODO: updateProjectData bei jedem Controller triggern bevor gespeichert wird -> geänderte Werte in Berechnung mit einbeziehen z.B. Art des FunctionPoints in Estimation Count übernehmen
 
 //============================================sonstige Ideen und Anmerkungen============================================
-//TODO: Verwirrung zwischen neu und speichern welcher Knopf bewirkt was -> besser darstellen bloß wie?
+//TODO: Verwirrung zwischen neu und speichern welcher Knopf in Produktfunktionen bewirkt was -> besser darstellen bloß wie?
 //TODO: löschen Knopf entfernen/deaktivieren, wenn Liste leer
 //TODO: entscheiden in welcher Reihenfolge paramter übergeben werden (model, view, controller oder anders?)
 //TODO: add notifyButton(int id); which calls the required functions depending on the id
