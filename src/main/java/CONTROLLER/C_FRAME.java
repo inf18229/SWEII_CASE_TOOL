@@ -20,7 +20,8 @@ public class C_FRAME implements I_C_FRAME {
     I_V_FRAME viewFrame;
     I_C_start controllerStart;
     I_C_GENERAL controllerGeneral;
-    I_C_PRODUCTCONTENT controllerFunctionalReqirement;
+    I_C_PRODUCTCONTENT controllerProductFunction;
+    I_C_PRODUCTCONTENT controllerProductData;
     I_C_EFFORT controllerEffort;
     I_C_TAB currentController; //stores current active Controller
     M_PROJECTDATA projectData;  //stores projectData before export TODO: clarify: projectData also stored before pressing the save button?
@@ -60,7 +61,6 @@ public class C_FRAME implements I_C_FRAME {
         projPath = path;
         confPath = path.replace(".xml", "_config.xml");
     }
-
     /*public C_FRAME(M_PROJECTDATA projData, I_C_start conStart, String path) {
         System.out.println("C_FRAME created");
         controllerStart = conStart;
@@ -83,7 +83,8 @@ public class C_FRAME implements I_C_FRAME {
     public void createTabControllers(/*I_C_FRAME.tabs tabs*/) {
         controllerEffort = C_EFFORT.getInstance();
         controllerEffort.setLinks(viewFrame, projectData);
-        controllerFunctionalReqirement = new C_PRODUCTFUNCTION(viewFrame, projectData);
+        controllerProductFunction = new C_PRODUCTFUNCTION(viewFrame, projectData);
+        controllerProductData = new C_PRODUCTDATA(viewFrame,projectData);
         controllerGeneral = new C_GENERAL(viewFrame, projectData);
         System.out.println("General Controller created");
     }
@@ -110,15 +111,16 @@ public class C_FRAME implements I_C_FRAME {
                 viewFrame.hideLast();
                 viewFrame.hideFactorImport();
                 viewFrame.hideFactorExport();
-                System.out.println("Tab: 1 - Functional Reqirement Controller acitve");
-                currentController = controllerFunctionalReqirement;
+                System.out.println("Tab: 1 - Product Data Controller active");
+                currentController = controllerProductFunction;
                 break;
             case 2:
                 viewFrame.hideNext();
                 viewFrame.hideLast();
                 viewFrame.hideFactorImport();
                 viewFrame.hideFactorExport();
-                System.out.println("Tab: 2");
+                System.out.println("Tab: 2 - Product Data Controller active");
+                currentController = controllerProductData;
                 break;
             case 3:
                 System.out.println("Tab: 3 - Effort Tab Controller active");
@@ -281,13 +283,24 @@ public class C_FRAME implements I_C_FRAME {
     }
 
     @Override
-    public void notifyFuncReqNEW() {
-        controllerFunctionalReqirement.newProductContent();
+    public void notifyProductContentNEW() {
+        if(currentController == controllerProductFunction){
+            controllerProductFunction.newProductContent();
+        }
+        else if(currentController == controllerProductData){
+            controllerProductData.newProductContent();
+        }
+
     }
 
     @Override
-    public void notifyFuncReqDELETE() {
-        controllerFunctionalReqirement.deleteProductContent();
+    public void notifyProductContentDELETE() {
+        if(currentController == controllerProductFunction){
+            controllerProductFunction.deleteProductContent();
+        }
+        else if(currentController == controllerProductData){
+            controllerProductData.deleteProductContent();
+        }
     }
 
     /**
@@ -297,8 +310,11 @@ public class C_FRAME implements I_C_FRAME {
      */
     @Override
     public void notifySelectedListChange(String selectedID) {
-        if (currentController == controllerFunctionalReqirement) {
-            controllerFunctionalReqirement.saveProductContent(selectedID);
+        if (currentController == controllerProductFunction) {
+            controllerProductFunction.notifySelectionChange(selectedID);
+        }
+        else if(currentController == controllerProductData){
+            controllerProductData.notifySelectionChange(selectedID);
         }
     }
 }

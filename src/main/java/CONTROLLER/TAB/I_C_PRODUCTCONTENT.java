@@ -7,10 +7,10 @@ public interface I_C_PRODUCTCONTENT extends I_C_TAB{
     void newProductContent();
 
     /**
-     * save of a selecte Product Content Element is requested
+     * notifies the controller that a new element is selected
      * @param selectedID is the current selected ID from JList Panel
      */
-    void saveProductContent(String selectedID);
+    void notifySelectionChange(String selectedID);
 
     /**
      * deletion of Product Content Element is requested

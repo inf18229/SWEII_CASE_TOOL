@@ -11,4 +11,5 @@ package MODEL.PROJECTDATA;
 
 public abstract class M_PROJECTDATA_PRODUCTCONTENT {
     public String _id = "";
+    public void calculateWeight(){};
 }

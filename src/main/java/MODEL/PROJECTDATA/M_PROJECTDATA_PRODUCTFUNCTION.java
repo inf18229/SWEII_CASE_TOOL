@@ -11,7 +11,7 @@ public class M_PROJECTDATA_PRODUCTFUNCTION extends M_PROJECTDATA_PRODUCTCONTENT 
     public int functionPointDET;
     public int functionPointFTR;
 
-
+    @Override
     public void calculateWeight() {
         /**
          * calculates the weight depending on DET and FTR depending on schmea

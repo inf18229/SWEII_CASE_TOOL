@@ -5,8 +5,6 @@ import MODEL.PROJECTDATA.M_PROJECTDATA_PRODUCTCONTENTFACTORY;
 import MODEL.PROJECTDATA.M_PROJECTDATA_PRODUCTFUNCTION;
 import VIEW.I_V_FRAME;
 
-import javax.swing.*;
-
 public class C_PRODUCTFUNCTION implements I_C_PRODUCTCONTENT {
     private I_V_FRAME viewFrame;
     private M_PROJECTDATA projectData;
@@ -83,7 +81,7 @@ public class C_PRODUCTFUNCTION implements I_C_PRODUCTCONTENT {
      * @param selectedID is the current selected ID from JList Panel
      */
     @Override
-    public void saveProductContent(String selectedID) {
+    public void notifySelectionChange(String selectedID) {
         M_PROJECTDATA_PRODUCTFUNCTION selectedProjectData = null;
         for (M_PROJECTDATA_PRODUCTFUNCTION projectDataFunction : projectData.getProductFunctionList()) {
             if (projectDataFunction.id.equals(selectedID)) {

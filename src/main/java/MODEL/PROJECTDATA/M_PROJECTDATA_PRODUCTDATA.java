@@ -9,9 +9,45 @@ public class M_PROJECTDATA_PRODUCTDATA extends M_PROJECTDATA_PRODUCTCONTENT {
     public String reference = "";
     public int functionPointWeighting;
     public int functionPointDET;
-    public int functionPointFTR;
+    public int functionPointRET;
     public String functionPointCategory = "";
-    public List<M_PROJECTDATA_PRODUCTDATAATTRIBUTE> attributeList = new ArrayList<>();
+
+    @Override
+    public void calculateWeight() {
+        if(functionPointRET==1){
+            if(functionPointDET>=1 && functionPointDET<=19){
+                functionPointWeighting=0;
+            }
+            else if(functionPointDET>=20 && functionPointDET<=50){
+                functionPointWeighting=0;
+            }
+            else if(functionPointDET>50){
+                functionPointWeighting=1;
+            }
+        }
+        if(functionPointRET>=2 && functionPointRET<=5){
+            if(functionPointDET>=1 && functionPointDET<=19){
+                functionPointWeighting=0;
+            }
+            else if(functionPointDET>=20 && functionPointDET<=50){
+                functionPointWeighting=1;
+            }
+            else if(functionPointDET>50){
+                functionPointWeighting=2;
+            }
+        }
+        if(functionPointRET>5){
+            if(functionPointDET>=1 && functionPointDET<=19){
+                functionPointWeighting=1;
+            }
+            else if(functionPointDET>=20 && functionPointDET<=50){
+                functionPointWeighting=2;
+            }
+            else if(functionPointDET>50){
+                functionPointWeighting=2;
+            }
+        }
+    }
 
     public String getId() {
         return id;
@@ -33,15 +69,12 @@ public class M_PROJECTDATA_PRODUCTDATA extends M_PROJECTDATA_PRODUCTCONTENT {
         return functionPointDET;
     }
 
-    public int getFunctionPointFTR() {
-        return functionPointFTR;
+    public int getFunctionPointRET() {
+        return functionPointRET;
     }
 
     public String getFunctionPointCategory() {
         return functionPointCategory;
     }
 
-    public List<M_PROJECTDATA_PRODUCTDATAATTRIBUTE> getAttributeList() {
-        return attributeList;
-    }
 }

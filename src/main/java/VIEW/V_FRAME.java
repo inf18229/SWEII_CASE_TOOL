@@ -5,6 +5,7 @@ package VIEW;
 import CONTROLLER.I_C_FRAME;
 import CONTROLLER.TAB.I_C_EFFORT;
 import MODEL.PROJECTDATA.M_PROJECTDATA;
+import MODEL.PROJECTDATA.M_PROJECTDATA_PRODUCTDATA;
 import MODEL.PROJECTDATA.M_PROJECTDATA_PRODUCTFUNCTION;
 
 import javax.swing.*;
@@ -350,7 +351,7 @@ public class V_FRAME implements I_V_FRAME {
         b_deleteProductFunction.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controllerFrame.notifyFuncReqDELETE();
+                controllerFrame.notifyProductContentDELETE();
             }
         });
 
@@ -433,6 +434,16 @@ public class V_FRAME implements I_V_FRAME {
             functionalReqListModell.addElement(productFunction.id);
         }
         functionalReqIDList.setModel(functionalReqListModell);
+        /**
+         * listen for a change of selection in the list
+         */
+        functionalReqIDList.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                System.out.println(functionalReqIDList.getSelectedValue().toString());  //TODO: fix NullPointerException
+                controllerFrame.notifySelectedListChange(functionalReqIDList.getSelectedValue().toString());    //TODO: fix error during compilation ("cannot find symbol")
+            }
+        });
         labelReqDetails.setFont(labelReqDetails.getFont().deriveFont(labelReqDetails.getFont().getStyle() | Font.BOLD, 18));
         labelReqFunctionpointDefinition.setFont(labelReqFunctionpointDefinition.getFont().deriveFont(labelReqFunctionpointDefinition.getFont().getStyle() | Font.BOLD, 18));
         textFieldReqID.getDocument().addDocumentListener(new DocumentListener() {
@@ -529,7 +540,7 @@ public class V_FRAME implements I_V_FRAME {
         neuButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controllerFrame.notifyFuncReqNEW();
+                controllerFrame.notifyProductContentNEW();
                 System.out.println("Functional Reqirement Tab - New Button Pressed");
             }
         });
@@ -544,10 +555,17 @@ public class V_FRAME implements I_V_FRAME {
         //Initialize Product Data Tab
         listproductDataID.setSelectionMode(2);
         productDataListModell = new DefaultListModel();
-        for (M_PROJECTDATA_PRODUCTFUNCTION productFunction : projData.getProductFunctionList()) {
-            productDataListModell.addElement(productFunction.id);
+        for (M_PROJECTDATA_PRODUCTDATA productData : projData.getProductDataList()) {
+            productDataListModell.addElement(productData.id);
         }
-        listproductDataID.setModel(functionalReqListModell);
+        listproductDataID.setModel(productDataListModell);
+        listproductDataID.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                System.out.println(listproductDataID.getSelectedValue().toString());
+                controllerFrame.notifySelectedListChange(listproductDataID.getSelectedValue().toString());
+            }
+        });
         labelproductDataDetails.setFont(labelproductDataDetails.getFont().deriveFont(labelproductDataDetails.getFont().getStyle() | Font.BOLD, 18));
         labelproductDataFP.setFont(labelproductDataFP.getFont().deriveFont(labelproductDataFP.getFont().getStyle() | Font.BOLD, 18));
 
@@ -603,7 +621,7 @@ public class V_FRAME implements I_V_FRAME {
         comboBoxproductDataCategory.addItem("ILF-Interner Datenbestand");
         comboBoxproductDataCategory.addItem("ELF-Externer Datenbestand");
 
-        SpinnerNumberModel nMSpinnerproductFunctionRET = new SpinnerNumberModel(0,0,1000,1);
+        SpinnerNumberModel nMSpinnerproductFunctionRET = new SpinnerNumberModel(1,1,1000,1);
         spinnerproductDataRET.setModel(nMSpinnerproductFunctionRET);
         spinnerproductDataRET.addChangeListener(new ChangeListener() {
             @Override
@@ -612,7 +630,7 @@ public class V_FRAME implements I_V_FRAME {
             }
         });
 
-        SpinnerNumberModel nMSpinnerproductFunctionDET = new SpinnerNumberModel(0,0,1000,1);
+        SpinnerNumberModel nMSpinnerproductFunctionDET = new SpinnerNumberModel(1,1,1000,1);
         spinnerproductDataDET.setModel(nMSpinnerproductFunctionDET);
         spinnerproductDataDET.addChangeListener(new ChangeListener() {
             @Override
@@ -625,6 +643,7 @@ public class V_FRAME implements I_V_FRAME {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("NEW Product Data Element requested");
+                controllerFrame.notifyProductContentNEW();
             }
         });
         buttonproductDataDelete.addActionListener(new ActionListener() {
@@ -759,14 +778,6 @@ public class V_FRAME implements I_V_FRAME {
             }
         });
 
-        //TODO: add description, what does this listen for?
-        functionalReqIDList.addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                System.out.println(functionalReqIDList.getSelectedValue().toString());  //TODO: fix NullPointerException
-                controllerFrame.notifySelectedListChange(functionalReqIDList.getSelectedValue().toString());    //TODO: fix error during compilation ("cannot find symbol")
-            }
-        });
         newCorrectionFactorButton.addActionListener(new ActionListener() {
             /**
              * Invoked when an action occurs.
@@ -941,6 +952,11 @@ public class V_FRAME implements I_V_FRAME {
     @Override
     public JSpinner getSpinnerproductDataDET() {
         return spinnerproductDataDET;
+    }
+
+    @Override
+    public JComboBox getComboBoxProdDataCategory() {
+        return comboBoxproductDataCategory;
     }
 
     /**
@@ -1506,5 +1522,47 @@ public class V_FRAME implements I_V_FRAME {
         }
 
 
+    }
+
+    @Override
+    public void addProdDataIDListElement(String id) {
+        productDataListModell.addElement(id);
+        System.out.println(listproductDataID.getLastVisibleIndex());
+        listproductDataID.setSelectedIndex(listproductDataID.getLastVisibleIndex());
+    }
+
+    @Override
+    public void changeProdDataIDListElement(String id) {
+        productDataListModell.setElementAt(id, listproductDataID.getSelectedIndex());
+    }
+
+    @Override
+    public void reinitializeProdDataIDList(M_PROJECTDATA projData) {
+        productDataListModell = new DefaultListModel();
+        for (M_PROJECTDATA_PRODUCTDATA productData : projData.getProductDataList()) {
+            productDataListModell.addElement(productData.id);
+        }
+        try {
+            listproductDataID.setModel(productDataListModell);
+        } catch (NullPointerException exception) {
+
+        }
+    }
+
+    @Override
+    public void updateProdDataInfo(M_PROJECTDATA_PRODUCTDATA projDataProductData) {
+        textFieldproductDataID.setText(projDataProductData.id);
+        textFieldproductDataReference.setText(projDataProductData.reference);
+        textAreaproductDataDescription.setText(projDataProductData.memoryContent);
+        switch (projDataProductData.functionPointCategory) {
+            case "ILF-Interner Datenbestand":
+                comboBoxReqCategory.setSelectedIndex(0);
+                break;
+            case "ELF-Externer Datenbestand":
+                comboBoxReqCategory.setSelectedIndex(1);
+                break;
+        }
+        spinnerproductDataRET.setValue(projDataProductData.functionPointRET);
+        spinnerproductDataDET.setValue(projDataProductData.functionPointDET);
     }
 }

@@ -1,6 +1,7 @@
 package VIEW;
 
 import MODEL.PROJECTDATA.M_PROJECTDATA;
+import MODEL.PROJECTDATA.M_PROJECTDATA_PRODUCTDATA;
 import MODEL.PROJECTDATA.M_PROJECTDATA_PRODUCTFUNCTION;
 
 import javax.swing.*;
@@ -40,6 +41,9 @@ public interface I_V_FRAME extends I_V_BASIC {
     public JSpinner getSpinnerproductDataRET();
 
     public JSpinner getSpinnerproductDataDET();
+
+    public JComboBox getComboBoxProdDataCategory();
+
 
     /**
      * this methods sets the description for the weight label in productfunctions view
@@ -283,16 +287,44 @@ public interface I_V_FRAME extends I_V_BASIC {
     void addProdFuncIDListElement(String id);
 
     /**
-     * cgabge ReqID List element with String i
+     * change ReqID List element with String i
      *
      * @param id is the new value for the list element
      */
     void changeprodFuncIDListElement(String id);
 
+    /**
+     * function can reinitialize complente Product Function ID List with new Project Data
+     * @param projData referenece to new project data
+     */
     void reinitializeProdFuncIDList(M_PROJECTDATA projData);
 
     /**
      * updates texboxes depending on selected Index
      */
     void updateProdFuncInfo(M_PROJECTDATA_PRODUCTFUNCTION projDataFunction);
+
+    /**
+     * adds new Product Data List Element in Tab Product Data
+     * @param id new Element ID
+     */
+    void addProdDataIDListElement(String id);
+
+    /**
+     * change the current selected List Elment with a new Element
+     * @param id
+     */
+    void changeProdDataIDListElement(String id);
+
+    /**
+     * function can reinitialize complente Product Data ID List with new Project Data
+     * @param projData referenece to new project data
+     */
+    void reinitializeProdDataIDList(M_PROJECTDATA projData);
+
+    /**
+     * updates textboxes depending on selected Index
+     * @param projDataProductData new Product Data content
+     */
+    void updateProdDataInfo(M_PROJECTDATA_PRODUCTDATA projDataProductData);
 }

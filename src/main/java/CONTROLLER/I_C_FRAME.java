@@ -99,12 +99,12 @@ public interface I_C_FRAME {
     /**
      * notfies the controller that the new Button in Functional Reqirement Tab is pressed
      */
-    void notifyFuncReqNEW();
+    void notifyProductContentNEW();
 
     /**
      * notifies the controller that save Button in Functional Reqirement Tab is pressed
      */
-    void notifyFuncReqDELETE();
+    void notifyProductContentDELETE();
 
     /**
      * notify Controller that selected List Item has changed
