@@ -8,6 +8,8 @@ import View.I_V_frame;
  */
 public interface I_C_effort extends I_C_tab {
 
+    //TODO: getInstance here?
+
     /**
      * this method sets the necessary links after instantiation of the controller
      */

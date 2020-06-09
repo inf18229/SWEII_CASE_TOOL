@@ -50,7 +50,7 @@ In der weiteren Entwicklung der Software ist es vorgesehen, eine automatische Ko
         <countInputSimple>0</countInputSimple>
         <countInputMedium>0</countInputMedium>
         <countInputComplex>1</countInputComplex>
-        <countQuerySimple>0</countQuerySimple>
+        <countQuerySimple>1</countQuerySimple>
         <countQueryMedium>0</countQueryMedium>
         <countQueryComplex>0</countQueryComplex>
         <countOutputSimple>0</countOutputSimple>
@@ -80,7 +80,7 @@ In der weiteren Entwicklung der Software ist es vorgesehen, eine automatische Ko
         <sumInputSimple>0</sumInputSimple>
         <sumInputMedium>0</sumInputMedium>
         <sumInputComplex>6</sumInputComplex>
-        <sumQuerySimple>0</sumQuerySimple>
+        <sumQuerySimple>3</sumQuerySimple>
         <sumQueryMedium>0</sumQueryMedium>
         <sumQueryComplex>0</sumQueryComplex>
         <sumOutputSimple>0</sumOutputSimple>
@@ -92,12 +92,12 @@ In der weiteren Entwicklung der Software ist es vorgesehen, eine automatische Ko
         <sumReferenceSimple>0</sumReferenceSimple>
         <sumReferenceMedium>0</sumReferenceMedium>
         <sumReferenceComplex>0</sumReferenceComplex>
-        <e1Sum>13</e1Sum>
-        <e3Sum>0.99</e3Sum>
-        <afp>12.87</afp>
-        <jonesDuration>2.778634468498354</jonesDuration>
+        <e1Sum>16</e1Sum>
+        <e3Sum>0.7</e3Sum>
+        <afp>11.2</afp>
+        <jonesDuration>2.628374281964735</jonesDuration>
         <jonesPersonNo>1</jonesPersonNo>
-        <jonesPersonMonths>2.778634468498354</jonesPersonMonths>
+        <jonesPersonMonths>2.628374281964735</jonesPersonMonths>
         <actualDuration>0.0</actualDuration>
         <correctionFactor>0.3288124280832689</correctionFactor>
         <correctedDuration>0.0</correctedDuration>

@@ -31,3 +31,4 @@ public class main {
 //============================================sonstige Ideen und Anmerkungen============================================
 //TODO: Verwirrung zwischen neu und speichern welcher Knopf bewirkt was -> besser darstellen bloß wie?
 //TODO: löschen Knopf entfernen/deaktivieren, wenn Liste leer
+//TODO: entscheiden in welcher Reihenfolge paramter übergeben werden (model, view, controller oder anders?)

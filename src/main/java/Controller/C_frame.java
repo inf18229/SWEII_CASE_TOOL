@@ -1,9 +1,9 @@
 package Controller;
 
 import Controller.tab.*;
+import Model.M_export;
 import Model.M_import;
 import Model.projectData.M_projectData;
-import Model.M_export;
 import View.I_V_basic;
 import View.I_V_frame;
 import View.V_frame;
@@ -15,6 +15,8 @@ import javax.swing.*;
  * handles all programm functions not regarding special VIEWS.
  */
 public class C_frame implements I_C_frame {
+    private static C_frame controllerFrame;
+
     I_V_frame viewFrame;
     I_C_start controllerStart;
     I_C_general controllerGeneral;
@@ -27,7 +29,39 @@ public class C_frame implements I_C_frame {
     String projPath = "";
     String confPath = "";
 
-    public C_frame(M_projectData projData, I_C_start conStart, String path) {
+    private C_frame(){}
+
+    /**
+     * this method checks if controller was already created
+     * if it wasn't it creates a new controller
+     * it always returns a reference to the controller
+     * @return reference to controller
+     */
+    public static C_frame getInstance () {
+        if (C_frame.controllerFrame == null) {
+            C_frame.controllerFrame = new C_frame ();
+        }
+        return C_frame.controllerFrame;
+    }
+
+    /**
+     * this method sets the necessary links after instantiation of the controller
+     */
+    public void setLinks(M_projectData projData, I_C_start conStart, String path) {
+        //System.out.println("C_frame created");
+        controllerStart = conStart;
+        projectData = projData;
+        viewFrame = new V_frame(this, projectData);
+        projectData_export = new M_export();
+        projectData_import = new M_import();    //TODO: check if necessary or better when used?
+        createTabControllers();
+        I_V_basic.show(viewFrame.getJFrame());
+        currentController = controllerGeneral;
+        projPath = path;
+        confPath = path.replace(".xml", "_config.xml");
+    }
+
+    /*public C_frame(M_projectData projData, I_C_start conStart, String path) {
         System.out.println("C_frame created");
         controllerStart = conStart;
         projectData = projData;
@@ -38,8 +72,8 @@ public class C_frame implements I_C_frame {
         I_V_basic.show(viewFrame.getJFrame());
         currentController = controllerGeneral;
         projPath = path;
-        confPath = path.replace(".xml","_config.xml");
-    }
+        confPath = path.replace(".xml", "_config.xml");
+    }*/
 
     /**
      * creates Controller for each tab

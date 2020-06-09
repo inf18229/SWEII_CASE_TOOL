@@ -1,6 +1,7 @@
 package Controller;
 
 import Controller.tab.I_C_tab;
+import Model.projectData.M_projectData;
 
 /**
  * main CONTROLLER, that handles all programm functions not regarding special VIEWS.
@@ -8,6 +9,11 @@ import Controller.tab.I_C_tab;
  * views
  */
 public interface I_C_frame {
+
+    /**
+     * this method sets the necessary links after instantiation of the controller
+     */
+    void setLinks(M_projectData projData, I_C_start conStart, String path);
 
     /**
      * creates Controller for each tab

@@ -47,7 +47,8 @@ public class C_start implements I_C_start {
             //TODO: Model den Pfad (in createData(path)) übergeben --> Beachten: im path muss pfad und name des files ein
             //TODO: Idee: Pfad auswählen lassen und Namen separat angeben + erweitern mit .xml --> überprüfen auf leeren Namen
             I_V_basic.hide(viewStart.getJFrame());  // makes viewStart invisible and disables user input
-            I_C_frame controllerFrame = new C_frame(new M_projectData(), this, path);
+            I_C_frame controllerFrame = C_frame.getInstance();
+            controllerFrame.setLinks(new M_projectData(), this, path);
         }
 
         //String path = "test.xml";
@@ -79,7 +80,8 @@ public class C_start implements I_C_start {
             }
             I_V_basic.hide(viewStart.getJFrame());  // makes viewStart invisible and disables user input
             //TODO: initialize C_Frame with Project Data from XML file (und pfad übergeben)
-            I_C_frame controllerFrame = new C_frame(projectData, this, path);
+            I_C_frame controllerFrame = C_frame.getInstance();
+            controllerFrame.setLinks(projectData, this, path);//new C_frame(new M_projectData(), this, path);
         } else {
             JOptionPane.showMessageDialog(null,
                     "Sie müssen einen korrekten Dateipfad angeben",
