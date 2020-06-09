@@ -93,11 +93,11 @@ In der weiteren Entwicklung der Software ist es vorgesehen, eine automatische Ko
         <sumReferenceMedium>0</sumReferenceMedium>
         <sumReferenceComplex>0</sumReferenceComplex>
         <e1Sum>16</e1Sum>
-        <e3Sum>1.03</e3Sum>
-        <afp>16.48</afp>
-        <jonesDuration>3.067488074164783</jonesDuration>
+        <e3Sum>1.01</e3Sum>
+        <afp>16.16</afp>
+        <jonesDuration>3.0435226811149385</jonesDuration>
         <jonesPersonNo>1</jonesPersonNo>
-        <jonesPersonMonths>3.067488074164783</jonesPersonMonths>
+        <jonesPersonMonths>3.0435226811149385</jonesPersonMonths>
         <actualDuration>0.0</actualDuration>
         <correctionFactor>0.3288124280832689</correctionFactor>
         <correctedDuration>0.0</correctedDuration>
@@ -105,15 +105,15 @@ In der weiteren Entwicklung der Software ist es vorgesehen, eine automatische Ko
     </m_projectData_functionPointEstimation>
     <m_projectData_functionPointEstimation_configData>
         <factorEntanglement>2</factorEntanglement>
-        <factorDecentralization>3</factorDecentralization>
+        <factorDecentralization>2</factorDecentralization>
         <factorTransactionrate>4</factorTransactionrate>
         <factorProcessingCalculation>4</factorProcessingCalculation>
         <factorProcessingControl>2</factorProcessingControl>
-        <factorProcessingException>7</factorProcessingException>
+        <factorProcessingException>5</factorProcessingException>
         <factorProcessingLogic>4</factorProcessingLogic>
         <factorReusability>2</factorReusability>
         <factorConversion>3</factorConversion>
         <factorCustomizability>2</factorCustomizability>
-        <e2Sum>33</e2Sum>
+        <e2Sum>30</e2Sum>
     </m_projectData_functionPointEstimation_configData>
 </M_projectData>
