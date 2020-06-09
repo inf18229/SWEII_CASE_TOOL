@@ -1,5 +1,4 @@
-import Controller.C_start;
-import Controller.I_C_start;
+import CONTROLLER.C_START;
 
 
 public class main {
@@ -7,7 +6,7 @@ public class main {
      * the project is created and started when running the main method
      */
     public static void main(String[] args) {
-        C_start.getInstance();    //create a new Object con which is capable to manage all further actions
+        C_START.getInstance();    //create a new Object con which is capable to manage all further actions
     }
 }
 
