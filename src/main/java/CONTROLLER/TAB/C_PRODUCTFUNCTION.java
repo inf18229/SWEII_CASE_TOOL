@@ -9,27 +9,27 @@ import javax.swing.*;
 
 public class C_PRODUCTFUNCTION implements I_C_PRODUCTFUNCTION {
     private I_V_FRAME viewFrame;
-    private JTextField funcReqID;
-    private JTextField funcReqFunction;
-    private JTextField funcReqProtagonist;
-    private JTextArea funcReqDescription;
-    private JComboBox funcReqFPCategory;
-    private JComboBox funcReqFPWeight;
-    private JSpinner funcReqFPFTR;
-    private JSpinner funcReqFPDET;
-    private JList funcReqIDList;
+    private JTextField prodFuncID;
+    private JTextField prodFuncFunction;
+    private JTextField prodFuncProtagonist;
+    private JTextArea prodFuncDescription;
+    private JComboBox prodFuncFPCategory;
+    private JComboBox prodFuncFPWeight;
+    private JSpinner prodFuncFPFTR;
+    private JSpinner prodFuncFPDET;
+    private JList prodFuncIDList;
     private M_PROJECTDATA projectData;
 
     public C_PRODUCTFUNCTION(I_V_FRAME mainFrame, M_PROJECTDATA projData) {
         viewFrame = mainFrame;
-        funcReqIDList = mainFrame.getfunctionalReqIDList();
-        funcReqID = mainFrame.getTextFieldReqID();
-        funcReqFunction = mainFrame.getTextFieldReqFunction();
-        funcReqProtagonist = mainFrame.getTextFieldReqProtagonist();
-        funcReqDescription = mainFrame.getTextAreaReqDescription();
-        funcReqFPCategory = mainFrame.getComboBoxReqCategory();
-        funcReqFPFTR = mainFrame.getSpinnerReqFTR();
-        funcReqFPDET = mainFrame.getSpinnerReqDET();
+        prodFuncIDList = mainFrame.getProdFuncIDList();
+        prodFuncID = mainFrame.getTextFieldProdFuncID();
+        prodFuncFunction = mainFrame.getTextFieldProdFunc();
+        prodFuncProtagonist = mainFrame.getTextFieldProdFuncProtagonist();
+        prodFuncDescription = mainFrame.getTextAreaprodFuncDescription();
+        prodFuncFPCategory = mainFrame.getComboBoxProdFuncCategory();
+        prodFuncFPFTR = mainFrame.getSpinnerProdFuncFTR();
+        prodFuncFPDET = mainFrame.getSpinnerProdFuncDET();
         projectData = projData;
 
     }
@@ -37,46 +37,46 @@ public class C_PRODUCTFUNCTION implements I_C_PRODUCTFUNCTION {
     @Override
     public void updateProjectData() {
         for (M_PROJECTDATA_PRODUCTFUNCTION projectDataFunction : projectData.getProductFunctionList()) {
-            if (projectDataFunction.id.equals(funcReqIDList.getSelectedValue())) {
-                projectDataFunction.id = funcReqID.getText();
-                projectDataFunction.actor = funcReqProtagonist.getText();
-                projectDataFunction.function = funcReqFunction.getText();
-                projectDataFunction.description = funcReqDescription.getText();
-                projectDataFunction.functionPointCategory = funcReqFPCategory.getSelectedItem().toString();
-                projectDataFunction.functionPointFTR = (int) funcReqFPFTR.getValue();
-                projectDataFunction.functionPointDET = (int) funcReqFPDET.getValue();
+            if (projectDataFunction.id.equals(prodFuncIDList.getSelectedValue())) {
+                projectDataFunction.id = prodFuncID.getText();
+                projectDataFunction.actor = prodFuncProtagonist.getText();
+                projectDataFunction.function = prodFuncFunction.getText();
+                projectDataFunction.description = prodFuncDescription.getText();
+                projectDataFunction.functionPointCategory = prodFuncFPCategory.getSelectedItem().toString();
+                projectDataFunction.functionPointFTR = (int) prodFuncFPFTR.getValue();
+                projectDataFunction.functionPointDET = (int) prodFuncFPDET.getValue();
                 projectDataFunction.calculateWeight();
-                viewFrame.changeReqIDListElement(projectDataFunction.id);
+                viewFrame.changeprodFuncIDListElement(projectDataFunction.id);
                 viewFrame.setWeightDescription(projectDataFunction.functionPointWeighting);
             }
         }
     }
 
     @Override
-    public void newFuncReqElement() {
-        System.out.println("Notified Tab Func Req that a new Element is requested");
+    public void newProductFunction() {
+        System.out.println("Notified Tab Product Function that a new Element is requested");
         boolean alreadyexists = false;
         for (M_PROJECTDATA_PRODUCTFUNCTION projectDataFunction : projectData.getProductFunctionList()) {
-            if (projectDataFunction.id.equals(funcReqID.getText())) {
+            if (projectDataFunction.id.equals(prodFuncID.getText())) {
                 alreadyexists = true;
                 break;
             }
         }
         if (!alreadyexists) {
             //Using ProductContentFactory to create object
-            M_PROJECTDATA_PRODUCTFUNCTION newProductFunction = new M_PROJECTDATA_PRODUCTCONTENTFACTORY().createProductFunction(funcReqID.getText());
-            newProductFunction.actor = funcReqProtagonist.getText();
-            newProductFunction.function = funcReqFunction.getText();
-            newProductFunction.description = funcReqDescription.getText();
-            newProductFunction.functionPointCategory = funcReqFPCategory.getSelectedItem().toString();
-            newProductFunction.functionPointFTR = (int) funcReqFPFTR.getValue();
-            newProductFunction.functionPointDET = (int) funcReqFPDET.getValue();
+            M_PROJECTDATA_PRODUCTFUNCTION newProductFunction = new M_PROJECTDATA_PRODUCTCONTENTFACTORY().createProductFunction(prodFuncID.getText());
+            newProductFunction.actor = prodFuncProtagonist.getText();
+            newProductFunction.function = prodFuncFunction.getText();
+            newProductFunction.description = prodFuncDescription.getText();
+            newProductFunction.functionPointCategory = prodFuncFPCategory.getSelectedItem().toString();
+            newProductFunction.functionPointFTR = (int) prodFuncFPFTR.getValue();
+            newProductFunction.functionPointDET = (int) prodFuncFPDET.getValue();
             newProductFunction.calculateWeight();
             viewFrame.setWeightDescription(newProductFunction.functionPointWeighting);
 
             System.out.println(newProductFunction.toString());
             projectData.getProductFunctionList().add(newProductFunction);
-            viewFrame.addFuncReqIDListElement(funcReqID.getText());
+            viewFrame.addProdFuncIDListElement(prodFuncID.getText());
         } else {
             System.out.println("ID already exists in project Function");
         }
@@ -94,27 +94,26 @@ public class C_PRODUCTFUNCTION implements I_C_PRODUCTFUNCTION {
             }
         }
         if (selectedProjectData == null) {
-            System.out.println("Selected ID does not exist no update of Info can occure");
+            System.out.println("Selected ID does not exist no update of Info can occur");
         } else {
-            viewFrame.updateFuncReqInfo(selectedProjectData);
+            viewFrame.updateProdFuncInfo(selectedProjectData);
         }
         viewFrame.setWeightDescription(selectedProjectData.functionPointWeighting);
     }
 
     @Override
-    public void deleteFuncReqElement() {
+    public void deleteProductFunction() {
         int index = 0;
-        int removedelement = -1;
+        int removedElement = -1;
         for (M_PROJECTDATA_PRODUCTFUNCTION projectDataFunction : projectData.getProductFunctionList()) {
-            if (projectDataFunction.id.equals(funcReqIDList.getSelectedValue())) {
-                removedelement = index;
-                System.out.println("Bis hier");
+            if (projectDataFunction.id.equals(prodFuncIDList.getSelectedValue())) {
+                removedElement = index;
             }
             index++;
         }
-        if (removedelement >= 0) {
-            projectData.getProductFunctionList().remove(removedelement);
-            viewFrame.reinitializeReqIDList(projectData);
+        if (removedElement >= 0) {
+            projectData.getProductFunctionList().remove(removedElement);
+            viewFrame.reinitializeProdFuncIDList(projectData);
         }
 
     }

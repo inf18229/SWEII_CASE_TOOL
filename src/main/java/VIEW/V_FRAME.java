@@ -762,42 +762,42 @@ public class V_FRAME implements I_V_FRAME {
     }
 
     @Override
-    public JTextField getTextFieldReqID() {
+    public JTextField getTextFieldProdFuncID() {
         return textFieldReqID;
     }
 
     @Override
-    public JTextField getTextFieldReqFunction() {
+    public JTextField getTextFieldProdFunc() {
         return textFieldReqFunction;
     }
 
     @Override
-    public JTextField getTextFieldReqProtagonist() {
+    public JTextField getTextFieldProdFuncProtagonist() {
         return textFieldReqProtagonist;
     }
 
     @Override
-    public JTextArea getTextAreaReqDescription() {
+    public JTextArea getTextAreaprodFuncDescription() {
         return textAreaReqDescription;
     }
 
     @Override
-    public JComboBox getComboBoxReqCategory() {
+    public JComboBox getComboBoxProdFuncCategory() {
         return comboBoxReqCategory;
     }
 
     @Override
-    public JSpinner getSpinnerReqFTR() {
+    public JSpinner getSpinnerProdFuncFTR() {
         return spinnerReqFTR;
     }
 
     @Override
-    public JSpinner getSpinnerReqDET() {
+    public JSpinner getSpinnerProdFuncDET() {
         return spinnerReqDET;
     }
 
     @Override
-    public JList getfunctionalReqIDList() {
+    public JList getProdFuncIDList() {
         return functionalReqIDList;
     }
 
@@ -1300,13 +1300,13 @@ public class V_FRAME implements I_V_FRAME {
     }
 
     @Override
-    public void addFuncReqIDListElement(String id) {
+    public void addProdFuncIDListElement(String id) {
         functionalReqListModell.addElement(id);
         System.out.println(functionalReqIDList.getLastVisibleIndex());
         functionalReqIDList.setSelectedIndex(functionalReqIDList.getLastVisibleIndex());
     }
 
-    public void updateFuncReqInfo(M_PROJECTDATA_PRODUCTFUNCTION projDataFunction) {
+    public void updateProdFuncInfo(M_PROJECTDATA_PRODUCTFUNCTION projDataFunction) {
         textFieldReqID.setText(projDataFunction.id);
         textFieldReqFunction.setText(projDataFunction.function);
         textFieldReqProtagonist.setText(projDataFunction.actor);
@@ -1326,12 +1326,12 @@ public class V_FRAME implements I_V_FRAME {
     }
 
     @Override
-    public void changeReqIDListElement(String id) {
+    public void changeprodFuncIDListElement(String id) {
         functionalReqListModell.setElementAt(id, functionalReqIDList.getSelectedIndex());
     }
 
     @Override
-    public void reinitializeReqIDList(M_PROJECTDATA projData) {
+    public void reinitializeProdFuncIDList(M_PROJECTDATA projData) {
 
         functionalReqListModell = new DefaultListModel();
         for (M_PROJECTDATA_PRODUCTFUNCTION productFunction : projData.getProductFunctionList()) {

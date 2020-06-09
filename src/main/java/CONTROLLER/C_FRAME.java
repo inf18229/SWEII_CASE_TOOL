@@ -282,12 +282,12 @@ public class C_FRAME implements I_C_FRAME {
 
     @Override
     public void notifyFuncReqNEW() {
-        controllerFunctionalReqirement.newFuncReqElement();
+        controllerFunctionalReqirement.newProductFunction();
     }
 
     @Override
     public void notifyFuncReqDELETE() {
-        controllerFunctionalReqirement.deleteFuncReqElement();
+        controllerFunctionalReqirement.deleteProductFunction();
     }
 
     /**

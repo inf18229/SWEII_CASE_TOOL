@@ -13,21 +13,21 @@ public interface I_V_FRAME extends I_V_BASIC {
 
     JTextArea getProductEnvironment();
 
-    JTextField getTextFieldReqID();
+    JTextField getTextFieldProdFuncID();
 
-    JTextField getTextFieldReqFunction();
+    JTextField getTextFieldProdFunc();
 
-    JTextField getTextFieldReqProtagonist();
+    JTextField getTextFieldProdFuncProtagonist();
 
-    JTextArea getTextAreaReqDescription();
+    JTextArea getTextAreaprodFuncDescription();
 
-    JComboBox getComboBoxReqCategory();
+    JComboBox getComboBoxProdFuncCategory();
 
-    JSpinner getSpinnerReqFTR();
+    JSpinner getSpinnerProdFuncFTR();
 
-    JSpinner getSpinnerReqDET();
+    JSpinner getSpinnerProdFuncDET();
 
-    JList getfunctionalReqIDList();
+    JList getProdFuncIDList();
 
     /**
      * this methods sets the description for the weight label in productfunctions view
@@ -284,19 +284,19 @@ public interface I_V_FRAME extends I_V_BASIC {
     /**
      * adds the FuncReqID List in Tab
      */
-    void addFuncReqIDListElement(String id);
+    void addProdFuncIDListElement(String id);
 
     /**
      * cgabge ReqID List element with String i
      *
      * @param id is the new value for the list element
      */
-    void changeReqIDListElement(String id);
+    void changeprodFuncIDListElement(String id);
 
-    void reinitializeReqIDList(M_PROJECTDATA projData);
+    void reinitializeProdFuncIDList(M_PROJECTDATA projData);
 
     /**
      * updates texboxes depending on selected Index
      */
-    void updateFuncReqInfo(M_PROJECTDATA_PRODUCTFUNCTION projDataFunction);
+    void updateProdFuncInfo(M_PROJECTDATA_PRODUCTFUNCTION projDataFunction);
 }
