@@ -47,7 +47,8 @@ public class C_frame implements I_C_frame {
      */
     @Override
     public void createTabControllers(/*I_C_frame.tabs tabs*/) {
-        controllerEffort = new C_effort(viewFrame, projectData);
+        controllerEffort = C_effort.getInstance();
+        controllerEffort.setLinks(viewFrame, projectData);
         controllerFunctionalReqirement = new C_functionalReqirement(viewFrame, projectData);
         controllerGeneral = new C_general(viewFrame, projectData);
         System.out.println("General Controller created");

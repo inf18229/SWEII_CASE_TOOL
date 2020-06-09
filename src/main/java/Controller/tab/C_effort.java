@@ -9,11 +9,30 @@ import View.I_V_frame;
  * this Controller has to manage all action regarding the "Aufwandsschätzung" tab
  */
 public class C_effort implements I_C_effort {
+    private static C_effort controllerEffort;
 
-    I_V_frame viewFrame;    //  stores a reference to the viewFrame to update elements of it
-    M_projectData projectData;      // stores a reference to the complete data modell
+    private I_V_frame viewFrame;    //  stores a reference to the viewFrame to update elements of it
+    private M_projectData projectData;      // stores a reference to the complete data modell
 
-    public C_effort(I_V_frame view, M_projectData projData) {
+    private C_effort() {}
+
+    /**
+     * this method checks if controllerEffort was already created
+     * if it wasn't it creates a new controllerEffort
+     * it always returns a reference to the controllerEffort
+     * @return C_effort.controllerEffort - reference to controllerEffort
+     */
+    public static C_effort getInstance () {
+        if (C_effort.controllerEffort == null) {
+            C_effort.controllerEffort = new C_effort ();
+        }
+        return C_effort.controllerEffort;
+    }
+
+    /**
+     * this method sets the necessary links after instantiation of the controller
+     */
+    public void setLinks(I_V_frame view, M_projectData projData) {
         viewFrame = view;
         projectData = projData;
     }

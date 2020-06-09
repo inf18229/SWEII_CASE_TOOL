@@ -1,9 +1,17 @@
 package Controller.tab;
 
+import Model.projectData.M_projectData;
+import View.I_V_frame;
+
 /**
  * This Interface manages all actions regarding the "Aufwandsschätzung" tab
  */
 public interface I_C_effort extends I_C_tab {
+
+    /**
+     * this method sets the necessary links after instantiation of the controller
+     */
+    void setLinks(I_V_frame view, M_projectData projData);
 
     /**
      * this method updates the V_framePanel_effort
