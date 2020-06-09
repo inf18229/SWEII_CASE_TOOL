@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 //TODO: JAXBException --> Kein Test weil wir davon ausgehen dass JAXB korrekt durchläuft
-class M_EXPORTTEST {
+class M_EXPORT_TEST {
     // Equivalence classes:
     // 1. tests whether marshalling works with M_projectdata pointing to null
     // 2. empty filename or with blanks or null
