@@ -9,16 +9,8 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlAccessorType(XmlAccessType.FIELD)
 
 public class M_projectData_functionPointEstimation_configData {
-    private static M_projectData_functionPointEstimation_configData configData;
 
-    private M_projectData_functionPointEstimation_configData() {}
-
-    public static M_projectData_functionPointEstimation_configData getConfigData () {
-        if (M_projectData_functionPointEstimation_configData.configData == null) {
-            M_projectData_functionPointEstimation_configData.configData = new M_projectData_functionPointEstimation_configData ();
-        }
-        return M_projectData_functionPointEstimation_configData.configData;
-    }
+    public M_projectData_functionPointEstimation_configData() {}
 
     @XmlTransient
     //variables for factors

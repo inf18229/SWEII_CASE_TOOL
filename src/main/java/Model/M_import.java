@@ -22,7 +22,7 @@ public class M_import {
 
     public M_import() {
         projData = new M_projectData();
-        confData = M_projectData_functionPointEstimation_configData.getConfigData();
+        confData = new M_projectData_functionPointEstimation_configData();
     }
 
     // code idea from: https://howtodoinjava.com/jaxb/unmarshal-without-xmlrootelement/

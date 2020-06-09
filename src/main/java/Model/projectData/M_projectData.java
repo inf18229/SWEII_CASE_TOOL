@@ -22,7 +22,7 @@ public class M_projectData {
 
     M_projectData_functionPointEstimation m_projectData_functionPointEstimation = new M_projectData_functionPointEstimation();
 
-    M_projectData_functionPointEstimation_configData m_projectData_functionPointEstimation_configData = M_projectData_functionPointEstimation_configData.getConfigData();
+    M_projectData_functionPointEstimation_configData m_projectData_functionPointEstimation_configData = new M_projectData_functionPointEstimation_configData();
 
     public M_projectData_productUse getM_projectData_productUse() {
         return m_projectData_productUse;
