@@ -1427,7 +1427,7 @@
                               </component>
                             </children>
                           </grid>
-                          <component id="ebd59" class="javax.swing.JButton">
+                          <component id="ebd59" class="javax.swing.JButton" binding="b_automaticSliderValues">
                             <constraints>
                               <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                             </constraints>
@@ -2432,7 +2432,7 @@
                               <text value="-"/>
                             </properties>
                           </component>
-                          <component id="21a41" class="javax.swing.JButton" binding="b_automaticSliderValues">
+                          <component id="21a41" class="javax.swing.JButton" binding="b_automaticSliderValuesCorrection">
                             <constraints>
                               <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                             </constraints>

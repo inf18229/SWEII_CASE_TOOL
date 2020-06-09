@@ -175,7 +175,7 @@ public class C_frame implements I_C_frame {
     public void notifyImportFactor() {
         System.out.println("Importiere Faktoren !");
         projectData_import.importProject(projectData, confPath);
-        System.out.println("Importiere Faktoren fertig !");
+        controllerEffort.updateProjectData();
     }
 
     /**

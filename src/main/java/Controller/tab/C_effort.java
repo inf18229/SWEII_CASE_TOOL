@@ -158,6 +158,7 @@ public class C_effort implements I_C_effort {
                 projectData.getM_projectData_functionPointEstimation().correctionFactor,
                 projectData.getM_projectData_functionPointEstimation().e2Correction
         );
+        updateView();
 
     }
 

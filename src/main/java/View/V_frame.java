@@ -263,6 +263,7 @@ public class V_frame implements I_V_frame {
     private JButton b_factorExport;             // button is only visible in effort view and exports a saved set of factors to XML
     private JProgressBar pb_E2Sum;
     private JLabel labelprogressBarE2SumDescription;
+    private JButton b_automaticSliderValuesCorrection;
     DefaultListModel functionalReqListModell;
 
 
@@ -686,7 +687,7 @@ public class V_frame implements I_V_frame {
                 controllerFrame.notifyAdjustFactors();
             }
         });
-        b_automaticSliderValues.setEnabled(false);
+        b_automaticSliderValues.setEnabled(false);  // button is disabled when created
         V_Effort_Tabs.addChangeListener(new ChangeListener() {
             /**
              * Invoked when the target of the listener has changed its state.
@@ -720,6 +721,19 @@ public class V_frame implements I_V_frame {
                 controllerFrame.notifyExportFactor();
             }
         });
+        b_automaticSliderValuesCorrection.addActionListener(new ActionListener() {
+            /**
+             * Invoked when an action occurs.
+             *
+             * @param e the event to be processed
+             */
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controllerFrame.notifyAdjustFactors();
+                controllerFrame.notifyLast();
+            }
+        });
+        b_automaticSliderValuesCorrection.setEnabled(false);  // button is disabled when created
     }
 
     /**
@@ -1104,16 +1118,20 @@ public class V_frame implements I_V_frame {
     @Override
     public void setFactorSumE2(int e2Sum, int e2Goal) {
         if (e2Sum == e2Goal) {
-            b_automaticSliderValues.setEnabled(true);
+            b_automaticSliderValues.setEnabled(false);
+            b_automaticSliderValuesCorrection.setEnabled(false); // enables button as factor correction is not necessary
             labelE2Sum.setForeground(Color.green.darker());
         } else if (e2Sum <= e2Goal + 5 & e2Sum >= e2Goal - 5) { // e2Sum == e2Goal +-5
             b_automaticSliderValues.setEnabled(true);
+            b_automaticSliderValuesCorrection.setEnabled(true); // enables button as factor correction is possible
             labelE2Sum.setForeground(Color.orange.darker());
         } else if (e2Goal == -1 | e2Goal < 0 | e2Goal > 60) {  // e2Goal was not yet calculated or is out of the correctable range
             b_automaticSliderValues.setEnabled(false);
+            b_automaticSliderValuesCorrection.setEnabled(false); // enables button as factor correction is not possible
             labelE2Sum.setForeground(Color.black);
         } else {
             b_automaticSliderValues.setEnabled(true);
+            b_automaticSliderValuesCorrection.setEnabled(true); // enables button as factor correction is possible
             labelE2Sum.setForeground(Color.red.darker());   // e2Goal was calculated but e2Sum is more than 5 off its value
         }
         labelE2Sum.setText(String.valueOf(e2Sum));
