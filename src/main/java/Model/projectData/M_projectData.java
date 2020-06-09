@@ -3,7 +3,6 @@ package Model.projectData;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 import java.util.ArrayList;
 
 @XmlRootElement(name="M_projectData")
@@ -11,8 +10,9 @@ import java.util.ArrayList;
 
 //TODO: Make to Singleton
 public class M_projectData {
-    @XmlTransient
-    int stuffElement = 0; // this element is ignored and the export starts with the second element
+    //@XmlTransient // jumps over first element - TODO: why do we use this here?
+    //int stuffElement = 0; // this element is ignored and the export starts with the second element
+
     ArrayList<M_projectData_productData> productDataList = new ArrayList<>();
     ArrayList<M_projectData_productFunction> productFunctionList = new ArrayList<>();
 

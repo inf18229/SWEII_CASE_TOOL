@@ -3,7 +3,6 @@ package Model.projectData;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 @XmlRootElement(name="M_projectData_functionPointEstimation_configData")
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -20,11 +19,11 @@ public class M_projectData_functionPointEstimation_configData {
         return M_projectData_functionPointEstimation_configData.configData;
     }
 
-    @XmlTransient
-    //variables for factors
-    int stuffElement = 0; // this element is ignored and the export starts with the second element   // TODO: try to fix and remove this
-    public int factorEntanglement = 0; //TODO: eig. alle privat und nür über set/get aufrufen -> extra Test notwendig?
+    //@XmlTransient // jumps over first element
+    //int stuffElement = 0; // this element is ignored and the export starts with the second element   // TODO: try to fix and remove this
 
+    //variables for factors
+    public int factorEntanglement = 0; //TODO: eig. alle privat und nür über set/get aufrufen -> extra Test notwendig?
     public int factorDecentralization = 0;
     public int factorTransactionrate = 0;
 
