@@ -14,6 +14,8 @@ import java.io.File;
  * Its only purpose is to handle USER-IO during the start sequence
  */
 public class C_start implements I_C_start {
+    private static C_start controllerStart;
+
     //TODO: create Model and store in local Variable
     //TODO: create VIEW and store in local Variable
     I_V_start viewStart;
@@ -26,10 +28,23 @@ public class C_start implements I_C_start {
      * it passes itself as C_start controllerStart into the main
      * and therefore creates a reference to itself in the viewStart
      */
-    public C_start() {
+    private C_start(){
         viewStart = new V_start(this);
         I_V_basic.show(viewStart.getJFrame());  // makes viewStart visible and enables user input
         m__import = new M_import();
+    }
+
+    /**
+     * this method checks if controller was already created
+     * if it wasn't it creates a new controller
+     * it always returns a reference to the controller
+     * @return reference to controller
+     */
+    public static C_start getInstance () {
+        if (C_start.controllerStart == null) {
+            C_start.controllerStart = new C_start ();
+        }
+        return C_start.controllerStart;
     }
 
     /**
