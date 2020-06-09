@@ -93,26 +93,27 @@ In der weiteren Entwicklung der Software ist es vorgesehen, eine automatische Ko
         <sumReferenceMedium>0</sumReferenceMedium>
         <sumReferenceComplex>0</sumReferenceComplex>
         <e1Sum>16</e1Sum>
-        <e3Sum>0.83</e3Sum>
-        <afp>13.28</afp>
-        <jonesDuration>2.8137093257946466</jonesDuration>
+        <e3Sum>0.7899999999999999</e3Sum>
+        <afp>12.639999999999999</afp>
+        <jonesDuration>2.758664140480335</jonesDuration>
         <jonesPersonNo>1</jonesPersonNo>
-        <jonesPersonMonths>2.8137093257946466</jonesPersonMonths>
+        <jonesPersonMonths>2.758664140480335</jonesPersonMonths>
         <actualDuration>0.0</actualDuration>
         <correctionFactor>0.3288124280832689</correctionFactor>
         <correctedDuration>0.0</correctedDuration>
         <e2Correction>-1</e2Correction>
     </m_projectData_functionPointEstimation>
     <m_projectData_functionPointEstimation_configData>
+        <factorEntanglement>1</factorEntanglement>
         <factorDecentralization>3</factorDecentralization>
-        <factorTransactionrate>0</factorTransactionrate>
-        <factorProcessingCalculation>0</factorProcessingCalculation>
+        <factorTransactionrate>3</factorTransactionrate>
+        <factorProcessingCalculation>8</factorProcessingCalculation>
         <factorProcessingControl>3</factorProcessingControl>
-        <factorProcessingException>0</factorProcessingException>
+        <factorProcessingException>4</factorProcessingException>
         <factorProcessingLogic>3</factorProcessingLogic>
-        <factorReusability>0</factorReusability>
-        <factorConversion>0</factorConversion>
-        <factorCustomizability>0</factorCustomizability>
-        <e2Sum>12</e2Sum>
+        <factorReusability>3</factorReusability>
+        <factorConversion>3</factorConversion>
+        <factorCustomizability>5</factorCustomizability>
+        <e2Sum>36</e2Sum>
     </m_projectData_functionPointEstimation_configData>
 </M_projectData>
