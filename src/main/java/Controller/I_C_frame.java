@@ -37,7 +37,7 @@ public interface I_C_frame {
     void notifyTabChange(int newTab);
 
     /**
-     * should notify C_effort that the tab in V_Effort_Tabs has changed
+     * should notify C_EFFORT that the tab in V_Effort_Tabs has changed
      */
     void notifyTabChangeEffort();
 

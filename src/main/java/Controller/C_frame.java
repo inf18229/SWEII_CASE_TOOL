@@ -81,7 +81,7 @@ public class C_frame implements I_C_frame {
      */
     @Override
     public void createTabControllers(/*I_C_frame.tabs tabs*/) {
-        controllerEffort = C_effort.getInstance();
+        controllerEffort = C_EFFORT.getInstance();
         controllerEffort.setLinks(viewFrame, projectData);
         controllerFunctionalReqirement = new C_functionalReqirement(viewFrame, projectData);
         controllerGeneral = new C_general(viewFrame, projectData);
@@ -135,7 +135,7 @@ public class C_frame implements I_C_frame {
     }
 
     /**
-     * should notify C_effort that the tab in V_Effort_Tabs has changed
+     * should notify C_EFFORT that the tab in V_Effort_Tabs has changed
      */
     @Override
     public void notifyTabChangeEffort() {
