@@ -1,18 +1,6 @@
-/**
- * Main: This file is part of CASE-Tool
- * <p>
- * With the CASE-Tool it is possible to create feasibility studies
- * and save them. The software is based on a student project.
- * <p>
- * Description:  Model for Function Point Estimation
- */
-
 package Model.projectData;
 
-public class M_projectData_functionPointEstimation/* extends M_project_Data_Estimation */ {
-    /*public M_projectData_functionPointEstimation(double actualValue, double setpoint) {
-        super(actualValue, setpoint);
-    }*/
+public class M_projectData_functionPointEstimation{
     public M_projectData_functionPointEstimation() {
 
     }
@@ -184,84 +172,6 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
         }
     }
 
-    //TODO: fix not working yet!!!
-
-    /**
-     * sets one factor to the provided value
-     *
-     * @param factorNo which factor to change
-     * @param value    what value to set it to
-     */
-    /*public void setFactor(int factorNo, int value) {
-        switch (factorNo) {
-            case 1:
-                factorEntanglement = value;
-                break;
-            case 2:
-                factorDecentralization = value;
-                break;
-            case 3:
-                factorTransactionrate = value;
-                break;
-            case 41:
-                factorProcessingCalculation = value;
-                break;
-            case 42:
-                factorProcessingControl = value;
-                break;
-            case 43:
-                factorProcessingException = value;
-                break;
-            case 44:
-                factorProcessingLogic = value;
-                break;
-            case 5:
-                factorReusability = value;
-                break;
-            case 6:
-                factorConversion = value;
-                break;
-            case 7:
-                factorCustomizability = value;
-                break;
-            default:
-                // TODO: evtl. besser try catch -> prüfen und wenn besser implementieren
-        }
-    }*/
-
-    /**
-     * gets the value of the factor
-     *
-     * @param factorNo which factor to get
-     */
-    /*public int getFactor(int factorNo) {
-        switch (factorNo) {
-            case 1:
-                return factorEntanglement;
-            case 2:
-                return factorDecentralization;
-            case 3:
-                return factorTransactionrate;
-            case 41:
-                return factorProcessingCalculation;
-            case 42:
-                return factorProcessingControl;
-            case 43:
-                return factorProcessingException;
-            case 44:
-                return factorProcessingLogic;
-            case 5:
-                return factorReusability;
-            case 6:
-                return factorConversion;
-            case 7:
-                return factorCustomizability;
-            default:
-                return 0;
-            // TODO: evtl. besser try catch -> prüfen und wenn besser implementieren
-        }
-    }*/
-
     /**
      * calculates the Sum for one row
      * depending on the count and weight
@@ -281,7 +191,7 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
      * it therefore runs the calculateRowSum Method for each count variable and
      * stores the weight in the corresponding weight variables
      */
-    public void calculateAllRowSums() { //TODO: aufgabe des Controllers?
+    public void calculateAllRowSums() {
         sumInputSimple = calculateRowSum(countInputSimple, weightInputSimple);
         sumInputMedium = calculateRowSum(countInputMedium, weightInputMedium);
         sumInputComplex = calculateRowSum(countInputComplex, weightInputComplex);
@@ -353,8 +263,6 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
     public void calcAdjustedFunctionPoints() {
         afp = e1Sum * e3Sum;
     }
-
-    //TODO: Warum kein Test -> nur Mathe Klasse getestet (die sollte ja korrekt sein)
 
     /**
      * method calculates values according to the jones estimation and saves them into the model variables
