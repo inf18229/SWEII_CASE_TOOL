@@ -273,7 +273,12 @@ public class V_FRAME implements I_V_FRAME {
     private JSpinner spinnerproductDataRET;
     private JSpinner spinnerproductDataDET;
     private JLabel labelproductDataFPWeight;
+    private JButton buttonproductDataSave;
+    private JButton buttonproductDataDelete;
+    private JButton buttonproductDataNew;
+    private JComboBox comboBoxproductDataCategory;
     DefaultListModel functionalReqListModell;
+    DefaultListModel productDataListModell;
 
 
     /**
@@ -420,7 +425,7 @@ public class V_FRAME implements I_V_FRAME {
 
         });
 
-        //Initialize Functional Requirement Tab
+        //Initialize Product Function Tab
 
         functionalReqIDList.setSelectionMode(2);
         functionalReqListModell = new DefaultListModel();
@@ -536,6 +541,104 @@ public class V_FRAME implements I_V_FRAME {
             }
         });
 
+        //Initialize Product Data Tab
+        listproductDataID.setSelectionMode(2);
+        productDataListModell = new DefaultListModel();
+        for (M_PROJECTDATA_PRODUCTFUNCTION productFunction : projData.getProductFunctionList()) {
+            productDataListModell.addElement(productFunction.id);
+        }
+        listproductDataID.setModel(functionalReqListModell);
+        labelproductDataDetails.setFont(labelproductDataDetails.getFont().deriveFont(labelproductDataDetails.getFont().getStyle() | Font.BOLD, 18));
+        labelproductDataFP.setFont(labelproductDataFP.getFont().deriveFont(labelproductDataFP.getFont().getStyle() | Font.BOLD, 18));
+
+        textFieldproductDataID.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                System.out.println("INSERT Product Data ID");
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                System.out.println("REMOVE Product Data ID");
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                System.out.println("CHANGE Product Data ID");
+
+            }
+        });
+        textFieldproductDataReference.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                System.out.println("INSERT Product Data Reference");
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                System.out.println("REMOVE Product Data Reference");
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                System.out.println("CHANGE Product Data Reference");
+            }
+        });
+        textAreaproductDataDescription.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                System.out.println("INSERT Product Data Description");
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                System.out.println("REMOVE Product Data Description");
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                System.out.println("CHANGE Product Data Description");
+            }
+        });
+        comboBoxproductDataCategory.addItem("ILF-Interner Datenbestand");
+        comboBoxproductDataCategory.addItem("ELF-Externer Datenbestand");
+
+        SpinnerNumberModel nMSpinnerproductFunctionRET = new SpinnerNumberModel(0,0,1000,1);
+        spinnerproductDataRET.setModel(nMSpinnerproductFunctionRET);
+        spinnerproductDataRET.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                System.out.println("CHANGE of Product Data RET Spinner detected");
+            }
+        });
+
+        SpinnerNumberModel nMSpinnerproductFunctionDET = new SpinnerNumberModel(0,0,1000,1);
+        spinnerproductDataDET.setModel(nMSpinnerproductFunctionDET);
+        spinnerproductDataDET.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                System.out.println("CHANGE of Product Data DET Spinner detected");
+            }
+        });
+
+        buttonproductDataNew.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("NEW Product Data Element requested");
+            }
+        });
+        buttonproductDataDelete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("DELETE Product Data Element requested");
+            }
+        });
+        buttonproductDataSave.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("SAVE Product Data Element requested");
+            }
+        });
 
         frame.pack(); //pack method sizes the frame so that all its contents are at or above their preferred size (form)
         frame.setLocationRelativeTo(null);  //places the window in the center of the screen
@@ -808,6 +911,36 @@ public class V_FRAME implements I_V_FRAME {
     @Override
     public JList getProdFuncIDList() {
         return functionalReqIDList;
+    }
+
+    @Override
+    public JList getListproductDataID() {
+        return listproductDataID;
+    }
+
+    @Override
+    public JTextField getTextFieldproductDataID() {
+        return textFieldproductDataID;
+    }
+
+    @Override
+    public JTextField getTextFieldproductDataReference() {
+        return textFieldproductDataReference;
+    }
+
+    @Override
+    public JTextArea getTextAreaproductDataDescription() {
+        return textAreaproductDataDescription;
+    }
+
+    @Override
+    public JSpinner getSpinnerproductDataRET() {
+        return spinnerproductDataRET;
+    }
+
+    @Override
+    public JSpinner getSpinnerproductDataDET() {
+        return spinnerproductDataDET;
     }
 
     /**

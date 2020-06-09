@@ -20,7 +20,7 @@ public class C_FRAME implements I_C_FRAME {
     I_V_FRAME viewFrame;
     I_C_start controllerStart;
     I_C_GENERAL controllerGeneral;
-    I_C_PRODUCTFUNCTION controllerFunctionalReqirement;
+    I_C_PRODUCTCONTENT controllerFunctionalReqirement;
     I_C_EFFORT controllerEffort;
     I_C_TAB currentController; //stores current active Controller
     M_PROJECTDATA projectData;  //stores projectData before export TODO: clarify: projectData also stored before pressing the save button?
@@ -282,12 +282,12 @@ public class C_FRAME implements I_C_FRAME {
 
     @Override
     public void notifyFuncReqNEW() {
-        controllerFunctionalReqirement.newProductFunction();
+        controllerFunctionalReqirement.newProductContent();
     }
 
     @Override
     public void notifyFuncReqDELETE() {
-        controllerFunctionalReqirement.deleteProductFunction();
+        controllerFunctionalReqirement.deleteProductContent();
     }
 
     /**
@@ -298,7 +298,7 @@ public class C_FRAME implements I_C_FRAME {
     @Override
     public void notifySelectedListChange(String selectedID) {
         if (currentController == controllerFunctionalReqirement) {
-            controllerFunctionalReqirement.notifyChangeSelectedListItem(selectedID);
+            controllerFunctionalReqirement.saveProductContent(selectedID);
         }
     }
 }
