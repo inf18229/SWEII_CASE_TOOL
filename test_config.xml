@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <M_projectData_functionPointEstimation_configData>
-    <factorEntanglement>1</factorEntanglement>
+    <factorEntanglement>2</factorEntanglement>
     <factorDecentralization>3</factorDecentralization>
     <factorTransactionrate>3</factorTransactionrate>
     <factorProcessingCalculation>8</factorProcessingCalculation>
@@ -10,5 +10,5 @@
     <factorReusability>3</factorReusability>
     <factorConversion>3</factorConversion>
     <factorCustomizability>5</factorCustomizability>
-    <e2Sum>36</e2Sum>
+    <e2Sum>37</e2Sum>
 </M_projectData_functionPointEstimation_configData>
