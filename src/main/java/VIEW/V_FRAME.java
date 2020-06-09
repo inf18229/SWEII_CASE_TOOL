@@ -1088,7 +1088,7 @@ public class V_FRAME implements I_V_FRAME {
                 // TODO: evtl. besser try catch -> prüfen und wenn besser implementieren
         }
     }
-    
+
     /**
      * sets the value of the corresponding text field to the value given
      *
@@ -1146,8 +1146,7 @@ public class V_FRAME implements I_V_FRAME {
             b_automaticSliderValues.setEnabled(false);
             b_automaticSliderValuesCorrection.setEnabled(false); // disables button as factor correction is not possible/not necessary as it isn't initialized yet
             labelE2Sum.setForeground(Color.black);
-        }
-        else if (e2Sum == e2Goal) {
+        } else if (e2Sum == e2Goal) {
             b_automaticSliderValues.setEnabled(false);
             b_automaticSliderValuesCorrection.setEnabled(false); // enables button as factor correction is not necessary
             labelE2Sum.setForeground(Color.green.darker());

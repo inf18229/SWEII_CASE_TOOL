@@ -158,6 +158,7 @@ public interface I_V_FRAME extends I_V_BASIC {
 
     /**
      * returns the value of the selected slider
+     *
      * @param sliderNo
      * @return value of the selected slider
      */
@@ -167,7 +168,7 @@ public interface I_V_FRAME extends I_V_BASIC {
      * sets slider to the passed possition
      *
      * @param sliderNo defines which slider to change
-     * @param value defines the value to which the slider should be set
+     * @param value    defines the value to which the slider should be set
      */
     void setSliderValue(int sliderNo, int value);
 
@@ -182,7 +183,7 @@ public interface I_V_FRAME extends I_V_BASIC {
     /**
      * set the value of E2
      *
-     * @param e2sum sum of all factors
+     * @param e2sum  sum of all factors
      * @param e2Goal sum to achieve the same effort in calculation as in the real project
      */
     void setFactorSumE2(int e2sum, int e2Goal);
@@ -208,8 +209,8 @@ public interface I_V_FRAME extends I_V_BASIC {
     /**
      * this method updates all values of the correction factor panel
      *
-     * @param calcEff  effort calculated before
-     * @param corrFact correction factor calculated
+     * @param calcEff      effort calculated before
+     * @param corrFact     correction factor calculated
      * @param e2Correction
      */
     void updateCorrectionPanel(double calcEff, double corrFact, int e2Correction);
