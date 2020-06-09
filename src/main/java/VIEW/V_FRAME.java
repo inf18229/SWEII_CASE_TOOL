@@ -1124,10 +1124,14 @@ public class V_FRAME implements I_V_FRAME {
      * @param e2Sum  sum of all factors
      * @param e2Goal sum to achieve the same effort in calculation as in the real project
      */
-    //TODO: check why color orange when no e2Goal calculated/at start
     @Override
     public void setFactorSumE2(int e2Sum, int e2Goal) {
-        if (e2Sum == e2Goal) {
+        if (e2Goal == -1) {
+            b_automaticSliderValues.setEnabled(false);
+            b_automaticSliderValuesCorrection.setEnabled(false); // disables button as factor correction is not possible/not necessary as it isn't initialized yet
+            labelE2Sum.setForeground(Color.black);
+        }
+        else if (e2Sum == e2Goal) {
             b_automaticSliderValues.setEnabled(false);
             b_automaticSliderValuesCorrection.setEnabled(false); // enables button as factor correction is not necessary
             labelE2Sum.setForeground(Color.green.darker());
@@ -1135,7 +1139,7 @@ public class V_FRAME implements I_V_FRAME {
             b_automaticSliderValues.setEnabled(true);
             b_automaticSliderValuesCorrection.setEnabled(true); // enables button as factor correction is possible
             labelE2Sum.setForeground(Color.orange.darker());
-        } else if (e2Goal == -1 | e2Goal < 0 | e2Goal > 60) {  // e2Goal was not yet calculated or is out of the correctable range
+        } else if (e2Goal < 0 | e2Goal > 60) {  // e2Goal was not yet calculated or is out of the correctable range
             b_automaticSliderValues.setEnabled(false);
             b_automaticSliderValuesCorrection.setEnabled(false); // enables button as factor correction is not possible
             labelE2Sum.setForeground(Color.black);
