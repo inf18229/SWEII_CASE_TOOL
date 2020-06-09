@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<M_projectData_functionPointEstimation_configData>
-    <factorEntanglement>5</factorEntanglement>
-    <factorDecentralization>5</factorDecentralization>
-    <factorTransactionrate>5</factorTransactionrate>
-    <factorProcessingCalculation>9</factorProcessingCalculation>
-    <factorProcessingControl>2</factorProcessingControl>
-    <factorProcessingException>7</factorProcessingException>
-    <factorProcessingLogic>4</factorProcessingLogic>
-    <factorReusability>2</factorReusability>
-    <factorConversion>3</factorConversion>
-    <factorCustomizability>2</factorCustomizability>
-    <e2Sum>44</e2Sum>
-</M_projectData_functionPointEstimation_configData>
+<M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA>
+    <factorEntanglement>0</factorEntanglement>
+    <factorDecentralization>0</factorDecentralization>
+    <factorTransactionrate>0</factorTransactionrate>
+    <factorProcessingCalculation>0</factorProcessingCalculation>
+    <factorProcessingControl>0</factorProcessingControl>
+    <factorProcessingException>0</factorProcessingException>
+    <factorProcessingLogic>0</factorProcessingLogic>
+    <factorReusability>0</factorReusability>
+    <factorConversion>0</factorConversion>
+    <factorCustomizability>0</factorCustomizability>
+    <e2Sum>0</e2Sum>
+</M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA>
