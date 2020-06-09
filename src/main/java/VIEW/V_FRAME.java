@@ -264,6 +264,15 @@ public class V_FRAME implements I_V_FRAME {
     private JProgressBar pb_E2Sum;
     private JLabel labelprogressBarE2SumDescription;
     private JButton b_automaticSliderValuesCorrection;
+    private JList listproductDataID;
+    private JLabel labelproductDataDetails;
+    private JLabel labelproductDataFP;
+    private JTextField textFieldproductDataID;
+    private JTextField textFieldproductDataReference;
+    private JTextArea textAreaproductDataDescription;
+    private JSpinner spinnerproductDataRET;
+    private JSpinner spinnerproductDataDET;
+    private JLabel labelproductDataFPWeight;
     DefaultListModel functionalReqListModell;
 
 
