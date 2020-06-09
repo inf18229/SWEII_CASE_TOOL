@@ -93,7 +93,7 @@ class M_exportTest {
     @Test
     void export_configData_emptyFilenameTest() {
         M_export export_test = new M_export();
-        M_projectData_functionPointEstimation_configData confData_test = new M_projectData_functionPointEstimation_configData();
+        M_projectData_functionPointEstimation_configData confData_test = M_projectData_functionPointEstimation_configData.getConfigData();
 
         //Class 1 --> string with blanks
         String path1 = " ";
@@ -115,7 +115,7 @@ class M_exportTest {
     @Test
     void export_configData_weirdFilenameTest() {
         M_export export_test = new M_export();
-        M_projectData_functionPointEstimation_configData confData_test = new M_projectData_functionPointEstimation_configData();
+        M_projectData_functionPointEstimation_configData confData_test = M_projectData_functionPointEstimation_configData.getConfigData();
         String path1 = "$test/test=test(&%|?|).xml";
         //Tests whether the weird path from path1 is valid
         assertThrows(InvalidPathException.class, () -> export_test.export(confData_test, path1));
@@ -130,7 +130,7 @@ class M_exportTest {
     void export_configData_cleanRun() {
         try {
             M_export export_test = new M_export();
-            M_projectData_functionPointEstimation_configData confData_test = new M_projectData_functionPointEstimation_configData();
+            M_projectData_functionPointEstimation_configData confData_test = M_projectData_functionPointEstimation_configData.getConfigData();
             String path = "test_config.xml";
             export_test.export(confData_test, path);
         } catch (Exception e) {
