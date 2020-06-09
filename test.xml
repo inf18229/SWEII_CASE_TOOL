@@ -23,11 +23,12 @@
         <functionPointFTR>0</functionPointFTR>
     </productFunctionList>
     <m_projectData_productUse>
-        <content>TestProductUse</content>
+        <content>Das Produkt soll in der Firma DHBW Software Solutions gGmbH eingesetzt werden. Es dient den Projektleitern bei neuen Projekten als Unterstützung zum Erstellen von Anforderungssammlungen. Dabei werden sie durch den notwendigen Prozess geführt und können Ergänzungen hinzufügen. Im Austausch mit dem Kunden können ganze Anforderungssammlungen über das Requirements Interchange Format weitergegeben und mit anderen Tools geöffnet werden. Außerdem können Ergebnisdokumente erstellt werden, um Kunden über den aktuellen Stand der Anforderungssammlung zu informieren. Zusätzlich bietet die Software den Software-Engineers ein Plugin um in einer IDE die zu bearbeitenden Anforderungen anzuzeigen.</content>
         <title>Produkteinsatz</title>
     </m_projectData_productUse>
     <m_projectData_targetDefinition>
-        <content></content>
+        <content>Das Ziel, welches durch das Softwareprodukt erreicht werden soll, ist es primär, mit Hilfe eines festgelegten Prozesses, die Anforderungsanalyse im Produktiveinsatz der DHBW Software Systems gGmbH zu strukturieren. Das unternehmensweit einsetzbare Tool erlaubt es Projektleitern die aufgenommenen Anforderungen, definierten Begriffe und sonstige Anmerkungen bereits vor Ort einzugeben. Durch die geleitete Eingabe, die trotzdem die nötigen Freiheiten bietet, speziell auf den Kunden einzugehen, ist es möglich unternehmensintern jederzeit Anforderungssammlungen zu vergleichen oder sie zu Analysen heranzuziehen. Zusätzlich ermöglicht es die Export Funktion im Requirements Interchange Format näher mit dem Kunden zusammenarbeiten zu können und sich noch während des Erstellens der Sammlung über mögliche Anpassungen auszutauschen. Auch Kunden, die in ihrem Unternehmen noch keine Anforderungssammlungssoftware einsetzen, ist es möglich, dank eines übersichtlichen Ergebnisdokuments, jederzeit den Status des Projekts abzufragen. Dieses Dokument kann sowohl schnell und einfach elektronisch als PDF-Dokument weitergereicht werden, oder auch bei persönlichen Kontakten mit dem Kunden als Anschauungsmaterial zur Hand gehabt werden.
+In der weiteren Entwicklung der Software ist es vorgesehen, eine automatische Kosten- und Terminabschätzung zu erstellen. Der Projektleiter kann dann also die aufgenommenen Anforderungen eingeben, welche dann durch Gliederung in verschiedene Aufwandsklassen automatisch eine Kostenabschätzung sowie in Abhängigkeit der verfügbaren Mitarbeiter daraus eine Terminabschätzung inklusive der standardmäßigen Puffer erstellt. Außerdem soll im weiteren Verlauf des Softwareprojekts die Integration in eine der im Unternehmen verwendeten IDEs Visual Studio oder Eclipse implementiert werden. So können Programmierer der DHBW Software Systems gGmbH ihre Aufgaben zeitnah und individuell von ihrem Projektleiter zugeteilt bekommen. Zudem gelingt die Implementierung neuer Funktionen durch Einbindung in die IDE wesentlich strukturierter, da die genauen Ziele festgelegt sind und sich immer im Blick befinden.</content>
         <title>Zielbestimmung</title>
     </m_projectData_targetDefinition>
     <m_projectData_productEnvironment>
@@ -37,13 +38,13 @@
     <m_projectData_functionPointEstimation>
         <countInputSimple>0</countInputSimple>
         <countInputMedium>0</countInputMedium>
-        <countInputComplex>0</countInputComplex>
-        <countQuerySimple>0</countQuerySimple>
+        <countInputComplex>1</countInputComplex>
+        <countQuerySimple>1</countQuerySimple>
         <countQueryMedium>0</countQueryMedium>
         <countQueryComplex>0</countQueryComplex>
         <countOutputSimple>0</countOutputSimple>
         <countOutputMedium>0</countOutputMedium>
-        <countOutputComplex>0</countOutputComplex>
+        <countOutputComplex>1</countOutputComplex>
         <countDatasetSimple>0</countDatasetSimple>
         <countDatasetMedium>0</countDatasetMedium>
         <countDatasetComplex>0</countDatasetComplex>
@@ -67,41 +68,41 @@
         <weightReferenceComplex>10</weightReferenceComplex>
         <sumInputSimple>0</sumInputSimple>
         <sumInputMedium>0</sumInputMedium>
-        <sumInputComplex>0</sumInputComplex>
-        <sumQuerySimple>0</sumQuerySimple>
+        <sumInputComplex>6</sumInputComplex>
+        <sumQuerySimple>3</sumQuerySimple>
         <sumQueryMedium>0</sumQueryMedium>
         <sumQueryComplex>0</sumQueryComplex>
         <sumOutputSimple>0</sumOutputSimple>
         <sumOutputMedium>0</sumOutputMedium>
-        <sumOutputComplex>0</sumOutputComplex>
+        <sumOutputComplex>7</sumOutputComplex>
         <sumDatasetSimple>0</sumDatasetSimple>
         <sumDatasetMedium>0</sumDatasetMedium>
         <sumDatasetComplex>0</sumDatasetComplex>
         <sumReferenceSimple>0</sumReferenceSimple>
         <sumReferenceMedium>0</sumReferenceMedium>
         <sumReferenceComplex>0</sumReferenceComplex>
-        <e1Sum>0</e1Sum>
-        <e3Sum>0.0</e3Sum>
-        <afp>0.0</afp>
-        <jonesDuration>0.0</jonesDuration>
-        <jonesPersonNo>0</jonesPersonNo>
-        <jonesPersonMonths>0.0</jonesPersonMonths>
+        <e1Sum>16</e1Sum>
+        <e3Sum>1.06</e3Sum>
+        <afp>16.96</afp>
+        <jonesDuration>3.1029182887816114</jonesDuration>
+        <jonesPersonNo>1</jonesPersonNo>
+        <jonesPersonMonths>3.1029182887816114</jonesPersonMonths>
         <actualDuration>0.0</actualDuration>
-        <correctionFactor>0.0</correctionFactor>
+        <correctionFactor>-0.13909127913521932</correctionFactor>
         <correctedDuration>0.0</correctedDuration>
-        <e2Correction>-1</e2Correction>
+        <e2Correction>4</e2Correction>
     </m_projectData_functionPointEstimation>
     <m_projectData_functionPointEstimation_configData>
-        <factorEntanglement>0</factorEntanglement>
-        <factorDecentralization>0</factorDecentralization>
-        <factorTransactionrate>0</factorTransactionrate>
-        <factorProcessingCalculation>0</factorProcessingCalculation>
-        <factorProcessingControl>0</factorProcessingControl>
-        <factorProcessingException>0</factorProcessingException>
-        <factorProcessingLogic>0</factorProcessingLogic>
-        <factorReusability>0</factorReusability>
-        <factorConversion>0</factorConversion>
-        <factorCustomizability>0</factorCustomizability>
-        <e2Sum>0</e2Sum>
+        <factorEntanglement>3</factorEntanglement>
+        <factorDecentralization>2</factorDecentralization>
+        <factorTransactionrate>2</factorTransactionrate>
+        <factorProcessingCalculation>6</factorProcessingCalculation>
+        <factorProcessingControl>3</factorProcessingControl>
+        <factorProcessingException>5</factorProcessingException>
+        <factorProcessingLogic>4</factorProcessingLogic>
+        <factorReusability>4</factorReusability>
+        <factorConversion>3</factorConversion>
+        <factorCustomizability>4</factorCustomizability>
+        <e2Sum>36</e2Sum>
     </m_projectData_functionPointEstimation_configData>
 </M_PROJECTDATA>

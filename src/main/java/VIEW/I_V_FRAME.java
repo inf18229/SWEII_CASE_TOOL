@@ -170,35 +170,19 @@ public interface I_V_FRAME extends I_V_BASIC {
 
     /**
      * returns the value of the selected slider
+     *
      * @param sliderNo
      * @return value of the selected slider
      */
     int getSliderValue(int sliderNo);
 
     /**
-     * sets sliders to the passed possitions
+     * sets slider to the passed possition
      *
-     * @param slider1
-     * @param slider2
-     * @param slider3
-     * @param slider41
-     * @param slider42
-     * @param slider43
-     * @param slider44
-     * @param slider5
-     * @param slider6
-     * @param slider7
+     * @param sliderNo defines which slider to change
+     * @param value    defines the value to which the slider should be set
      */
-    void setSliderValues(int slider1,
-                         int slider2,
-                         int slider3,
-                         int slider41,
-                         int slider42,
-                         int slider43,
-                         int slider44,
-                         int slider5,
-                         int slider6,
-                         int slider7);
+    void setSliderValue(int sliderNo, int value);
 
     /**
      * sets the value of the corresponding text field to the value given
@@ -211,7 +195,7 @@ public interface I_V_FRAME extends I_V_BASIC {
     /**
      * set the value of E2
      *
-     * @param e2sum sum of all factors
+     * @param e2sum  sum of all factors
      * @param e2Goal sum to achieve the same effort in calculation as in the real project
      */
     void setFactorSumE2(int e2sum, int e2Goal);
@@ -237,8 +221,8 @@ public interface I_V_FRAME extends I_V_BASIC {
     /**
      * this method updates all values of the correction factor panel
      *
-     * @param calcEff  effort calculated before
-     * @param corrFact correction factor calculated
+     * @param calcEff      effort calculated before
+     * @param corrFact     correction factor calculated
      * @param e2Correction
      */
     void updateCorrectionPanel(double calcEff, double corrFact, int e2Correction);

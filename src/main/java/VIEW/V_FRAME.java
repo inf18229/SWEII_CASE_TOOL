@@ -656,7 +656,7 @@ public class V_FRAME implements I_V_FRAME {
              */
             @Override
             public void stateChanged(ChangeEvent e) {
-                controllerFrame.notifySlider(1, slider0Entanglement.getValue()); //TODO: check if correct listener (always gives more than one event per change)
+                controllerFrame.notifySlider(0, slider0Entanglement.getValue()); //TODO: check if correct listener (always gives more than one event per change)
             }
         });
         slider1Decentralization.addChangeListener(new ChangeListener() {
@@ -667,7 +667,7 @@ public class V_FRAME implements I_V_FRAME {
              */
             @Override
             public void stateChanged(ChangeEvent e) {
-                controllerFrame.notifySlider(2, slider1Decentralization.getValue());
+                controllerFrame.notifySlider(1, slider1Decentralization.getValue());
             }
         });
         slider2Transactionrate.addChangeListener(new ChangeListener() {
@@ -678,7 +678,7 @@ public class V_FRAME implements I_V_FRAME {
              */
             @Override
             public void stateChanged(ChangeEvent e) {
-                controllerFrame.notifySlider(3, slider2Transactionrate.getValue());
+                controllerFrame.notifySlider(2, slider2Transactionrate.getValue());
             }
         });
         slider3ProcessingCalculation.addChangeListener(new ChangeListener() {
@@ -689,7 +689,7 @@ public class V_FRAME implements I_V_FRAME {
              */
             @Override
             public void stateChanged(ChangeEvent e) {
-                controllerFrame.notifySlider(41, slider3ProcessingCalculation.getValue());
+                controllerFrame.notifySlider(3, slider3ProcessingCalculation.getValue());
             }
         });
         slider4ProcessingControl.addChangeListener(new ChangeListener() {
@@ -700,7 +700,7 @@ public class V_FRAME implements I_V_FRAME {
              */
             @Override
             public void stateChanged(ChangeEvent e) {
-                controllerFrame.notifySlider(42, slider4ProcessingControl.getValue());
+                controllerFrame.notifySlider(4, slider4ProcessingControl.getValue());
             }
         });
         slider5ProcessingException.addChangeListener(new ChangeListener() {
@@ -711,7 +711,7 @@ public class V_FRAME implements I_V_FRAME {
              */
             @Override
             public void stateChanged(ChangeEvent e) {
-                controllerFrame.notifySlider(43, slider5ProcessingException.getValue());
+                controllerFrame.notifySlider(5, slider5ProcessingException.getValue());
             }
         });
         slider6ProcessingLogic.addChangeListener(new ChangeListener() {
@@ -722,7 +722,7 @@ public class V_FRAME implements I_V_FRAME {
              */
             @Override
             public void stateChanged(ChangeEvent e) {
-                controllerFrame.notifySlider(44, slider6ProcessingLogic.getValue());
+                controllerFrame.notifySlider(6, slider6ProcessingLogic.getValue());
             }
         });
         slider7Reusability.addChangeListener(new ChangeListener() {
@@ -733,7 +733,7 @@ public class V_FRAME implements I_V_FRAME {
              */
             @Override
             public void stateChanged(ChangeEvent e) {
-                controllerFrame.notifySlider(5, slider7Reusability.getValue());
+                controllerFrame.notifySlider(7, slider7Reusability.getValue());
             }
         });
         slider8Conversion.addChangeListener(new ChangeListener() {
@@ -744,7 +744,7 @@ public class V_FRAME implements I_V_FRAME {
              */
             @Override
             public void stateChanged(ChangeEvent e) {
-                controllerFrame.notifySlider(6, slider8Conversion.getValue());
+                controllerFrame.notifySlider(8, slider8Conversion.getValue());
             }
         });
         slider9Customizability.addChangeListener(new ChangeListener() {
@@ -755,7 +755,7 @@ public class V_FRAME implements I_V_FRAME {
              */
             @Override
             public void stateChanged(ChangeEvent e) {
-                controllerFrame.notifySlider(7, slider9Customizability.getValue());
+                controllerFrame.notifySlider(9, slider9Customizability.getValue());
             }
         });
 
@@ -1179,31 +1179,47 @@ public class V_FRAME implements I_V_FRAME {
     }
 
     /**
-     * sets sliders to the passed possitions
+     * sets slider to the passed possition
      *
-     * @param slider1
-     * @param slider2
-     * @param slider3
-     * @param slider41
-     * @param slider42
-     * @param slider43
-     * @param slider44
-     * @param slider5
-     * @param slider6
-     * @param slider7
+     * @param sliderNo defines which slider to change
+     * @param value    defines the value to which the slider should be set
      */
     @Override
-    public void setSliderValues(int slider1, int slider2, int slider3, int slider41, int slider42, int slider43, int slider44, int slider5, int slider6, int slider7) {
-        slider0Entanglement.setValue(slider1);
-        slider1Decentralization.setValue(slider2);
-        slider2Transactionrate.setValue(slider3);
-        slider3ProcessingCalculation.setValue(slider41);
-        slider4ProcessingControl.setValue(slider42);
-        slider5ProcessingException.setValue(slider43);
-        slider6ProcessingLogic.setValue(slider44);
-        slider7Reusability.setValue(slider5);
-        slider8Conversion.setValue(slider6);
-        slider9Customizability.setValue(slider7);
+    public void setSliderValue(int sliderNo, int value) {
+        switch (sliderNo) {
+            case 0:
+                slider0Entanglement.setValue(value);
+                break;
+            case 1:
+                slider1Decentralization.setValue(value);
+                break;
+            case 2:
+                slider2Transactionrate.setValue(value);
+                break;
+            case 3:
+                slider3ProcessingCalculation.setValue(value);
+                break;
+            case 4:
+                slider4ProcessingControl.setValue(value);
+                break;
+            case 5:
+                slider5ProcessingException.setValue(value);
+                break;
+            case 6:
+                slider6ProcessingLogic.setValue(value);
+                break;
+            case 7:
+                slider7Reusability.setValue(value);
+                break;
+            case 8:
+                slider8Conversion.setValue(value);
+                break;
+            case 9:
+                slider9Customizability.setValue(value);
+                break;
+            default:
+                // TODO: evtl. besser try catch -> prüfen und wenn besser implementieren
+        }
     }
 
     /**
@@ -1215,34 +1231,34 @@ public class V_FRAME implements I_V_FRAME {
     @Override
     public void setSliderText(int sliderNo, int value) {
         switch (sliderNo) {
-            case 1:
+            case 0:
                 label0EntaglementValue.setText(String.valueOf(value));
                 break;
-            case 2:
+            case 1:
                 label1DecentralizationValue.setText(String.valueOf(value));
                 break;
-            case 3:
+            case 2:
                 label2TransactionrateValue.setText(String.valueOf(value));
                 break;
-            case 41:
+            case 3:
                 label3ProcessingCalculationValue.setText(String.valueOf(value));
                 break;
-            case 42:
+            case 4:
                 label4ProcessingControlValue.setText(String.valueOf(value));
                 break;
-            case 43:
+            case 5:
                 label5ProcessingExceptionValue.setText(String.valueOf(value));
                 break;
-            case 44:
+            case 6:
                 label6ProcessingLogicValue.setText(String.valueOf(value));
                 break;
-            case 5:
+            case 7:
                 label7ReusabilityValue.setText(String.valueOf(value));
                 break;
-            case 6:
+            case 8:
                 label8ConversionValue.setText(String.valueOf(value));
                 break;
-            case 7:
+            case 9:
                 label9CustomizabilityValue.setText(String.valueOf(value));
                 break;
             default:
@@ -1257,10 +1273,13 @@ public class V_FRAME implements I_V_FRAME {
      * @param e2Sum  sum of all factors
      * @param e2Goal sum to achieve the same effort in calculation as in the real project
      */
-    //TODO: check why color orange when no e2Goal calculated/at start
     @Override
     public void setFactorSumE2(int e2Sum, int e2Goal) {
-        if (e2Sum == e2Goal) {
+        if (e2Goal == -1) {
+            b_automaticSliderValues.setEnabled(false);
+            b_automaticSliderValuesCorrection.setEnabled(false); // disables button as factor correction is not possible/not necessary as it isn't initialized yet
+            labelE2Sum.setForeground(Color.black);
+        } else if (e2Sum == e2Goal) {
             b_automaticSliderValues.setEnabled(false);
             b_automaticSliderValuesCorrection.setEnabled(false); // enables button as factor correction is not necessary
             labelE2Sum.setForeground(Color.green.darker());
@@ -1268,7 +1287,7 @@ public class V_FRAME implements I_V_FRAME {
             b_automaticSliderValues.setEnabled(true);
             b_automaticSliderValuesCorrection.setEnabled(true); // enables button as factor correction is possible
             labelE2Sum.setForeground(Color.orange.darker());
-        } else if (e2Goal == -1 | e2Goal < 0 | e2Goal > 60) {  // e2Goal was not yet calculated or is out of the correctable range
+        } else if (e2Goal < 0 | e2Goal > 60) {  // e2Goal was not yet calculated or is out of the correctable range
             b_automaticSliderValues.setEnabled(false);
             b_automaticSliderValuesCorrection.setEnabled(false); // enables button as factor correction is not possible
             labelE2Sum.setForeground(Color.black);

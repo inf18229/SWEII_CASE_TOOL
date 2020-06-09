@@ -46,34 +46,34 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA {
      */
     public void setFactor(int factorNo, int value) {
         switch (factorNo) {
-            case 1:
+            case 0:
                 factorEntanglement = value;
                 break;
-            case 2:
+            case 1:
                 factorDecentralization = value;
                 break;
-            case 3:
+            case 2:
                 factorTransactionrate = value;
                 break;
-            case 41:
+            case 3:
                 factorProcessingCalculation = value;
                 break;
-            case 42:
+            case 4:
                 factorProcessingControl = value;
                 break;
-            case 43:
+            case 5:
                 factorProcessingException = value;
                 break;
-            case 44:
+            case 6:
                 factorProcessingLogic = value;
                 break;
-            case 5:
+            case 7:
                 factorReusability = value;
                 break;
-            case 6:
+            case 8:
                 factorConversion = value;
                 break;
-            case 7:
+            case 9:
                 factorCustomizability = value;
                 break;
             default:
@@ -88,25 +88,25 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA {
      */
     public int getFactor(int factorNo) {
         switch (factorNo) {
-            case 1:
+            case 0:
                 return factorEntanglement;
-            case 2:
+            case 1:
                 return factorDecentralization;
-            case 3:
+            case 2:
                 return factorTransactionrate;
-            case 41:
+            case 3:
                 return factorProcessingCalculation;
-            case 42:
+            case 4:
                 return factorProcessingControl;
-            case 43:
-                return factorProcessingException;
-            case 44:
-                return factorProcessingLogic;
             case 5:
-                return factorReusability;
+                return factorProcessingException;
             case 6:
-                return factorConversion;
+                return factorProcessingLogic;
             case 7:
+                return factorReusability;
+            case 8:
+                return factorConversion;
+            case 9:
                 return factorCustomizability;
             default:
                 return 0;
