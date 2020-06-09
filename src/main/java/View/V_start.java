@@ -66,29 +66,52 @@ public class V_start implements I_V_start {
     }
 
     /**
-     * opens the JFileChooser and asks the user to choose the file to open
+     * opens the JFileChooser and returns the chosen path
      *
+     * @param existingFile false: new file should be created
+     *                true: existing file should be opened
      * @return path to the chosen file
      */
     @Override
-    public String getPath() {
+    public String getPath(boolean existingFile) {
         String path = "";
-        try {
-            JFileChooser chooser = new JFileChooser();
-            FileNameExtensionFilter filter = new FileNameExtensionFilter("XML", "xml");
-            chooser.setFileFilter(filter);
-            chooser.setAcceptAllFileFilterUsed(false);
-            chooser.setMultiSelectionEnabled(false);
-            int returnVal = chooser.showOpenDialog(null);
-            if (returnVal == JFileChooser.APPROVE_OPTION) {
-                path = chooser.getSelectedFile().getAbsolutePath();
-                System.out.println("Gewählte Datei: " + path);
+        if (existingFile == true) { // existing file should be opened
+            try {
+                JFileChooser chooser = new JFileChooser();
+                FileNameExtensionFilter filter = new FileNameExtensionFilter("XML", "xml");
+                chooser.setFileFilter(filter);
+                chooser.setAcceptAllFileFilterUsed(false);
+                chooser.setMultiSelectionEnabled(false);
+                int returnVal = chooser.showOpenDialog(null);
+                if (returnVal == JFileChooser.APPROVE_OPTION) {
+                    path = chooser.getSelectedFile().getAbsolutePath();
+                    //System.out.println("Gewählte Datei: " + path);
+                }
+            } catch (Exception exc) {
+                JOptionPane.showMessageDialog(null,
+                        "Dateiauswahl fehlgeschlagen!\n Probiere es erneut.\n" + exc.getMessage(),
+                        "Fehler",
+                        JOptionPane.ERROR_MESSAGE);
             }
-        } catch (Exception exc) {
-            JOptionPane.showMessageDialog(null,
-                    "Dateiauswahl fehlgeschlagen!\n Probiere es erneut.\n" + exc.getMessage(),
-                    "Fehler",
-                    JOptionPane.ERROR_MESSAGE);
+        } else {    // new file should be created
+            try {
+                JFileChooser chooser = new JFileChooser();
+                FileNameExtensionFilter filter = new FileNameExtensionFilter("XML", "xml");
+                chooser.setFileFilter(filter);
+                chooser.setAcceptAllFileFilterUsed(false);
+                chooser.setMultiSelectionEnabled(false);
+                int returnVal = chooser.showSaveDialog(null);
+                if (returnVal == JFileChooser.APPROVE_OPTION) {
+                    path = chooser.getSelectedFile().getAbsolutePath();
+                    path += ".xml";
+                    //System.out.println("Gewählte Datei: " + path);
+                }
+            } catch (Exception exc) {
+                JOptionPane.showMessageDialog(null,
+                        "Pfadauswahl fehlgeschlagen!\n Probiere es erneut.\n" + exc.getMessage(),
+                        "Fehler",
+                        JOptionPane.ERROR_MESSAGE);
+            }
         }
         return path;
     }

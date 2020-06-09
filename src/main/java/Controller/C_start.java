@@ -55,7 +55,7 @@ public class C_start implements I_C_start {
      */
     public void notifyCreate() {
         System.out.println("Neues Projekt wurde gedrückt.");
-        String path = viewStart.getPath();
+        String path = viewStart.getPath(false);
         if (path == "" | path == null) {
             //go to start view
         } else {
@@ -79,7 +79,7 @@ public class C_start implements I_C_start {
     public void notifyOpen() {
         System.out.println("Öffne Projekt wurde gedrückt.");
         String path = "test.xml"; // fixed path relative
-        //String path  = viewStart.getPath(); //TODO: abfangen wenn man name von nicht existierender Datei eingegeben und auf open gedrückt wird
+        //String path  = viewStart.getPath(true); //TODO: abfangen wenn man name von nicht existierender Datei eingegeben und auf open gedrückt wird
         File xmlFile = new File(path);
         if (xmlFile.exists()) {
             M_projectData projectData = new M_projectData();
