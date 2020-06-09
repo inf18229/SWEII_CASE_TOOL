@@ -73,6 +73,7 @@ public class C_start implements I_C_start {
                 throw new RuntimeException("File does not exist");
             }*/
                 projectData = m__import.importProject(path);
+                projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData()); //TODO: check if relevant for testing
             } else {
                 //TODO: return an error that a path has to be chosen for import
             }

@@ -50,7 +50,7 @@ In der weiteren Entwicklung der Software ist es vorgesehen, eine automatische Ko
         <countInputSimple>0</countInputSimple>
         <countInputMedium>0</countInputMedium>
         <countInputComplex>1</countInputComplex>
-        <countQuerySimple>0</countQuerySimple>
+        <countQuerySimple>1</countQuerySimple>
         <countQueryMedium>0</countQueryMedium>
         <countQueryComplex>0</countQueryComplex>
         <countOutputSimple>0</countOutputSimple>
@@ -80,7 +80,7 @@ In der weiteren Entwicklung der Software ist es vorgesehen, eine automatische Ko
         <sumInputSimple>0</sumInputSimple>
         <sumInputMedium>0</sumInputMedium>
         <sumInputComplex>6</sumInputComplex>
-        <sumQuerySimple>0</sumQuerySimple>
+        <sumQuerySimple>3</sumQuerySimple>
         <sumQueryMedium>0</sumQueryMedium>
         <sumQueryComplex>0</sumQueryComplex>
         <sumOutputSimple>0</sumOutputSimple>
@@ -92,25 +92,27 @@ In der weiteren Entwicklung der Software ist es vorgesehen, eine automatische Ko
         <sumReferenceSimple>0</sumReferenceSimple>
         <sumReferenceMedium>0</sumReferenceMedium>
         <sumReferenceComplex>0</sumReferenceComplex>
-        <e1Sum>13</e1Sum>
-        <factorEntanglement>1</factorEntanglement>
-        <factorDecentralization>1</factorDecentralization>
-        <factorTransactionrate>3</factorTransactionrate>
-        <factorProcessingCalculation>3</factorProcessingCalculation>
-        <factorProcessingControl>2</factorProcessingControl>
-        <factorProcessingException>8</factorProcessingException>
-        <factorProcessingLogic>2</factorProcessingLogic>
-        <factorReusability>3</factorReusability>
-        <factorConversion>5</factorConversion>
-        <factorCustomizability>1</factorCustomizability>
-        <e2Sum>29</e2Sum>
-        <e3Sum>0.99</e3Sum>
-        <afp>12.87</afp>
-        <jonesDuration>2.778634468498354</jonesDuration>
+        <e1Sum>16</e1Sum>
+        <e3Sum>0.83</e3Sum>
+        <afp>13.28</afp>
+        <jonesDuration>2.8137093257946466</jonesDuration>
         <jonesPersonNo>1</jonesPersonNo>
-        <jonesPersonMonths>2.778634468498354</jonesPersonMonths>
+        <jonesPersonMonths>2.8137093257946466</jonesPersonMonths>
         <actualDuration>0.0</actualDuration>
         <correctionFactor>0.3288124280832689</correctionFactor>
         <correctedDuration>0.0</correctedDuration>
+        <e2Correction>-1</e2Correction>
     </m_projectData_functionPointEstimation>
+    <m_projectData_functionPointEstimation_configData>
+        <factorDecentralization>3</factorDecentralization>
+        <factorTransactionrate>0</factorTransactionrate>
+        <factorProcessingCalculation>0</factorProcessingCalculation>
+        <factorProcessingControl>3</factorProcessingControl>
+        <factorProcessingException>0</factorProcessingException>
+        <factorProcessingLogic>3</factorProcessingLogic>
+        <factorReusability>0</factorReusability>
+        <factorConversion>0</factorConversion>
+        <factorCustomizability>0</factorCustomizability>
+        <e2Sum>12</e2Sum>
+    </m_projectData_functionPointEstimation_configData>
 </M_projectData>

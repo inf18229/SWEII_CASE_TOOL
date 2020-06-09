@@ -17,6 +17,8 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
 
     }
 
+    private M_projectData_functionPointEstimation_configData configData;
+
     //variables for all counts
     public int countInputSimple = 0;
     public int countInputMedium = 0;
@@ -83,7 +85,7 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
     public int e1Sum = 0;
 
     //variables for factors
-    public int factorEntanglement = 0;
+    /*public int factorEntanglement = 0;
     public int factorDecentralization = 0;
     public int factorTransactionrate = 0;
 
@@ -94,9 +96,9 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
 
     public int factorReusability = 0;
     public int factorConversion = 0;
-    public int factorCustomizability = 0;
+    public int factorCustomizability = 0;*/
 
-    public int e2Sum = 0;
+//    public int e2Sum = 0;
     public double e3Sum = 0;
 
     public double afp = 0;
@@ -110,6 +112,13 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
     public double correctedDuration = 0;
 
     public int e2Correction = -1;    //propably better initialized with -1 or 0?
+
+    /**
+     * this method gets the config data and therefore updates the reference stored in the estimation object
+     */
+    public void setConfigData(M_projectData_functionPointEstimation_configData confData){
+        configData = confData;
+    }
 
     /**
      * this method sets the corresponding count variable depending on countNo
@@ -183,7 +192,7 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
      * @param factorNo which factor to change
      * @param value    what value to set it to
      */
-    public void setFactor(int factorNo, int value) {
+    /*public void setFactor(int factorNo, int value) {
         switch (factorNo) {
             case 1:
                 factorEntanglement = value;
@@ -218,14 +227,14 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
             default:
                 // TODO: evtl. besser try catch -> prüfen und wenn besser implementieren
         }
-    }
+    }*/
 
     /**
      * gets the value of the factor
      *
      * @param factorNo which factor to get
      */
-    public int getFactor(int factorNo) {
+    /*public int getFactor(int factorNo) {
         switch (factorNo) {
             case 1:
                 return factorEntanglement;
@@ -251,7 +260,7 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
                 return 0;
             // TODO: evtl. besser try catch -> prüfen und wenn besser implementieren
         }
-    }
+    }*/
 
     /**
      * calculates the Sum for one row
@@ -318,7 +327,7 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
     /**
      * method adds all factors and therefore calculates the total sum of all factors E2
      */
-    public void calcFactorSumE2() {
+    /*public void calcFactorSumE2() {
         e2Sum = factorEntanglement
                 + factorDecentralization
                 + factorTransactionrate
@@ -329,13 +338,13 @@ public class M_projectData_functionPointEstimation/* extends M_project_Data_Esti
                 + factorReusability
                 + factorConversion
                 + factorCustomizability;
-    }
+    }*/
 
     /**
      * method calculates and sets the influence sum e3
      */
     public void calcInfluenceE3() {
-        e3Sum = (double) e2Sum / 100 + 0.7;
+        e3Sum = (double) configData.e2Sum / 100 + 0.7;
     }
 
     /**

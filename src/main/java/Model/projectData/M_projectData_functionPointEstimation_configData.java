@@ -9,41 +9,25 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlAccessorType(XmlAccessType.FIELD)
 
 public class M_projectData_functionPointEstimation_configData {
-    /*public M_projectData_functionPointEstimation(double actualValue, double setpoint) {
-        super(actualValue, setpoint);
-    }*/
 
     public M_projectData_functionPointEstimation_configData() {}
 
     @XmlTransient
     //variables for factors
-    public int factorEntanglement = 1;
-    public int factorDecentralization = 2;
+    public int factorEntanglement = 0;
+    public int factorDecentralization = 0;
     public int factorTransactionrate = 0;
 
     public int factorProcessingCalculation = 0;
-    public int factorProcessingControl = 6;
+    public int factorProcessingControl = 0;
     public int factorProcessingException = 0;
-    public int factorProcessingLogic = 7;
+    public int factorProcessingLogic = 0;
 
     public int factorReusability = 0;
     public int factorConversion = 0;
     public int factorCustomizability = 0;
 
     public int e2Sum = 0;
-    public double e3Sum = 0;
-
-    public double afp = 0;
-
-    public double jonesDuration = 0;
-    public int jonesPersonNo = 0;
-    public double jonesPersonMonths = 0;
-
-    public double actualDuration = 0;
-    public double correctionFactor = 0;
-    public double correctedDuration = 0;
-
-    public int e2Correction = -1;    //propably better initialized with -1 or 0?
 
     /**
      * sets one factor to the provided value
@@ -135,14 +119,5 @@ public class M_projectData_functionPointEstimation_configData {
                 + factorReusability
                 + factorConversion
                 + factorCustomizability;
-    }
-
-    /**
-     * method calculates values according to the jones estimation and saves them into the model variables
-     */
-    public void calcJonesEstimation() {
-        jonesDuration = Math.pow(afp, 0.4);
-        jonesPersonNo = (int) Math.ceil(afp / 150);
-        jonesPersonMonths = jonesDuration * jonesPersonNo;
     }
 }

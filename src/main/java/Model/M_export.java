@@ -11,6 +11,9 @@ import java.nio.file.Paths;
 
 //TODO: KONTROLLFLUSSGRAPH
 //TODO: Reicht es einmal im Try Block zu sein für Zweigabdeckung
+
+//TODO: check why factorEntanglement doesn't get exported!
+
 public class M_export {
     /**
      * this class saves the current Project to XML

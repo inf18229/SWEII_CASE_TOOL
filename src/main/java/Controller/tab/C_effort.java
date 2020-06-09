@@ -77,33 +77,33 @@ public class C_effort implements I_C_effort {
         viewFrame.setTotalRowSum(projectData.getM_projectData_functionPointEstimation().e1Sum);
         //TODO: initialize slider position
         viewFrame.setSliderValues(
-                projectData.getM_projectData_functionPointEstimation().getFactor(1),
-                projectData.getM_projectData_functionPointEstimation().getFactor(2),
-                projectData.getM_projectData_functionPointEstimation().getFactor(3),
-                projectData.getM_projectData_functionPointEstimation().getFactor(41),
-                projectData.getM_projectData_functionPointEstimation().getFactor(42),
-                projectData.getM_projectData_functionPointEstimation().getFactor(43),
-                projectData.getM_projectData_functionPointEstimation().getFactor(44),
-                projectData.getM_projectData_functionPointEstimation().getFactor(5),
-                projectData.getM_projectData_functionPointEstimation().getFactor(6),
-                projectData.getM_projectData_functionPointEstimation().getFactor(7));
+                projectData.getM_projectData_functionPointEstimation_configData().getFactor(1),
+                projectData.getM_projectData_functionPointEstimation_configData().getFactor(2),
+                projectData.getM_projectData_functionPointEstimation_configData().getFactor(3),
+                projectData.getM_projectData_functionPointEstimation_configData().getFactor(41),
+                projectData.getM_projectData_functionPointEstimation_configData().getFactor(42),
+                projectData.getM_projectData_functionPointEstimation_configData().getFactor(43),
+                projectData.getM_projectData_functionPointEstimation_configData().getFactor(44),
+                projectData.getM_projectData_functionPointEstimation_configData().getFactor(5),
+                projectData.getM_projectData_functionPointEstimation_configData().getFactor(6),
+                projectData.getM_projectData_functionPointEstimation_configData().getFactor(7));
         // use the setSliderText Function to initialize the text fields for each slider
-        viewFrame.setSliderText(1, projectData.getM_projectData_functionPointEstimation().getFactor(1));
-        viewFrame.setSliderText(2, projectData.getM_projectData_functionPointEstimation().getFactor(2));
-        viewFrame.setSliderText(3, projectData.getM_projectData_functionPointEstimation().getFactor(3));
-        viewFrame.setSliderText(41, projectData.getM_projectData_functionPointEstimation().getFactor(41));
-        viewFrame.setSliderText(42, projectData.getM_projectData_functionPointEstimation().getFactor(42));
-        viewFrame.setSliderText(43, projectData.getM_projectData_functionPointEstimation().getFactor(43));
-        viewFrame.setSliderText(44, projectData.getM_projectData_functionPointEstimation().getFactor(44));
-        viewFrame.setSliderText(5, projectData.getM_projectData_functionPointEstimation().getFactor(5));
-        viewFrame.setSliderText(6, projectData.getM_projectData_functionPointEstimation().getFactor(6));
-        viewFrame.setSliderText(7, projectData.getM_projectData_functionPointEstimation().getFactor(7));
-        viewFrame.setFactorSumE2(projectData.getM_projectData_functionPointEstimation().e2Sum,
+        viewFrame.setSliderText(1, projectData.getM_projectData_functionPointEstimation_configData().getFactor(1));
+        viewFrame.setSliderText(2, projectData.getM_projectData_functionPointEstimation_configData().getFactor(2));
+        viewFrame.setSliderText(3, projectData.getM_projectData_functionPointEstimation_configData().getFactor(3));
+        viewFrame.setSliderText(41, projectData.getM_projectData_functionPointEstimation_configData().getFactor(41));
+        viewFrame.setSliderText(42, projectData.getM_projectData_functionPointEstimation_configData().getFactor(42));
+        viewFrame.setSliderText(43, projectData.getM_projectData_functionPointEstimation_configData().getFactor(43));
+        viewFrame.setSliderText(44, projectData.getM_projectData_functionPointEstimation_configData().getFactor(44));
+        viewFrame.setSliderText(5, projectData.getM_projectData_functionPointEstimation_configData().getFactor(5));
+        viewFrame.setSliderText(6, projectData.getM_projectData_functionPointEstimation_configData().getFactor(6));
+        viewFrame.setSliderText(7, projectData.getM_projectData_functionPointEstimation_configData().getFactor(7));
+        viewFrame.setFactorSumE2(projectData.getM_projectData_functionPointEstimation_configData().e2Sum,
                 projectData.getM_projectData_functionPointEstimation().e2Correction);
         // update values in tab Calculation
         viewFrame.updateCalculationTab(
                 projectData.getM_projectData_functionPointEstimation().e1Sum,
-                projectData.getM_projectData_functionPointEstimation().e2Sum,
+                projectData.getM_projectData_functionPointEstimation_configData().e2Sum,
                 projectData.getM_projectData_functionPointEstimation().e3Sum,
                 projectData.getM_projectData_functionPointEstimation().afp,
                 projectData.getM_projectData_functionPointEstimation().jonesDuration,
@@ -137,10 +137,10 @@ public class C_effort implements I_C_effort {
      */
     @Override
     public void notifySlider(int sliderNo, int value) {
-        projectData.getM_projectData_functionPointEstimation().setFactor(sliderNo, value);
-        projectData.getM_projectData_functionPointEstimation().calcFactorSumE2();
+        projectData.getM_projectData_functionPointEstimation_configData().setFactor(sliderNo, value);
+        projectData.getM_projectData_functionPointEstimation_configData().calcFactorSumE2();
         viewFrame.setSliderText(sliderNo, value);
-        viewFrame.setFactorSumE2(projectData.getM_projectData_functionPointEstimation().e2Sum,
+        viewFrame.setFactorSumE2(projectData.getM_projectData_functionPointEstimation_configData().e2Sum,
                 projectData.getM_projectData_functionPointEstimation().e2Correction);
     }
 
@@ -273,7 +273,7 @@ public class C_effort implements I_C_effort {
     @Override
     public void notifyAdjustFactors() {
         System.out.println("Automatische Anpassung gedrückt");
-        int e2Sum = projectData.getM_projectData_functionPointEstimation().e2Sum;
+        int e2Sum = projectData.getM_projectData_functionPointEstimation_configData().e2Sum;
         int e2Goal = projectData.getM_projectData_functionPointEstimation().e2Correction;
         // e2Failure positive if e2Sum > e2Goal
         // e2Failure negative if e2Sum < e2Goal
@@ -312,90 +312,90 @@ public class C_effort implements I_C_effort {
         while (increase > 0) {     // the goal sum is not achieved yet
             switch (factorIterator) {
                 case 0: // factorEntanglement
-                    adjustment = Math.abs(5 - projectData.getM_projectData_functionPointEstimation().factorEntanglement);
+                    adjustment = Math.abs(5 - projectData.getM_projectData_functionPointEstimation_configData().factorEntanglement);
                     if (adjustment > 0) {
-                        projectData.getM_projectData_functionPointEstimation().factorEntanglement++;
+                        projectData.getM_projectData_functionPointEstimation_configData().factorEntanglement++;
                         increase--;
                     } else {
                         factorIterator++;
                     }
                     break;
                 case 1: // factorDecentralization
-                    adjustment = Math.abs(5 - projectData.getM_projectData_functionPointEstimation().factorDecentralization);
+                    adjustment = Math.abs(5 - projectData.getM_projectData_functionPointEstimation_configData().factorDecentralization);
                     if (adjustment > 0) {
-                        projectData.getM_projectData_functionPointEstimation().factorDecentralization++;
+                        projectData.getM_projectData_functionPointEstimation_configData().factorDecentralization++;
                         increase--;
                     } else {
                         factorIterator++;
                     }
                     break;
                 case 2: // factorTransactionrate
-                    adjustment = Math.abs(5 - projectData.getM_projectData_functionPointEstimation().factorTransactionrate);
+                    adjustment = Math.abs(5 - projectData.getM_projectData_functionPointEstimation_configData().factorTransactionrate);
                     if (adjustment > 0) {
-                        projectData.getM_projectData_functionPointEstimation().factorTransactionrate++;
+                        projectData.getM_projectData_functionPointEstimation_configData().factorTransactionrate++;
                         increase--;
                     } else {
                         factorIterator++;
                     }
                     break;
                 case 3: // factorProcessingCalculation
-                    adjustment = Math.abs(10 - projectData.getM_projectData_functionPointEstimation().factorProcessingCalculation);
+                    adjustment = Math.abs(10 - projectData.getM_projectData_functionPointEstimation_configData().factorProcessingCalculation);
                     if (adjustment > 0) {
-                        projectData.getM_projectData_functionPointEstimation().factorProcessingCalculation++;
+                        projectData.getM_projectData_functionPointEstimation_configData().factorProcessingCalculation++;
                         increase--;
                     } else {
                         factorIterator++;
                     }
                     break;
                 case 4: // // factorProcessingControl
-                    adjustment = Math.abs(5 - projectData.getM_projectData_functionPointEstimation().factorProcessingControl);
+                    adjustment = Math.abs(5 - projectData.getM_projectData_functionPointEstimation_configData().factorProcessingControl);
                     if (adjustment > 0) {
-                        projectData.getM_projectData_functionPointEstimation().factorProcessingControl++;
+                        projectData.getM_projectData_functionPointEstimation_configData().factorProcessingControl++;
                         increase--;
                     } else {
                         factorIterator++;
                     }
                     break;
                 case 5: // factorProcessingException
-                    adjustment = Math.abs(10 - projectData.getM_projectData_functionPointEstimation().factorProcessingException);
+                    adjustment = Math.abs(10 - projectData.getM_projectData_functionPointEstimation_configData().factorProcessingException);
                     if (adjustment > 0) {
-                        projectData.getM_projectData_functionPointEstimation().factorProcessingException++;
+                        projectData.getM_projectData_functionPointEstimation_configData().factorProcessingException++;
                         increase--;
                     } else {
                         factorIterator++;
                     }
                     break;
                 case 6: // factorProcessingLogic
-                    adjustment = Math.abs(5 - projectData.getM_projectData_functionPointEstimation().factorProcessingLogic);
+                    adjustment = Math.abs(5 - projectData.getM_projectData_functionPointEstimation_configData().factorProcessingLogic);
                     if (adjustment > 0) {
-                        projectData.getM_projectData_functionPointEstimation().factorProcessingLogic++;
+                        projectData.getM_projectData_functionPointEstimation_configData().factorProcessingLogic++;
                         increase--;
                     } else {
                         factorIterator++;
                     }
                     break;
                 case 7: // factorReusability
-                    adjustment = Math.abs(5 - projectData.getM_projectData_functionPointEstimation().factorReusability);
+                    adjustment = Math.abs(5 - projectData.getM_projectData_functionPointEstimation_configData().factorReusability);
                     if (adjustment > 0) {
-                        projectData.getM_projectData_functionPointEstimation().factorReusability++;
+                        projectData.getM_projectData_functionPointEstimation_configData().factorReusability++;
                         increase--;
                     } else {
                         factorIterator++;
                     }
                     break;
                 case 8: // factorConversion
-                    adjustment = Math.abs(5 - projectData.getM_projectData_functionPointEstimation().factorConversion);
+                    adjustment = Math.abs(5 - projectData.getM_projectData_functionPointEstimation_configData().factorConversion);
                     if (adjustment > 0) {
-                        projectData.getM_projectData_functionPointEstimation().factorConversion++;
+                        projectData.getM_projectData_functionPointEstimation_configData().factorConversion++;
                         increase--;
                     } else {
                         factorIterator++;
                     }
                     break;
                 case 9: // factorCustomizability
-                    adjustment = Math.abs(5 - projectData.getM_projectData_functionPointEstimation().factorCustomizability);
+                    adjustment = Math.abs(5 - projectData.getM_projectData_functionPointEstimation_configData().factorCustomizability);
                     if (adjustment > 0) {
-                        projectData.getM_projectData_functionPointEstimation().factorCustomizability++;
+                        projectData.getM_projectData_functionPointEstimation_configData().factorCustomizability++;
                         increase--;
                     } else {
                         factorIterator++;
@@ -420,90 +420,90 @@ public class C_effort implements I_C_effort {
         while (decrease > 0) { // the goal sum is not achieved yet
             switch (factorIterator) {
                 case 0:  // factorEntanglement
-                    adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation().factorEntanglement);
+                    adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation_configData().factorEntanglement);
                     if (adjustment > 0) {
-                        projectData.getM_projectData_functionPointEstimation().factorEntanglement--;
+                        projectData.getM_projectData_functionPointEstimation_configData().factorEntanglement--;
                         decrease--;
                     } else {
                         factorIterator++;
                     }
                     break;
                 case 1: // factorDecentralization
-                    adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation().factorDecentralization);
+                    adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation_configData().factorDecentralization);
                     if (adjustment > 0) {
-                        projectData.getM_projectData_functionPointEstimation().factorDecentralization--;
+                        projectData.getM_projectData_functionPointEstimation_configData().factorDecentralization--;
                         decrease--;
                     } else {
                         factorIterator++;
                     }
                     break;
                 case 2: // factorTransactionrate
-                    adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation().factorTransactionrate);
+                    adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation_configData().factorTransactionrate);
                     if (adjustment > 0) {
-                        projectData.getM_projectData_functionPointEstimation().factorTransactionrate--;
+                        projectData.getM_projectData_functionPointEstimation_configData().factorTransactionrate--;
                         decrease--;
                     } else {
                         factorIterator++;
                     }
                     break;
                 case 3: // factorProcessingCalculation
-                    adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation().factorProcessingCalculation);
+                    adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation_configData().factorProcessingCalculation);
                     if (adjustment > 0) {
-                        projectData.getM_projectData_functionPointEstimation().factorProcessingCalculation--;
+                        projectData.getM_projectData_functionPointEstimation_configData().factorProcessingCalculation--;
                         decrease--;
                     } else {
                         factorIterator++;
                     }
                     break;
                 case 4: // factorProcessingControl
-                    adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation().factorProcessingControl);
+                    adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation_configData().factorProcessingControl);
                     if (adjustment > 0) {
-                        projectData.getM_projectData_functionPointEstimation().factorProcessingControl--;
+                        projectData.getM_projectData_functionPointEstimation_configData().factorProcessingControl--;
                         decrease--;
                     } else {
                         factorIterator++;
                     }
                     break;
                 case 5: // factorProcessingException
-                    adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation().factorProcessingException);
+                    adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation_configData().factorProcessingException);
                     if (adjustment > 0) {
-                        projectData.getM_projectData_functionPointEstimation().factorProcessingException--;
+                        projectData.getM_projectData_functionPointEstimation_configData().factorProcessingException--;
                         decrease--;
                     } else {
                         factorIterator++;
                     }
                     break;
                 case 6: // factorProcessingLogic
-                    adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation().factorProcessingLogic);
+                    adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation_configData().factorProcessingLogic);
                     if (adjustment > 0) {
-                        projectData.getM_projectData_functionPointEstimation().factorProcessingLogic--;
+                        projectData.getM_projectData_functionPointEstimation_configData().factorProcessingLogic--;
                         decrease--;
                     } else {
                         factorIterator++;
                     }
                     break;
                 case 7: // factorReusability
-                    adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation().factorReusability);
+                    adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation_configData().factorReusability);
                     if (adjustment > 0) {
-                        projectData.getM_projectData_functionPointEstimation().factorReusability--;
+                        projectData.getM_projectData_functionPointEstimation_configData().factorReusability--;
                         decrease--;
                     } else {
                         factorIterator++;
                     }
                     break;
                 case 8: // factorConversion
-                    adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation().factorConversion);
+                    adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation_configData().factorConversion);
                     if (adjustment > 0) {
-                        projectData.getM_projectData_functionPointEstimation().factorConversion--;
+                        projectData.getM_projectData_functionPointEstimation_configData().factorConversion--;
                         decrease--;
                     } else {
                         factorIterator++;
                     }
                     break;
                 case 9: // factorCustomizability
-                    adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation().factorCustomizability);
+                    adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation_configData().factorCustomizability);
                     if (adjustment > 0) {
-                        projectData.getM_projectData_functionPointEstimation().factorCustomizability--;
+                        projectData.getM_projectData_functionPointEstimation_configData().factorCustomizability--;
                         decrease--;
                     } else {
                         factorIterator++;
@@ -523,7 +523,7 @@ public class C_effort implements I_C_effort {
         calculateCounts();
         projectData.getM_projectData_functionPointEstimation().calculateAllRowSums();
         projectData.getM_projectData_functionPointEstimation().calculateTotalRowSumE1();
-        projectData.getM_projectData_functionPointEstimation().calcFactorSumE2();
+        projectData.getM_projectData_functionPointEstimation_configData().calcFactorSumE2();
         projectData.getM_projectData_functionPointEstimation().calcInfluenceE3();
         projectData.getM_projectData_functionPointEstimation().calcAdjustedFunctionPoints();
         projectData.getM_projectData_functionPointEstimation().calcJonesEstimation();

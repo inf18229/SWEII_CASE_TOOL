@@ -19,9 +19,9 @@ public class M_projectData {
     M_projectData_targetDefinition m_projectData_targetDefinition = new M_projectData_targetDefinition();
     M_projectData_productEnvironment m_projectData_productEnvironment = new M_projectData_productEnvironment();
 
-    M_projectData_functionPointEstimation m_projectData_functionPointEstimation = new M_projectData_functionPointEstimation(/*0,0*/);
+    M_projectData_functionPointEstimation m_projectData_functionPointEstimation = new M_projectData_functionPointEstimation();
 
-    M_projectData_functionPointEstimation_configData m_projectData_functionPointEstimation_configData = new M_projectData_functionPointEstimation_configData(/*0,0*/);
+    M_projectData_functionPointEstimation_configData m_projectData_functionPointEstimation_configData = new M_projectData_functionPointEstimation_configData();
 
     public M_projectData_productUse getM_projectData_productUse() {
         return m_projectData_productUse;
@@ -53,6 +53,7 @@ public class M_projectData {
 
     public void setM_projectData_functionPointEstimation_configData(M_projectData_functionPointEstimation_configData confData) {
         m_projectData_functionPointEstimation_configData = confData;
+        m_projectData_functionPointEstimation.setConfigData(confData);
     }
 
     @Override
@@ -64,6 +65,7 @@ public class M_projectData {
                 ", targetDefinition=" + m_projectData_targetDefinition +
                 ", productEnvironment=" + m_projectData_productEnvironment +
                 ", functionPointEstimation=" + m_projectData_functionPointEstimation +
+                ", functionPointEstimation=" + m_projectData_functionPointEstimation_configData +
                 '}';
     }
 }

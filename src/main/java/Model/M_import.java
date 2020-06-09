@@ -78,7 +78,7 @@ public class M_import {
                 M_projectData_functionPointEstimation_configData confData_temp = jaxbElement.getValue();
                 confData = confData_temp;
                 System.out.println(confData);
-                projData.setM_projectData_functionPointEstimation_configData(confData);
+                projData.setM_projectData_functionPointEstimation_configData(confData); //TODO: check if relevant für Tests? (in fPEstimation muss eine Referenz auf die configData gehalten werden, sonst werden die Berechnungen zu kompliziert) sh. ProjectData Funktion
             } catch (JAXBException e) {
                 e.printStackTrace();
             }
