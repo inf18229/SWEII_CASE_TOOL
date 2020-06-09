@@ -172,31 +172,6 @@ public interface I_V_FRAME extends I_V_BASIC {
     void setSliderValue(int sliderNo, int value);
 
     /**
-     * sets sliders to the passed possitions
-     *
-     * @param slider1
-     * @param slider2
-     * @param slider3
-     * @param slider41
-     * @param slider42
-     * @param slider43
-     * @param slider44
-     * @param slider5
-     * @param slider6
-     * @param slider7
-     */
-    void setSliderValues(int slider1,
-                         int slider2,
-                         int slider3,
-                         int slider41,
-                         int slider42,
-                         int slider43,
-                         int slider44,
-                         int slider5,
-                         int slider6,
-                         int slider7);
-
-    /**
      * sets the value of the corresponding text field to the value given
      *
      * @param sliderNo integer to identify the slider that was changed

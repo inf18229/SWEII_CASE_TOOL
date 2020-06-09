@@ -1088,35 +1088,7 @@ public class V_FRAME implements I_V_FRAME {
                 // TODO: evtl. besser try catch -> prüfen und wenn besser implementieren
         }
     }
-
-    /**
-     * sets sliders to the passed possitions
-     *
-     * @param slider1
-     * @param slider2
-     * @param slider3
-     * @param slider41
-     * @param slider42
-     * @param slider43
-     * @param slider44
-     * @param slider5
-     * @param slider6
-     * @param slider7
-     */
-    @Override
-    public void setSliderValues(int slider1, int slider2, int slider3, int slider41, int slider42, int slider43, int slider44, int slider5, int slider6, int slider7) {
-        slider0Entanglement.setValue(slider1);
-        slider1Decentralization.setValue(slider2);
-        slider2Transactionrate.setValue(slider3);
-        slider3ProcessingCalculation.setValue(slider41);
-        slider4ProcessingControl.setValue(slider42);
-        slider5ProcessingException.setValue(slider43);
-        slider6ProcessingLogic.setValue(slider44);
-        slider7Reusability.setValue(slider5);
-        slider8Conversion.setValue(slider6);
-        slider9Customizability.setValue(slider7);
-    }
-
+    
     /**
      * sets the value of the corresponding text field to the value given
      *

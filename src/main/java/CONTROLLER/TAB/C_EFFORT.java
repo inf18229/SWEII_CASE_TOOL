@@ -14,15 +14,17 @@ public class C_EFFORT implements I_C_EFFORT {
     private I_V_FRAME viewFrame;    //  stores a reference to the viewFrame to update elements of it
     private M_PROJECTDATA projectData;      // stores a reference to the complete data modell
 
-    private C_EFFORT() {}
+    private C_EFFORT() {
+    }
 
     /**
      * this method checks if controllerEffort was already created
      * if it wasn't it creates a new controllerEffort
      * it always returns a reference to the controllerEffort
+     *
      * @return C_EFFORT.controllerEffort - reference to controllerEffort
      */
-    public static C_EFFORT getInstance () {
+    public static C_EFFORT getInstance() {
         if (C_EFFORT.controllerEffort == null) {
             C_EFFORT.controllerEffort = new C_EFFORT();
         }
@@ -94,29 +96,21 @@ public class C_EFFORT implements I_C_EFFORT {
                 projectData.getM_projectData_functionPointEstimation().sumReferenceMedium,
                 projectData.getM_projectData_functionPointEstimation().sumReferenceComplex);
         viewFrame.setTotalRowSum(projectData.getM_projectData_functionPointEstimation().e1Sum);
-        //TODO: initialize slider position
-        viewFrame.setSliderValues(
-                projectData.getM_projectData_functionPointEstimation_configData().getFactor(0),
-                projectData.getM_projectData_functionPointEstimation_configData().getFactor(1),
-                projectData.getM_projectData_functionPointEstimation_configData().getFactor(2),
-                projectData.getM_projectData_functionPointEstimation_configData().getFactor(3),
-                projectData.getM_projectData_functionPointEstimation_configData().getFactor(4),
-                projectData.getM_projectData_functionPointEstimation_configData().getFactor(5),
-                projectData.getM_projectData_functionPointEstimation_configData().getFactor(6),
-                projectData.getM_projectData_functionPointEstimation_configData().getFactor(7),
-                projectData.getM_projectData_functionPointEstimation_configData().getFactor(8),
-                projectData.getM_projectData_functionPointEstimation_configData().getFactor(9));
+        //initialize slider position
+        for (int i = 0; i <= 9; i++) {
+            viewFrame.setSliderValue(i, projectData.getM_projectData_functionPointEstimation_configData().getFactor(i));
+        }
         // use the setSliderText Function to initialize the text fields for each slider
-        viewFrame.setSliderText(1, projectData.getM_projectData_functionPointEstimation_configData().getFactor(0));
-        viewFrame.setSliderText(2, projectData.getM_projectData_functionPointEstimation_configData().getFactor(1));
-        viewFrame.setSliderText(3, projectData.getM_projectData_functionPointEstimation_configData().getFactor(2));
-        viewFrame.setSliderText(41, projectData.getM_projectData_functionPointEstimation_configData().getFactor(3));
-        viewFrame.setSliderText(42, projectData.getM_projectData_functionPointEstimation_configData().getFactor(4));
-        viewFrame.setSliderText(43, projectData.getM_projectData_functionPointEstimation_configData().getFactor(5));
-        viewFrame.setSliderText(44, projectData.getM_projectData_functionPointEstimation_configData().getFactor(6));
-        viewFrame.setSliderText(5, projectData.getM_projectData_functionPointEstimation_configData().getFactor(7));
-        viewFrame.setSliderText(6, projectData.getM_projectData_functionPointEstimation_configData().getFactor(8));
-        viewFrame.setSliderText(7, projectData.getM_projectData_functionPointEstimation_configData().getFactor(9));
+        viewFrame.setSliderText(0, projectData.getM_projectData_functionPointEstimation_configData().getFactor(0));
+        viewFrame.setSliderText(1, projectData.getM_projectData_functionPointEstimation_configData().getFactor(1));
+        viewFrame.setSliderText(2, projectData.getM_projectData_functionPointEstimation_configData().getFactor(2));
+        viewFrame.setSliderText(3, projectData.getM_projectData_functionPointEstimation_configData().getFactor(3));
+        viewFrame.setSliderText(4, projectData.getM_projectData_functionPointEstimation_configData().getFactor(4));
+        viewFrame.setSliderText(5, projectData.getM_projectData_functionPointEstimation_configData().getFactor(5));
+        viewFrame.setSliderText(6, projectData.getM_projectData_functionPointEstimation_configData().getFactor(6));
+        viewFrame.setSliderText(7, projectData.getM_projectData_functionPointEstimation_configData().getFactor(7));
+        viewFrame.setSliderText(8, projectData.getM_projectData_functionPointEstimation_configData().getFactor(8));
+        viewFrame.setSliderText(9, projectData.getM_projectData_functionPointEstimation_configData().getFactor(9));
         viewFrame.setFactorSumE2(projectData.getM_projectData_functionPointEstimation_configData().e2Sum,
                 projectData.getM_projectData_functionPointEstimation().e2Correction);
         // update values in tab Calculation
