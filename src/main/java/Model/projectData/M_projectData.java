@@ -12,6 +12,7 @@ import java.util.ArrayList;
 //TODO: Make to Singleton
 public class M_projectData {
     @XmlTransient
+    int stuffElement = 0; // this element is ignored and the export starts with the second element
     ArrayList<M_projectData_productData> productDataList = new ArrayList<>();
     ArrayList<M_projectData_productFunction> productFunctionList = new ArrayList<>();
 

@@ -93,11 +93,11 @@ In der weiteren Entwicklung der Software ist es vorgesehen, eine automatische Ko
         <sumReferenceMedium>0</sumReferenceMedium>
         <sumReferenceComplex>0</sumReferenceComplex>
         <e1Sum>16</e1Sum>
-        <e3Sum>0.7899999999999999</e3Sum>
-        <afp>12.639999999999999</afp>
-        <jonesDuration>2.758664140480335</jonesDuration>
+        <e3Sum>1.06</e3Sum>
+        <afp>16.96</afp>
+        <jonesDuration>3.1029182887816114</jonesDuration>
         <jonesPersonNo>1</jonesPersonNo>
-        <jonesPersonMonths>2.758664140480335</jonesPersonMonths>
+        <jonesPersonMonths>3.1029182887816114</jonesPersonMonths>
         <actualDuration>0.0</actualDuration>
         <correctionFactor>0.3288124280832689</correctionFactor>
         <correctedDuration>0.0</correctedDuration>

@@ -14,7 +14,7 @@ public class M_projectData_functionPointEstimation_configData {
 
     @XmlTransient
     //variables for factors
-    public int factorTest = 0;  // the first factor doesn't get exported TODO: remove this test factor and fix the problem
+    int stuffElement = 0; // this element is ignored and the export starts with the second element   // TODO: try to fix and remove this
     public int factorEntanglement = 0;
 
     public int factorDecentralization = 0;
