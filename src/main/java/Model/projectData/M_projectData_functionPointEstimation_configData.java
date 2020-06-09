@@ -23,96 +23,20 @@ public class M_projectData_functionPointEstimation_configData {
     //int stuffElement = 0; // this element is ignored and the export starts with the second element   // TODO: try to fix and remove this
 
     //variables for factors
-    private int factorEntanglement = 0; //TODO: eig. alle privat und nür über set/get aufrufen -> extra Test notwendig?
-    private int factorDecentralization = 0;
-    private int factorTransactionrate = 0;
+    public int factorEntanglement = 0; //TODO: eig. alle privat und nür über set/get aufrufen -> extra Test notwendig?
+    public int factorDecentralization = 0;
+    public int factorTransactionrate = 0;
 
-    private int factorProcessingCalculation = 0;
-    private int factorProcessingControl = 0;
-    private int factorProcessingException = 0;
-    private int factorProcessingLogic = 0;
+    public int factorProcessingCalculation = 0;
+    public int factorProcessingControl = 0;
+    public int factorProcessingException = 0;
+    public int factorProcessingLogic = 0;
 
-    private int factorReusability = 0;
-    private int factorConversion = 0;
-    private int factorCustomizability = 0;
+    public int factorReusability = 0;
+    public int factorConversion = 0;
+    public int factorCustomizability = 0;
 
-    private int e2Sum = 0;
-
-    /**
-     * sets one factor to the provided value
-     *
-     * @param factorNo which factor to change
-     * @param value    what value to set it to
-     */
-    /*public void setFactor(int factorNo, int value) {
-        switch (factorNo) {
-            case 1:
-                factorEntanglement = value;
-                break;
-            case 2:
-                factorDecentralization = value;
-                break;
-            case 3:
-                factorTransactionrate = value;
-                break;
-            case 41:
-                factorProcessingCalculation = value;
-                break;
-            case 42:
-                factorProcessingControl = value;
-                break;
-            case 43:
-                factorProcessingException = value;
-                break;
-            case 44:
-                factorProcessingLogic = value;
-                break;
-            case 5:
-                factorReusability = value;
-                break;
-            case 6:
-                factorConversion = value;
-                break;
-            case 7:
-                factorCustomizability = value;
-                break;
-            default:
-                // TODO: evtl. besser try catch -> prüfen und wenn besser implementieren
-        }
-    }*/
-
-    /**
-     * gets the value of the factor
-     *
-     * @param factorNo which factor to get
-     */
-    /*public int getFactor(int factorNo) {
-        switch (factorNo) {
-            case 1:
-                return factorEntanglement;
-            case 2:
-                return factorDecentralization;
-            case 3:
-                return factorTransactionrate;
-            case 41:
-                return factorProcessingCalculation;
-            case 42:
-                return factorProcessingControl;
-            case 43:
-                return factorProcessingException;
-            case 44:
-                return factorProcessingLogic;
-            case 5:
-                return factorReusability;
-            case 6:
-                return factorConversion;
-            case 7:
-                return factorCustomizability;
-            default:
-                return 0;
-            // TODO: evtl. besser try catch -> prüfen und wenn besser implementieren
-        }
-    }*/
+    public int e2Sum = 0;
 
     /**
      * sets one factor to the provided value
@@ -122,34 +46,34 @@ public class M_projectData_functionPointEstimation_configData {
      */
     public void setFactor(int factorNo, int value) {
         switch (factorNo) {
-            case 0:
+            case 1:
                 factorEntanglement = value;
                 break;
-            case 1:
+            case 2:
                 factorDecentralization = value;
                 break;
-            case 2:
+            case 3:
                 factorTransactionrate = value;
                 break;
-            case 3:
+            case 41:
                 factorProcessingCalculation = value;
                 break;
-            case 4:
+            case 42:
                 factorProcessingControl = value;
                 break;
-            case 5:
+            case 43:
                 factorProcessingException = value;
                 break;
-            case 6:
+            case 44:
                 factorProcessingLogic = value;
                 break;
-            case 7:
+            case 5:
                 factorReusability = value;
                 break;
-            case 8:
+            case 6:
                 factorConversion = value;
                 break;
-            case 9:
+            case 7:
                 factorCustomizability = value;
                 break;
             default:
@@ -164,25 +88,25 @@ public class M_projectData_functionPointEstimation_configData {
      */
     public int getFactor(int factorNo) {
         switch (factorNo) {
-            case 0:
-                return factorEntanglement;
             case 1:
-                return factorDecentralization;
+                return factorEntanglement;
             case 2:
-                return factorTransactionrate;
+                return factorDecentralization;
             case 3:
+                return factorTransactionrate;
+            case 41:
                 return factorProcessingCalculation;
-            case 4:
+            case 42:
                 return factorProcessingControl;
-            case 5:
+            case 43:
                 return factorProcessingException;
-            case 6:
+            case 44:
                 return factorProcessingLogic;
-            case 7:
+            case 5:
                 return factorReusability;
-            case 8:
+            case 6:
                 return factorConversion;
-            case 9:
+            case 7:
                 return factorCustomizability;
             default:
                 return 0;
@@ -204,12 +128,5 @@ public class M_projectData_functionPointEstimation_configData {
                 + factorReusability
                 + factorConversion
                 + factorCustomizability;
-    }
-
-    /**
-     * this method gets the e2Sum
-     */
-    public int getE2Sum() {
-        return e2Sum;
     }
 }

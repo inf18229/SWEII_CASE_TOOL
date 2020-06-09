@@ -150,7 +150,7 @@ public class V_frame implements I_V_frame {
     private JPanel panelFunctionPoint;
     private JPanel panelFactor;
     private JPanel panelFactorDescription;
-    private JSlider slider0Entanglement;
+    private JSlider slider1Entanglement;
     private JPanel panelEntanglement;
     private JPanel panelDecentralization;
     private JPanel panelTransactionrate;
@@ -159,17 +159,17 @@ public class V_frame implements I_V_frame {
     private JPanel panelCustomizability;
     private JPanel panelProcessing;
     private JPanel panelEntanglementValue;
-    private JLabel label0EntaglementValue;
+    private JLabel label1EntaglementValue;
     private JPanel panelDecentralizationValue;
-    private JLabel label1DecentralizationValue;
+    private JLabel label2DecentralizationValue;
     private JPanel panelTransactionrateValue;
     private JPanel panelReusabilityValue;
     private JPanel panelConversionValue;
     private JPanel panelCustomizabilityValue;
-    private JLabel label9CustomizabilityValue;
-    private JLabel label8ConversionValue;
-    private JLabel label7ReusabilityValue;
-    private JLabel label2TransactionrateValue;
+    private JLabel label7CustomizabilityValue;
+    private JLabel label6ConversionValue;
+    private JLabel label5ReusabilityValue;
+    private JLabel label3TransactionrateValue;
     private JLabel panelProcessingHeadline;
     private JPanel panelProcessingParts;
     private JPanel panelProcessingCalculation;
@@ -178,24 +178,24 @@ public class V_frame implements I_V_frame {
     private JPanel panelProcessingLogic;
     private JPanel panelProcessingLogicInformation;
     private JPanel panelProcessingLogicValue;
-    private JLabel label6ProcessingLogicValue;
+    private JLabel label44ProcessingLogicValue;
     private JLabel labelProcessingLogicInformation;
-    private JSlider slider6ProcessingLogic;
+    private JSlider slider44ProcessingLogic;
     private JPanel panelProcessingExceptionInformation;
     private JPanel panelProcessingExceptionValue;
     private JPanel panelProcessingControlInformation;
     private JPanel panelProcessingControlValue;
     private JPanel panelProcessingCalculationInformation;
     private JPanel panelProcessingCalculationValue;
-    private JLabel label5ProcessingExceptionValue;
+    private JLabel label43ProcessingExceptionValue;
     private JLabel labelProcessingExceptionInformation;
-    private JSlider slider5ProcessingException;
-    private JLabel label4ProcessingControlValue;
-    private JLabel label3ProcessingCalculationValue;
+    private JSlider slider43ProcessingException;
+    private JLabel label42ProcessingControlValue;
+    private JLabel label41ProcessingCalculationValue;
     private JLabel labelProcessingControlInformation;
     private JLabel labelProcessingCalculationInformation;
-    private JSlider slider3ProcessingCalculation;
-    private JSlider slider4ProcessingControl;
+    private JSlider slider41ProcessingCalculation;
+    private JSlider slider42ProcessingControl;
     private JPanel panelCalculation;
     private JPanel panelCustomizabilityInformation;
     private JPanel panelConversionInformation;
@@ -205,15 +205,15 @@ public class V_frame implements I_V_frame {
     private JPanel panelEntanglementInformation;
     private JLabel labelEntanglementInformation;
     private JLabel labelDecentralizationInformation;
-    private JSlider slider1Decentralization;
+    private JSlider slider2Decentralization;
     private JLabel labelTransactionrateInformation;
-    private JSlider slider2Transactionrate;
+    private JSlider slider3Transactionrate;
     private JLabel labelReusabilityInformation;
-    private JSlider slider7Reusability;
+    private JSlider slider5Reusability;
     private JLabel labelConversionInformation;
-    private JSlider slider8Conversion;
+    private JSlider slider6Conversion;
     private JLabel labelCustomizabilityInformation;
-    private JSlider slider9Customizability;
+    private JSlider slider7Customizability;
     private JLabel label;
     private JPanel panelE2Sum;
     private JLabel labelE2SumDescription;
@@ -536,7 +536,7 @@ public class V_frame implements I_V_frame {
         b_factorExport.setVisible(false);
         frame.setVisible(true);
         //change listeners to notify changes on sliders in factor tab and notify frame controller
-        slider0Entanglement.addChangeListener(new ChangeListener() {
+        slider1Entanglement.addChangeListener(new ChangeListener() {
             /**
              * Invoked when the target of the listener has changed its state.
              *
@@ -544,10 +544,10 @@ public class V_frame implements I_V_frame {
              */
             @Override
             public void stateChanged(ChangeEvent e) {
-                controllerFrame.notifySlider(0, slider0Entanglement.getValue()); //TODO: check if correct listener (always gives more than one event per change)
+                controllerFrame.notifySlider(1, slider1Entanglement.getValue()); //TODO: check if correct listener (always gives more than one event per change)
             }
         });
-        slider1Decentralization.addChangeListener(new ChangeListener() {
+        slider2Decentralization.addChangeListener(new ChangeListener() {
             /**
              * Invoked when the target of the listener has changed its state.
              *
@@ -555,10 +555,10 @@ public class V_frame implements I_V_frame {
              */
             @Override
             public void stateChanged(ChangeEvent e) {
-                controllerFrame.notifySlider(1, slider1Decentralization.getValue());
+                controllerFrame.notifySlider(2, slider2Decentralization.getValue());
             }
         });
-        slider2Transactionrate.addChangeListener(new ChangeListener() {
+        slider3Transactionrate.addChangeListener(new ChangeListener() {
             /**
              * Invoked when the target of the listener has changed its state.
              *
@@ -566,10 +566,10 @@ public class V_frame implements I_V_frame {
              */
             @Override
             public void stateChanged(ChangeEvent e) {
-                controllerFrame.notifySlider(2, slider2Transactionrate.getValue());
+                controllerFrame.notifySlider(3, slider3Transactionrate.getValue());
             }
         });
-        slider3ProcessingCalculation.addChangeListener(new ChangeListener() {
+        slider41ProcessingCalculation.addChangeListener(new ChangeListener() {
             /**
              * Invoked when the target of the listener has changed its state.
              *
@@ -577,10 +577,10 @@ public class V_frame implements I_V_frame {
              */
             @Override
             public void stateChanged(ChangeEvent e) {
-                controllerFrame.notifySlider(3, slider3ProcessingCalculation.getValue());
+                controllerFrame.notifySlider(41, slider41ProcessingCalculation.getValue());
             }
         });
-        slider4ProcessingControl.addChangeListener(new ChangeListener() {
+        slider42ProcessingControl.addChangeListener(new ChangeListener() {
             /**
              * Invoked when the target of the listener has changed its state.
              *
@@ -588,10 +588,10 @@ public class V_frame implements I_V_frame {
              */
             @Override
             public void stateChanged(ChangeEvent e) {
-                controllerFrame.notifySlider(4, slider4ProcessingControl.getValue());
+                controllerFrame.notifySlider(42, slider42ProcessingControl.getValue());
             }
         });
-        slider5ProcessingException.addChangeListener(new ChangeListener() {
+        slider43ProcessingException.addChangeListener(new ChangeListener() {
             /**
              * Invoked when the target of the listener has changed its state.
              *
@@ -599,10 +599,10 @@ public class V_frame implements I_V_frame {
              */
             @Override
             public void stateChanged(ChangeEvent e) {
-                controllerFrame.notifySlider(5, slider5ProcessingException.getValue());
+                controllerFrame.notifySlider(43, slider43ProcessingException.getValue());
             }
         });
-        slider6ProcessingLogic.addChangeListener(new ChangeListener() {
+        slider44ProcessingLogic.addChangeListener(new ChangeListener() {
             /**
              * Invoked when the target of the listener has changed its state.
              *
@@ -610,10 +610,10 @@ public class V_frame implements I_V_frame {
              */
             @Override
             public void stateChanged(ChangeEvent e) {
-                controllerFrame.notifySlider(6, slider6ProcessingLogic.getValue());
+                controllerFrame.notifySlider(44, slider44ProcessingLogic.getValue());
             }
         });
-        slider7Reusability.addChangeListener(new ChangeListener() {
+        slider5Reusability.addChangeListener(new ChangeListener() {
             /**
              * Invoked when the target of the listener has changed its state.
              *
@@ -621,10 +621,10 @@ public class V_frame implements I_V_frame {
              */
             @Override
             public void stateChanged(ChangeEvent e) {
-                controllerFrame.notifySlider(7, slider7Reusability.getValue());
+                controllerFrame.notifySlider(5, slider5Reusability.getValue());
             }
         });
-        slider8Conversion.addChangeListener(new ChangeListener() {
+        slider6Conversion.addChangeListener(new ChangeListener() {
             /**
              * Invoked when the target of the listener has changed its state.
              *
@@ -632,10 +632,10 @@ public class V_frame implements I_V_frame {
              */
             @Override
             public void stateChanged(ChangeEvent e) {
-                controllerFrame.notifySlider(8, slider8Conversion.getValue());
+                controllerFrame.notifySlider(6, slider6Conversion.getValue());
             }
         });
-        slider9Customizability.addChangeListener(new ChangeListener() {
+        slider7Customizability.addChangeListener(new ChangeListener() {
             /**
              * Invoked when the target of the listener has changed its state.
              *
@@ -643,7 +643,7 @@ public class V_frame implements I_V_frame {
              */
             @Override
             public void stateChanged(ChangeEvent e) {
-                controllerFrame.notifySlider(9, slider9Customizability.getValue());
+                controllerFrame.notifySlider(7, slider7Customizability.getValue());
             }
         });
 
@@ -1010,26 +1010,26 @@ public class V_frame implements I_V_frame {
     @Override
     public int getSliderValue(int sliderNo) {
         switch (sliderNo) {
-            case 0:
-                return slider0Entanglement.getValue();
             case 1:
-                return slider1Decentralization.getValue();
+                return slider1Entanglement.getValue();
             case 2:
-                return slider2Transactionrate.getValue();
+                return slider2Decentralization.getValue();
             case 3:
-                return slider3ProcessingCalculation.getValue();
-            case 4:
-                return slider4ProcessingControl.getValue();
+                return slider3Transactionrate.getValue();
+            case 41:
+                return slider41ProcessingCalculation.getValue();
+            case 42:
+                return slider42ProcessingControl.getValue();
+            case 43:
+                return slider43ProcessingException.getValue();
+            case 44:
+                return slider44ProcessingLogic.getValue();
             case 5:
-                return slider5ProcessingException.getValue();
+                return slider5Reusability.getValue();
             case 6:
-                return slider6ProcessingLogic.getValue();
+                return slider6Conversion.getValue();
             case 7:
-                return slider7Reusability.getValue();
-            case 8:
-                return slider8Conversion.getValue();
-            case 9:
-                return slider9Customizability.getValue();
+                return slider7Customizability.getValue();
             default:
                 return 0;
         }
@@ -1037,36 +1037,31 @@ public class V_frame implements I_V_frame {
     }
 
     /**
-     * sets slider to the passed possition
+     * sets sliders to the passed possitions
      *
-     * @param sliderNo which slider to set
-     * @param value value to which the slider gets set
+     * @param slider1
+     * @param slider2
+     * @param slider3
+     * @param slider41
+     * @param slider42
+     * @param slider43
+     * @param slider44
+     * @param slider5
+     * @param slider6
+     * @param slider7
      */
     @Override
-    public void setSliderValue(int sliderNo, int value) {
-        switch (sliderNo) {
-            case 0:
-                slider0Entanglement.setValue(value);
-            case 1:
-                slider1Decentralization.setValue(value);
-            case 2:
-                slider2Transactionrate.setValue(value);
-            case 3:
-                slider3ProcessingCalculation.setValue(value);
-            case 4:
-                slider4ProcessingControl.setValue(value);
-            case 5:
-                slider5ProcessingException.setValue(value);
-            case 6:
-                slider6ProcessingLogic.setValue(value);
-            case 7:
-                slider7Reusability.setValue(value);
-            case 8:
-                slider8Conversion.setValue(value);
-            case 9:
-                slider9Customizability.setValue(value);
-            default:
-        }
+    public void setSliderValues(int slider1, int slider2, int slider3, int slider41, int slider42, int slider43, int slider44, int slider5, int slider6, int slider7) {
+        slider1Entanglement.setValue(slider1);
+        slider2Decentralization.setValue(slider2);
+        slider3Transactionrate.setValue(slider3);
+        slider41ProcessingCalculation.setValue(slider41);
+        slider42ProcessingControl.setValue(slider42);
+        slider43ProcessingException.setValue(slider43);
+        slider44ProcessingLogic.setValue(slider44);
+        slider5Reusability.setValue(slider5);
+        slider6Conversion.setValue(slider6);
+        slider7Customizability.setValue(slider7);
     }
 
     /**
@@ -1078,35 +1073,35 @@ public class V_frame implements I_V_frame {
     @Override
     public void setSliderText(int sliderNo, int value) {
         switch (sliderNo) {
-            case 0:
-                label0EntaglementValue.setText(String.valueOf(value));
-                break;
             case 1:
-                label1DecentralizationValue.setText(String.valueOf(value));
+                label1EntaglementValue.setText(String.valueOf(value));
                 break;
             case 2:
-                label2TransactionrateValue.setText(String.valueOf(value));
+                label2DecentralizationValue.setText(String.valueOf(value));
                 break;
             case 3:
-                label3ProcessingCalculationValue.setText(String.valueOf(value));
+                label3TransactionrateValue.setText(String.valueOf(value));
                 break;
-            case 4:
-                label4ProcessingControlValue.setText(String.valueOf(value));
+            case 41:
+                label41ProcessingCalculationValue.setText(String.valueOf(value));
+                break;
+            case 42:
+                label42ProcessingControlValue.setText(String.valueOf(value));
+                break;
+            case 43:
+                label43ProcessingExceptionValue.setText(String.valueOf(value));
+                break;
+            case 44:
+                label44ProcessingLogicValue.setText(String.valueOf(value));
                 break;
             case 5:
-                label5ProcessingExceptionValue.setText(String.valueOf(value));
+                label5ReusabilityValue.setText(String.valueOf(value));
                 break;
             case 6:
-                label6ProcessingLogicValue.setText(String.valueOf(value));
+                label6ConversionValue.setText(String.valueOf(value));
                 break;
             case 7:
-                label7ReusabilityValue.setText(String.valueOf(value));
-                break;
-            case 8:
-                label8ConversionValue.setText(String.valueOf(value));
-                break;
-            case 9:
-                label9CustomizabilityValue.setText(String.valueOf(value));
+                label7CustomizabilityValue.setText(String.valueOf(value));
                 break;
             default:
                 // TODO: evtl. besser try catch -> prüfen und wenn besser implementieren
