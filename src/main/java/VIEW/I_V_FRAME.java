@@ -164,6 +164,14 @@ public interface I_V_FRAME extends I_V_BASIC {
     int getSliderValue(int sliderNo);
 
     /**
+     * sets slider to the passed possition
+     *
+     * @param sliderNo defines which slider to change
+     * @param value defines the value to which the slider should be set
+     */
+    void setSliderValue(int sliderNo, int value);
+
+    /**
      * sets sliders to the passed possitions
      *
      * @param slider1

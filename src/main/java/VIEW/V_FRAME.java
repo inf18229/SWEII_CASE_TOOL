@@ -1046,6 +1046,50 @@ public class V_FRAME implements I_V_FRAME {
     }
 
     /**
+     * sets slider to the passed possition
+     *
+     * @param sliderNo defines which slider to change
+     * @param value    defines the value to which the slider should be set
+     */
+    @Override
+    public void setSliderValue(int sliderNo, int value) {
+        switch (sliderNo) {
+            case 0:
+                slider0Entanglement.setValue(value);
+                break;
+            case 1:
+                slider1Decentralization.setValue(value);
+                break;
+            case 2:
+                slider2Transactionrate.setValue(value);
+                break;
+            case 3:
+                slider3ProcessingCalculation.setValue(value);
+                break;
+            case 4:
+                slider4ProcessingControl.setValue(value);
+                break;
+            case 5:
+                slider5ProcessingException.setValue(value);
+                break;
+            case 6:
+                slider6ProcessingLogic.setValue(value);
+                break;
+            case 7:
+                slider7Reusability.setValue(value);
+                break;
+            case 8:
+                slider8Conversion.setValue(value);
+                break;
+            case 9:
+                slider9Customizability.setValue(value);
+                break;
+            default:
+                // TODO: evtl. besser try catch -> prüfen und wenn besser implementieren
+        }
+    }
+
+    /**
      * sets sliders to the passed possitions
      *
      * @param slider1
