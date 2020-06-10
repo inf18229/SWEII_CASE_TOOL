@@ -1,6 +1,7 @@
 package CONTROLLER.TAB;
 
 import MODEL.PROJECTDATA.M_PROJECTDATA;
+import MODEL.PROJECTDATA.M_PROJECTDATA_PRODUCTDATA;
 import MODEL.PROJECTDATA.M_PROJECTDATA_PRODUCTFUNCTION;
 import VIEW.I_V_FRAME;
 
@@ -206,6 +207,50 @@ public class C_EFFORT implements I_C_EFFORT {
                     break;
             }
         }
+
+        //iterate through all stored product data
+        for (M_PROJECTDATA_PRODUCTDATA productData : projectData.getProductDataList()) {
+            /**
+             * switches on type
+             * in type switches on weight
+             * according to case adds 1 to the corresponding variable
+             */
+            switch (productData.functionPointCategory) {
+                case "ILF-Interner Datenbestand":
+                    switch (productData.functionPointWeighting) {
+                        case 0:
+                            countDatasetSimple += 1;
+                            break;
+                        case 1:
+                            countDatasetMedium += 1;
+                            break;
+                        case 2:
+                            countDatasetComplex += 1;
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                case "ELF-Externer Datenbestand":
+                    switch (productData.functionPointWeighting) {
+                        case 0:
+                            countReferenceSimple += 1;
+                            break;
+                        case 1:
+                            countReferenceMedium += 1;
+                            break;
+                        case 2:
+                            countReferenceComplex += 1;
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                default:    //TODO: throw exception?
+                    break;
+            }
+        }
+
         //store calculated values in project data
         projectData.getM_projectData_functionPointEstimation().setCount(0, countInputSimple);
         projectData.getM_projectData_functionPointEstimation().setCount(1, countInputMedium);
