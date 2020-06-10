@@ -42,15 +42,12 @@ class C_EFFORT_TEST {
          * e2Sum und e2Goal beide Integer -> ganze Zahlen
          *
          * Äquivalenzklassen:
-         *      1. increase > 0
-         *          -> in while-Schleife
-         *          1.1  factorIterator < 0 oder factorIterator > 9 (1 oder 2 Klassen?)
-         *          1.2 factorIterator zw. 0 und 9 (jeweils einzeln testen oder ein gemeinsamer Test?
          *
-         *      2. increase <= 0
-         *          -> while-Schleife überspringen
+         *      1. increase >= 0 und e2Sum + increase <= 60
+         *          -> Methode ausführen mit z.B. 0 und 60 als maximale Werte und 0 bzw. 60 am Ende für e2Sum
          *
-         *          wie adjustment testen + Abbruchbedingung nach 60 Durchläufen oder davon ausgehen, das Funktion nur aufgerufen wird, wenn factors angepasst werden können?
+         *      2. increase <0 oder e2Sum + increase > 60
+         *          -> Methode ausführen mit z.B. -1 und IllegalArgumentException erwarten
          */
     }
 
@@ -58,7 +55,8 @@ class C_EFFORT_TEST {
      * test with the min value 0 for increase -> e2Sum should not be changed
      */
     @Test
-    void increaseFactorsCleanMin(){
+    void increaseFactorsCleanMin() {
+        int increaseValue = 0;
         M_IMPORT m__import = new M_IMPORT();
         I_C_EFFORT controllerEffort;
         String path = "testFiles/test_effort_zero.xml"; // fixed path relative
@@ -67,19 +65,21 @@ class C_EFFORT_TEST {
         M_PROJECTDATA projectData = new M_PROJECTDATA();
         projectData = m__import.importProject(path);
         projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
+        int e2SumStart = projectData.getM_projectData_functionPointEstimation_configData().e2Sum;   // speichert e2Sum zu Beginn zwischen
 
         controllerEffort = C_EFFORT.getInstance();
         controllerEffort.setLinks(null, projectData);
-        controllerEffort.increaseFactors(0);
+        controllerEffort.increaseFactors(increaseValue);
 
-        assertEquals(0, projectData.getM_projectData_functionPointEstimation_configData().e2Sum);
+        assertEquals(e2SumStart + increaseValue, projectData.getM_projectData_functionPointEstimation_configData().e2Sum);
     }
 
     /**
      * test with the max value for increase -> all "positive" paths run
      */
     @Test
-    void increaseFactorsCleanMax(){
+    void increaseFactorsCleanMax() {
+        int increaseValue = 60;
         M_IMPORT m__import = new M_IMPORT();
         I_C_EFFORT controllerEffort;
         String path = "testFiles/test_effort_zero.xml"; // fixed path relative
@@ -88,19 +88,21 @@ class C_EFFORT_TEST {
         M_PROJECTDATA projectData = new M_PROJECTDATA();
         projectData = m__import.importProject(path);
         projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
+        int e2SumStart = projectData.getM_projectData_functionPointEstimation_configData().e2Sum;   // speichert e2Sum zu Beginn zwischen
 
         controllerEffort = C_EFFORT.getInstance();
         controllerEffort.setLinks(null, projectData);
-        controllerEffort.increaseFactors(60);
+        controllerEffort.increaseFactors(increaseValue);
 
-        assertEquals(60, projectData.getM_projectData_functionPointEstimation_configData().e2Sum);
+        assertEquals(e2SumStart + increaseValue, projectData.getM_projectData_functionPointEstimation_configData().e2Sum);
     }
 
     /**
      * test with a negative value for increase -> out of bounds
      */
     @Test
-    void increaseFactorsOutOfBounds(){
+    void increaseFactorsOutOfBounds() {
+        int increaseValue = -1;
         M_IMPORT m__import = new M_IMPORT();
         I_C_EFFORT controllerEffort;
         String path = "testFiles/test_effort_zero.xml"; // fixed path relative
@@ -122,15 +124,11 @@ class C_EFFORT_TEST {
          * e2Sum und e2Goal beide Integer -> ganze Zahlen
          *
          * Äquivalenzklassen:
-         *      1. decrease > 0
-         *          -> in while-Schleife
-         *          1.1  factorIterator < 0 oder factorIterator > 9 (1 oder 2 Klassen?)
-         *          1.2 factorIterator zw. 0 und 9 (jeweils einzeln testen oder ein gemeinsamer Test?
+         *      1. decrease >= 0 und (e2Sum - deccrease) >= 0
+         *          -> Methode ausführen mit z.B. 0 und 60 als maximale Werte und (e2SumStart - 0) bzw. (e2SumStart - 60) am Ende für e2Sum
          *
-         *      2. decrease <= 0
-         *          -> while-Schleife überspringen
-         *
-         *          wie adjustment testen + Abbruchbedingung nach 60 Durchläufen oder davon ausgehen, das Funktion nur aufgerufen wird, wenn factors angepasst werden können?
+         *      2. decrease < 0 oder (e2Sum - decrease) <= 0
+         *          -> Methode ausführen mit z.B. -1 und IllegalArgumentException erwarten
          */
     }
 
@@ -138,7 +136,8 @@ class C_EFFORT_TEST {
      * test with the min value for decrease -> e2Sum should not be changed
      */
     @Test
-    void decreaseFactorsCleanMin(){
+    void decreaseFactorsCleanMin() {
+        int decreaseValue = 0;
         M_IMPORT m__import = new M_IMPORT();
         I_C_EFFORT controllerEffort;
         String path = "testFiles/test_effort_max.xml"; // fixed path relative
@@ -147,19 +146,21 @@ class C_EFFORT_TEST {
         M_PROJECTDATA projectData = new M_PROJECTDATA();
         projectData = m__import.importProject(path);
         projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
+        int e2SumStart = projectData.getM_projectData_functionPointEstimation_configData().e2Sum;   // speichert e2Sum zu Beginn zwischen
 
         controllerEffort = C_EFFORT.getInstance();
         controllerEffort.setLinks(null, projectData);
-        controllerEffort.decreaseFactors(0);
+        controllerEffort.decreaseFactors(decreaseValue);
 
-        assertEquals(60, projectData.getM_projectData_functionPointEstimation_configData().e2Sum);
+        assertEquals(e2SumStart - decreaseValue, projectData.getM_projectData_functionPointEstimation_configData().e2Sum);
     }
 
     /**
      * test with the max value for decrease -> all "positive" paths run
      */
     @Test
-    void decreaseFactorsCleanMax(){
+    void decreaseFactorsCleanMax() {
+        int decreaseValue = 60;
         M_IMPORT m__import = new M_IMPORT();
         I_C_EFFORT controllerEffort;
         String path = "testFiles/test_effort_max.xml"; // fixed path relative
@@ -168,19 +169,21 @@ class C_EFFORT_TEST {
         M_PROJECTDATA projectData = new M_PROJECTDATA();
         projectData = m__import.importProject(path);
         projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
+        int e2SumStart = projectData.getM_projectData_functionPointEstimation_configData().e2Sum;   // speichert e2Sum zu Beginn zwischen
 
         controllerEffort = C_EFFORT.getInstance();
         controllerEffort.setLinks(null, projectData);
-        controllerEffort.decreaseFactors(60);
+        controllerEffort.decreaseFactors(decreaseValue);
 
-        assertEquals(0, projectData.getM_projectData_functionPointEstimation_configData().e2Sum);
+        assertEquals(e2SumStart - decreaseValue, projectData.getM_projectData_functionPointEstimation_configData().e2Sum);
     }
 
     /**
      * test with a negative value for decrease -> out of boundaries
      */
     @Test
-    void decreaseFactorsOutOfBounds(){
+    void decreaseFactorsOutOfBounds() {
+        int decreaseValue = -1;
         M_IMPORT m__import = new M_IMPORT();
         I_C_EFFORT controllerEffort;
         String path = "testFiles/test_effort_max.xml"; // fixed path relative
@@ -193,6 +196,6 @@ class C_EFFORT_TEST {
         controllerEffort = C_EFFORT.getInstance();
         controllerEffort.setLinks(null, projectData);
 
-        assertThrows(IllegalArgumentException.class, () -> controllerEffort.decreaseFactors(-5));
+        assertThrows(IllegalArgumentException.class, () -> controllerEffort.decreaseFactors(decreaseValue));
     }
 }

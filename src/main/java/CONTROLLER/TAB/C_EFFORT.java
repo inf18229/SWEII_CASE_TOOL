@@ -316,7 +316,8 @@ public class C_EFFORT implements I_C_EFFORT {
     public void increaseFactors(int increase) throws IllegalArgumentException, RuntimeException{
         int factorIterator = 0; // Iterator to decide which factor to switch
         int adjustment = -1;    // variable stores how much the selected factor can be adjusted
-        if (increase < 0 | projectData.getM_projectData_functionPointEstimation().e2Correction > 60) {
+        if (increase < 0 |
+                (projectData.getM_projectData_functionPointEstimation_configData().e2Sum + increase) > 60) {
             throw new IllegalArgumentException("increase out of bounds");
         } else {
             while (increase > 0) {     // the goal sum is not achieved yet
