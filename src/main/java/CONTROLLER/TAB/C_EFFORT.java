@@ -80,21 +80,21 @@ public class C_EFFORT implements I_C_EFFORT {
                 projectData.getM_projectData_functionPointEstimation().getWeight(13),
                 projectData.getM_projectData_functionPointEstimation().getWeight(14));
         viewFrame.setEstimationSum(
-                projectData.getM_projectData_functionPointEstimation().sumInputSimple,
-                projectData.getM_projectData_functionPointEstimation().sumInputMedium,
-                projectData.getM_projectData_functionPointEstimation().sumInputComplex,
-                projectData.getM_projectData_functionPointEstimation().sumQuerySimple,
-                projectData.getM_projectData_functionPointEstimation().sumQueryMedium,
-                projectData.getM_projectData_functionPointEstimation().sumQueryComplex,
-                projectData.getM_projectData_functionPointEstimation().sumOutputSimple,
-                projectData.getM_projectData_functionPointEstimation().sumOutputMedium,
-                projectData.getM_projectData_functionPointEstimation().sumOutputComplex,
-                projectData.getM_projectData_functionPointEstimation().sumDatasetSimple,
-                projectData.getM_projectData_functionPointEstimation().sumDatasetMedium,
-                projectData.getM_projectData_functionPointEstimation().sumDatasetComplex,
-                projectData.getM_projectData_functionPointEstimation().sumReferenceSimple,
-                projectData.getM_projectData_functionPointEstimation().sumReferenceMedium,
-                projectData.getM_projectData_functionPointEstimation().sumReferenceComplex);
+                projectData.getM_projectData_functionPointEstimation().getSum(0),
+                projectData.getM_projectData_functionPointEstimation().getSum(1),
+                projectData.getM_projectData_functionPointEstimation().getSum(2),
+                projectData.getM_projectData_functionPointEstimation().getSum(3),
+                projectData.getM_projectData_functionPointEstimation().getSum(4),
+                projectData.getM_projectData_functionPointEstimation().getSum(5),
+                projectData.getM_projectData_functionPointEstimation().getSum(6),
+                projectData.getM_projectData_functionPointEstimation().getSum(7),
+                projectData.getM_projectData_functionPointEstimation().getSum(8),
+                projectData.getM_projectData_functionPointEstimation().getSum(9),
+                projectData.getM_projectData_functionPointEstimation().getSum(10),
+                projectData.getM_projectData_functionPointEstimation().getSum(11),
+                projectData.getM_projectData_functionPointEstimation().getSum(12),
+                projectData.getM_projectData_functionPointEstimation().getSum(13),
+                projectData.getM_projectData_functionPointEstimation().getSum(14));
         viewFrame.setTotalRowSum(projectData.getM_projectData_functionPointEstimation().getE1Sum());
         //initialize slider position and initialize the text fields for each slider
         for (int i = 0; i <= 9; i++) {

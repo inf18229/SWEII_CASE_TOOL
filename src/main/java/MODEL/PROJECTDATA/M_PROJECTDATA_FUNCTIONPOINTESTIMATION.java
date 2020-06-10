@@ -50,25 +50,25 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
     private int weightReferenceComplex = 10;
 
     //variables for all calculated sums
-    public int sumInputSimple = 0;
-    public int sumInputMedium = 0;
-    public int sumInputComplex = 0;
+    private int sumInputSimple = 0;
+    private int sumInputMedium = 0;
+    private int sumInputComplex = 0;
 
-    public int sumQuerySimple = 0;
-    public int sumQueryMedium = 0;
-    public int sumQueryComplex = 0;
+    private int sumQuerySimple = 0;
+    private int sumQueryMedium = 0;
+    private int sumQueryComplex = 0;
 
-    public int sumOutputSimple = 0;
-    public int sumOutputMedium = 0;
-    public int sumOutputComplex = 0;
+    private int sumOutputSimple = 0;
+    private int sumOutputMedium = 0;
+    private int sumOutputComplex = 0;
 
-    public int sumDatasetSimple = 0;
-    public int sumDatasetMedium = 0;
-    public int sumDatasetComplex = 0;
+    private int sumDatasetSimple = 0;
+    private int sumDatasetMedium = 0;
+    private int sumDatasetComplex = 0;
 
-    public int sumReferenceSimple = 0;
-    public int sumReferenceMedium = 0;
-    public int sumReferenceComplex = 0;
+    private int sumReferenceSimple = 0;
+    private int sumReferenceMedium = 0;
+    private int sumReferenceComplex = 0;
 
     private int e1Sum = 0;
 
@@ -236,6 +236,48 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
                 return weightReferenceMedium;
             case 14:
                 return weightReferenceComplex;
+            default:
+                return -1;
+        }
+    }
+
+    /**
+     * gets the value of the selected sum Variable
+     *
+     * @param sumNo which sum Variable to get (-1 if sumNo exceeds available variables)
+     */
+    public int getSum(int sumNo) {
+        switch (sumNo) {
+            case 0:
+                return sumInputSimple;
+            case 1:
+                return sumInputMedium;
+            case 2:
+                return sumInputComplex;
+            case 3:
+                return sumQuerySimple;
+            case 4:
+                return sumQueryMedium;
+            case 5:
+                return sumQueryComplex;
+            case 6:
+                return sumOutputSimple;
+            case 7:
+                return sumOutputMedium;
+            case 8:
+                return sumOutputComplex;
+            case 9:
+                return sumDatasetSimple;
+            case 10:
+                return sumDatasetMedium;
+            case 11:
+                return sumDatasetComplex;
+            case 12:
+                return sumReferenceSimple;
+            case 13:
+                return sumReferenceMedium;
+            case 14:
+                return sumReferenceComplex;
             default:
                 return -1;
         }
