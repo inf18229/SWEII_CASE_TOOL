@@ -101,7 +101,7 @@ public class C_EFFORT implements I_C_EFFORT {
             viewFrame.setSliderText(i, projectData.getM_projectData_functionPointEstimation_configData().getFactor(i));
         }
         viewFrame.setFactorSumE2(projectData.getM_projectData_functionPointEstimation_configData().getE2Sum(),
-                projectData.getM_projectData_functionPointEstimation().e2Correction);
+                projectData.getM_projectData_functionPointEstimation().getE2Correction());
         // update values in tab Calculation
         viewFrame.updateCalculationTab(
                 projectData.getM_projectData_functionPointEstimation().getE1Sum(),
@@ -143,7 +143,7 @@ public class C_EFFORT implements I_C_EFFORT {
         projectData.getM_projectData_functionPointEstimation_configData().calcFactorSumE2();
         viewFrame.setSliderText(sliderNo, value);
         viewFrame.setFactorSumE2(projectData.getM_projectData_functionPointEstimation_configData().getE2Sum(),
-                projectData.getM_projectData_functionPointEstimation().e2Correction);
+                projectData.getM_projectData_functionPointEstimation().getE2Correction());
     }
 
     /**
@@ -158,8 +158,8 @@ public class C_EFFORT implements I_C_EFFORT {
         projectData.getM_projectData_functionPointEstimation().calcE2Needed(projectData.getM_projectData_functionPointEstimation().getActualDuration());
         viewFrame.updateCorrectionPanel(
                 projectData.getM_projectData_functionPointEstimation().getJonesPersonMonths(),
-                projectData.getM_projectData_functionPointEstimation().correctionFactor,
-                projectData.getM_projectData_functionPointEstimation().e2Correction
+                projectData.getM_projectData_functionPointEstimation().getCorrectionFactor(),
+                projectData.getM_projectData_functionPointEstimation().getE2Correction()
         );
         updateView();
 
@@ -280,7 +280,7 @@ public class C_EFFORT implements I_C_EFFORT {
         String output;
         System.out.println("Automatische Anpassung gedrückt");
         int e2Sum = projectData.getM_projectData_functionPointEstimation_configData().getE2Sum();
-        int e2Goal = projectData.getM_projectData_functionPointEstimation().e2Correction;
+        int e2Goal = projectData.getM_projectData_functionPointEstimation().getE2Correction();
         // e2Failure positive if e2Sum > e2Goal
         // e2Failure negative if e2Sum < e2Goal
         int e2Failure = e2Sum - e2Goal;

@@ -79,9 +79,9 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
     private double jonesPersonMonths = 0;
 
     private double actualDuration = 0;
-    public double correctionFactor = 0;
+    private double correctionFactor = 0;
 
-    public int e2Correction = -1;    //propably better initialized with -1 or 0?
+    private int e2Correction = -1;
 
     /**
      * this method gets the config data and therefore updates the reference stored in the estimation object
@@ -343,22 +343,6 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
     }
 
     /**
-     * method adds all factors and therefore calculates the total sum of all factors E2
-     */
-    /*public void calcFactorSumE2() {
-        e2Sum = factorEntanglement
-                + factorDecentralization
-                + factorTransactionrate
-                + factorProcessingCalculation
-                + factorProcessingControl
-                + factorProcessingException
-                + factorProcessingLogic
-                + factorReusability
-                + factorConversion
-                + factorCustomizability;
-    }*/
-
-    /**
      * method calculates and sets the influence sum e3
      */
     public void calcInfluenceE3() {
@@ -474,5 +458,29 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
      */
     public void setActualDuration(double actualDuration) {
         this.actualDuration = actualDuration;
+    }
+
+    /**
+     * getter Method for correctionFactor
+     * @return correctionFactor
+     */
+    public double getCorrectionFactor() {
+        return correctionFactor;
+    }
+
+    /**
+     * getter Method for e2Correction
+     * @return e2Correction
+     */
+    public int getE2Correction() {
+        return e2Correction;
+    }
+
+    /**
+     * setter Method for e2Correction
+     * @param e2Correction value to which e2Correction is set to
+     */
+    public void setE2Correction(int e2Correction) {
+        this.e2Correction = e2Correction;
     }
 }

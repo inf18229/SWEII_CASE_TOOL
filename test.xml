@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<M_PROJECTDATA>
+<M_projectData>
     <productFunctionList>
         <_id></_id>
         <id>LF00-1</id>
@@ -47,21 +47,70 @@ In der weiteren Entwicklung der Software ist es vorgesehen, eine automatische Ko
         <title>Produktumgebung</title>
     </m_projectData_productEnvironment>
     <m_projectData_functionPointEstimation>
-        <correctionFactor>0.07386521229845827</correctionFactor>
-        <e2Correction>27</e2Correction>
-        <actualDuration>3.0</actualDuration>
-    </m_projectData_functionPointEstimation>
-    <m_projectData_functionPointEstimation_configData>
-        <factorEntanglement>5</factorEntanglement>
-        <factorDecentralization>5</factorDecentralization>
-        <factorTransactionrate>5</factorTransactionrate>
-        <factorProcessingCalculation>10</factorProcessingCalculation>
+        <countInputSimple>0</countInputSimple>
+        <countInputMedium>0</countInputMedium>
+        <countInputComplex>1</countInputComplex>
+        <countQuerySimple>0</countQuerySimple>
+        <countQueryMedium>0</countQueryMedium>
+        <countQueryComplex>0</countQueryComplex>
+        <countOutputSimple>0</countOutputSimple>
+        <countOutputMedium>0</countOutputMedium>
+        <countOutputComplex>1</countOutputComplex>
+        <countDatasetSimple>0</countDatasetSimple>
+        <countDatasetMedium>0</countDatasetMedium>
+        <countDatasetComplex>0</countDatasetComplex>
+        <countReferenceSimple>0</countReferenceSimple>
+        <countReferenceMedium>0</countReferenceMedium>
+        <countReferenceComplex>0</countReferenceComplex>
+        <weightInputSimple>3</weightInputSimple>
+        <weightInputMedium>4</weightInputMedium>
+        <weightInputComplex>6</weightInputComplex>
+        <weightQuerySimple>3</weightQuerySimple>
+        <weightQueryMedium>4</weightQueryMedium>
+        <weightQueryComplex>6</weightQueryComplex>
+        <weightOutputSimple>4</weightOutputSimple>
+        <weightOutputMedium>5</weightOutputMedium>
+        <weightOutputComplex>7</weightOutputComplex>
+        <weightDatasetSimple>7</weightDatasetSimple>
+        <weightDatasetMedium>10</weightDatasetMedium>
+        <weightDatasetComplex>15</weightDatasetComplex>
+        <weightReferenceSimple>5</weightReferenceSimple>
+        <weightReferenceMedium>7</weightReferenceMedium>
+        <weightReferenceComplex>10</weightReferenceComplex>
+        <sumInputSimple>0</sumInputSimple>
+        <sumInputMedium>0</sumInputMedium>
+        <sumInputComplex>6</sumInputComplex>
+        <sumQuerySimple>0</sumQuerySimple>
+        <sumQueryMedium>0</sumQueryMedium>
+        <sumQueryComplex>0</sumQueryComplex>
+        <sumOutputSimple>0</sumOutputSimple>
+        <sumOutputMedium>0</sumOutputMedium>
+        <sumOutputComplex>7</sumOutputComplex>
+        <sumDatasetSimple>0</sumDatasetSimple>
+        <sumDatasetMedium>0</sumDatasetMedium>
+        <sumDatasetComplex>0</sumDatasetComplex>
+        <sumReferenceSimple>0</sumReferenceSimple>
+        <sumReferenceMedium>0</sumReferenceMedium>
+        <sumReferenceComplex>0</sumReferenceComplex>
+        <e1Sum>13</e1Sum>
+        <factorEntanglement>1</factorEntanglement>
+        <factorDecentralization>1</factorDecentralization>
+        <factorTransactionrate>3</factorTransactionrate>
+        <factorProcessingCalculation>3</factorProcessingCalculation>
         <factorProcessingControl>2</factorProcessingControl>
-        <factorProcessingException>0</factorProcessingException>
-        <factorProcessingLogic>0</factorProcessingLogic>
-        <factorReusability>0</factorReusability>
-        <factorConversion>0</factorConversion>
-        <factorCustomizability>0</factorCustomizability>
-        <e2Sum>27</e2Sum>
-    </m_projectData_functionPointEstimation_configData>
-</M_PROJECTDATA>
+        <factorProcessingException>8</factorProcessingException>
+        <factorProcessingLogic>2</factorProcessingLogic>
+        <factorReusability>3</factorReusability>
+        <factorConversion>5</factorConversion>
+        <factorCustomizability>1</factorCustomizability>
+        <e2Sum>29</e2Sum>
+        <e3Sum>0.99</e3Sum>
+        <afp>12.87</afp>
+        <jonesDuration>2.778634468498354</jonesDuration>
+        <jonesPersonNo>1</jonesPersonNo>
+        <jonesPersonMonths>2.778634468498354</jonesPersonMonths>
+        <actualDuration>0.0</actualDuration>
+        <correctionFactor>0.3288124280832689</correctionFactor>
+        <correctedDuration>0.0</correctedDuration>
+    </m_projectData_functionPointEstimation>
+</M_projectData>

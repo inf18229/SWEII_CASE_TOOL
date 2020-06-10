@@ -88,7 +88,7 @@ public class C_START implements I_C_start {
                 try{
                     projectData = m__import.importProject(path);
                     projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData()); //TODO: check if relevant for testing
-                    projectData.getM_projectData_functionPointEstimation().e2Correction = -1; //clean Correction Factor from last Calculation
+                    projectData.getM_projectData_functionPointEstimation().setE2Correction(-1); //clean Correction Factor from last Calculation
                 }
                 catch(InvalidPathException e)
                 {
