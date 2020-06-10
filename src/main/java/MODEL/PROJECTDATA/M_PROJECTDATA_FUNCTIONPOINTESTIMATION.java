@@ -70,7 +70,7 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
     public int sumReferenceMedium = 0;
     public int sumReferenceComplex = 0;
 
-    public int e1Sum = 0;
+    private int e1Sum = 0;
 
     public double e3Sum = 0;
 
@@ -287,6 +287,22 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
         double temp3 = temp2 - 0.7;
         double tempFinal = temp3 * 100;
         return (int) tempFinal;*/
+    }
+
+    /**
+     * getter Method for e1Sum
+     * @return e1Sum
+     */
+    public int getE1Sum() {
+        return e1Sum;
+    }
+
+    /**
+     * setter Method for e1Sum
+     * @param e1Sum value to which e1Sum is set to
+     */
+    public void setE2Sum(int e1Sum) {
+        this.e1Sum = e1Sum;
     }
 
     /**

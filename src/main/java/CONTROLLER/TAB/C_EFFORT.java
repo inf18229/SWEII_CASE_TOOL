@@ -95,7 +95,7 @@ public class C_EFFORT implements I_C_EFFORT {
                 projectData.getM_projectData_functionPointEstimation().sumReferenceSimple,
                 projectData.getM_projectData_functionPointEstimation().sumReferenceMedium,
                 projectData.getM_projectData_functionPointEstimation().sumReferenceComplex);
-        viewFrame.setTotalRowSum(projectData.getM_projectData_functionPointEstimation().e1Sum);
+        viewFrame.setTotalRowSum(projectData.getM_projectData_functionPointEstimation().getE1Sum());
         //initialize slider position and initialize the text fields for each slider
         for (int i = 0; i <= 9; i++) {
             viewFrame.setSliderValue(i, projectData.getM_projectData_functionPointEstimation_configData().getFactor(i));
@@ -105,7 +105,7 @@ public class C_EFFORT implements I_C_EFFORT {
                 projectData.getM_projectData_functionPointEstimation().e2Correction);
         // update values in tab Calculation
         viewFrame.updateCalculationTab(
-                projectData.getM_projectData_functionPointEstimation().e1Sum,
+                projectData.getM_projectData_functionPointEstimation().getE1Sum(),
                 projectData.getM_projectData_functionPointEstimation_configData().getE2Sum(),
                 projectData.getM_projectData_functionPointEstimation().e3Sum,
                 projectData.getM_projectData_functionPointEstimation().afp,
