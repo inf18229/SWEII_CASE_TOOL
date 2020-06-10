@@ -9,6 +9,7 @@ import VIEW.I_V_FRAME;
 import VIEW.V_FRAME;
 
 import javax.swing.*;
+import java.nio.file.InvalidPathException;
 
 /**
  * implementation of I_C_FRAME
@@ -202,7 +203,15 @@ public class C_FRAME implements I_C_FRAME {
      */
     @Override
     public void notifySave() {  //TODO: clarify: save means export and changes will disappear when not exported/saved, but programm closed?
-        projectData_export.export(projectData, projPath);
+        try{
+            projectData_export.export(projectData, projPath);
+        }
+        catch(InvalidPathException e){
+            //TODO: Prompt user and ask for valid file name/path
+        }
+        catch(NullPointerException e){
+            //TODO: Prompt that an error has occured and the program has to be closed
+        }
     }
 
     /**

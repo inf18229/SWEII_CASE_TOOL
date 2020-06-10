@@ -5,6 +5,8 @@ import MODEL.PROJECTDATA.M_PROJECTDATA;
 import MODEL.PROJECTDATA.M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA;
 import org.junit.jupiter.api.Test;
 
+import java.nio.file.InvalidPathException;
+
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 //TODO: JAXBException --> Kein Test weil wir davon ausgehen dass JAXB korrekt durchläuft
@@ -16,7 +18,7 @@ class M_EXPORT_TEST {
 
     // 1. Testcase:
     @Test
-    void export_projectData_nullProjectTest() {
+    void export_projectData_nullProjectDataTest() {
         M_EXPORT export_test = new M_EXPORT();
         M_PROJECTDATA projData_test = null;
         String path = "test_export.xml";
@@ -34,17 +36,17 @@ class M_EXPORT_TEST {
         //Class 1 --> string with blanks
         String path1 = " ";
         //Tests whether the file at location path can be found
-        assertThrows(RuntimeException.class, () -> export_test.export(projData_test, path1));
+        assertThrows(InvalidPathException.class, () -> export_test.export(projData_test, path1));
 
         //Class 2 --> Empty String
         String path2 = "";
         //Tests whether the file at location path can be found
-        assertThrows(RuntimeException.class, () -> export_test.export(projData_test, path2));
+        assertThrows(InvalidPathException.class, () -> export_test.export(projData_test, path2));
 
         //Class 3 --> null
         String path3 = null;
         //Tests whether the file at location path can be found
-        assertThrows(RuntimeException.class, () -> export_test.export(projData_test, path3));
+        assertThrows(NullPointerException.class, () -> export_test.export(projData_test, path3));
     }
 
 
