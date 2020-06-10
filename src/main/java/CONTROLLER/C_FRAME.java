@@ -199,7 +199,7 @@ public class C_FRAME implements I_C_FRAME {
 
     /**
      * notifies the Controller that he should save the project
-     * the controller therefore tells the model to save the data (and asks the user for export)
+     * the controller therefore tells the model to save the data
      */
     @Override
     public void notifySave() {  //TODO: clarify: save means export and changes will disappear when not exported/saved, but programm closed?
@@ -265,7 +265,8 @@ public class C_FRAME implements I_C_FRAME {
     @Override
     public void notifyAdjustFactors() {
         if (currentController == controllerEffort) {
-            controllerEffort.notifyAdjustFactors();
+            System.out.println(controllerEffort.notifyAdjustFactors());
+            controllerEffort.updateProjectData();
         }
     }
 

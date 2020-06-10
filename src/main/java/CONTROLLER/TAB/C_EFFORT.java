@@ -273,9 +273,11 @@ public class C_EFFORT implements I_C_EFFORT {
 
     /**
      * this method should automatically update the values for the factors to meet the e2goal
+     * it outputs a message to determine if values could be corrected
      */
     @Override
-    public void notifyAdjustFactors() {
+    public String notifyAdjustFactors() {
+        String output;
         System.out.println("Automatische Anpassung gedrückt");
         int e2Sum = projectData.getM_projectData_functionPointEstimation_configData().e2Sum;
         int e2Goal = projectData.getM_projectData_functionPointEstimation().e2Correction;
@@ -284,27 +286,23 @@ public class C_EFFORT implements I_C_EFFORT {
         int e2Failure = e2Sum - e2Goal;
         // checks if e2Failure can be corrected
         if (e2Failure > 0) {    // e2Sum > e2Goal -> factors should be decreased
-            System.out.println("e2Sum needs to be decreased");
             if (e2Sum - e2Failure >= 0) {
-                System.out.println("Correcting Factors");
                 decreaseFactors(Math.abs(e2Failure));
-                updateProjectData();
+                output = "e2Sum needs to be decreased - Corrected factors";
             } else {
-                // throw error oder try catch
-                System.out.println("Failure can't be corrected by adjusting factors.");
+                output = "e2Sum needs to be decreased - Failure can't be corrected by just adjusting factors";
             }
         } else if (e2Failure < 0) { // e2Sum < e2Goal -> factors should be increased
-            System.out.println("e2Sum needs to be increased");
             if (e2Sum + Math.abs(e2Failure) <= 60) {
-                System.out.println("Correcting Factors");
                 increaseFactors(Math.abs(e2Failure));
-                updateProjectData();
+                output = "e2Sum needs to be increased - Corrected factors";
             } else {
-                System.out.println("Failure can't be corrected by adjusting factors.");
+                output = "e2Sum needs to be increased - Failure can't be corrected by just adjusting factors";
             }
         } else {
-            System.out.println("no failure to correct");
+            output = "No failure to correct";
         }
+        return output;
     }
 
     /**

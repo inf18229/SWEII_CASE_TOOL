@@ -36,6 +36,118 @@ class C_EFFORT_TEST {
          */
     }
 
+    /**
+     * this method tests the path when e2Sum needs to and can be decreased
+     * e2Sum = 10
+     * e2Correction = 5
+     */
+    @Test
+    void notifyAdjustFactorsDecreaseCorrected(){
+        int e2Sum = 10;
+        int e2Correction = 5;
+        String expectedOutput = "e2Sum needs to be decreased - Corrected factors";
+
+        M_IMPORT m__import = new M_IMPORT();
+        I_C_EFFORT controllerEffort;
+        String path = "testFiles/test_adjustFactors.xml"; // fixed path relative
+        File xmlFile = new File(path);
+
+        M_PROJECTDATA projectData = new M_PROJECTDATA();
+        projectData = m__import.importProject(path);
+        projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
+        projectData.getM_projectData_functionPointEstimation_configData().e2Sum = e2Sum;
+        projectData.getM_projectData_functionPointEstimation().e2Correction = e2Correction;
+
+        controllerEffort = C_EFFORT.getInstance();
+        controllerEffort.setLinks(null, projectData);
+
+        assertEquals(expectedOutput, controllerEffort.notifyAdjustFactors());
+    }
+
+    /**
+     * this method tests the path when e2Sum needs to but can't be decreased
+     * e2Sum = 10
+     * e2Correction = 80
+     */
+    @Test
+    void notifyAdjustFactorsDecreaseFailed(){
+        int e2Sum = 10;
+        int e2Correction = -10;
+        String expectedOutput = "e2Sum needs to be decreased - Failure can't be corrected by just adjusting factors";
+
+        M_IMPORT m__import = new M_IMPORT();
+        I_C_EFFORT controllerEffort;
+        String path = "testFiles/test_effort_zero.xml"; // fixed path relative
+        File xmlFile = new File(path);
+
+        M_PROJECTDATA projectData = new M_PROJECTDATA();
+        projectData = m__import.importProject(path);
+        projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
+        projectData.getM_projectData_functionPointEstimation_configData().e2Sum = e2Sum;
+        projectData.getM_projectData_functionPointEstimation().e2Correction = e2Correction;
+
+        controllerEffort = C_EFFORT.getInstance();
+        controllerEffort.setLinks(null, projectData);
+
+        assertEquals(expectedOutput, controllerEffort.notifyAdjustFactors());
+    }
+
+    /**
+     * this method tests the path when e2Sum needs to and can be increased
+     * e2Sum = 10
+     * e2Correction = 5
+     */
+    @Test
+    void notifyAdjustFactorsIncreaseCorrected(){
+        int e2Sum = 5;
+        int e2Correction = 10;
+        String expectedOutput = "e2Sum needs to be increased - Corrected factors";
+
+        M_IMPORT m__import = new M_IMPORT();
+        I_C_EFFORT controllerEffort;
+        String path = "testFiles/test_adjustFactors.xml"; // fixed path relative
+        File xmlFile = new File(path);
+
+        M_PROJECTDATA projectData = new M_PROJECTDATA();
+        projectData = m__import.importProject(path);
+        projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
+        projectData.getM_projectData_functionPointEstimation_configData().e2Sum = e2Sum;
+        projectData.getM_projectData_functionPointEstimation().e2Correction = e2Correction;
+
+        controllerEffort = C_EFFORT.getInstance();
+        controllerEffort.setLinks(null, projectData);
+
+        assertEquals(expectedOutput, controllerEffort.notifyAdjustFactors());
+    }
+
+    /**
+     * this method tests the path when e2Sum needs to but can't be increased
+     * e2Sum = 10
+     * e2Correction = 80
+     */
+    @Test
+    void notifyAdjustFactorsIncreaseFailed(){
+        int e2Sum = 10;
+        int e2Correction = 80;
+        String expectedOutput = "e2Sum needs to be increased - Failure can't be corrected by just adjusting factors";
+
+        M_IMPORT m__import = new M_IMPORT();
+        I_C_EFFORT controllerEffort;
+        String path = "testFiles/test_effort_zero.xml"; // fixed path relative
+        File xmlFile = new File(path);
+
+        M_PROJECTDATA projectData = new M_PROJECTDATA();
+        projectData = m__import.importProject(path);
+        projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
+        projectData.getM_projectData_functionPointEstimation_configData().e2Sum = e2Sum;
+        projectData.getM_projectData_functionPointEstimation().e2Correction = e2Correction;
+
+        controllerEffort = C_EFFORT.getInstance();
+        controllerEffort.setLinks(null, projectData);
+
+        assertEquals(expectedOutput, controllerEffort.notifyAdjustFactors());
+    }
+
     @Test
     void increaseFactors() {
         /**

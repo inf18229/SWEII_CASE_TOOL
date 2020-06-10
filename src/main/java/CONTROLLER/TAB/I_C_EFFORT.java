@@ -53,8 +53,9 @@ public interface I_C_EFFORT extends I_C_TAB {
 
     /**
      * this method should automatically update the values for the factors to meet the e2goal
+     * it outputs a message to determine if values could be corrected
      */
-    void notifyAdjustFactors();
+    String notifyAdjustFactors();
 
     /**
      * increases Factors by given value
