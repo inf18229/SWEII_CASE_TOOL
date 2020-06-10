@@ -288,7 +288,9 @@ public class C_EFFORT implements I_C_EFFORT {
             if (e2Sum - e2Failure >= 0) {
                 System.out.println("Correcting Factors");
                 decreaseFactors(Math.abs(e2Failure));
+                updateProjectData();
             } else {
+                // throw error oder try catch
                 System.out.println("Failure can't be corrected by adjusting factors.");
             }
         } else if (e2Failure < 0) { // e2Sum < e2Goal -> factors should be increased
@@ -296,6 +298,7 @@ public class C_EFFORT implements I_C_EFFORT {
             if (e2Sum + Math.abs(e2Failure) <= 60) {
                 System.out.println("Correcting Factors");
                 increaseFactors(Math.abs(e2Failure));
+                updateProjectData();
             } else {
                 System.out.println("Failure can't be corrected by adjusting factors.");
             }
@@ -310,43 +313,47 @@ public class C_EFFORT implements I_C_EFFORT {
      * @param increase value how much the factors should be increased
      */
     @Override
-    public void increaseFactors(int increase) {
+    public void increaseFactors(int increase) throws IllegalArgumentException, RuntimeException{
         int factorIterator = 0; // Iterator to decide which factor to switch
         int adjustment = -1;    // variable stores how much the selected factor can be adjusted
-        while (increase > 0) {     // the goal sum is not achieved yet
-            if (factorIterator == 0 |                     // factorEntanglement
-                    factorIterator == 1 |                 // factorDecentralization
-                    factorIterator == 2 |                 // factorTransactionrate
-                    factorIterator == 4 |                 // factorProcessingControl
-                    factorIterator == 6 |                 // factorProcessingLogic
-                    factorIterator == 7 |                 // factorReusability
-                    factorIterator == 8 |                 // factorConversion
-                    factorIterator == 9) {                // factorCustomizability
+        if (increase < 0 | projectData.getM_projectData_functionPointEstimation().e2Correction > 60) {
+            throw new IllegalArgumentException("increase out of bounds");
+        } else {
+            while (increase > 0) {     // the goal sum is not achieved yet
+                if (factorIterator == 0 |                     // factorEntanglement
+                        factorIterator == 1 |                 // factorDecentralization
+                        factorIterator == 2 |                 // factorTransactionrate
+                        factorIterator == 4 |                 // factorProcessingControl
+                        factorIterator == 6 |                 // factorProcessingLogic
+                        factorIterator == 7 |                 // factorReusability
+                        factorIterator == 8 |                 // factorConversion
+                        factorIterator == 9) {                // factorCustomizability
 
-                adjustment = Math.abs(5 - projectData.getM_projectData_functionPointEstimation_configData().getFactor(factorIterator));
-                if (adjustment > 0) {
-                    projectData.getM_projectData_functionPointEstimation_configData().setFactor(factorIterator,
-                            projectData.getM_projectData_functionPointEstimation_configData().getFactor(factorIterator) + 1);
-                    increase--;
-                } else {
-                    factorIterator++;
-                }
-            } else if (factorIterator == 3 |              // factorProcessingCalculation
-                    factorIterator == 5) {                // factorProcessingException
+                    adjustment = Math.abs(5 - projectData.getM_projectData_functionPointEstimation_configData().getFactor(factorIterator));
+                    if (adjustment > 0) {
+                        projectData.getM_projectData_functionPointEstimation_configData().setFactor(factorIterator,
+                                projectData.getM_projectData_functionPointEstimation_configData().getFactor(factorIterator) + 1);
+                        increase--;
+                    } else {
+                        factorIterator++;
+                    }
+                } else if (factorIterator == 3 |              // factorProcessingCalculation
+                        factorIterator == 5) {                // factorProcessingException
 
-                adjustment = Math.abs(10 - projectData.getM_projectData_functionPointEstimation_configData().getFactor(factorIterator));
-                if (adjustment > 0) {
-                    projectData.getM_projectData_functionPointEstimation_configData().setFactor(factorIterator,
-                            projectData.getM_projectData_functionPointEstimation_configData().getFactor(factorIterator) + 1);
-                    increase--;
+                    adjustment = Math.abs(10 - projectData.getM_projectData_functionPointEstimation_configData().getFactor(factorIterator));
+                    if (adjustment > 0) {
+                        projectData.getM_projectData_functionPointEstimation_configData().setFactor(factorIterator,
+                                projectData.getM_projectData_functionPointEstimation_configData().getFactor(factorIterator) + 1);
+                        increase--;
+                    } else {
+                        factorIterator++;
+                    }
                 } else {
-                    factorIterator++;
+                    throw new RuntimeException("factorIterator out of bounds");
                 }
-            } else {
-                // do nothing
             }
         }
-        updateProjectData();
+        projectData.getM_projectData_functionPointEstimation_configData().calcFactorSumE2();
     }
 
     /**
@@ -355,19 +362,38 @@ public class C_EFFORT implements I_C_EFFORT {
      * @param decrease value how much the factors should be decreased
      */
     @Override
-    public void decreaseFactors(int decrease) {
+    public void decreaseFactors(int decrease) throws IllegalArgumentException, RuntimeException {
         int factorIterator = 0; // Iterator to decide which factor to switch
         int adjustment = -1;    // variable stores how much the selected factor can be adjusted
-        while (decrease > 0) { // the goal sum is not achieved yet
-            adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation_configData().getFactor(factorIterator));
-            if (adjustment > 0) {
-                projectData.getM_projectData_functionPointEstimation_configData().setFactor(factorIterator, projectData.getM_projectData_functionPointEstimation_configData().getFactor(factorIterator) - 1);
-                decrease--;
+        if (decrease < 0
+                | (projectData.getM_projectData_functionPointEstimation_configData().e2Sum - decrease) < 0) {
+            throw new IllegalArgumentException("decrease out of bounds");
+        } else {
+            if (factorIterator == 0 |                     // factorEntanglement
+                    factorIterator == 1 |                 // factorDecentralization
+                    factorIterator == 2 |                 // factorTransactionrate
+                    factorIterator == 3 |              // factorProcessingCalculation
+                    factorIterator == 4 |                 // factorProcessingControl
+                    factorIterator == 5 |                // factorProcessingException
+                    factorIterator == 6 |                 // factorProcessingLogic
+                    factorIterator == 7 |                 // factorReusability
+                    factorIterator == 8 |                 // factorConversion
+                    factorIterator == 9) {                // factorCustomizability
+
+                while (decrease > 0) { // the goal sum is not achieved yet
+                    adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation_configData().getFactor(factorIterator));
+                    if (adjustment > 0) {
+                        projectData.getM_projectData_functionPointEstimation_configData().setFactor(factorIterator, projectData.getM_projectData_functionPointEstimation_configData().getFactor(factorIterator) - 1);
+                        decrease--;
+                    } else {
+                        factorIterator++;
+                    }
+                }
             } else {
-                factorIterator++;
+                throw new RuntimeException("factorIterator out of bounds");
             }
         }
-        updateProjectData();
+        projectData.getM_projectData_functionPointEstimation_configData().calcFactorSumE2();
     }
 
     @Override

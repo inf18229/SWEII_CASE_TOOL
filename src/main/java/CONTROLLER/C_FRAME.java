@@ -207,10 +207,16 @@ public class C_FRAME implements I_C_FRAME {
             projectData_export.export(projectData, projPath);
         }
         catch(InvalidPathException e){
-            //TODO: Prompt user and ask for valid file name/path
+            JOptionPane.showMessageDialog(null,
+                    "Sie müssen einen korrekten Dateipfad angeben",
+                    "Achtung",
+                    JOptionPane.WARNING_MESSAGE);
         }
         catch(NullPointerException e){
-            //TODO: Prompt that an error has occured and the program has to be closed
+            JOptionPane.showMessageDialog(null,
+                    "Ein Fehler ist aufgetreten, bitte versuchen Sie es erneut",
+                    "Achtung",
+                    JOptionPane.WARNING_MESSAGE);
         }
     }
 

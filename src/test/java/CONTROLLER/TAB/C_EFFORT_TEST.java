@@ -1,7 +1,14 @@
 package CONTROLLER.TAB;
 // helpful links: https://junit.org/junit5/docs/current/user-guide/
 
+import MODEL.M_IMPORT;
+import MODEL.PROJECTDATA.M_PROJECTDATA;
 import org.junit.jupiter.api.Test;
+
+import java.io.File;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class C_EFFORT_TEST {
 
@@ -57,5 +64,100 @@ class C_EFFORT_TEST {
          *
          *          wie adjustment testen + Abbruchbedingung nach 60 Durchläufen oder davon ausgehen, das Funktion nur aufgerufen wird, wenn factors angepasst werden können?
          */
+    }
+
+    /**
+     * test with the min value for decrease -> e2Sum should not be changed
+     */
+    @Test
+    void decreaseFactorsCleanMin(){
+        M_IMPORT m__import = new M_IMPORT();
+        I_C_EFFORT controllerEffort;
+        String path = "test_effort_max.xml"; // fixed path relative
+        File xmlFile = new File(path);
+
+        M_PROJECTDATA projectData = new M_PROJECTDATA();
+        projectData = m__import.importProject(path);
+        projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
+
+        controllerEffort = C_EFFORT.getInstance();
+        controllerEffort.setLinks(null, projectData);
+        controllerEffort.decreaseFactors(0);
+
+        assertEquals(60, projectData.getM_projectData_functionPointEstimation_configData().e2Sum);
+    }
+
+    /**
+     * test with the max value for decrease -> all "positive" paths run
+     */
+    @Test
+    void decreaseFactorsCleanMax(){
+        M_IMPORT m__import = new M_IMPORT();
+        I_C_EFFORT controllerEffort;
+        String path = "test_effort_max.xml"; // fixed path relative
+        File xmlFile = new File(path);
+
+        M_PROJECTDATA projectData = new M_PROJECTDATA();
+        projectData = m__import.importProject(path);
+        projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
+
+        controllerEffort = C_EFFORT.getInstance();
+        controllerEffort.setLinks(null, projectData);
+        controllerEffort.decreaseFactors(60);
+
+        assertEquals(0, projectData.getM_projectData_functionPointEstimation_configData().e2Sum);
+    }
+
+    /**
+     * test with a negative value for decrease -> out of boundaries
+     */
+    @Test
+    void decreaseFactorsOutOfBounds(){
+        M_IMPORT m__import = new M_IMPORT();
+        I_C_EFFORT controllerEffort;
+        String path = "test.xml"; // fixed path relative
+        File xmlFile = new File(path);
+
+        M_PROJECTDATA projectData = new M_PROJECTDATA();
+        projectData = m__import.importProject(path);
+        projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
+
+        /*if (xmlFile.exists()) {
+            M_PROJECTDATA projectData = new M_PROJECTDATA();
+            if (path instanceof String) {
+                try{
+                    projectData = m__import.importProject(path);
+                    projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
+                }
+                catch(InvalidPathException e)
+                {
+                    e.getStackTrace();
+                    JOptionPane.showMessageDialog(null,
+                            "Sie müssen einen korrekten Dateipfad angeben",
+                            "Achtung",
+                            JOptionPane.WARNING_MESSAGE);
+                }
+            }
+            else {
+                JOptionPane.showMessageDialog(null,
+                        "Sie müssen einen korrekten Dateipfad angeben",
+                        "Achtung",
+                        JOptionPane.WARNING_MESSAGE);
+            }
+//            I_C_FRAME controllerFrame = C_FRAME.getInstance();
+//            controllerFrame.setLinks(projectData, this, path);//new C_FRAME(new M_PROJECTDATA(), this, path);
+            controllerEffort = C_EFFORT.getInstance();
+            controllerEffort.setLinks(null, projectData);
+        } else {
+            JOptionPane.showMessageDialog(null,
+                    "Sie müssen einen korrekten Dateipfad angeben",
+                    "Achtung",
+                    JOptionPane.WARNING_MESSAGE);
+        }*/
+
+        controllerEffort = C_EFFORT.getInstance();
+        controllerEffort.setLinks(null, projectData);
+
+        assertThrows(IllegalArgumentException.class, () -> controllerEffort.decreaseFactors(-5));
     }
 }

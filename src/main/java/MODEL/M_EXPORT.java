@@ -61,7 +61,7 @@ public class M_EXPORT {
         }
     }
 
-    public void export(M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA confData, String confPath) {
+    public void export(M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA confData, String confPath) throws  InvalidPathException, NullPointerException {
         /**
          * this function converts the current project to XML and saves the new XML file
          * @param projData the projectData of the current project

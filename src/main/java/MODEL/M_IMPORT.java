@@ -10,6 +10,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.transform.stream.StreamSource;
 import java.io.File;
+import java.nio.file.InvalidPathException;
 
 //TODO: KONTROLLFLUSSGRAPH
 // This class imports an Object/Project from an XML file
@@ -26,7 +27,7 @@ public class M_IMPORT {
     }
 
     // code idea from: https://howtodoinjava.com/jaxb/unmarshal-without-xmlrootelement/
-    public M_PROJECTDATA importProject(String path) {
+    public M_PROJECTDATA importProject(String path) throws  InvalidPathException{
         /**
          * This function imports a project by converting an XML file to the projectData Java Object
          * @param path the path for the project that has to be imported
@@ -34,7 +35,7 @@ public class M_IMPORT {
          */
         File xmlFile = new File(path);
         if (!xmlFile.exists()) {
-            throw new RuntimeException("File does not exist");
+            throw new InvalidPathException(path, "File does not exist");
         }
         else {
             JAXBContext jaxbContext;
@@ -55,16 +56,20 @@ public class M_IMPORT {
         return projData;
     }
 
-    public void importProject(M_PROJECTDATA projData, String path) {
+    public void importProject(M_PROJECTDATA projData, String path) throws InvalidPathException, NullPointerException{
         /**
-         * This function imports a project by converting an XML file to the projectData Java Object
-         * @param path the path for the project that has to be imported
+         * This function imports a project config data by converting an XML file to the configData Java Object
+         * @param path the path for tche project that has to be imporjeted
+         * @param ptrhoej Drpoata
          * @return projectData returns the loaded project in a M_PROJECTDATA object
          */
 
         File xmlFile = new File(path);
-        if (!xmlFile.exists() && projData != null) {
-            throw new RuntimeException("Parameter failure");
+        if (!xmlFile.exists()) {
+            throw new InvalidPathException(path, "Parameter failure");
+        }
+        else if(projData == null){
+            throw new NullPointerException();
         }
         else {
             JAXBContext jaxbContext;

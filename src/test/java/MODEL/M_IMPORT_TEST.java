@@ -8,7 +8,10 @@ package MODEL;
 import MODEL.PROJECTDATA.M_PROJECTDATA;
 import org.junit.jupiter.api.Test;
 
+import java.nio.file.InvalidPathException;
+
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.fail;
 
 class M_IMPORT_TEST {
     // Testcases:
@@ -21,7 +24,7 @@ class M_IMPORT_TEST {
         String path = "non_existing_file.xml";
 
         //Tests whether the file at location path exists
-        assertThrows(RuntimeException.class, () -> import_test.importProject(path));
+        assertThrows(InvalidPathException.class, () -> import_test.importProject(path));
     }
 
     // 2. Testcase:
@@ -34,6 +37,7 @@ class M_IMPORT_TEST {
        }
        catch(Exception e){
             e.getStackTrace();
+            fail();
        }
 
     }
@@ -46,7 +50,7 @@ class M_IMPORT_TEST {
         String path = "non_existing_file.xml";
 
         //Tests whether the file at location path exists
-        assertThrows(RuntimeException.class, () -> import_test.importProject(projData_test, path));
+        assertThrows(InvalidPathException.class, () -> import_test.importProject(projData_test, path));
     }
 
     // 4. Testcase:
@@ -57,7 +61,7 @@ class M_IMPORT_TEST {
         String path = "test_config.xml";
 
         //Tests whether the file at location path exists
-        assertThrows(RuntimeException.class, () -> import_test.importProject(projData_test, path));
+        assertThrows(NullPointerException.class, () -> import_test.importProject(projData_test, path));
     }
 
     // 5. Testcase:
@@ -71,6 +75,7 @@ class M_IMPORT_TEST {
         }
         catch(Exception e){
             e.getStackTrace();
+            fail();
         }
 
     }

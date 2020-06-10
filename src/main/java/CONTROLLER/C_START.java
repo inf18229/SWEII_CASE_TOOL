@@ -8,6 +8,7 @@ import VIEW.V_START;
 
 import javax.swing.*;
 import java.io.File;
+import java.nio.file.InvalidPathException;
 
 /**
  * C_START is the basic controller, that is always created first.
@@ -84,14 +85,24 @@ public class C_START implements I_C_start {
         if (xmlFile.exists()) {
             M_PROJECTDATA projectData = new M_PROJECTDATA();
             if (path instanceof String) {
-            /*if (!xmlFile.exists())
-            {
-                throw new RuntimeException("File does not exist");
-            }*/
-                projectData = m__import.importProject(path);
-                projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData()); //TODO: check if relevant for testing
-            } else {
-                //TODO: return an error that a path has to be chosen for import
+                try{
+                    projectData = m__import.importProject(path);
+                    projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData()); //TODO: check if relevant for testing
+                }
+                catch(InvalidPathException e)
+                {
+                    e.getStackTrace();
+                    JOptionPane.showMessageDialog(null,
+                            "Sie müssen einen korrekten Dateipfad angeben",
+                            "Achtung",
+                            JOptionPane.WARNING_MESSAGE);
+                }
+            }
+            else {
+                JOptionPane.showMessageDialog(null,
+                        "Sie müssen einen korrekten Dateipfad angeben",
+                        "Achtung",
+                        JOptionPane.WARNING_MESSAGE);
             }
             I_V_BASIC.hide(viewStart.getJFrame());  // makes viewStart invisible and disables user input
             //TODO: initialize C_Frame with Project Data from XML file (und pfad übergeben)
@@ -103,7 +114,6 @@ public class C_START implements I_C_start {
                     "Achtung",
                     JOptionPane.WARNING_MESSAGE);
         }
-
     }
 
     /**
