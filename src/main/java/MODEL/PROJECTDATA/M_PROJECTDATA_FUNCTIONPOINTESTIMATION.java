@@ -8,25 +8,25 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
     private M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA configData;
 
     //variables for all counts
-    public int countInputSimple = 0;
-    public int countInputMedium = 0;
-    public int countInputComplex = 0;
+    private int countInputSimple = 0;
+    private int countInputMedium = 0;
+    private int countInputComplex = 0;
 
-    public int countQuerySimple = 0;
-    public int countQueryMedium = 0;
-    public int countQueryComplex = 0;
+    private int countQuerySimple = 0;
+    private int countQueryMedium = 0;
+    private int countQueryComplex = 0;
 
-    public int countOutputSimple = 0;
-    public int countOutputMedium = 0;
-    public int countOutputComplex = 0;
+    private int countOutputSimple = 0;
+    private int countOutputMedium = 0;
+    private int countOutputComplex = 0;
 
-    public int countDatasetSimple = 0;
-    public int countDatasetMedium = 0;
-    public int countDatasetComplex = 0;
+    private int countDatasetSimple = 0;
+    private int countDatasetMedium = 0;
+    private int countDatasetComplex = 0;
 
-    public int countReferenceSimple = 0;
-    public int countReferenceMedium = 0;
-    public int countReferenceComplex = 0;
+    private int countReferenceSimple = 0;
+    private int countReferenceMedium = 0;
+    private int countReferenceComplex = 0;
 
     //variables for all weights
     public int weightInputSimple = 3;
@@ -80,7 +80,7 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
     public int jonesPersonNo = 0;
     public double jonesPersonMonths = 0;
 
-    public double actualDuration = 0;
+    private double actualDuration = 0;
     public double correctionFactor = 0;
     public double correctedDuration = 0;
 
@@ -91,6 +91,48 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
      */
     public void setConfigData(M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA confData){
         configData = confData;
+    }
+
+    /**
+     * gets the value of the count Variable
+     *
+     * @param countNo which count Variable to get (-1 if countNo exceeds available variables)
+     */
+    public int getCountVariable(int countNo) {
+        switch (countNo) {
+            case 0:
+                return countInputSimple;
+            case 1:
+                return countInputMedium;
+            case 2:
+                return countInputComplex;
+            case 3:
+                return countQuerySimple;
+            case 4:
+                return countQueryMedium;
+            case 5:
+                return countQueryComplex;
+            case 6:
+                return countOutputSimple;
+            case 7:
+                return countOutputMedium;
+            case 8:
+                return countOutputComplex;
+            case 9:
+                return countDatasetSimple;
+            case 10:
+                return countDatasetMedium;
+            case 11:
+                return countDatasetComplex;
+            case 12:
+                return countReferenceSimple;
+            case 13:
+                return countReferenceMedium;
+            case 14:
+                return countReferenceComplex;
+            default:
+                return -1;
+        }
     }
 
     /**
@@ -301,7 +343,7 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
      * setter Method for e1Sum
      * @param e1Sum value to which e1Sum is set to
      */
-    public void setE2Sum(int e1Sum) {
+    public void setE1Sum(int e1Sum) {
         this.e1Sum = e1Sum;
     }
 

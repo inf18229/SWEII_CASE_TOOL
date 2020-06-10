@@ -1004,7 +1004,7 @@ public class V_FRAME implements I_V_FRAME {
      * @param countReferenceComplex
      */
     @Override
-    public void setEstimationCount(
+    public void setEstimationCounts(
             int countInputSimple,
             int countInputMedium,
             int countInputComplex,
@@ -1020,7 +1020,7 @@ public class V_FRAME implements I_V_FRAME {
             int countReferenceSimple,
             int countReferenceMedium,
             int countReferenceComplex) {
-        System.out.println("setEstimationCount was called");
+        System.out.println("setEstimationCounts was called");
         labelCountInputSimple.setText(String.valueOf(countInputSimple));
         labelCountInputMedium.setText(String.valueOf(countInputMedium));
         labelCountInputComplex.setText(String.valueOf(countInputComplex));

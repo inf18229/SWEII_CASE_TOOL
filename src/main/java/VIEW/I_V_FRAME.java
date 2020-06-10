@@ -73,7 +73,7 @@ public interface I_V_FRAME extends I_V_BASIC {
      * @param countReferenceMedium
      * @param countReferenceComplex
      */
-    void setEstimationCount(
+    void setEstimationCounts(
             int countInputSimple,
             int countInputMedium,
             int countInputComplex,
