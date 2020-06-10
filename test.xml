@@ -1,83 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <M_PROJECTDATA>
-    <productDataList>
-        <_id></_id>
-        <id>2</id>
-        <memoryContent></memoryContent>
-        <reference></reference>
-        <functionPointWeighting>0</functionPointWeighting>
-        <functionPointDET>1</functionPointDET>
-        <functionPointRET>1</functionPointRET>
-        <functionPointCategory>EI-Eingabe</functionPointCategory>
-    </productDataList>
-    <productDataList>
-        <_id></_id>
-        <id>12</id>
-        <memoryContent></memoryContent>
-        <reference></reference>
-        <functionPointWeighting>0</functionPointWeighting>
-        <functionPointDET>1</functionPointDET>
-        <functionPointRET>1</functionPointRET>
-        <functionPointCategory>ILF-Interner Datenbestand</functionPointCategory>
-    </productDataList>
-    <productDataList>
-        <_id></_id>
-        <id></id>
-        <memoryContent></memoryContent>
-        <reference></reference>
-        <functionPointWeighting>0</functionPointWeighting>
-        <functionPointDET>1</functionPointDET>
-        <functionPointRET>1</functionPointRET>
-        <functionPointCategory>ILF-Interner Datenbestand</functionPointCategory>
-    </productDataList>
-    <productDataList>
-        <_id></_id>
-        <id>13</id>
-        <memoryContent>Msdfölaskflaksädfö</memoryContent>
-        <reference></reference>
-        <functionPointWeighting>0</functionPointWeighting>
-        <functionPointDET>1</functionPointDET>
-        <functionPointRET>1</functionPointRET>
-        <functionPointCategory>ILF-Interner Datenbestand</functionPointCategory>
-    </productDataList>
-    <productDataList>
-        <_id></_id>
-        <id>asd</id>
-        <memoryContent>asdfasdfasdfasdf</memoryContent>
-        <reference></reference>
-        <functionPointWeighting>0</functionPointWeighting>
-        <functionPointDET>1</functionPointDET>
-        <functionPointRET>1</functionPointRET>
-        <functionPointCategory>ELF-Externer Datenbestand</functionPointCategory>
-    </productDataList>
-    <productDataList>
-        <_id></_id>
-        <id>1234</id>
-        <memoryContent>Test Beschreibung für Daten</memoryContent>
-        <reference>Testreferenz</reference>
-        <functionPointWeighting>0</functionPointWeighting>
-        <functionPointDET>6</functionPointDET>
-        <functionPointRET>5</functionPointRET>
-        <functionPointCategory>ILF-Interner Datenbestand</functionPointCategory>
-    </productDataList>
-    <productFunctionList>
-        <_id></_id>
-        <id>LF-001</id>
-        <function>Das ist eine Tesfunktion</function>
-        <actor>Akteur1</actor>
-        <description>Dese Funktion wird benötigt weil dies die Software Testet</description>
-        <functionPointWeighting>0</functionPointWeighting>
-        <functionPointCategory>EI-Eingabe</functionPointCategory>
-        <functionPointDET>8</functionPointDET>
-        <functionPointFTR>1</functionPointFTR>
-    </productFunctionList>
     <m_projectData_productUse>
-        <content>Das Produkt soll in der Firma DHBW Software Solutions gGmbH eingesetzt werden. Es dient den Projektleitern bei neuen Projekten als Unterstützung zum Erstellen von Anforderungssammlungen. Dabei werden sie durch den notwendigen Prozess geführt und können Ergänzungen hinzufügen. Im Austausch mit dem Kunden können ganze Anforderungssammlungen über das Requirements Interchange Format weitergegeben und mit anderen Tools geöffnet werden. Außerdem können Ergebnisdokumente erstellt werden, um Kunden über den aktuellen Stand der Anforderungssammlung zu informieren. Zusätzlich bietet die Software den Software-Engineers ein Plugin um in einer IDE die zu bearbeitenden Anforderungen anzuzeigen.</content>
+        <content>TestProductUse</content>
         <title>Produkteinsatz</title>
     </m_projectData_productUse>
     <m_projectData_targetDefinition>
-        <content>Das Ziel, welches durch das Softwareprodukt erreicht werden soll, ist es primär, mit Hilfe eines festgelegten Prozesses, die Anforderungsanalyse im Produktiveinsatz der DHBW Software Systems gGmbH zu strukturieren. Das unternehmensweit einsetzbare Tool erlaubt es Projektleitern die aufgenommenen Anforderungen, definierten Begriffe und sonstige Anmerkungen bereits vor Ort einzugeben. Durch die geleitete Eingabe, die trotzdem die nötigen Freiheiten bietet, speziell auf den Kunden einzugehen, ist es möglich unternehmensintern jederzeit Anforderungssammlungen zu vergleichen oder sie zu Analysen heranzuziehen. Zusätzlich ermöglicht es die Export Funktion im Requirements Interchange Format näher mit dem Kunden zusammenarbeiten zu können und sich noch während des Erstellens der Sammlung über mögliche Anpassungen auszutauschen. Auch Kunden, die in ihrem Unternehmen noch keine Anforderungssammlungssoftware einsetzen, ist es möglich, dank eines übersichtlichen Ergebnisdokuments, jederzeit den Status des Projekts abzufragen. Dieses Dokument kann sowohl schnell und einfach elektronisch als PDF-Dokument weitergereicht werden, oder auch bei persönlichen Kontakten mit dem Kunden als Anschauungsmaterial zur Hand gehabt werden.
-In der weiteren Entwicklung der Software ist es vorgesehen, eine automatische Kosten- und Terminabschätzung zu erstellen. Der Projektleiter kann dann also die aufgenommenen Anforderungen eingeben, welche dann durch Gliederung in verschiedene Aufwandsklassen automatisch eine Kostenabschätzung sowie in Abhängigkeit der verfügbaren Mitarbeiter daraus eine Terminabschätzung inklusive der standardmäßigen Puffer erstellt. Außerdem soll im weiteren Verlauf des Softwareprojekts die Integration in eine der im Unternehmen verwendeten IDEs Visual Studio oder Eclipse implementiert werden. So können Programmierer der DHBW Software Systems gGmbH ihre Aufgaben zeitnah und individuell von ihrem Projektleiter zugeteilt bekommen. Zudem gelingt die Implementierung neuer Funktionen durch Einbindung in die IDE wesentlich strukturierter, da die genauen Ziele festgelegt sind und sich immer im Blick befinden.</content>
+        <content></content>
         <title>Zielbestimmung</title>
     </m_projectData_targetDefinition>
     <m_projectData_productEnvironment>
@@ -85,7 +13,7 @@ In der weiteren Entwicklung der Software ist es vorgesehen, eine automatische Ko
         <title>Produktumgebung</title>
     </m_projectData_productEnvironment>
     <m_projectData_functionPointEstimation>
-        <countInputSimple>1</countInputSimple>
+        <countInputSimple>0</countInputSimple>
         <countInputMedium>0</countInputMedium>
         <countInputComplex>0</countInputComplex>
         <countQuerySimple>0</countQuerySimple>
@@ -115,7 +43,7 @@ In der weiteren Entwicklung der Software ist es vorgesehen, eine automatische Ko
         <weightReferenceSimple>5</weightReferenceSimple>
         <weightReferenceMedium>7</weightReferenceMedium>
         <weightReferenceComplex>10</weightReferenceComplex>
-        <sumInputSimple>3</sumInputSimple>
+        <sumInputSimple>0</sumInputSimple>
         <sumInputMedium>0</sumInputMedium>
         <sumInputComplex>0</sumInputComplex>
         <sumQuerySimple>0</sumQuerySimple>
@@ -130,28 +58,28 @@ In der weiteren Entwicklung der Software ist es vorgesehen, eine automatische Ko
         <sumReferenceSimple>0</sumReferenceSimple>
         <sumReferenceMedium>0</sumReferenceMedium>
         <sumReferenceComplex>0</sumReferenceComplex>
-        <e1Sum>3</e1Sum>
-        <e3Sum>1.06</e3Sum>
-        <afp>3.18</afp>
-        <jonesDuration>1.588440121015769</jonesDuration>
-        <jonesPersonNo>1</jonesPersonNo>
-        <jonesPersonMonths>1.588440121015769</jonesPersonMonths>
+        <e1Sum>0</e1Sum>
+        <e3Sum>0.0</e3Sum>
+        <afp>0.0</afp>
+        <jonesDuration>0.0</jonesDuration>
+        <jonesPersonNo>0</jonesPersonNo>
+        <jonesPersonMonths>0.0</jonesPersonMonths>
         <actualDuration>0.0</actualDuration>
-        <correctionFactor>-0.13909127913521932</correctionFactor>
+        <correctionFactor>0.0</correctionFactor>
         <correctedDuration>0.0</correctedDuration>
-        <e2Correction>4</e2Correction>
+        <e2Correction>-1</e2Correction>
     </m_projectData_functionPointEstimation>
     <m_projectData_functionPointEstimation_configData>
-        <factorEntanglement>3</factorEntanglement>
-        <factorDecentralization>2</factorDecentralization>
-        <factorTransactionrate>2</factorTransactionrate>
-        <factorProcessingCalculation>6</factorProcessingCalculation>
-        <factorProcessingControl>3</factorProcessingControl>
-        <factorProcessingException>5</factorProcessingException>
-        <factorProcessingLogic>4</factorProcessingLogic>
-        <factorReusability>4</factorReusability>
-        <factorConversion>3</factorConversion>
-        <factorCustomizability>4</factorCustomizability>
-        <e2Sum>36</e2Sum>
+        <factorEntanglement>0</factorEntanglement>
+        <factorDecentralization>0</factorDecentralization>
+        <factorTransactionrate>0</factorTransactionrate>
+        <factorProcessingCalculation>0</factorProcessingCalculation>
+        <factorProcessingControl>0</factorProcessingControl>
+        <factorProcessingException>0</factorProcessingException>
+        <factorProcessingLogic>0</factorProcessingLogic>
+        <factorReusability>0</factorReusability>
+        <factorConversion>0</factorConversion>
+        <factorCustomizability>0</factorCustomizability>
+        <e2Sum>0</e2Sum>
     </m_projectData_functionPointEstimation_configData>
 </M_PROJECTDATA>

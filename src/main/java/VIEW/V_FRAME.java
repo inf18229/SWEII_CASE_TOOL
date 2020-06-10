@@ -1343,7 +1343,7 @@ public class V_FRAME implements I_V_FRAME {
      * this method returns the value of the real Duration entered by the user
      */
     @Override
-    public double getRealTime() {
+    public double getActualDuration() {
         return (double) spinnerCorrectionActualValue.getValue();
     }
 

@@ -72,21 +72,6 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
 
     public int e1Sum = 0;
 
-    //variables for factors
-    /*public int factorEntanglement = 0;
-    public int factorDecentralization = 0;
-    public int factorTransactionrate = 0;
-
-    public int factorProcessingCalculation = 0;
-    public int factorProcessingControl = 0;
-    public int factorProcessingException = 0;
-    public int factorProcessingLogic = 0;
-
-    public int factorReusability = 0;
-    public int factorConversion = 0;
-    public int factorCustomizability = 0;*/
-
-//    public int e2Sum = 0;
     public double e3Sum = 0;
 
     public double afp = 0;
@@ -302,5 +287,21 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
         double temp3 = temp2 - 0.7;
         double tempFinal = temp3 * 100;
         return (int) tempFinal;*/
+    }
+
+    /**
+     * getter Method for actualDuration
+     * @return actualDuration
+     */
+    public double getActualDuration() {
+        return actualDuration;
+    }
+
+    /**
+     * setter Method for actualDuration
+     * @param actualDuration value to which actualDuration is set to
+     */
+    public void setActualDuration(double actualDuration) {
+        this.actualDuration = actualDuration;
     }
 }

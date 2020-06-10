@@ -154,8 +154,9 @@ public class C_EFFORT implements I_C_EFFORT {
     @Override
     public void notifyCalculate() {
         updateProjectData();    // guaranties that the shown/used values are up to date
-        projectData.getM_projectData_functionPointEstimation().calcCorrection(viewFrame.getRealTime());
-        projectData.getM_projectData_functionPointEstimation().calcE2Needed(viewFrame.getRealTime());
+        projectData.getM_projectData_functionPointEstimation().setActualDuration(viewFrame.getActualDuration());
+        projectData.getM_projectData_functionPointEstimation().calcCorrection(projectData.getM_projectData_functionPointEstimation().getActualDuration());
+        projectData.getM_projectData_functionPointEstimation().calcE2Needed(projectData.getM_projectData_functionPointEstimation().getActualDuration());
         viewFrame.updateCorrectionPanel(
                 projectData.getM_projectData_functionPointEstimation().jonesPersonMonths,
                 projectData.getM_projectData_functionPointEstimation().correctionFactor,
