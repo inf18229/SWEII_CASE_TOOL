@@ -29,25 +29,25 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
     private int countReferenceComplex = 0;
 
     //variables for all weights
-    public int weightInputSimple = 3;
-    public int weightInputMedium = 4;
-    public int weightInputComplex = 6;
+    private int weightInputSimple = 3;
+    private int weightInputMedium = 4;
+    private int weightInputComplex = 6;
 
-    public int weightQuerySimple = 3;
-    public int weightQueryMedium = 4;
-    public int weightQueryComplex = 6;
+    private int weightQuerySimple = 3;
+    private int weightQueryMedium = 4;
+    private int weightQueryComplex = 6;
 
-    public int weightOutputSimple = 4;
-    public int weightOutputMedium = 5;
-    public int weightOutputComplex = 7;
+    private int weightOutputSimple = 4;
+    private int weightOutputMedium = 5;
+    private int weightOutputComplex = 7;
 
-    public int weightDatasetSimple = 7;
-    public int weightDatasetMedium = 10;
-    public int weightDatasetComplex = 15;
+    private int weightDatasetSimple = 7;
+    private int weightDatasetMedium = 10;
+    private int weightDatasetComplex = 15;
 
-    public int weightReferenceSimple = 5;
-    public int weightReferenceMedium = 7;
-    public int weightReferenceComplex = 10;
+    private int weightReferenceSimple = 5;
+    private int weightReferenceMedium = 7;
+    private int weightReferenceComplex = 10;
 
     //variables for all calculated sums
     public int sumInputSimple = 0;
@@ -94,11 +94,11 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
     }
 
     /**
-     * gets the value of the count Variable
+     * gets the value of the selected count Variable
      *
      * @param countNo which count Variable to get (-1 if countNo exceeds available variables)
      */
-    public int getCountVariable(int countNo) {
+    public int getCount(int countNo) {
         switch (countNo) {
             case 0:
                 return countInputSimple;
@@ -141,7 +141,7 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
      * @param countNo
      * @param value
      */
-    public void setCountVariable(int countNo, int value) {
+    public void setCount(int countNo, int value) {
         switch (countNo) {
             case 10:
                 countInputSimple = value;
@@ -196,6 +196,48 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
 
             default:
                 break;
+        }
+    }
+
+    /**
+     * gets the value of the selected weight Variable
+     *
+     * @param weightNo which weight Variable to get (-1 if weightNo exceeds available variables)
+     */
+    public int getWeight(int weightNo) {
+        switch (weightNo) {
+            case 0:
+                return weightInputSimple;
+            case 1:
+                return weightInputMedium;
+            case 2:
+                return weightInputComplex;
+            case 3:
+                return weightQuerySimple;
+            case 4:
+                return weightQueryMedium;
+            case 5:
+                return weightQueryComplex;
+            case 6:
+                return weightOutputSimple;
+            case 7:
+                return weightOutputMedium;
+            case 8:
+                return weightOutputComplex;
+            case 9:
+                return weightDatasetSimple;
+            case 10:
+                return weightDatasetMedium;
+            case 11:
+                return weightDatasetComplex;
+            case 12:
+                return weightReferenceSimple;
+            case 13:
+                return weightReferenceMedium;
+            case 14:
+                return weightReferenceComplex;
+            default:
+                return -1;
         }
     }
 

@@ -48,37 +48,37 @@ public class C_EFFORT implements I_C_EFFORT {
         //TODO: evtl. aufteilen je gewähltem Tab
         System.out.println("Effort - updateView was called");
         viewFrame.setEstimationCounts(
-                projectData.getM_projectData_functionPointEstimation().getCountVariable(0),
-                projectData.getM_projectData_functionPointEstimation().getCountVariable(1),
-                projectData.getM_projectData_functionPointEstimation().getCountVariable(2),
-                projectData.getM_projectData_functionPointEstimation().getCountVariable(3),
-                projectData.getM_projectData_functionPointEstimation().getCountVariable(4),
-                projectData.getM_projectData_functionPointEstimation().getCountVariable(5),
-                projectData.getM_projectData_functionPointEstimation().getCountVariable(6),
-                projectData.getM_projectData_functionPointEstimation().getCountVariable(7),
-                projectData.getM_projectData_functionPointEstimation().getCountVariable(8),
-                projectData.getM_projectData_functionPointEstimation().getCountVariable(9),
-                projectData.getM_projectData_functionPointEstimation().getCountVariable(10),
-                projectData.getM_projectData_functionPointEstimation().getCountVariable(11),
-                projectData.getM_projectData_functionPointEstimation().getCountVariable(12),
-                projectData.getM_projectData_functionPointEstimation().getCountVariable(13),
-                projectData.getM_projectData_functionPointEstimation().getCountVariable(14));
+                projectData.getM_projectData_functionPointEstimation().getCount(0),
+                projectData.getM_projectData_functionPointEstimation().getCount(1),
+                projectData.getM_projectData_functionPointEstimation().getCount(2),
+                projectData.getM_projectData_functionPointEstimation().getCount(3),
+                projectData.getM_projectData_functionPointEstimation().getCount(4),
+                projectData.getM_projectData_functionPointEstimation().getCount(5),
+                projectData.getM_projectData_functionPointEstimation().getCount(6),
+                projectData.getM_projectData_functionPointEstimation().getCount(7),
+                projectData.getM_projectData_functionPointEstimation().getCount(8),
+                projectData.getM_projectData_functionPointEstimation().getCount(9),
+                projectData.getM_projectData_functionPointEstimation().getCount(10),
+                projectData.getM_projectData_functionPointEstimation().getCount(11),
+                projectData.getM_projectData_functionPointEstimation().getCount(12),
+                projectData.getM_projectData_functionPointEstimation().getCount(13),
+                projectData.getM_projectData_functionPointEstimation().getCount(14));
         viewFrame.setEstimationWeight(
-                projectData.getM_projectData_functionPointEstimation().weightInputSimple,
-                projectData.getM_projectData_functionPointEstimation().weightInputMedium,
-                projectData.getM_projectData_functionPointEstimation().weightInputComplex,
-                projectData.getM_projectData_functionPointEstimation().weightQuerySimple,
-                projectData.getM_projectData_functionPointEstimation().weightQueryMedium,
-                projectData.getM_projectData_functionPointEstimation().weightQueryComplex,
-                projectData.getM_projectData_functionPointEstimation().weightOutputSimple,
-                projectData.getM_projectData_functionPointEstimation().weightOutputMedium,
-                projectData.getM_projectData_functionPointEstimation().weightOutputComplex,
-                projectData.getM_projectData_functionPointEstimation().weightDatasetSimple,
-                projectData.getM_projectData_functionPointEstimation().weightDatasetMedium,
-                projectData.getM_projectData_functionPointEstimation().weightDatasetComplex,
-                projectData.getM_projectData_functionPointEstimation().weightReferenceSimple,
-                projectData.getM_projectData_functionPointEstimation().weightReferenceMedium,
-                projectData.getM_projectData_functionPointEstimation().weightReferenceComplex);
+                projectData.getM_projectData_functionPointEstimation().getWeight(0),
+                projectData.getM_projectData_functionPointEstimation().getWeight(1),
+                projectData.getM_projectData_functionPointEstimation().getWeight(2),
+                projectData.getM_projectData_functionPointEstimation().getWeight(3),
+                projectData.getM_projectData_functionPointEstimation().getWeight(4),
+                projectData.getM_projectData_functionPointEstimation().getWeight(5),
+                projectData.getM_projectData_functionPointEstimation().getWeight(6),
+                projectData.getM_projectData_functionPointEstimation().getWeight(7),
+                projectData.getM_projectData_functionPointEstimation().getWeight(8),
+                projectData.getM_projectData_functionPointEstimation().getWeight(9),
+                projectData.getM_projectData_functionPointEstimation().getWeight(10),
+                projectData.getM_projectData_functionPointEstimation().getWeight(11),
+                projectData.getM_projectData_functionPointEstimation().getWeight(12),
+                projectData.getM_projectData_functionPointEstimation().getWeight(13),
+                projectData.getM_projectData_functionPointEstimation().getWeight(14));
         viewFrame.setEstimationSum(
                 projectData.getM_projectData_functionPointEstimation().sumInputSimple,
                 projectData.getM_projectData_functionPointEstimation().sumInputMedium,
@@ -251,25 +251,25 @@ public class C_EFFORT implements I_C_EFFORT {
             }
         }
         //store calculated values in project data
-        projectData.getM_projectData_functionPointEstimation().setCountVariable(10, countInputSimple);
-        projectData.getM_projectData_functionPointEstimation().setCountVariable(11, countInputMedium);
-        projectData.getM_projectData_functionPointEstimation().setCountVariable(12, countInputComplex);
+        projectData.getM_projectData_functionPointEstimation().setCount(10, countInputSimple);
+        projectData.getM_projectData_functionPointEstimation().setCount(11, countInputMedium);
+        projectData.getM_projectData_functionPointEstimation().setCount(12, countInputComplex);
 
-        projectData.getM_projectData_functionPointEstimation().setCountVariable(20, countQuerySimple);
-        projectData.getM_projectData_functionPointEstimation().setCountVariable(21, countQueryMedium);
-        projectData.getM_projectData_functionPointEstimation().setCountVariable(22, countQueryComplex);
+        projectData.getM_projectData_functionPointEstimation().setCount(20, countQuerySimple);
+        projectData.getM_projectData_functionPointEstimation().setCount(21, countQueryMedium);
+        projectData.getM_projectData_functionPointEstimation().setCount(22, countQueryComplex);
 
-        projectData.getM_projectData_functionPointEstimation().setCountVariable(30, countOutputSimple);
-        projectData.getM_projectData_functionPointEstimation().setCountVariable(31, countOutputMedium);
-        projectData.getM_projectData_functionPointEstimation().setCountVariable(32, countOutputComplex);
+        projectData.getM_projectData_functionPointEstimation().setCount(30, countOutputSimple);
+        projectData.getM_projectData_functionPointEstimation().setCount(31, countOutputMedium);
+        projectData.getM_projectData_functionPointEstimation().setCount(32, countOutputComplex);
 
-        projectData.getM_projectData_functionPointEstimation().setCountVariable(40, countDatasetSimple);
-        projectData.getM_projectData_functionPointEstimation().setCountVariable(41, countDatasetMedium);
-        projectData.getM_projectData_functionPointEstimation().setCountVariable(42, countDatasetComplex);
+        projectData.getM_projectData_functionPointEstimation().setCount(40, countDatasetSimple);
+        projectData.getM_projectData_functionPointEstimation().setCount(41, countDatasetMedium);
+        projectData.getM_projectData_functionPointEstimation().setCount(42, countDatasetComplex);
 
-        projectData.getM_projectData_functionPointEstimation().setCountVariable(50, countReferenceSimple);
-        projectData.getM_projectData_functionPointEstimation().setCountVariable(51, countReferenceMedium);
-        projectData.getM_projectData_functionPointEstimation().setCountVariable(52, countReferenceComplex);
+        projectData.getM_projectData_functionPointEstimation().setCount(50, countReferenceSimple);
+        projectData.getM_projectData_functionPointEstimation().setCount(51, countReferenceMedium);
+        projectData.getM_projectData_functionPointEstimation().setCount(52, countReferenceComplex);
     }
 
     /**
