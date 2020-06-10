@@ -1,3 +1,9 @@
+/**
+ * @autor: Florian
+ * Responsible: Florian
+ * Last edit date: 10.06.2020
+ */
+
 package CONTROLLER.TAB;
 // helpful links: https://junit.org/junit5/docs/current/user-guide/
 
@@ -48,6 +54,68 @@ class C_EFFORT_TEST {
          */
     }
 
+    /**
+     * test with the min value 0 for increase -> e2Sum should not be changed
+     */
+    @Test
+    void increaseFactorsCleanMin(){
+        M_IMPORT m__import = new M_IMPORT();
+        I_C_EFFORT controllerEffort;
+        String path = "testFiles/test_effort_zero.xml"; // fixed path relative
+        File xmlFile = new File(path);
+
+        M_PROJECTDATA projectData = new M_PROJECTDATA();
+        projectData = m__import.importProject(path);
+        projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
+
+        controllerEffort = C_EFFORT.getInstance();
+        controllerEffort.setLinks(null, projectData);
+        controllerEffort.increaseFactors(0);
+
+        assertEquals(0, projectData.getM_projectData_functionPointEstimation_configData().e2Sum);
+    }
+
+    /**
+     * test with the max value for increase -> all "positive" paths run
+     */
+    @Test
+    void increaseFactorsCleanMax(){
+        M_IMPORT m__import = new M_IMPORT();
+        I_C_EFFORT controllerEffort;
+        String path = "testFiles/test_effort_zero.xml"; // fixed path relative
+        File xmlFile = new File(path);
+
+        M_PROJECTDATA projectData = new M_PROJECTDATA();
+        projectData = m__import.importProject(path);
+        projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
+
+        controllerEffort = C_EFFORT.getInstance();
+        controllerEffort.setLinks(null, projectData);
+        controllerEffort.increaseFactors(60);
+
+        assertEquals(60, projectData.getM_projectData_functionPointEstimation_configData().e2Sum);
+    }
+
+    /**
+     * test with a negative value for increase -> out of bounds
+     */
+    @Test
+    void increaseFactorsOutOfBounds(){
+        M_IMPORT m__import = new M_IMPORT();
+        I_C_EFFORT controllerEffort;
+        String path = "testFiles/test_effort_zero.xml"; // fixed path relative
+        File xmlFile = new File(path);
+
+        M_PROJECTDATA projectData = new M_PROJECTDATA();
+        projectData = m__import.importProject(path);
+        projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
+
+        controllerEffort = C_EFFORT.getInstance();
+        controllerEffort.setLinks(null, projectData);
+
+        assertThrows(IllegalArgumentException.class, () -> controllerEffort.decreaseFactors(-5));
+    }
+
     @Test
     void decreaseFactors() {
         /**
@@ -73,7 +141,7 @@ class C_EFFORT_TEST {
     void decreaseFactorsCleanMin(){
         M_IMPORT m__import = new M_IMPORT();
         I_C_EFFORT controllerEffort;
-        String path = "test_effort_max.xml"; // fixed path relative
+        String path = "testFiles/test_effort_max.xml"; // fixed path relative
         File xmlFile = new File(path);
 
         M_PROJECTDATA projectData = new M_PROJECTDATA();
@@ -94,7 +162,7 @@ class C_EFFORT_TEST {
     void decreaseFactorsCleanMax(){
         M_IMPORT m__import = new M_IMPORT();
         I_C_EFFORT controllerEffort;
-        String path = "test_effort_max.xml"; // fixed path relative
+        String path = "testFiles/test_effort_max.xml"; // fixed path relative
         File xmlFile = new File(path);
 
         M_PROJECTDATA projectData = new M_PROJECTDATA();
@@ -115,45 +183,12 @@ class C_EFFORT_TEST {
     void decreaseFactorsOutOfBounds(){
         M_IMPORT m__import = new M_IMPORT();
         I_C_EFFORT controllerEffort;
-        String path = "test.xml"; // fixed path relative
+        String path = "testFiles/test_effort_max.xml"; // fixed path relative
         File xmlFile = new File(path);
 
         M_PROJECTDATA projectData = new M_PROJECTDATA();
         projectData = m__import.importProject(path);
         projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
-
-        /*if (xmlFile.exists()) {
-            M_PROJECTDATA projectData = new M_PROJECTDATA();
-            if (path instanceof String) {
-                try{
-                    projectData = m__import.importProject(path);
-                    projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
-                }
-                catch(InvalidPathException e)
-                {
-                    e.getStackTrace();
-                    JOptionPane.showMessageDialog(null,
-                            "Sie müssen einen korrekten Dateipfad angeben",
-                            "Achtung",
-                            JOptionPane.WARNING_MESSAGE);
-                }
-            }
-            else {
-                JOptionPane.showMessageDialog(null,
-                        "Sie müssen einen korrekten Dateipfad angeben",
-                        "Achtung",
-                        JOptionPane.WARNING_MESSAGE);
-            }
-//            I_C_FRAME controllerFrame = C_FRAME.getInstance();
-//            controllerFrame.setLinks(projectData, this, path);//new C_FRAME(new M_PROJECTDATA(), this, path);
-            controllerEffort = C_EFFORT.getInstance();
-            controllerEffort.setLinks(null, projectData);
-        } else {
-            JOptionPane.showMessageDialog(null,
-                    "Sie müssen einen korrekten Dateipfad angeben",
-                    "Achtung",
-                    JOptionPane.WARNING_MESSAGE);
-        }*/
 
         controllerEffort = C_EFFORT.getInstance();
         controllerEffort.setLinks(null, projectData);

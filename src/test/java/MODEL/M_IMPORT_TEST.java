@@ -1,7 +1,7 @@
 /**
  * @autor: David
  * Responsible: David
- * Last edit date: 04.06.2020
+ * Last edit date: 10.06.2020
  */
 package MODEL;
 

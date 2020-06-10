@@ -1,3 +1,9 @@
+/**
+ * @autor: David
+ * Responsible: David
+ * Last edit date: 10.06.2020
+ */
+
 package MODEL;
 // helpful links: https://junit.org/junit5/docs/current/user-guide/
 

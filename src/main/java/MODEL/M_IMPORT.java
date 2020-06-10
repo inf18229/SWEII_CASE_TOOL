@@ -1,5 +1,10 @@
-package MODEL;
+/**
+ * @autor: David
+ * Responsible: David
+ * Last edit date: 10.06.2020
+ */
 
+package MODEL;
 
 import MODEL.PROJECTDATA.M_PROJECTDATA;
 import MODEL.PROJECTDATA.M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA;
@@ -16,7 +21,7 @@ import java.nio.file.InvalidPathException;
 // This class imports an Object/Project from an XML file
 public class M_IMPORT {
     /**
-     * this class imports a Project from an XML file
+     * this class imports a project or a projects config Data from an XML file
      */
     private M_PROJECTDATA projData;
     private M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA confData;
@@ -29,7 +34,7 @@ public class M_IMPORT {
     // code idea from: https://howtodoinjava.com/jaxb/unmarshal-without-xmlrootelement/
     public M_PROJECTDATA importProject(String path) throws  InvalidPathException{
         /**
-         * This function imports a project by converting an XML file to the projectData Java Object
+         * This function imports a project by converting an XML file to the M_PROJECTDATA Java Object
          * @param path the path for the project that has to be imported
          * @return projectData returns the loaded project in a M_PROJECTDATA object
          */
@@ -58,10 +63,9 @@ public class M_IMPORT {
 
     public void importProject(M_PROJECTDATA projData, String path) throws InvalidPathException, NullPointerException{
         /**
-         * This function imports a project config data by converting an XML file to the configData Java Object
-         * @param path the path for tche project that has to be imporjeted
-         * @param ptrhoej Drpoata
-         * @return projectData returns the loaded project in a M_PROJECTDATA object
+         * This function imports a projects config data by converting a XML file to the M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA Java Object
+         * @param path the path for the project that has to be imported
+         * @param projData the project where the imported configData should be inserted
          */
 
         File xmlFile = new File(path);

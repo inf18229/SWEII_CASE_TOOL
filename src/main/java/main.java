@@ -1,3 +1,9 @@
+/**
+ * @autor: Florian
+ * Responsible: David, Stefan, Flo
+ * Last edit date: 10.06.2020
+ */
+
 import CONTROLLER.C_START;
 
 
