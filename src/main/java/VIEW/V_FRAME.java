@@ -1,7 +1,5 @@
 package VIEW;
 
-//TODO: add Automatische Anpassung button to second effort tab
-
 import CONTROLLER.I_C_FRAME;
 import CONTROLLER.TAB.I_C_EFFORT;
 import MODEL.PROJECTDATA.M_PROJECTDATA;
@@ -963,7 +961,7 @@ public class V_FRAME implements I_V_FRAME {
      * this methods sets the description for the weight label in productfunctions view
      * dependent on input value
      *
-     * @param weight
+     * @param weight value of weight is given as int
      */
     @Override
     public void setWeightDescription(int weight) {
@@ -1177,7 +1175,7 @@ public class V_FRAME implements I_V_FRAME {
     /**
      * returns the value of the selected slider
      *
-     * @param sliderNo
+     * @param sliderNo which slider to return
      * @return value of the selected slider
      */
     @Override

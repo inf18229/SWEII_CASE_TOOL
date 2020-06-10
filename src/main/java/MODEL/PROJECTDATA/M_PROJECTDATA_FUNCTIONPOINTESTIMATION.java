@@ -140,57 +140,51 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
      */
     public void setCount(int countNo, int value) {
         switch (countNo) {
-            case 10:
+            case 0:
                 countInputSimple = value;
                 break;
-            case 11:
+            case 1:
                 countInputMedium = value;
                 break;
-            case 12:
+            case 2:
                 countInputComplex = value;
                 break;
-
-            case 20:
+            case 3:
                 countQuerySimple = value;
                 break;
-            case 21:
+            case 4:
                 countQueryMedium = value;
                 break;
-            case 22:
+            case 5:
                 countQueryComplex = value;
                 break;
-
-            case 30:
+            case 6:
                 countOutputSimple = value;
                 break;
-            case 31:
+            case 7:
                 countOutputMedium = value;
                 break;
-            case 32:
+            case 8:
                 countOutputComplex = value;
                 break;
-
-
-            case 40:
+            case 9:
                 countDatasetSimple = value;
                 break;
-            case 41:
+            case 10:
                 countDatasetMedium = value;
                 break;
-            case 42:
+            case 11:
                 countDatasetComplex = value;
                 break;
-
-            case 50:
+            case 12:
                 countReferenceSimple = value;
                 break;
-            case 51:
+            case 13:
                 countReferenceMedium = value;
                 break;
-            case 52:
+            case 14:
                 countReferenceComplex = value;
                 break;
-
             default:
                 break;
         }

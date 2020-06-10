@@ -207,25 +207,25 @@ public class C_EFFORT implements I_C_EFFORT {
             }
         }
         //store calculated values in project data
-        projectData.getM_projectData_functionPointEstimation().setCount(10, countInputSimple);
-        projectData.getM_projectData_functionPointEstimation().setCount(11, countInputMedium);
-        projectData.getM_projectData_functionPointEstimation().setCount(12, countInputComplex);
+        projectData.getM_projectData_functionPointEstimation().setCount(0, countInputSimple);
+        projectData.getM_projectData_functionPointEstimation().setCount(1, countInputMedium);
+        projectData.getM_projectData_functionPointEstimation().setCount(2, countInputComplex);
 
-        projectData.getM_projectData_functionPointEstimation().setCount(20, countQuerySimple);
-        projectData.getM_projectData_functionPointEstimation().setCount(21, countQueryMedium);
-        projectData.getM_projectData_functionPointEstimation().setCount(22, countQueryComplex);
+        projectData.getM_projectData_functionPointEstimation().setCount(3, countQuerySimple);
+        projectData.getM_projectData_functionPointEstimation().setCount(4, countQueryMedium);
+        projectData.getM_projectData_functionPointEstimation().setCount(5, countQueryComplex);
 
-        projectData.getM_projectData_functionPointEstimation().setCount(30, countOutputSimple);
-        projectData.getM_projectData_functionPointEstimation().setCount(31, countOutputMedium);
-        projectData.getM_projectData_functionPointEstimation().setCount(32, countOutputComplex);
+        projectData.getM_projectData_functionPointEstimation().setCount(6, countOutputSimple);
+        projectData.getM_projectData_functionPointEstimation().setCount(7, countOutputMedium);
+        projectData.getM_projectData_functionPointEstimation().setCount(8, countOutputComplex);
 
-        projectData.getM_projectData_functionPointEstimation().setCount(40, countDatasetSimple);
-        projectData.getM_projectData_functionPointEstimation().setCount(41, countDatasetMedium);
-        projectData.getM_projectData_functionPointEstimation().setCount(42, countDatasetComplex);
+        projectData.getM_projectData_functionPointEstimation().setCount(9, countDatasetSimple);
+        projectData.getM_projectData_functionPointEstimation().setCount(10, countDatasetMedium);
+        projectData.getM_projectData_functionPointEstimation().setCount(11, countDatasetComplex);
 
-        projectData.getM_projectData_functionPointEstimation().setCount(50, countReferenceSimple);
-        projectData.getM_projectData_functionPointEstimation().setCount(51, countReferenceMedium);
-        projectData.getM_projectData_functionPointEstimation().setCount(52, countReferenceComplex);
+        projectData.getM_projectData_functionPointEstimation().setCount(12, countReferenceSimple);
+        projectData.getM_projectData_functionPointEstimation().setCount(13, countReferenceMedium);
+        projectData.getM_projectData_functionPointEstimation().setCount(14, countReferenceComplex);
     }
 
     /**
