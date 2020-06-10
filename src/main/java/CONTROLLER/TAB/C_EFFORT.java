@@ -46,7 +46,6 @@ public class C_EFFORT implements I_C_EFFORT {
     @Override
     public void updateView() {
         //TODO: evtl. aufteilen je gewähltem Tab
-        System.out.println("Effort - updateView was called");
         viewFrame.setEstimationCounts(
                 projectData.getM_projectData_functionPointEstimation().getCount(0),
                 projectData.getM_projectData_functionPointEstimation().getCount(1),
@@ -107,11 +106,11 @@ public class C_EFFORT implements I_C_EFFORT {
         viewFrame.updateCalculationTab(
                 projectData.getM_projectData_functionPointEstimation().getE1Sum(),
                 projectData.getM_projectData_functionPointEstimation_configData().getE2Sum(),
-                projectData.getM_projectData_functionPointEstimation().e3Sum,
-                projectData.getM_projectData_functionPointEstimation().afp,
-                projectData.getM_projectData_functionPointEstimation().jonesDuration,
-                projectData.getM_projectData_functionPointEstimation().jonesPersonNo,
-                projectData.getM_projectData_functionPointEstimation().jonesPersonMonths);
+                projectData.getM_projectData_functionPointEstimation().getE3Sum(),
+                projectData.getM_projectData_functionPointEstimation().getAFP(),
+                projectData.getM_projectData_functionPointEstimation().getJonesDuration(),
+                projectData.getM_projectData_functionPointEstimation().getJonesPersonNo(),
+                projectData.getM_projectData_functionPointEstimation().getJonesPersonMonths());
     }
 
     /**
@@ -158,7 +157,7 @@ public class C_EFFORT implements I_C_EFFORT {
         projectData.getM_projectData_functionPointEstimation().calcCorrection(projectData.getM_projectData_functionPointEstimation().getActualDuration());
         projectData.getM_projectData_functionPointEstimation().calcE2Needed(projectData.getM_projectData_functionPointEstimation().getActualDuration());
         viewFrame.updateCorrectionPanel(
-                projectData.getM_projectData_functionPointEstimation().jonesPersonMonths,
+                projectData.getM_projectData_functionPointEstimation().getJonesPersonMonths(),
                 projectData.getM_projectData_functionPointEstimation().correctionFactor,
                 projectData.getM_projectData_functionPointEstimation().e2Correction
         );

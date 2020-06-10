@@ -47,58 +47,21 @@ In der weiteren Entwicklung der Software ist es vorgesehen, eine automatische Ko
         <title>Produktumgebung</title>
     </m_projectData_productEnvironment>
     <m_projectData_functionPointEstimation>
-        <weightInputSimple>3</weightInputSimple>
-        <weightInputMedium>4</weightInputMedium>
-        <weightInputComplex>6</weightInputComplex>
-        <weightQuerySimple>3</weightQuerySimple>
-        <weightQueryMedium>4</weightQueryMedium>
-        <weightQueryComplex>6</weightQueryComplex>
-        <weightOutputSimple>4</weightOutputSimple>
-        <weightOutputMedium>5</weightOutputMedium>
-        <weightOutputComplex>7</weightOutputComplex>
-        <weightDatasetSimple>7</weightDatasetSimple>
-        <weightDatasetMedium>10</weightDatasetMedium>
-        <weightDatasetComplex>15</weightDatasetComplex>
-        <weightReferenceSimple>5</weightReferenceSimple>
-        <weightReferenceMedium>7</weightReferenceMedium>
-        <weightReferenceComplex>10</weightReferenceComplex>
-        <sumInputSimple>0</sumInputSimple>
-        <sumInputMedium>0</sumInputMedium>
-        <sumInputComplex>6</sumInputComplex>
-        <sumQuerySimple>3</sumQuerySimple>
-        <sumQueryMedium>0</sumQueryMedium>
-        <sumQueryComplex>0</sumQueryComplex>
-        <sumOutputSimple>0</sumOutputSimple>
-        <sumOutputMedium>0</sumOutputMedium>
-        <sumOutputComplex>7</sumOutputComplex>
-        <sumDatasetSimple>0</sumDatasetSimple>
-        <sumDatasetMedium>0</sumDatasetMedium>
-        <sumDatasetComplex>0</sumDatasetComplex>
-        <sumReferenceSimple>0</sumReferenceSimple>
-        <sumReferenceMedium>0</sumReferenceMedium>
-        <sumReferenceComplex>0</sumReferenceComplex>
-        <e3Sum>0.8099999999999999</e3Sum>
-        <afp>12.959999999999999</afp>
-        <jonesDuration>2.786390627402075</jonesDuration>
-        <jonesPersonNo>1</jonesPersonNo>
-        <jonesPersonMonths>2.786390627402075</jonesPersonMonths>
-        <correctionFactor>0.004872340811506758</correctionFactor>
-        <correctedDuration>0.0</correctedDuration>
-        <e2Correction>11</e2Correction>
-        <actualDuration>2.8</actualDuration>
-        <e1Sum>16</e1Sum>
+        <correctionFactor>0.07386521229845827</correctionFactor>
+        <e2Correction>27</e2Correction>
+        <actualDuration>3.0</actualDuration>
     </m_projectData_functionPointEstimation>
     <m_projectData_functionPointEstimation_configData>
         <factorEntanglement>5</factorEntanglement>
         <factorDecentralization>5</factorDecentralization>
-        <factorTransactionrate>1</factorTransactionrate>
-        <factorProcessingCalculation>0</factorProcessingCalculation>
-        <factorProcessingControl>0</factorProcessingControl>
+        <factorTransactionrate>5</factorTransactionrate>
+        <factorProcessingCalculation>10</factorProcessingCalculation>
+        <factorProcessingControl>2</factorProcessingControl>
         <factorProcessingException>0</factorProcessingException>
         <factorProcessingLogic>0</factorProcessingLogic>
         <factorReusability>0</factorReusability>
         <factorConversion>0</factorConversion>
         <factorCustomizability>0</factorCustomizability>
-        <e2Sum>11</e2Sum>
+        <e2Sum>27</e2Sum>
     </m_projectData_functionPointEstimation_configData>
 </M_PROJECTDATA>

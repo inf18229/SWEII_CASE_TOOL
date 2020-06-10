@@ -71,18 +71,15 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
     private int sumReferenceComplex = 0;
 
     private int e1Sum = 0;
+    private double e3Sum = 0;
+    private double afp = 0;
 
-    public double e3Sum = 0;
-
-    public double afp = 0;
-
-    public double jonesDuration = 0;
-    public int jonesPersonNo = 0;
-    public double jonesPersonMonths = 0;
+    private double jonesDuration = 0;
+    private int jonesPersonNo = 0;
+    private double jonesPersonMonths = 0;
 
     private double actualDuration = 0;
     public double correctionFactor = 0;
-    public double correctedDuration = 0;
 
     public int e2Correction = -1;    //propably better initialized with -1 or 0?
 
@@ -424,11 +421,43 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
     }
 
     /**
-     * setter Method for e1Sum
-     * @param e1Sum value to which e1Sum is set to
+     * getter Method for e3Sum
+     * @return e3Sum
      */
-    public void setE1Sum(int e1Sum) {
-        this.e1Sum = e1Sum;
+    public double getE3Sum() {
+        return e3Sum;
+    }
+
+    /**
+     * getter Method for afp
+     * @return afp
+     */
+    public double getAFP() {
+        return afp;
+    }
+
+    /**
+     * getter Method for jonesDuration
+     * @return jonesDuration
+     */
+    public double getJonesDuration() {
+        return jonesDuration;
+    }
+
+    /**
+     * getter Method for jonesPersonNo
+     * @return jonesPersonNo
+     */
+    public int getJonesPersonNo() {
+        return jonesPersonNo;
+    }
+
+    /**
+     * getter Method for jonesPersonMonths
+     * @return jonesPersonMonths
+     */
+    public double getJonesPersonMonths() {
+        return jonesPersonMonths;
     }
 
     /**

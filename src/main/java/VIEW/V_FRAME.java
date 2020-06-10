@@ -1020,7 +1020,6 @@ public class V_FRAME implements I_V_FRAME {
             int countReferenceSimple,
             int countReferenceMedium,
             int countReferenceComplex) {
-        System.out.println("setEstimationCounts was called");
         labelCountInputSimple.setText(String.valueOf(countInputSimple));
         labelCountInputMedium.setText(String.valueOf(countInputMedium));
         labelCountInputComplex.setText(String.valueOf(countInputComplex));
@@ -1075,7 +1074,6 @@ public class V_FRAME implements I_V_FRAME {
             int sumReferenceSimple,
             int sumReferenceMedium,
             int sumReferenceComplex) {
-        System.out.println("setEstimationSum was called");
         labelSumInputSimple.setText(String.valueOf(sumInputSimple));
         labelSumInputMedium.setText(String.valueOf(sumInputMedium));
         labelSumInputComplex.setText(String.valueOf(sumInputComplex));
@@ -1130,7 +1128,6 @@ public class V_FRAME implements I_V_FRAME {
             int weightReferenceSimple,
             int weightReferenceMedium,
             int weightReferenceComplex) {
-        System.out.println("setEstimationWeight was called");
         labelWeightInputSimple.setText("x " + String.valueOf(weightInputSimple));
         labelWeightInputMedium.setText("x " + String.valueOf(weightInputMedium));
         labelWeightInputComplex.setText("x " + String.valueOf(weightInputComplex));
