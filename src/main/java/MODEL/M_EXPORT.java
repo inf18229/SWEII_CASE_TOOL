@@ -67,15 +67,8 @@ public class M_EXPORT {
          * @param projData the projectData of the current project
          * @param projPath the Path that defines where to save the data into a XML file
          */
-        if (confPath != null && !confPath.isEmpty() && !confPath.isBlank() && confData != null) {
-            //check for a valid path
-            try {
-                Paths.get(confPath);
-            }
-            // finally used because using the try block without catch or finally not possible
-            finally {
-
-            }
+        if (confPath != null && confData != null) {
+            if(!confPath.isEmpty() && !confPath.isBlank()) {
             try {
                 //Create JAXB Context
                 JAXBContext jaxbContext = JAXBContext.newInstance(M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA.class);
@@ -95,8 +88,11 @@ public class M_EXPORT {
             } catch (JAXBException e) {
                 e.printStackTrace();
             }
+        } else{
+                throw new InvalidPathException(confPath, "Invalid Filename");
+            }
         } else {
-            throw new RuntimeException("Invalid filename");
+            throw new NullPointerException();
         }
     }
 }
