@@ -46,54 +46,11 @@ public class C_EFFORT implements I_C_EFFORT {
     @Override
     public void updateView() {
         //TODO: evtl. aufteilen je gewähltem Tab
-        viewFrame.setEstimationCounts(
-                projectData.getM_projectData_functionPointEstimation().getCount(0),
-                projectData.getM_projectData_functionPointEstimation().getCount(1),
-                projectData.getM_projectData_functionPointEstimation().getCount(2),
-                projectData.getM_projectData_functionPointEstimation().getCount(3),
-                projectData.getM_projectData_functionPointEstimation().getCount(4),
-                projectData.getM_projectData_functionPointEstimation().getCount(5),
-                projectData.getM_projectData_functionPointEstimation().getCount(6),
-                projectData.getM_projectData_functionPointEstimation().getCount(7),
-                projectData.getM_projectData_functionPointEstimation().getCount(8),
-                projectData.getM_projectData_functionPointEstimation().getCount(9),
-                projectData.getM_projectData_functionPointEstimation().getCount(10),
-                projectData.getM_projectData_functionPointEstimation().getCount(11),
-                projectData.getM_projectData_functionPointEstimation().getCount(12),
-                projectData.getM_projectData_functionPointEstimation().getCount(13),
-                projectData.getM_projectData_functionPointEstimation().getCount(14));
-        viewFrame.setEstimationWeight(
-                projectData.getM_projectData_functionPointEstimation().getWeight(0),
-                projectData.getM_projectData_functionPointEstimation().getWeight(1),
-                projectData.getM_projectData_functionPointEstimation().getWeight(2),
-                projectData.getM_projectData_functionPointEstimation().getWeight(3),
-                projectData.getM_projectData_functionPointEstimation().getWeight(4),
-                projectData.getM_projectData_functionPointEstimation().getWeight(5),
-                projectData.getM_projectData_functionPointEstimation().getWeight(6),
-                projectData.getM_projectData_functionPointEstimation().getWeight(7),
-                projectData.getM_projectData_functionPointEstimation().getWeight(8),
-                projectData.getM_projectData_functionPointEstimation().getWeight(9),
-                projectData.getM_projectData_functionPointEstimation().getWeight(10),
-                projectData.getM_projectData_functionPointEstimation().getWeight(11),
-                projectData.getM_projectData_functionPointEstimation().getWeight(12),
-                projectData.getM_projectData_functionPointEstimation().getWeight(13),
-                projectData.getM_projectData_functionPointEstimation().getWeight(14));
-        viewFrame.setEstimationSum(
-                projectData.getM_projectData_functionPointEstimation().getSum(0),
-                projectData.getM_projectData_functionPointEstimation().getSum(1),
-                projectData.getM_projectData_functionPointEstimation().getSum(2),
-                projectData.getM_projectData_functionPointEstimation().getSum(3),
-                projectData.getM_projectData_functionPointEstimation().getSum(4),
-                projectData.getM_projectData_functionPointEstimation().getSum(5),
-                projectData.getM_projectData_functionPointEstimation().getSum(6),
-                projectData.getM_projectData_functionPointEstimation().getSum(7),
-                projectData.getM_projectData_functionPointEstimation().getSum(8),
-                projectData.getM_projectData_functionPointEstimation().getSum(9),
-                projectData.getM_projectData_functionPointEstimation().getSum(10),
-                projectData.getM_projectData_functionPointEstimation().getSum(11),
-                projectData.getM_projectData_functionPointEstimation().getSum(12),
-                projectData.getM_projectData_functionPointEstimation().getSum(13),
-                projectData.getM_projectData_functionPointEstimation().getSum(14));
+        for (int i = 0; i <= 14; i++) {
+            viewFrame.setEstimationCount(i, projectData.getM_projectData_functionPointEstimation().getCount(i));
+            viewFrame.setEstimationSum(i, projectData.getM_projectData_functionPointEstimation().getSum(i));
+            viewFrame.setEstimationWeight(i, projectData.getM_projectData_functionPointEstimation().getWeight(i)); //TODO: evtl. nicht jedes mal aufrufen nur am Anfang
+        }
         viewFrame.setTotalRowSum(projectData.getM_projectData_functionPointEstimation().getE1Sum());
         //initialize slider position and initialize the text fields for each slider
         for (int i = 0; i <= 9; i++) {

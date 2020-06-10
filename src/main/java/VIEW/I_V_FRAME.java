@@ -57,112 +57,28 @@ public interface I_V_FRAME extends I_V_BASIC {
      * this method gets the count values from the controller
      * and adds all corresponding labels in the estimation tab of the view
      *
-     * @param countInputSimple
-     * @param countInputMedium
-     * @param countInputComplex
-     * @param countQuerySimple
-     * @param countQueryMedium
-     * @param countQueryComplex
-     * @param countOutputSimple
-     * @param countOutputMedium
-     * @param countOutputComplex
-     * @param countDatasetSimple
-     * @param countDatasetMedium
-     * @param countDatasetComplex
-     * @param countReferenceSimple
-     * @param countReferenceMedium
-     * @param countReferenceComplex
+     * @param countNo which count to update
+     * @param value value to the selected count
      */
-    void setEstimationCounts(
-            int countInputSimple,
-            int countInputMedium,
-            int countInputComplex,
-            int countQuerySimple,
-            int countQueryMedium,
-            int countQueryComplex,
-            int countOutputSimple,
-            int countOutputMedium,
-            int countOutputComplex,
-            int countDatasetSimple,
-            int countDatasetMedium,
-            int countDatasetComplex,
-            int countReferenceSimple,
-            int countReferenceMedium,
-            int countReferenceComplex);
-
-    /**
-     * this method gets the sum values from the controller
-     * and adds all corresponding labels in the estimation tab of the view
-     *
-     * @param sumInputSimple
-     * @param sumInputMedium
-     * @param sumInputComplex
-     * @param sumQuerySimple
-     * @param sumQueryMedium
-     * @param sumQueryComplex
-     * @param sumOutputSimple
-     * @param sumOutputMedium
-     * @param sumOutputComplex
-     * @param sumDatasetSimple
-     * @param sumDatasetMedium
-     * @param sumDatasetComplex
-     * @param sumReferenceSimple
-     * @param sumReferenceMedium
-     * @param sumReferenceComplex
-     */
-    void setEstimationSum(
-            int sumInputSimple,
-            int sumInputMedium,
-            int sumInputComplex,
-            int sumQuerySimple,
-            int sumQueryMedium,
-            int sumQueryComplex,
-            int sumOutputSimple,
-            int sumOutputMedium,
-            int sumOutputComplex,
-            int sumDatasetSimple,
-            int sumDatasetMedium,
-            int sumDatasetComplex,
-            int sumReferenceSimple,
-            int sumReferenceMedium,
-            int sumReferenceComplex);
+    void setEstimationCount(int countNo, int value);
 
     /**
      * this method gets the weight values from the controller
      * and adds all corresponding labels in the estimation tab of the view
      *
-     * @param weightInputSimple
-     * @param weightInputMedium
-     * @param weightInputComplex
-     * @param weightQuerySimple
-     * @param weightQueryMedium
-     * @param weightQueryComplex
-     * @param weightOutputSimple
-     * @param weightOutputMedium
-     * @param weightOutputComplex
-     * @param weightDatasetSimple
-     * @param weightDatasetMedium
-     * @param weightDatasetComplex
-     * @param weightReferenceSimple
-     * @param weightReferenceMedium
-     * @param weightReferenceComplex
+     * @param weightNo which count to update
+     * @param value value to the selected count
      */
-    void setEstimationWeight(
-            int weightInputSimple,
-            int weightInputMedium,
-            int weightInputComplex,
-            int weightQuerySimple,
-            int weightQueryMedium,
-            int weightQueryComplex,
-            int weightOutputSimple,
-            int weightOutputMedium,
-            int weightOutputComplex,
-            int weightDatasetSimple,
-            int weightDatasetMedium,
-            int weightDatasetComplex,
-            int weightReferenceSimple,
-            int weightReferenceMedium,
-            int weightReferenceComplex);
+    void setEstimationWeight(int weightNo, int value);
+
+    /**
+     * this method gets the sum values from the controller
+     * and adds all corresponding labels in the estimation tab of the view
+     *
+     * @param sumNo which count to update
+     * @param value value to the selected count
+     */
+    void setEstimationSum(int sumNo, int value);
 
     /**
      * this method gets the weight values from the controller

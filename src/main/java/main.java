@@ -35,3 +35,5 @@ public class main {
 //TODO: löschen Knopf entfernen/deaktivieren, wenn Liste leer
 //TODO: entscheiden in welcher Reihenfolge paramter übergeben werden (model, view, controller oder anders?)
 //TODO: add notifyButton(int id); which calls the required functions depending on the id
+
+//TODO: throw errors in default case?

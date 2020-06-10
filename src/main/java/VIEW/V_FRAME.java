@@ -987,162 +987,180 @@ public class V_FRAME implements I_V_FRAME {
      * this method gets the count values from the controller
      * and adds all corresponding labels in the estimation tab of the view
      *
-     * @param countInputSimple
-     * @param countInputMedium
-     * @param countInputComplex
-     * @param countQuerySimple
-     * @param countQueryMedium
-     * @param countQueryComplex
-     * @param countOutputSimple
-     * @param countOutputMedium
-     * @param countOutputComplex
-     * @param countDatasetSimple
-     * @param countDatasetMedium
-     * @param countDatasetComplex
-     * @param countReferenceSimple
-     * @param countReferenceMedium
-     * @param countReferenceComplex
+     * @param countNo which count to update
+     * @param value   value to the selected count
      */
     @Override
-    public void setEstimationCounts(
-            int countInputSimple,
-            int countInputMedium,
-            int countInputComplex,
-            int countQuerySimple,
-            int countQueryMedium,
-            int countQueryComplex,
-            int countOutputSimple,
-            int countOutputMedium,
-            int countOutputComplex,
-            int countDatasetSimple,
-            int countDatasetMedium,
-            int countDatasetComplex,
-            int countReferenceSimple,
-            int countReferenceMedium,
-            int countReferenceComplex) {
-        labelCountInputSimple.setText(String.valueOf(countInputSimple));
-        labelCountInputMedium.setText(String.valueOf(countInputMedium));
-        labelCountInputComplex.setText(String.valueOf(countInputComplex));
-        labelCountQuerySimple.setText(String.valueOf(countQuerySimple));
-        labelCountQueryMedium.setText(String.valueOf(countQueryMedium));
-        labelCountQueryComplex.setText(String.valueOf(countQueryComplex));
-        labelCountOutputSimple.setText(String.valueOf(countOutputSimple));
-        labelCountOutputMedium.setText(String.valueOf(countOutputMedium));
-        labelCountOutputComplex.setText(String.valueOf(countOutputComplex));
-        labelCountDatasetSimple.setText(String.valueOf(countDatasetSimple));
-        labelCountDatasetMedium.setText(String.valueOf(countDatasetMedium));
-        labelCountDatasetComplex.setText(String.valueOf(countDatasetComplex));
-        labelCountReferenceSimple.setText(String.valueOf(countReferenceSimple));
-        labelCountReferenceMedium.setText(String.valueOf(countReferenceMedium));
-        labelCountReferenceComplex.setText(String.valueOf(countReferenceComplex));
-    }
-
-    /**
-     * this method gets the sum values from the controller
-     * and adds all corresponding labels in the estimation tab of the view
-     *
-     * @param sumInputSimple
-     * @param sumInputMedium
-     * @param sumInputComplex
-     * @param sumQuerySimple
-     * @param sumQueryMedium
-     * @param sumQueryComplex
-     * @param sumOutputSimple
-     * @param sumOutputMedium
-     * @param sumOutputComplex
-     * @param sumDatasetSimple
-     * @param sumDatasetMedium
-     * @param sumDatasetComplex
-     * @param sumReferenceSimple
-     * @param sumReferenceMedium
-     * @param sumReferenceComplex
-     */
-    @Override
-    public void setEstimationSum(
-            int sumInputSimple,
-            int sumInputMedium,
-            int sumInputComplex,
-            int sumQuerySimple,
-            int sumQueryMedium,
-            int sumQueryComplex,
-            int sumOutputSimple,
-            int sumOutputMedium,
-            int sumOutputComplex,
-            int sumDatasetSimple,
-            int sumDatasetMedium,
-            int sumDatasetComplex,
-            int sumReferenceSimple,
-            int sumReferenceMedium,
-            int sumReferenceComplex) {
-        labelSumInputSimple.setText(String.valueOf(sumInputSimple));
-        labelSumInputMedium.setText(String.valueOf(sumInputMedium));
-        labelSumInputComplex.setText(String.valueOf(sumInputComplex));
-        labelSumQuerySimple.setText(String.valueOf(sumQuerySimple));
-        labelSumQueryMedium.setText(String.valueOf(sumQueryMedium));
-        labelSumQueryComplex.setText(String.valueOf(sumQueryComplex));
-        labelSumOutputSimple.setText(String.valueOf(sumOutputSimple));
-        labelSumOutputMedium.setText(String.valueOf(sumOutputMedium));
-        labelSumOutputComplex.setText(String.valueOf(sumOutputComplex));
-        labelSumDatasetSimple.setText(String.valueOf(sumDatasetSimple));
-        labelSumDatasetMedium.setText(String.valueOf(sumDatasetMedium));
-        labelSumDatasetComplex.setText(String.valueOf(sumDatasetComplex));
-        labelSumReferenceSimple.setText(String.valueOf(sumReferenceSimple));
-        labelSumReferenceMedium.setText(String.valueOf(sumReferenceMedium));
-        labelSumReferenceComplex.setText(String.valueOf(sumReferenceComplex));
+    public void setEstimationCount(int countNo, int value) {
+        switch (countNo){
+            case 0:
+                labelCountInputSimple.setText(String.valueOf(value));
+                break;
+            case 1:
+                labelCountInputMedium.setText(String.valueOf(value));
+                break;
+            case 2:
+                labelCountInputComplex.setText(String.valueOf(value));
+                break;
+            case 3:
+                labelCountQuerySimple.setText(String.valueOf(value));
+                break;
+            case 4:
+                labelCountQueryMedium.setText(String.valueOf(value));
+                break;
+            case 5:
+                labelCountQueryComplex.setText(String.valueOf(value));
+                break;
+            case 6:
+                labelCountOutputSimple.setText(String.valueOf(value));
+                break;
+            case 7:
+                labelCountOutputMedium.setText(String.valueOf(value));
+                break;
+            case 8:
+                labelCountOutputComplex.setText(String.valueOf(value));
+                break;
+            case 9:
+                labelCountDatasetSimple.setText(String.valueOf(value));
+                break;
+            case 10:
+                labelCountDatasetMedium.setText(String.valueOf(value));
+                break;
+            case 11:
+                labelCountDatasetComplex.setText(String.valueOf(value));
+                break;
+            case 12:
+                labelCountReferenceSimple.setText(String.valueOf(value));
+                break;
+            case 13:
+                labelCountReferenceMedium.setText(String.valueOf(value));
+                break;
+            case 14:
+                labelCountReferenceComplex.setText(String.valueOf(value));
+                break;
+            default:
+                break;
+        }
     }
 
     /**
      * this method gets the weight values from the controller
      * and adds all corresponding labels in the estimation tab of the view
      *
-     * @param weightInputSimple
-     * @param weightInputMedium
-     * @param weightInputComplex
-     * @param weightQuerySimple
-     * @param weightQueryMedium
-     * @param weightQueryComplex
-     * @param weightOutputSimple
-     * @param weightOutputMedium
-     * @param weightOutputComplex
-     * @param weightDatasetSimple
-     * @param weightDatasetMedium
-     * @param weightDatasetComplex
-     * @param weightReferenceSimple
-     * @param weightReferenceMedium
-     * @param weightReferenceComplex
+     * @param weightNo which count to update
+     * @param value   value to the selected count
      */
     @Override
-    public void setEstimationWeight(
-            int weightInputSimple,
-            int weightInputMedium,
-            int weightInputComplex,
-            int weightQuerySimple,
-            int weightQueryMedium,
-            int weightQueryComplex,
-            int weightOutputSimple,
-            int weightOutputMedium,
-            int weightOutputComplex,
-            int weightDatasetSimple,
-            int weightDatasetMedium,
-            int weightDatasetComplex,
-            int weightReferenceSimple,
-            int weightReferenceMedium,
-            int weightReferenceComplex) {
-        labelWeightInputSimple.setText("x " + String.valueOf(weightInputSimple));
-        labelWeightInputMedium.setText("x " + String.valueOf(weightInputMedium));
-        labelWeightInputComplex.setText("x " + String.valueOf(weightInputComplex));
-        labelWeightQuerySimple.setText("x " + String.valueOf(weightQuerySimple));
-        labelWeightQueryMedium.setText("x " + String.valueOf(weightQueryMedium));
-        labelWeightQueryComplex.setText("x " + String.valueOf(weightQueryComplex));
-        labelWeightOutputSimple.setText("x " + String.valueOf(weightOutputSimple));
-        labelWeightOutputMedium.setText("x " + String.valueOf(weightOutputMedium));
-        labelWeightOutputComplex.setText("x " + String.valueOf(weightOutputComplex));
-        labelWeightDatasetSimple.setText("x " + String.valueOf(weightDatasetSimple));
-        labelWeightDatasetMedium.setText("x " + String.valueOf(weightDatasetMedium));
-        labelWeightDatasetComplex.setText("x " + String.valueOf(weightDatasetComplex));
-        labelWeightReferenceSimple.setText("x " + String.valueOf(weightReferenceSimple));
-        labelWeightReferenceMedium.setText("x " + String.valueOf(weightReferenceMedium));
-        labelWeightReferenceComplex.setText("x " + String.valueOf(weightReferenceComplex));
+    public void setEstimationWeight(int weightNo, int value) {
+        switch (weightNo){
+            case 0:
+                labelWeightInputSimple.setText("x " + String.valueOf(value));
+                break;
+            case 1:
+                labelWeightInputMedium.setText("x " + String.valueOf(value));
+                break;
+            case 2:
+                labelWeightInputComplex.setText("x " + String.valueOf(value));
+                break;
+            case 3:
+                labelWeightQuerySimple.setText("x " + String.valueOf(value));
+                break;
+            case 4:
+                labelWeightQueryMedium.setText("x " + String.valueOf(value));
+                break;
+            case 5:
+                labelWeightQueryComplex.setText("x " + String.valueOf(value));
+                break;
+            case 6:
+                labelWeightOutputSimple.setText("x " + String.valueOf(value));
+                break;
+            case 7:
+                labelWeightOutputMedium.setText("x " + String.valueOf(value));
+                break;
+            case 8:
+                labelWeightOutputComplex.setText("x " + String.valueOf(value));
+                break;
+            case 9:
+                labelWeightDatasetSimple.setText("x " + String.valueOf(value));
+                break;
+            case 10:
+                labelWeightDatasetMedium.setText("x " + String.valueOf(value));
+                break;
+            case 11:
+                labelWeightDatasetComplex.setText("x " + String.valueOf(value));
+                break;
+            case 12:
+                labelWeightReferenceSimple.setText("x " + String.valueOf(value));
+                break;
+            case 13:
+                labelWeightReferenceMedium.setText("x " + String.valueOf(value));
+                break;
+            case 14:
+                labelWeightReferenceComplex.setText("x " + String.valueOf(value));
+                break;
+            default:
+                break;
+        }
+    }
+
+    /**
+     * this method gets the count values from the controller
+     * and adds all corresponding labels in the estimation tab of the view
+     *
+     * @param sumNo which count to update
+     * @param value   value to the selected count
+     */
+    @Override
+    public void setEstimationSum(int sumNo, int value) {
+        switch (sumNo){
+            case 0:
+                labelSumInputSimple.setText(String.valueOf(value));
+                break;
+            case 1:
+                labelSumInputMedium.setText(String.valueOf(value));
+                break;
+            case 2:
+                labelSumInputComplex.setText(String.valueOf(value));
+                break;
+            case 3:
+                labelSumQuerySimple.setText(String.valueOf(value));
+                break;
+            case 4:
+                labelSumQueryMedium.setText(String.valueOf(value));
+                break;
+            case 5:
+                labelSumQueryComplex.setText(String.valueOf(value));
+                break;
+            case 6:
+                labelSumOutputSimple.setText(String.valueOf(value));
+                break;
+            case 7:
+                labelSumOutputMedium.setText(String.valueOf(value));
+                break;
+            case 8:
+                labelSumOutputComplex.setText(String.valueOf(value));
+                break;
+            case 9:
+                labelSumDatasetSimple.setText(String.valueOf(value));
+                break;
+            case 10:
+                labelSumDatasetMedium.setText(String.valueOf(value));
+                break;
+            case 11:
+                labelSumDatasetComplex.setText(String.valueOf(value));
+                break;
+            case 12:
+                labelSumReferenceSimple.setText(String.valueOf(value));
+                break;
+            case 13:
+                labelSumReferenceMedium.setText(String.valueOf(value));
+                break;
+            case 14:
+                labelSumReferenceComplex.setText(String.valueOf(value));
+                break;
+            default:
+                break;
+        }
     }
 
     /**
