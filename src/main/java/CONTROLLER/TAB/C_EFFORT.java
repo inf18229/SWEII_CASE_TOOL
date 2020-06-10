@@ -368,18 +368,17 @@ public class C_EFFORT implements I_C_EFFORT {
                 | (projectData.getM_projectData_functionPointEstimation_configData().e2Sum - decrease) < 0) {   //TODO: if called with decrease=5, but all factors=0 function never stops
             throw new IllegalArgumentException("decrease out of bounds");
         } else {
-            if (factorIterator == 0 |                     // factorEntanglement
-                    factorIterator == 1 |                 // factorDecentralization
-                    factorIterator == 2 |                 // factorTransactionrate
-                    factorIterator == 3 |              // factorProcessingCalculation
-                    factorIterator == 4 |                 // factorProcessingControl
-                    factorIterator == 5 |                // factorProcessingException
-                    factorIterator == 6 |                 // factorProcessingLogic
-                    factorIterator == 7 |                 // factorReusability
-                    factorIterator == 8 |                 // factorConversion
-                    factorIterator == 9) {                // factorCustomizability
-
-                while (decrease > 0) { // the goal sum is not achieved yet
+            while (decrease > 0) { // the goal sum is not achieved yet
+                if (factorIterator == 0 |                     // factorEntanglement
+                        factorIterator == 1 |                 // factorDecentralization
+                        factorIterator == 2 |                 // factorTransactionrate
+                        factorIterator == 3 |              // factorProcessingCalculation
+                        factorIterator == 4 |                 // factorProcessingControl
+                        factorIterator == 5 |                // factorProcessingException
+                        factorIterator == 6 |                 // factorProcessingLogic
+                        factorIterator == 7 |                 // factorReusability
+                        factorIterator == 8 |                 // factorConversion
+                        factorIterator == 9) {                // factorCustomizability
                     adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation_configData().getFactor(factorIterator));
                     if (adjustment > 0) {
                         projectData.getM_projectData_functionPointEstimation_configData().setFactor(factorIterator, projectData.getM_projectData_functionPointEstimation_configData().getFactor(factorIterator) - 1);
@@ -387,12 +386,12 @@ public class C_EFFORT implements I_C_EFFORT {
                     } else {
                         factorIterator++;
                     }
+                } else {
+                    throw new RuntimeException("factorIterator out of bounds");
                 }
-            } else {
-                throw new RuntimeException("factorIterator out of bounds");
             }
+            projectData.getM_projectData_functionPointEstimation_configData().calcFactorSumE2();
         }
-        projectData.getM_projectData_functionPointEstimation_configData().calcFactorSumE2();
     }
 
     @Override
