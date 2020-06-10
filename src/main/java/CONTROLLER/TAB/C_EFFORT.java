@@ -365,7 +365,7 @@ public class C_EFFORT implements I_C_EFFORT {
         int factorIterator = 0; // Iterator to decide which factor to switch
         int adjustment = -1;    // variable stores how much the selected factor can be adjusted
         if (decrease < 0
-                | (projectData.getM_projectData_functionPointEstimation_configData().e2Sum - decrease) < 0) {
+                | (projectData.getM_projectData_functionPointEstimation_configData().e2Sum - decrease) < 0) {   //TODO: if called with decrease=5, but all factors=0 function never stops
             throw new IllegalArgumentException("decrease out of bounds");
         } else {
             if (factorIterator == 0 |                     // factorEntanglement

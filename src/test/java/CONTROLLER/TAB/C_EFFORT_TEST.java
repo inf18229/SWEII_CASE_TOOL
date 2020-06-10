@@ -67,7 +67,7 @@ class C_EFFORT_TEST {
     /**
      * this method tests the path when e2Sum needs to but can't be decreased
      * e2Sum = 10
-     * e2Correction = 80
+     * e2Correction = -10
      */
     @Test
     void notifyAdjustFactorsDecreaseFailed(){
@@ -77,7 +77,7 @@ class C_EFFORT_TEST {
 
         M_IMPORT m__import = new M_IMPORT();
         I_C_EFFORT controllerEffort;
-        String path = "testFiles/test_effort_zero.xml"; // fixed path relative
+        String path = "testFiles/test_adjustFactors.xml"; // fixed path relative
         File xmlFile = new File(path);
 
         M_PROJECTDATA projectData = new M_PROJECTDATA();
@@ -94,8 +94,8 @@ class C_EFFORT_TEST {
 
     /**
      * this method tests the path when e2Sum needs to and can be increased
-     * e2Sum = 10
-     * e2Correction = 5
+     * e2Sum = 5
+     * e2Correction = 10
      */
     @Test
     void notifyAdjustFactorsIncreaseCorrected(){
@@ -133,7 +133,7 @@ class C_EFFORT_TEST {
 
         M_IMPORT m__import = new M_IMPORT();
         I_C_EFFORT controllerEffort;
-        String path = "testFiles/test_effort_zero.xml"; // fixed path relative
+        String path = "testFiles/test_adjustFactors.xml"; // fixed path relative
         File xmlFile = new File(path);
 
         M_PROJECTDATA projectData = new M_PROJECTDATA();
