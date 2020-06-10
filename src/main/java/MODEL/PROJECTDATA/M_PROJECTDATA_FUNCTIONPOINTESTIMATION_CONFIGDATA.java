@@ -23,20 +23,20 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA {
     //int stuffElement = 0; // this element is ignored and the export starts with the second element   // TODO: try to fix and remove this
 
     //variables for factors
-    public int factorEntanglement = 0; //TODO: eig. alle privat und nür über set/get aufrufen -> extra Test notwendig?
-    public int factorDecentralization = 0;
-    public int factorTransactionrate = 0;
+    private int factorEntanglement = 0; //TODO: eig. alle privat und nür über set/get aufrufen -> extra Test notwendig?
+    private int factorDecentralization = 0;
+    private int factorTransactionrate = 0;
 
-    public int factorProcessingCalculation = 0;
-    public int factorProcessingControl = 0;
-    public int factorProcessingException = 0;
-    public int factorProcessingLogic = 0;
+    private int factorProcessingCalculation = 0;
+    private int factorProcessingControl = 0;
+    private int factorProcessingException = 0;
+    private int factorProcessingLogic = 0;
 
-    public int factorReusability = 0;
-    public int factorConversion = 0;
-    public int factorCustomizability = 0;
+    private int factorReusability = 0;
+    private int factorConversion = 0;
+    private int factorCustomizability = 0;
 
-    public int e2Sum = 0;
+    private int e2Sum = 0;
 
     /**
      * sets one factor to the provided value
@@ -128,5 +128,21 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA {
                 + factorReusability
                 + factorConversion
                 + factorCustomizability;
+    }
+
+    /**
+     * getter Method for e2Sum
+     * @return e2Sum
+     */
+    public int getE2Sum() {
+        return e2Sum;
+    }
+
+    /**
+     * setter Method for e2Sum
+     * @param e2Sum value to which e2Sum is set to
+     */
+    public void setE2Sum(int e2Sum) {
+        this.e2Sum = e2Sum;
     }
 }

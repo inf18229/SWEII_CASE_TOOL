@@ -55,7 +55,7 @@ class C_EFFORT_TEST {
         M_PROJECTDATA projectData = new M_PROJECTDATA();
         projectData = m__import.importProject(path);
         projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
-        projectData.getM_projectData_functionPointEstimation_configData().e2Sum = e2Sum;
+        projectData.getM_projectData_functionPointEstimation_configData().setE2Sum(e2Sum);
         projectData.getM_projectData_functionPointEstimation().e2Correction = e2Correction;
 
         controllerEffort = C_EFFORT.getInstance();
@@ -83,7 +83,7 @@ class C_EFFORT_TEST {
         M_PROJECTDATA projectData = new M_PROJECTDATA();
         projectData = m__import.importProject(path);
         projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
-        projectData.getM_projectData_functionPointEstimation_configData().e2Sum = e2Sum;
+        projectData.getM_projectData_functionPointEstimation_configData().setE2Sum(e2Sum);
         projectData.getM_projectData_functionPointEstimation().e2Correction = e2Correction;
 
         controllerEffort = C_EFFORT.getInstance();
@@ -111,7 +111,7 @@ class C_EFFORT_TEST {
         M_PROJECTDATA projectData = new M_PROJECTDATA();
         projectData = m__import.importProject(path);
         projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
-        projectData.getM_projectData_functionPointEstimation_configData().e2Sum = e2Sum;
+        projectData.getM_projectData_functionPointEstimation_configData().setE2Sum(e2Sum);
         projectData.getM_projectData_functionPointEstimation().e2Correction = e2Correction;
 
         controllerEffort = C_EFFORT.getInstance();
@@ -139,7 +139,7 @@ class C_EFFORT_TEST {
         M_PROJECTDATA projectData = new M_PROJECTDATA();
         projectData = m__import.importProject(path);
         projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
-        projectData.getM_projectData_functionPointEstimation_configData().e2Sum = e2Sum;
+        projectData.getM_projectData_functionPointEstimation_configData().setE2Sum(e2Sum);
         projectData.getM_projectData_functionPointEstimation().e2Correction = e2Correction;
 
         controllerEffort = C_EFFORT.getInstance();
@@ -177,13 +177,13 @@ class C_EFFORT_TEST {
         M_PROJECTDATA projectData = new M_PROJECTDATA();
         projectData = m__import.importProject(path);
         projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
-        int e2SumStart = projectData.getM_projectData_functionPointEstimation_configData().e2Sum;   // speichert e2Sum zu Beginn zwischen
+        int e2SumStart = projectData.getM_projectData_functionPointEstimation_configData().getE2Sum();   // speichert e2Sum zu Beginn zwischen
 
         controllerEffort = C_EFFORT.getInstance();
         controllerEffort.setLinks(null, projectData);
         controllerEffort.increaseFactors(increaseValue);
 
-        assertEquals(e2SumStart + increaseValue, projectData.getM_projectData_functionPointEstimation_configData().e2Sum);
+        assertEquals(e2SumStart + increaseValue, projectData.getM_projectData_functionPointEstimation_configData().getE2Sum());
     }
 
     /**
@@ -200,13 +200,13 @@ class C_EFFORT_TEST {
         M_PROJECTDATA projectData = new M_PROJECTDATA();
         projectData = m__import.importProject(path);
         projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
-        int e2SumStart = projectData.getM_projectData_functionPointEstimation_configData().e2Sum;   // speichert e2Sum zu Beginn zwischen
+        int e2SumStart = projectData.getM_projectData_functionPointEstimation_configData().getE2Sum();   // speichert e2Sum zu Beginn zwischen
 
         controllerEffort = C_EFFORT.getInstance();
         controllerEffort.setLinks(null, projectData);
         controllerEffort.increaseFactors(increaseValue);
 
-        assertEquals(e2SumStart + increaseValue, projectData.getM_projectData_functionPointEstimation_configData().e2Sum);
+        assertEquals(e2SumStart + increaseValue, projectData.getM_projectData_functionPointEstimation_configData().getE2Sum());
     }
 
     /**
@@ -258,13 +258,13 @@ class C_EFFORT_TEST {
         M_PROJECTDATA projectData = new M_PROJECTDATA();
         projectData = m__import.importProject(path);
         projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
-        int e2SumStart = projectData.getM_projectData_functionPointEstimation_configData().e2Sum;   // speichert e2Sum zu Beginn zwischen
+        int e2SumStart = projectData.getM_projectData_functionPointEstimation_configData().getE2Sum();   // speichert e2Sum zu Beginn zwischen
 
         controllerEffort = C_EFFORT.getInstance();
         controllerEffort.setLinks(null, projectData);
         controllerEffort.decreaseFactors(decreaseValue);
 
-        assertEquals(e2SumStart - decreaseValue, projectData.getM_projectData_functionPointEstimation_configData().e2Sum);
+        assertEquals(e2SumStart - decreaseValue, projectData.getM_projectData_functionPointEstimation_configData().getE2Sum());
     }
 
     /**
@@ -281,13 +281,13 @@ class C_EFFORT_TEST {
         M_PROJECTDATA projectData = new M_PROJECTDATA();
         projectData = m__import.importProject(path);
         projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
-        int e2SumStart = projectData.getM_projectData_functionPointEstimation_configData().e2Sum;   // speichert e2Sum zu Beginn zwischen
+        int e2SumStart = projectData.getM_projectData_functionPointEstimation_configData().getE2Sum();   // speichert e2Sum zu Beginn zwischen
 
         controllerEffort = C_EFFORT.getInstance();
         controllerEffort.setLinks(null, projectData);
         controllerEffort.decreaseFactors(decreaseValue);
 
-        assertEquals(e2SumStart - decreaseValue, projectData.getM_projectData_functionPointEstimation_configData().e2Sum);
+        assertEquals(e2SumStart - decreaseValue, projectData.getM_projectData_functionPointEstimation_configData().getE2Sum());
     }
 
     /**

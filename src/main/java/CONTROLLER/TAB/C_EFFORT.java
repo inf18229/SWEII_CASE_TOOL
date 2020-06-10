@@ -101,12 +101,12 @@ public class C_EFFORT implements I_C_EFFORT {
             viewFrame.setSliderValue(i, projectData.getM_projectData_functionPointEstimation_configData().getFactor(i));
             viewFrame.setSliderText(i, projectData.getM_projectData_functionPointEstimation_configData().getFactor(i));
         }
-        viewFrame.setFactorSumE2(projectData.getM_projectData_functionPointEstimation_configData().e2Sum,
+        viewFrame.setFactorSumE2(projectData.getM_projectData_functionPointEstimation_configData().getE2Sum(),
                 projectData.getM_projectData_functionPointEstimation().e2Correction);
         // update values in tab Calculation
         viewFrame.updateCalculationTab(
                 projectData.getM_projectData_functionPointEstimation().e1Sum,
-                projectData.getM_projectData_functionPointEstimation_configData().e2Sum,
+                projectData.getM_projectData_functionPointEstimation_configData().getE2Sum(),
                 projectData.getM_projectData_functionPointEstimation().e3Sum,
                 projectData.getM_projectData_functionPointEstimation().afp,
                 projectData.getM_projectData_functionPointEstimation().jonesDuration,
@@ -143,7 +143,7 @@ public class C_EFFORT implements I_C_EFFORT {
         projectData.getM_projectData_functionPointEstimation_configData().setFactor(sliderNo, value);
         projectData.getM_projectData_functionPointEstimation_configData().calcFactorSumE2();
         viewFrame.setSliderText(sliderNo, value);
-        viewFrame.setFactorSumE2(projectData.getM_projectData_functionPointEstimation_configData().e2Sum,
+        viewFrame.setFactorSumE2(projectData.getM_projectData_functionPointEstimation_configData().getE2Sum(),
                 projectData.getM_projectData_functionPointEstimation().e2Correction);
     }
 
@@ -279,7 +279,7 @@ public class C_EFFORT implements I_C_EFFORT {
     public String notifyAdjustFactors() {
         String output;
         System.out.println("Automatische Anpassung gedrückt");
-        int e2Sum = projectData.getM_projectData_functionPointEstimation_configData().e2Sum;
+        int e2Sum = projectData.getM_projectData_functionPointEstimation_configData().getE2Sum();
         int e2Goal = projectData.getM_projectData_functionPointEstimation().e2Correction;
         // e2Failure positive if e2Sum > e2Goal
         // e2Failure negative if e2Sum < e2Goal
@@ -315,7 +315,7 @@ public class C_EFFORT implements I_C_EFFORT {
         int factorIterator = 0; // Iterator to decide which factor to switch
         int adjustment = -1;    // variable stores how much the selected factor can be adjusted
         if (increase < 0 |
-                (projectData.getM_projectData_functionPointEstimation_configData().e2Sum + increase) > 60) {
+                (projectData.getM_projectData_functionPointEstimation_configData().getE2Sum() + increase) > 60) {
             throw new IllegalArgumentException("increase out of bounds");
         } else {
             while (increase > 0) {     // the goal sum is not achieved yet
@@ -365,7 +365,7 @@ public class C_EFFORT implements I_C_EFFORT {
         int factorIterator = 0; // Iterator to decide which factor to switch
         int adjustment = -1;    // variable stores how much the selected factor can be adjusted
         if (decrease < 0
-                | (projectData.getM_projectData_functionPointEstimation_configData().e2Sum - decrease) < 0) {   //TODO: if called with decrease=5, but all factors=0 function never stops
+                | (projectData.getM_projectData_functionPointEstimation_configData().getE2Sum() - decrease) < 0) {   //TODO: if called with decrease=5, but all factors=0 function never stops
             throw new IllegalArgumentException("decrease out of bounds");
         } else {
             while (decrease > 0) { // the goal sum is not achieved yet

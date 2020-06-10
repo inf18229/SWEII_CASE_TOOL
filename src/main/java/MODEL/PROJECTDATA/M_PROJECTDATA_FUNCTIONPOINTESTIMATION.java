@@ -254,7 +254,7 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
      * method calculates and sets the influence sum e3
      */
     public void calcInfluenceE3() {
-        e3Sum = (double) configData.e2Sum / 100 + 0.7;
+        e3Sum = (double) configData.getE2Sum() / 100 + 0.7;
     }
 
     /**
