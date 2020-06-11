@@ -1597,10 +1597,10 @@ public class V_FRAME implements I_V_FRAME {
         textAreaproductDataDescription.setText(projDataProductData.memoryContent);
         switch (projDataProductData.functionPointCategory) {
             case "ILF-Interner Datenbestand":
-                comboBoxReqCategory.setSelectedIndex(0);
+                comboBoxproductDataCategory.setSelectedIndex(0);
                 break;
             case "ELF-Externer Datenbestand":
-                comboBoxReqCategory.setSelectedIndex(1);
+                comboBoxproductDataCategory.setSelectedIndex(1);
                 break;
         }
         spinnerproductDataRET.setValue(projDataProductData.functionPointRET);

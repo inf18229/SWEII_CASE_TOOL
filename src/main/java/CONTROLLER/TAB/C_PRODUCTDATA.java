@@ -21,6 +21,7 @@ public class C_PRODUCTDATA implements I_C_PRODUCTDATA {
         projectDataProductData.memoryContent = viewFrame.getTextAreaproductDataDescription().getText();
         projectDataProductData.functionPointRET = (int) viewFrame.getSpinnerproductDataRET().getValue();
         projectDataProductData.functionPointDET = (int) viewFrame.getSpinnerproductDataDET().getValue();
+        System.out.println(viewFrame.getComboBoxProdDataCategory().getSelectedItem().toString());
         projectDataProductData.functionPointCategory = viewFrame.getComboBoxProdDataCategory().getSelectedItem().toString();
         projectDataProductData.calculateWeight();
     }

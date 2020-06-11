@@ -18,7 +18,7 @@
         <functionPointWeighting>0</functionPointWeighting>
         <functionPointDET>6</functionPointDET>
         <functionPointRET>3</functionPointRET>
-        <functionPointCategory>ILF-Interner Datenbestand</functionPointCategory>
+        <functionPointCategory>ELF-Externer Datenbestand</functionPointCategory>
     </productDataList>
     <productFunctionList>
         <_id></_id>
