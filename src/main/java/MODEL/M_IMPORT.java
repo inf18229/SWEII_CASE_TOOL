@@ -27,12 +27,12 @@ public class M_IMPORT {
     private M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA confData;
 
     public M_IMPORT() {
-        projData = new M_PROJECTDATA();
+        projData = M_PROJECTDATA.getInstance();
         confData = M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA.getInstance();
     }
 
     // code idea from: https://howtodoinjava.com/jaxb/unmarshal-without-xmlrootelement/
-    public M_PROJECTDATA importProject(String path) throws  InvalidPathException{
+    public M_PROJECTDATA importProject(String path) throws InvalidPathException {
         /**
          * This function imports a project by converting an XML file to the M_PROJECTDATA Java Object
          * @param path the path for the project that has to be imported
@@ -42,9 +42,7 @@ public class M_IMPORT {
         if (!xmlFile.exists()) {
             projData = null;
             throw new InvalidPathException(path, "Invalid path");
-        }
-
-        else {
+        } else {
             JAXBContext jaxbContext;
             try {
                 jaxbContext = JAXBContext.newInstance(M_PROJECTDATA.class);
@@ -63,7 +61,7 @@ public class M_IMPORT {
         return projData;
     }
 
-    public void importProject(M_PROJECTDATA projData, String path) throws InvalidPathException, NullPointerException{
+    public void importProject(M_PROJECTDATA projData, String path) throws InvalidPathException, NullPointerException {
         /**
          * This function imports a projects config data by converting a XML file to the M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA Java Object
          * @param path the path for the project that has to be imported
@@ -73,11 +71,9 @@ public class M_IMPORT {
         File xmlFile = new File(path);
         if (!xmlFile.exists()) {
             throw new InvalidPathException(path, "Invalid path");
-        }
-        else if(projData == null){
+        } else if (projData == null) {
             throw new NullPointerException();
-        }
-        else {
+        } else {
             JAXBContext jaxbContext;
             try {
                 jaxbContext = JAXBContext.newInstance(M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA.class);

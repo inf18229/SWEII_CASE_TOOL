@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 //TODO: JAXBException --> Kein Test weil wir davon ausgehen dass JAXB korrekt durchläuft
 
-// TODO: change path to testFiles
+// TODO: TOP PRIORITY!!! change path to testFiles
 
 class M_EXPORT_TEST {
     // Equivalence classes:
@@ -40,7 +40,7 @@ class M_EXPORT_TEST {
     @Test
     void export_projectData_emptyFilenameTest() {
         M_EXPORT export_test = new M_EXPORT();
-        M_PROJECTDATA projData_test = new M_PROJECTDATA();
+        M_PROJECTDATA projData_test = M_PROJECTDATA.getInstance();
         projData_test.getM_projectData_productUse().setContent("TestProductUse");
 
         //Class 1 --> string with blanks
@@ -65,7 +65,7 @@ class M_EXPORT_TEST {
     void export_projectData_cleanRun() {
         try {
             M_EXPORT export_test = new M_EXPORT();
-            M_PROJECTDATA projData_test = new M_PROJECTDATA();
+            M_PROJECTDATA projData_test = M_PROJECTDATA.getInstance();
             projData_test.getM_projectData_productUse().setContent("TestProductUse");
             String path = "test.xml";
             export_test.export(projData_test, path);

@@ -58,7 +58,7 @@ public class V_START implements I_V_START {
      * opens the JFileChooser and returns the chosen path
      *
      * @param existingFile false: new file should be created
-     *                true: existing file should be opened
+     *                     true: existing file should be opened
      * @return path to the chosen file
      */
     @Override

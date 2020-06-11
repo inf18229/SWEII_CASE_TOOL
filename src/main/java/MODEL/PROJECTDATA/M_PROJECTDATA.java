@@ -12,6 +12,8 @@ import java.util.ArrayList;
 public class M_PROJECTDATA {
     //@XmlTransient // jumps over first element - TODO: why do we use this here?
 
+    private static M_PROJECTDATA projectData;
+
     ArrayList<M_PROJECTDATA_PRODUCTDATA> productDataList;
     ArrayList<M_PROJECTDATA_PRODUCTFUNCTION> productFunctionList;
 
@@ -22,7 +24,7 @@ public class M_PROJECTDATA {
     M_PROJECTDATA_FUNCTIONPOINTESTIMATION m_projectData_functionPointEstimation;
     M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA m_projectData_functionPointEstimation_configData;
 
-    public M_PROJECTDATA() {
+    private M_PROJECTDATA() {
         productDataList = new ArrayList<>();
         productFunctionList = new ArrayList<>();
 
@@ -33,6 +35,13 @@ public class M_PROJECTDATA {
         m_projectData_functionPointEstimation = M_PROJECTDATA_FUNCTIONPOINTESTIMATION.getInstance();
         m_projectData_functionPointEstimation_configData = M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA.getInstance();
         m_projectData_functionPointEstimation.setConfigData(m_projectData_functionPointEstimation_configData);
+    }
+
+    public static M_PROJECTDATA getInstance() {
+        if (M_PROJECTDATA.projectData == null) {
+            M_PROJECTDATA.projectData = new M_PROJECTDATA();
+        }
+        return M_PROJECTDATA.projectData;
     }
 
     public M_PROJECTDATA_PRODUCTUSE getM_projectData_productUse() {
