@@ -45,6 +45,7 @@ public interface I_V_FRAME extends I_V_BASIC {
     public JComboBox getComboBoxProdDataCategory();
 
 
+
     /**
      * this methods sets the description for the weight label in productfunctions view
      * dependent on input value

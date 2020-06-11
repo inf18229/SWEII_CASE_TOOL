@@ -63,7 +63,7 @@ public class C_PRODUCTFUNCTION implements I_C_PRODUCTFUNCTION {
         }
         if (!alreadyexists) {
             //Using ProductContentFactory to create object
-            if(viewFrame.getTextFieldproductDataID().getText()!=null) {
+            if(viewFrame.getTextFieldProdFuncID().getText()!=null) {
                 M_PROJECTDATA_PRODUCTFUNCTION newProductFunction = new M_PROJECTDATA_PRODUCTCONTENTFACTORY().createProductFunction(viewFrame.getTextFieldProdFuncID().getText());
                 setProductFunctionElements(newProductFunction);
                 viewFrame.setWeightDescription(newProductFunction.functionPointWeighting);
@@ -72,7 +72,7 @@ public class C_PRODUCTFUNCTION implements I_C_PRODUCTFUNCTION {
                 viewFrame.addProdFuncIDListElement(viewFrame.getTextFieldProdFuncID().getText());
             }
             else{
-                System.out.println("Please enter ID");
+                System.out.println("Please enter ID to create new Project Function");
             }
         } else {
             System.out.println("ID already exists in project Function");

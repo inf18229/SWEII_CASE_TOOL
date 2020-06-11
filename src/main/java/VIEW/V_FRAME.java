@@ -647,12 +647,14 @@ public class V_FRAME implements I_V_FRAME {
         buttonproductDataDelete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                controllerFrame.notifyProductContentDELETE();
                 System.out.println("DELETE Product Data Element requested");
             }
         });
         buttonproductDataSave.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                controllerFrame.getCurrentController().updateProjectData();
                 System.out.println("SAVE Product Data Element requested");
             }
         });
@@ -965,19 +967,38 @@ public class V_FRAME implements I_V_FRAME {
      */
     @Override
     public void setWeightDescription(int weight) {
-        switch (weight) {
-            case 0:
-                labelWeightDescription.setText("Einfach");
-                break;
-            case 1:
-                labelWeightDescription.setText("Mittel");
-                break;
-            case 2:
-                labelWeightDescription.setText("Komplex");
-                break;
-            default:
-                labelWeightDescription.setText("Fehler bei der Bestimmung eines Gewichts");
-                break;
+
+        if(controllerFrame.getCurrentController().toString().contains("CONTROLLER.TAB.C_PRODUCTFUNCTION")) {
+            switch (weight) {
+                case 0:
+                    labelWeightDescription.setText("Einfach");
+                    break;
+                case 1:
+                    labelWeightDescription.setText("Mittel");
+                    break;
+                case 2:
+                    labelWeightDescription.setText("Komplex");
+                    break;
+                default:
+                    labelWeightDescription.setText("Fehler bei der Bestimmung eines Gewichts");
+                    break;
+            }
+        }
+        else if(controllerFrame.getCurrentController().toString().contains("CONTROLLER.TAB.C_PRODUCTDATA")) {
+            switch (weight) {
+                case 0:
+                    labelproductDataFPWeight.setText("Einfach");
+                    break;
+                case 1:
+                    labelproductDataFPWeight.setText("Mittel");
+                    break;
+                case 2:
+                    labelproductDataFPWeight.setText("Komplex");
+                    break;
+                default:
+                    labelproductDataFPWeight.setText("Fehler bei der Bestimmung eines Gewichts");
+                    break;
+            }
         }
     }
 
