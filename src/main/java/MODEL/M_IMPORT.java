@@ -27,7 +27,7 @@ public class M_IMPORT {
     private M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA confData;
 
     public M_IMPORT() {
-        projData = new M_PROJECTDATA();
+        projData = M_PROJECTDATA.getInstance();
         confData = M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA.getInstance();
     }
 

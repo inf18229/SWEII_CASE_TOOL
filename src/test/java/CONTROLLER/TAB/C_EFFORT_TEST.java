@@ -53,7 +53,7 @@ class C_EFFORT_TEST {
         String path = "testFiles/test_adjustFactors.xml"; // fixed path relative
         File xmlFile = new File(path);
 
-        M_PROJECTDATA projectData = new M_PROJECTDATA();
+        M_PROJECTDATA projectData = M_PROJECTDATA.getInstance();
         projectData = m__import.importProject(path);
         projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
         projectData.getM_projectData_functionPointEstimation_configData().setE2Sum(e2Sum);
@@ -81,7 +81,7 @@ class C_EFFORT_TEST {
         String path = "testFiles/test_adjustFactors.xml"; // fixed path relative
         File xmlFile = new File(path);
 
-        M_PROJECTDATA projectData = new M_PROJECTDATA();
+        M_PROJECTDATA projectData = M_PROJECTDATA.getInstance();
         projectData = m__import.importProject(path);
         projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
         projectData.getM_projectData_functionPointEstimation_configData().setE2Sum(e2Sum);
@@ -109,7 +109,7 @@ class C_EFFORT_TEST {
         String path = "testFiles/test_adjustFactors.xml"; // fixed path relative
         File xmlFile = new File(path);
 
-        M_PROJECTDATA projectData = new M_PROJECTDATA();
+        M_PROJECTDATA projectData = M_PROJECTDATA.getInstance();
         projectData = m__import.importProject(path);
         projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
         projectData.getM_projectData_functionPointEstimation_configData().setE2Sum(e2Sum);
@@ -137,7 +137,7 @@ class C_EFFORT_TEST {
         String path = "testFiles/test_adjustFactors.xml"; // fixed path relative
         File xmlFile = new File(path);
 
-        M_PROJECTDATA projectData = new M_PROJECTDATA();
+        M_PROJECTDATA projectData = M_PROJECTDATA.getInstance();
         projectData = m__import.importProject(path);
         projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
         projectData.getM_projectData_functionPointEstimation_configData().setE2Sum(e2Sum);
@@ -165,7 +165,7 @@ class C_EFFORT_TEST {
         String path = "testFiles/test_adjustFactors.xml"; // fixed path relative
         File xmlFile = new File(path);
 
-        M_PROJECTDATA projectData = new M_PROJECTDATA();
+        M_PROJECTDATA projectData = M_PROJECTDATA.getInstance();
         projectData = m__import.importProject(path);
         projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
         projectData.getM_projectData_functionPointEstimation_configData().setE2Sum(e2Sum);
@@ -203,7 +203,7 @@ class C_EFFORT_TEST {
         String path = "testFiles/test_effort_zero.xml"; // fixed path relative
         File xmlFile = new File(path);
 
-        M_PROJECTDATA projectData = new M_PROJECTDATA();
+        M_PROJECTDATA projectData = M_PROJECTDATA.getInstance();
         projectData = m__import.importProject(path);
         projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
         int e2SumStart = projectData.getM_projectData_functionPointEstimation_configData().getE2Sum();   // speichert e2Sum zu Beginn zwischen
@@ -226,7 +226,7 @@ class C_EFFORT_TEST {
         String path = "testFiles/test_effort_zero.xml"; // fixed path relative
         File xmlFile = new File(path);
 
-        M_PROJECTDATA projectData = new M_PROJECTDATA();
+        M_PROJECTDATA projectData = M_PROJECTDATA.getInstance();
         projectData = m__import.importProject(path);
         projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
         int e2SumStart = projectData.getM_projectData_functionPointEstimation_configData().getE2Sum();   // speichert e2Sum zu Beginn zwischen
@@ -249,7 +249,7 @@ class C_EFFORT_TEST {
         String path = "testFiles/test_effort_zero.xml"; // fixed path relative
         File xmlFile = new File(path);
 
-        M_PROJECTDATA projectData = new M_PROJECTDATA();
+        M_PROJECTDATA projectData = M_PROJECTDATA.getInstance();
         projectData = m__import.importProject(path);
         projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
 
@@ -284,7 +284,7 @@ class C_EFFORT_TEST {
         String path = "testFiles/test_effort_max.xml"; // fixed path relative
         File xmlFile = new File(path);
 
-        M_PROJECTDATA projectData = new M_PROJECTDATA();
+        M_PROJECTDATA projectData = M_PROJECTDATA.getInstance();
         projectData = m__import.importProject(path);
         projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
         int e2SumStart = projectData.getM_projectData_functionPointEstimation_configData().getE2Sum();   // speichert e2Sum zu Beginn zwischen
@@ -307,7 +307,7 @@ class C_EFFORT_TEST {
         String path = "testFiles/test_effort_max.xml"; // fixed path relative
         File xmlFile = new File(path);
 
-        M_PROJECTDATA projectData = new M_PROJECTDATA();
+        M_PROJECTDATA projectData = M_PROJECTDATA.getInstance();
         projectData = m__import.importProject(path);
         projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
         int e2SumStart = projectData.getM_projectData_functionPointEstimation_configData().getE2Sum();   // speichert e2Sum zu Beginn zwischen
@@ -330,7 +330,7 @@ class C_EFFORT_TEST {
         String path = "testFiles/test_effort_max.xml"; // fixed path relative
         File xmlFile = new File(path);
 
-        M_PROJECTDATA projectData = new M_PROJECTDATA();
+        M_PROJECTDATA projectData = M_PROJECTDATA.getInstance();
         projectData = m__import.importProject(path);
         projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
 

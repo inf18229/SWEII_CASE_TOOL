@@ -46,7 +46,7 @@ class M_IMPORT_TEST {
     @Test
     void import_configData_fileFromPathDoesNotExists() {
         M_IMPORT import_test = new M_IMPORT();
-        M_PROJECTDATA projData_test = new M_PROJECTDATA();
+        M_PROJECTDATA projData_test = M_PROJECTDATA.getInstance();
         String path = "non_existing_file.xml";
 
         //Tests whether the file at location path exists
@@ -69,7 +69,7 @@ class M_IMPORT_TEST {
     void import_configData_cleanRun() {
         try{
             M_IMPORT import_test = new M_IMPORT();
-            M_PROJECTDATA projData_test = new M_PROJECTDATA();
+            M_PROJECTDATA projData_test = M_PROJECTDATA.getInstance();
             String path = "test_config.xml";
             import_test.importProject(projData_test, path);
         }
