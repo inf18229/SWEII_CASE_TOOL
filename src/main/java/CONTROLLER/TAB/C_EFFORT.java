@@ -313,7 +313,7 @@ public class C_EFFORT implements I_C_EFFORT {
      * @param increase value how much the factors should be increased
      */
     @Override
-    public void increaseFactors(int increase) throws IllegalArgumentException, RuntimeException{
+    public void increaseFactors(int increase) throws IllegalArgumentException, RuntimeException {
         int factorIterator = 0; // Iterator to decide which factor to switch
         int adjustment = -1;    // variable stores how much the selected factor can be adjusted
         if (increase < 0 |

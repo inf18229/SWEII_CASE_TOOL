@@ -43,7 +43,7 @@ class C_EFFORT_TEST {
      * e2Correction = 10
      */
     @Test
-    void notifyAdjustFactorsEqual(){
+    void notifyAdjustFactorsEqual() {
         int e2Sum = 10;
         int e2Correction = 10;
         String expectedOutput = "No failure to correct";
@@ -71,7 +71,7 @@ class C_EFFORT_TEST {
      * e2Correction = 5
      */
     @Test
-    void notifyAdjustFactorsDecreaseCorrected(){
+    void notifyAdjustFactorsDecreaseCorrected() {
         int e2Sum = 10;
         int e2Correction = 5;
         String expectedOutput = "e2Sum needs to be decreased - Corrected factors";
@@ -99,7 +99,7 @@ class C_EFFORT_TEST {
      * e2Correction = -10
      */
     @Test
-    void notifyAdjustFactorsDecreaseFailed(){
+    void notifyAdjustFactorsDecreaseFailed() {
         int e2Sum = 10;
         int e2Correction = -10;
         String expectedOutput = "e2Sum needs to be decreased - Failure can't be corrected by just adjusting factors";
@@ -127,7 +127,7 @@ class C_EFFORT_TEST {
      * e2Correction = 10
      */
     @Test
-    void notifyAdjustFactorsIncreaseCorrected(){
+    void notifyAdjustFactorsIncreaseCorrected() {
         int e2Sum = 5;
         int e2Correction = 10;
         String expectedOutput = "e2Sum needs to be increased - Corrected factors";
@@ -155,7 +155,7 @@ class C_EFFORT_TEST {
      * e2Correction = 80
      */
     @Test
-    void notifyAdjustFactorsIncreaseFailed(){
+    void notifyAdjustFactorsIncreaseFailed() {
         int e2Sum = 10;
         int e2Correction = 80;
         String expectedOutput = "e2Sum needs to be increased - Failure can't be corrected by just adjusting factors";

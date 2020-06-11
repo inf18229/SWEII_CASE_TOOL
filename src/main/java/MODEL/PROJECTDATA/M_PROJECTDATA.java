@@ -5,7 +5,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 
-@XmlRootElement(name="M_PROJECTDATA")
+@XmlRootElement(name = "M_PROJECTDATA")
 @XmlAccessorType(XmlAccessType.FIELD)
 
 //TODO: Make to Singleton
@@ -22,7 +22,7 @@ public class M_PROJECTDATA {
     M_PROJECTDATA_FUNCTIONPOINTESTIMATION m_projectData_functionPointEstimation;
     M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA m_projectData_functionPointEstimation_configData;
 
-    public M_PROJECTDATA(){
+    public M_PROJECTDATA() {
         productDataList = new ArrayList<>();
         productFunctionList = new ArrayList<>();
 
