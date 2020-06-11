@@ -45,12 +45,11 @@ public interface I_V_FRAME extends I_V_BASIC {
     public JComboBox getComboBoxProdDataCategory();
 
 
-
     /**
      * this methods sets the description for the weight label in productfunctions view
      * dependent on input value
      *
-     * @param weight
+     * @param weight value to which the weight should be set to
      */
     void setWeightDescription(int weight);
 
@@ -59,7 +58,7 @@ public interface I_V_FRAME extends I_V_BASIC {
      * and adds all corresponding labels in the estimation tab of the view
      *
      * @param countNo which count to update
-     * @param value value to the selected count
+     * @param value   value to the selected count
      */
     void setEstimationCount(int countNo, int value);
 
@@ -68,7 +67,7 @@ public interface I_V_FRAME extends I_V_BASIC {
      * and adds all corresponding labels in the estimation tab of the view
      *
      * @param weightNo which count to update
-     * @param value value to the selected count
+     * @param value    value to the selected count
      */
     void setEstimationWeight(int weightNo, int value);
 
@@ -92,7 +91,7 @@ public interface I_V_FRAME extends I_V_BASIC {
     /**
      * returns the value of the selected slider
      *
-     * @param sliderNo
+     * @param sliderNo which slider to get
      * @return value of the selected slider
      */
     int getSliderValue(int sliderNo);
@@ -136,6 +135,8 @@ public interface I_V_FRAME extends I_V_BASIC {
 
     /**
      * this method returns the value of the real Duration entered by the user
+     *
+     * @return actualDuration
      */
     double getActualDuration();
 
@@ -143,8 +144,8 @@ public interface I_V_FRAME extends I_V_BASIC {
      * this method updates all values of the correction factor panel
      *
      * @param calcEff      effort calculated before
-     * @param corrFact     correction factor calculated
-     * @param e2Correction
+     * @param corrFact     correction factor
+     * @param e2Correction goal for e2Sum
      */
     void updateCorrectionPanel(double calcEff, double corrFact, int e2Correction);
 
@@ -200,6 +201,8 @@ public interface I_V_FRAME extends I_V_BASIC {
 
     /**
      * adds the FuncReqID List in Tab
+     *
+     * @param id //TODO: add description for id
      */
     void addProdFuncIDListElement(String id);
 
@@ -212,35 +215,42 @@ public interface I_V_FRAME extends I_V_BASIC {
 
     /**
      * function can reinitialize complente Product Function ID List with new Project Data
+     *
      * @param projData referenece to new project data
      */
     void reinitializeProdFuncIDList(M_PROJECTDATA projData);
 
     /**
-     * updates texboxes depending on selected Index
+     * updates textboxes depending on the selected Index
+     *
+     * @param projDataFunction //TODO: add description
      */
     void updateProdFuncInfo(M_PROJECTDATA_PRODUCTFUNCTION projDataFunction);
 
     /**
      * adds new Product Data List Element in Tab Product Data
+     *
      * @param id new Element ID
      */
     void addProdDataIDListElement(String id);
 
     /**
-     * change the current selected List Elment with a new Element
+     * change the current selected List Element with a new Element
+     *
      * @param id defines what exact Element to change
      */
     void changeProdDataIDListElement(String id);
 
     /**
      * function can reinitialize complente Product Data ID List with new Project Data
+     *
      * @param projData referenece to new project data
      */
     void reinitializeProdDataIDList(M_PROJECTDATA projData);
 
     /**
      * updates textboxes depending on selected Index
+     *
      * @param projDataProductData new Product Data content
      */
     void updateProdDataInfo(M_PROJECTDATA_PRODUCTDATA projDataProductData);

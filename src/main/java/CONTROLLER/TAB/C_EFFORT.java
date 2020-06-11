@@ -276,6 +276,8 @@ public class C_EFFORT implements I_C_EFFORT {
     /**
      * this method should automatically update the values for the factors to meet the e2goal
      * it outputs a message to determine if values could be corrected
+     *
+     * @return string of output which should be printed to console (mainly for development purposes)
      */
     @Override
     public String notifyAdjustFactors() {

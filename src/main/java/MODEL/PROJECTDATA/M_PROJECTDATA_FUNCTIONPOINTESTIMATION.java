@@ -90,6 +90,8 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
 
     /**
      * creates new Object of Function Point Estimation
+     *
+     * @return function Point Estimation
      */
     public static M_PROJECTDATA_FUNCTIONPOINTESTIMATION getInstance() {
         if (M_PROJECTDATA_FUNCTIONPOINTESTIMATION.functionPointEstimation == null) {
@@ -100,6 +102,8 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
 
     /**
      * this method gets the config data and therefore updates the reference stored in the estimation object
+     *
+     * @param confData reference of config data to which the local variable configData is set to
      */
     public void setConfigData(M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA confData) {
         configData = confData;
@@ -109,6 +113,7 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
      * gets the value of the selected count Variable
      *
      * @param countNo which count Variable to get (-1 if countNo exceeds available variables)
+     * @return the selected count
      */
     public int getCount(int countNo) {
         switch (countNo) {
@@ -150,8 +155,8 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
     /**
      * this method sets the corresponding count variable depending on countNo
      *
-     * @param countNo
-     * @param value
+     * @param countNo which count to set
+     * @param value   value to which the selected count variable should be set to
      */
     public void setCount(int countNo, int value) {
         switch (countNo) {
@@ -209,6 +214,7 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
      * gets the value of the selected weight Variable
      *
      * @param weightNo which weight Variable to get (-1 if weightNo exceeds available variables)
+     * @return the selected weight
      */
     public int getWeight(int weightNo) {
         switch (weightNo) {
@@ -251,6 +257,7 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
      * gets the value of the selected sum Variable
      *
      * @param sumNo which sum Variable to get (-1 if sumNo exceeds available variables)
+     * @return the selected sum
      */
     public int getSum(int sumNo) {
         switch (sumNo) {

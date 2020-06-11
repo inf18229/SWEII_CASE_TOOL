@@ -12,6 +12,9 @@ public interface I_C_EFFORT extends I_C_TAB {
 
     /**
      * this method sets the necessary links after instantiation of the controller
+     *
+     * @param view     reference to the view that should be referenced in this object
+     * @param projData reference to the project data that should be referenced in this object
      */
     void setLinks(I_V_FRAME view, M_PROJECTDATA projData);
 
@@ -54,6 +57,8 @@ public interface I_C_EFFORT extends I_C_TAB {
     /**
      * this method should automatically update the values for the factors to meet the e2goal
      * it outputs a message to determine if values could be corrected
+     *
+     * @return string of output which should be printed to console (mainly for development purposes)
      */
     String notifyAdjustFactors();
 

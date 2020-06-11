@@ -15,7 +15,7 @@ public interface I_C_FRAME {
      *
      * @param projData reference to the projectData
      * @param conStart reference to the Start Controller
-     * @param path path of the projectData
+     * @param path     path of the projectData
      */
     void setLinks(M_PROJECTDATA projData, I_C_start conStart, String path);
 
@@ -113,7 +113,7 @@ public interface I_C_FRAME {
     /**
      * notify Controller that selected List Item has changed
      *
-     * @param selectedID
+     * @param selectedID //TODO: add description
      */
     void notifySelectedListChange(String selectedID);
 }

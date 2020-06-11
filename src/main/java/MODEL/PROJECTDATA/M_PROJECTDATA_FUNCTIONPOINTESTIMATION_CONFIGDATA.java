@@ -86,6 +86,7 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA {
      * gets the value of the factor
      *
      * @param factorNo which factor to get
+     * @return the selected factor
      */
     public int getFactor(int factorNo) {
         switch (factorNo) {
