@@ -5,7 +5,7 @@ import MODEL.PROJECTDATA.M_PROJECTDATA_PRODUCTCONTENTFACTORY;
 import MODEL.PROJECTDATA.M_PROJECTDATA_PRODUCTFUNCTION;
 import VIEW.I_V_FRAME;
 
-public class C_PRODUCTFUNCTION implements I_C_PRODUCTCONTENT {
+public class C_PRODUCTFUNCTION implements I_C_PRODUCTFUNCTION {
     private I_V_FRAME viewFrame;
     private M_PROJECTDATA projectData;
 
@@ -63,12 +63,17 @@ public class C_PRODUCTFUNCTION implements I_C_PRODUCTCONTENT {
         }
         if (!alreadyexists) {
             //Using ProductContentFactory to create object
-            M_PROJECTDATA_PRODUCTFUNCTION newProductFunction = new M_PROJECTDATA_PRODUCTCONTENTFACTORY().createProductFunction(viewFrame.getTextFieldProdFuncID().getText());
-            setProductFunctionElements(newProductFunction);
-            viewFrame.setWeightDescription(newProductFunction.functionPointWeighting);
-            System.out.println(newProductFunction.toString());
-            projectData.getProductFunctionList().add(newProductFunction);
-            viewFrame.addProdFuncIDListElement(viewFrame.getTextFieldProdFuncID().getText());
+            if(viewFrame.getTextFieldproductDataID().getText()!=null) {
+                M_PROJECTDATA_PRODUCTFUNCTION newProductFunction = new M_PROJECTDATA_PRODUCTCONTENTFACTORY().createProductFunction(viewFrame.getTextFieldProdFuncID().getText());
+                setProductFunctionElements(newProductFunction);
+                viewFrame.setWeightDescription(newProductFunction.functionPointWeighting);
+                System.out.println(newProductFunction.toString());
+                projectData.getProductFunctionList().add(newProductFunction);
+                viewFrame.addProdFuncIDListElement(viewFrame.getTextFieldProdFuncID().getText());
+            }
+            else{
+                System.out.println("Please enter ID");
+            }
         } else {
             System.out.println("ID already exists in project Function");
         }

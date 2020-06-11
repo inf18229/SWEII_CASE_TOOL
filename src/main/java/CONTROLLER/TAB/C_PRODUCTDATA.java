@@ -6,21 +6,21 @@ import MODEL.PROJECTDATA.M_PROJECTDATA_PRODUCTDATA;
 import MODEL.PROJECTDATA.M_PROJECTDATA_PRODUCTFUNCTION;
 import VIEW.I_V_FRAME;
 
-public class C_PRODUCTDATA implements I_C_PRODUCTCONTENT {
+public class C_PRODUCTDATA implements I_C_PRODUCTDATA {
     private I_V_FRAME viewFrame;
 
     private M_PROJECTDATA projectData;
 
-    public C_PRODUCTDATA(I_V_FRAME mainFrame, M_PROJECTDATA projData){
-            viewFrame = mainFrame;
-            projectData = projData;
+    public C_PRODUCTDATA(I_V_FRAME mainFrame, M_PROJECTDATA projData) {
+        viewFrame = mainFrame;
+        projectData = projData;
     }
 
-    private void setProductDataElements(M_PROJECTDATA_PRODUCTDATA projectDataProductData){
-        projectDataProductData.reference=viewFrame.getTextFieldproductDataReference().getText();
-        projectDataProductData.memoryContent=viewFrame.getTextAreaproductDataDescription().getText();
-        projectDataProductData.functionPointRET =(int) viewFrame.getSpinnerproductDataRET().getValue();
-        projectDataProductData.functionPointDET=(int) viewFrame.getSpinnerproductDataDET().getValue();
+    private void setProductDataElements(M_PROJECTDATA_PRODUCTDATA projectDataProductData) {
+        projectDataProductData.reference = viewFrame.getTextFieldproductDataReference().getText();
+        projectDataProductData.memoryContent = viewFrame.getTextAreaproductDataDescription().getText();
+        projectDataProductData.functionPointRET = (int) viewFrame.getSpinnerproductDataRET().getValue();
+        projectDataProductData.functionPointDET = (int) viewFrame.getSpinnerproductDataDET().getValue();
         projectDataProductData.functionPointCategory = viewFrame.getComboBoxProdDataCategory().getSelectedItem().toString();
         projectDataProductData.calculateWeight();
     }
@@ -42,7 +42,7 @@ public class C_PRODUCTDATA implements I_C_PRODUCTCONTENT {
             //TODO: XML wird nicht an der richtigen stelle Befüllt
             //viewFrame.setWeightDescription(newProductData.functionPointWeighting);
             projectData.getProductDataList().add(newProductData);
-            for(M_PROJECTDATA_PRODUCTDATA dataelement:projectData.getProductDataList()){
+            for (M_PROJECTDATA_PRODUCTDATA dataelement : projectData.getProductDataList()) {
                 System.out.println(dataelement.memoryContent);
             }
             viewFrame.addProdDataIDListElement(viewFrame.getTextFieldproductDataID().getText());

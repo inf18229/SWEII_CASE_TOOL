@@ -340,7 +340,13 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
      * method calculates and sets the influence sum e3
      */
     public void calcInfluenceE3() {
-        e3Sum = (double) configData.getE2Sum() / 100 + 0.7;
+        //TODO: check this try catch block. Nullpoint Exception caught
+        try{
+            e3Sum = (double) configData.getE2Sum() / 100 + 0.7;
+        }
+        catch(NullPointerException e){
+            System.out.println("config Data null");
+        }
     }
 
     /**
