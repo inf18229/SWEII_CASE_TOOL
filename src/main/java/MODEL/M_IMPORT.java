@@ -41,8 +41,10 @@ public class M_IMPORT {
          */
         File xmlFile = new File(path);
         if (!xmlFile.exists()) {
-            throw new InvalidPathException(path, "File does not exist");
+            projData = null;
+            throw new InvalidPathException(path, "Invalid path");
         }
+
         else {
             JAXBContext jaxbContext;
             try {
