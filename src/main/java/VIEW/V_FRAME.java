@@ -438,7 +438,7 @@ public class V_FRAME implements I_V_FRAME {
         functionalReqIDList.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
-                System.out.println(functionalReqIDList.getSelectedValue().toString());  //TODO: fix NullPointerException
+                //System.out.println(functionalReqIDList.getSelectedValue().toString());  //TODO: fix NullPointerException
                 controllerFrame.notifySelectedListChange(functionalReqIDList.getSelectedValue().toString());    //TODO: fix error during compilation ("cannot find symbol")
             }
         });
@@ -1513,9 +1513,15 @@ public class V_FRAME implements I_V_FRAME {
 
     @Override
     public void addProdFuncIDListElement(String id) {
-        functionalReqListModell.addElement(id);
-        System.out.println(functionalReqIDList.getLastVisibleIndex());
-        functionalReqIDList.setSelectedIndex(functionalReqIDList.getLastVisibleIndex());
+        try{
+            functionalReqListModell.addElement(id);
+            System.out.println(functionalReqIDList.getLastVisibleIndex());
+            functionalReqIDList.setSelectedIndex(functionalReqIDList.getLastVisibleIndex());
+        }
+        catch (NullPointerException e){
+            System.out.println("Debug output");
+        }
+
     }
 
     public void updateProdFuncInfo(M_PROJECTDATA_PRODUCTFUNCTION projDataFunction) {
@@ -1563,6 +1569,7 @@ public class V_FRAME implements I_V_FRAME {
         productDataListModell.addElement(id);
         System.out.println(listproductDataID.getLastVisibleIndex());
         listproductDataID.setSelectedIndex(listproductDataID.getLastVisibleIndex());
+
     }
 
     @Override

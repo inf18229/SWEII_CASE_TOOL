@@ -39,3 +39,7 @@ public class main {
 //TODO: throw errors in default case?
 
 //TODO: Singlton change getInstance(params...)
+
+//TODO: ELF und ILF in XML und Programm nicht korrekt gesetzt
+
+//TODO: Modell bereinigen

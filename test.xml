@@ -2,43 +2,23 @@
 <M_PROJECTDATA>
     <productDataList>
         <_id></_id>
-        <id>234</id>
-        <memoryContent>Test</memoryContent>
-        <reference></reference>
+        <id>LD-001</id>
+        <memoryContent>Testdaten</memoryContent>
+        <reference>LF-001</reference>
         <functionPointWeighting>0</functionPointWeighting>
-        <functionPointDET>1</functionPointDET>
-        <functionPointRET>1</functionPointRET>
+        <functionPointDET>6</functionPointDET>
+        <functionPointRET>3</functionPointRET>
         <functionPointCategory>ILF-Interner Datenbestand</functionPointCategory>
     </productDataList>
     <productDataList>
         <_id></_id>
-        <id>223456</id>
-        <memoryContent>Test</memoryContent>
-        <reference></reference>
+        <id>LD-003</id>
+        <memoryContent>asdfasdfasdf</memoryContent>
+        <reference>LF-001</reference>
         <functionPointWeighting>0</functionPointWeighting>
-        <functionPointDET>1</functionPointDET>
-        <functionPointRET>1</functionPointRET>
-        <functionPointCategory>ELF-Externer Datenbestand</functionPointCategory>
-    </productDataList>
-    <productDataList>
-        <_id></_id>
-        <id>223456dasdads</id>
-        <memoryContent></memoryContent>
-        <reference>asdasd</reference>
-        <functionPointWeighting>1</functionPointWeighting>
         <functionPointDET>6</functionPointDET>
-        <functionPointRET>6</functionPointRET>
-        <functionPointCategory>ELF-Externer Datenbestand</functionPointCategory>
-    </productDataList>
-    <productDataList>
-        <_id></_id>
-        <id>223456dasdadsdsfsdf</id>
-        <memoryContent></memoryContent>
-        <reference>asdasd</reference>
-        <functionPointWeighting>1</functionPointWeighting>
-        <functionPointDET>6</functionPointDET>
-        <functionPointRET>17</functionPointRET>
-        <functionPointCategory>ELF-Externer Datenbestand</functionPointCategory>
+        <functionPointRET>3</functionPointRET>
+        <functionPointCategory>ILF-Interner Datenbestand</functionPointCategory>
     </productDataList>
     <productFunctionList>
         <_id></_id>
@@ -64,11 +44,11 @@
     </productFunctionList>
     <productFunctionList>
         <_id></_id>
-        <id>LF00-3</id>
+        <id>LF00-4</id>
         <function>Projekt löschen</function>
         <actor>Requirements Engineer</actor>
         <description>Die Software muss den Requirements Engineer die Möglichkeit bieten Projekte löschen zu können.</description>
-        <functionPointWeighting>0</functionPointWeighting>
+        <functionPointWeighting>2</functionPointWeighting>
         <functionPointCategory>EQ-Abfrage</functionPointCategory>
         <functionPointDET>51</functionPointDET>
         <functionPointFTR>20</functionPointFTR>
