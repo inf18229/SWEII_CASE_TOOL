@@ -64,7 +64,7 @@ public class C_START implements I_C_start {
             //TODO: Idee: Pfad auswählen lassen und Namen separat angeben + erweitern mit .xml --> überprüfen auf leeren Namen
             I_V_BASIC.hide(viewStart.getJFrame());  // makes viewStart invisible and disables user input
             I_C_FRAME controllerFrame = C_FRAME.getInstance();
-            controllerFrame.setLinks(M_PROJECTDATA.getInstance(), this, path);
+            controllerFrame.setLinks(new M_PROJECTDATA(), this, path);
         }
 
         //String path = "test.xml";
@@ -83,7 +83,7 @@ public class C_START implements I_C_start {
         //String path  = viewStart.getPath(true); //TODO: abfangen wenn man name von nicht existierender Datei eingegeben und auf open gedrückt wird
         File xmlFile = new File(path);
         if (xmlFile.exists()) {
-            M_PROJECTDATA projectData = M_PROJECTDATA.getInstance();
+            M_PROJECTDATA projectData = new M_PROJECTDATA();
             if (path instanceof String) {
                 try{
                     projectData = m__import.importProject(path);

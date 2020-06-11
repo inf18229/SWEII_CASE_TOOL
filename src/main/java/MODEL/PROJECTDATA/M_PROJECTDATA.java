@@ -10,8 +10,7 @@ import java.util.ArrayList;
 
 //TODO: Make to Singleton
 public class M_PROJECTDATA {
-    private static M_PROJECTDATA projectData;
-
+    public M_PROJECTDATA(){}
     //@XmlTransient // jumps over first element - TODO: why do we use this here?
     //int stuffElement = 0; // this element is ignored and the export starts with the second element
 
@@ -51,15 +50,6 @@ public class M_PROJECTDATA {
 
     public M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA getM_projectData_functionPointEstimation_configData() {
         return m_projectData_functionPointEstimation_configData;
-    }
-
-    private M_PROJECTDATA() {}
-
-    public static M_PROJECTDATA getInstance() {
-        if (M_PROJECTDATA.projectData == null) {
-            M_PROJECTDATA.projectData = new M_PROJECTDATA();
-        }
-        return M_PROJECTDATA.projectData;
     }
 
     public void setM_projectData_functionPointEstimation_configData(M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA confData) {

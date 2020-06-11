@@ -40,7 +40,7 @@ class M_EXPORT_TEST {
     @Test
     void export_projectData_emptyFilenameTest() {
         M_EXPORT export_test = new M_EXPORT();
-        M_PROJECTDATA projData_test = M_PROJECTDATA.getInstance();
+        M_PROJECTDATA projData_test = new M_PROJECTDATA();
         projData_test.getM_projectData_productUse().setContent("TestProductUse");
 
         //Class 1 --> string with blanks
@@ -65,7 +65,7 @@ class M_EXPORT_TEST {
     void export_projectData_cleanRun() {
         try {
             M_EXPORT export_test = new M_EXPORT();
-            M_PROJECTDATA projData_test = M_PROJECTDATA.getInstance();
+            M_PROJECTDATA projData_test = new M_PROJECTDATA();
             projData_test.getM_projectData_productUse().setContent("TestProductUse");
             String path = "test.xml";
             export_test.export(projData_test, path);
