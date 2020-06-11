@@ -1,11 +1,20 @@
 package MODEL.PROJECTDATA;
 
 public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
-    public M_PROJECTDATA_FUNCTIONPOINTESTIMATION() {
 
+    /**
+     * creates new Object of Function Point Estimation and sets a reference to configData
+     * @param confData reference to configData (must not be null)
+     */
+    public M_PROJECTDATA_FUNCTIONPOINTESTIMATION(M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA confData) {
+        if (confData == null) {
+            throw new NullPointerException("Config Data must not be null!");
+        } else {
+            configData = confData;
+        }
     }
 
-    private M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA configData;
+    private M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA configData; // reference to configData
 
     //variables for all counts
     private int countInputSimple = 0;
@@ -86,7 +95,7 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
     /**
      * this method gets the config data and therefore updates the reference stored in the estimation object
      */
-    public void setConfigData(M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA confData){
+    public void setConfigData(M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA confData) {
         configData = confData;
     }
 
@@ -341,12 +350,7 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
      */
     public void calcInfluenceE3() {
         //TODO: check this try catch block. Nullpoint Exception caught
-        try{
-            e3Sum = (double) configData.getE2Sum() / 100 + 0.7;
-        }
-        catch(NullPointerException e){
-            System.out.println("config Data null");
-        }
+        e3Sum = (double) configData.getE2Sum() / 100 + 0.7;
     }
 
     /**
@@ -398,6 +402,7 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
 
     /**
      * getter Method for e1Sum
+     *
      * @return e1Sum
      */
     public int getE1Sum() {
@@ -406,6 +411,7 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
 
     /**
      * getter Method for e3Sum
+     *
      * @return e3Sum
      */
     public double getE3Sum() {
@@ -414,6 +420,7 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
 
     /**
      * getter Method for afp
+     *
      * @return afp
      */
     public double getAFP() {
@@ -422,6 +429,7 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
 
     /**
      * getter Method for jonesDuration
+     *
      * @return jonesDuration
      */
     public double getJonesDuration() {
@@ -430,6 +438,7 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
 
     /**
      * getter Method for jonesPersonNo
+     *
      * @return jonesPersonNo
      */
     public int getJonesPersonNo() {
@@ -438,6 +447,7 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
 
     /**
      * getter Method for jonesPersonMonths
+     *
      * @return jonesPersonMonths
      */
     public double getJonesPersonMonths() {
@@ -446,6 +456,7 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
 
     /**
      * getter Method for actualDuration
+     *
      * @return actualDuration
      */
     public double getActualDuration() {
@@ -454,6 +465,7 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
 
     /**
      * setter Method for actualDuration
+     *
      * @param actualDuration value to which actualDuration is set to
      */
     public void setActualDuration(double actualDuration) {
@@ -462,6 +474,7 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
 
     /**
      * getter Method for correctionFactor
+     *
      * @return correctionFactor
      */
     public double getCorrectionFactor() {
@@ -470,6 +483,7 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
 
     /**
      * getter Method for e2Correction
+     *
      * @return e2Correction
      */
     public int getE2Correction() {
@@ -478,6 +492,7 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
 
     /**
      * setter Method for e2Correction
+     *
      * @param e2Correction value to which e2Correction is set to
      */
     public void setE2Correction(int e2Correction) {

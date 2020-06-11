@@ -193,7 +193,7 @@ class C_EFFORT_TEST {
     }
 
     /**
-     * test with the min value 0 for increase -> e2Sum should not be changed
+     * test with the min value 0 for increase - e2Sum should not be changed
      */
     @Test
     void increaseFactorsCleanMin() {
@@ -216,7 +216,7 @@ class C_EFFORT_TEST {
     }
 
     /**
-     * test with the max value for increase -> all "positive" paths run
+     * test with the max value for increase - all "positive" paths run
      */
     @Test
     void increaseFactorsCleanMax() {
@@ -239,7 +239,7 @@ class C_EFFORT_TEST {
     }
 
     /**
-     * test with a negative value for increase -> out of bounds
+     * test with a negative value for increase - out of bounds
      */
     @Test
     void increaseFactorsOutOfBounds() {
@@ -262,19 +262,19 @@ class C_EFFORT_TEST {
     @Test
     void decreaseFactors() {
         /**
-         * e2Sum und e2Goal beide Integer -> ganze Zahlen
+         * e2Sum und e2Goal beide Integer - ganze Zahlen
          *
          * Äquivalenzklassen:
          *      1. decrease >= 0 und (e2Sum - deccrease) >= 0
-         *          -> Methode ausführen mit z.B. 0 und 60 als maximale Werte und (e2SumStart - 0) bzw. (e2SumStart - 60) am Ende für e2Sum
+         *          - Methode ausführen mit z.B. 0 und 60 als maximale Werte und (e2SumStart - 0) bzw. (e2SumStart - 60) am Ende für e2Sum
          *
          *      2. decrease < 0 oder (e2Sum - decrease) <= 0
-         *          -> Methode ausführen mit z.B. -1 und IllegalArgumentException erwarten
+         *          - Methode ausführen mit z.B. -1 und IllegalArgumentException erwarten
          */
     }
 
     /**
-     * test with the min value for decrease -> e2Sum should not be changed
+     * test with the min value for decrease - e2Sum should not be changed
      */
     @Test
     void decreaseFactorsCleanMin() {
@@ -297,7 +297,7 @@ class C_EFFORT_TEST {
     }
 
     /**
-     * test with the max value for decrease -> all "positive" paths run
+     * test with the max value for decrease - all "positive" paths run
      */
     @Test
     void decreaseFactorsCleanMax() {
@@ -320,7 +320,7 @@ class C_EFFORT_TEST {
     }
 
     /**
-     * test with a negative value for decrease -> out of boundaries
+     * test with a negative value for decrease - out of boundaries
      */
     @Test
     void decreaseFactorsOutOfBounds() {

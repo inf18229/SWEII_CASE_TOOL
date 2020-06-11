@@ -229,7 +229,7 @@ public interface I_V_FRAME extends I_V_BASIC {
 
     /**
      * change the current selected List Elment with a new Element
-     * @param id
+     * @param id defines what exact Element to change
      */
     void changeProdDataIDListElement(String id);
 
