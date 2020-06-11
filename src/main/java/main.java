@@ -37,3 +37,5 @@ public class main {
 //TODO: add notifyButton(int id); which calls the required functions depending on the id
 
 //TODO: throw errors in default case?
+
+//TODO: Singlton change getInstance(params...)

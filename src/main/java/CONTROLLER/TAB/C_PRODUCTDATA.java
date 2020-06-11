@@ -36,16 +36,19 @@ public class C_PRODUCTDATA implements I_C_PRODUCTDATA {
             }
         }
         if (!alreadyexists) {
-            //Using ProductContentFactory to create object
-            M_PROJECTDATA_PRODUCTDATA newProductData = new M_PROJECTDATA_PRODUCTCONTENTFACTORY().createProductData(viewFrame.getTextFieldproductDataID().getText());
-            setProductDataElements(newProductData);
-            //TODO: XML wird nicht an der richtigen stelle Befüllt
-            //viewFrame.setWeightDescription(newProductData.functionPointWeighting);
-            projectData.getProductDataList().add(newProductData);
-            for (M_PROJECTDATA_PRODUCTDATA dataelement : projectData.getProductDataList()) {
-                System.out.println(dataelement.memoryContent);
+            if (viewFrame.getTextFieldproductDataID().getText() != null) {
+                //Using ProductContentFactory to create object
+                M_PROJECTDATA_PRODUCTDATA newProductData = new M_PROJECTDATA_PRODUCTCONTENTFACTORY().createProductData(viewFrame.getTextFieldproductDataID().getText());
+                setProductDataElements(newProductData);
+                projectData.getProductDataList().add(newProductData);
+                for (M_PROJECTDATA_PRODUCTDATA dataelement : projectData.getProductDataList()) {
+                    System.out.println(dataelement.memoryContent);
+                }
+                viewFrame.addProdDataIDListElement(viewFrame.getTextFieldproductDataID().getText());
+                viewFrame.setWeightDescription(newProductData.functionPointWeighting);
+            } else {
+                System.out.println("Please enter a ID to create new Project Data");
             }
-            viewFrame.addProdDataIDListElement(viewFrame.getTextFieldproductDataID().getText());
         } else {
             System.out.println("ID already exists in project Function");
         }
@@ -53,17 +56,47 @@ public class C_PRODUCTDATA implements I_C_PRODUCTDATA {
 
     @Override
     public void notifySelectionChange(String selectedID) {
+        M_PROJECTDATA_PRODUCTDATA selectedProjectData = null;
+        for (M_PROJECTDATA_PRODUCTDATA projectDataproductData : projectData.getProductDataList()) {
+            if (projectDataproductData.id.equals(selectedID)) {
+                selectedProjectData = projectDataproductData;
 
+            }
+        }
+        if (selectedProjectData == null) {
+            System.out.println("Selected ID does not exist no update of Info can occur");
+        } else {
+            viewFrame.updateProdDataInfo(selectedProjectData);
+        }
+        viewFrame.setWeightDescription(selectedProjectData.functionPointWeighting);
     }
 
     @Override
     public void deleteProductContent() {
-
+        int index = 0;
+        int removedElement = -1;
+        for (M_PROJECTDATA_PRODUCTDATA projectDataproductData : projectData.getProductDataList()) {
+            if (projectDataproductData.id.equals(viewFrame.getListproductDataID().getSelectedValue())) {
+                removedElement = index;
+            }
+            index++;
+        }
+        if (removedElement >= 0) {
+            projectData.getProductDataList().remove(removedElement);
+            viewFrame.reinitializeProdDataIDList(projectData);
+        }
     }
 
     @Override
     public void updateProjectData() {
-
+        for (M_PROJECTDATA_PRODUCTDATA projectDataproductData : projectData.getProductDataList()) {
+            if (projectDataproductData.id.equals(viewFrame.getListproductDataID().getSelectedValue())) {
+                projectDataproductData.id = viewFrame.getTextFieldproductDataID().getText();
+                setProductDataElements(projectDataproductData);
+                viewFrame.changeProdDataIDListElement(projectDataproductData.id);
+                viewFrame.setWeightDescription(projectDataproductData.functionPointWeighting);
+            }
+        }
     }
 
 }

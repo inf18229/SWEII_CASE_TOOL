@@ -13,7 +13,7 @@
     <productDataList>
         <_id></_id>
         <id>223456</id>
-        <memoryContent></memoryContent>
+        <memoryContent>Test</memoryContent>
         <reference></reference>
         <functionPointWeighting>0</functionPointWeighting>
         <functionPointDET>1</functionPointDET>
