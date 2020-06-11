@@ -20,9 +20,10 @@ public class M_PROJECTDATA {
     M_PROJECTDATA_TARGETDEFINITION m_projectData_targetDefinition = new M_PROJECTDATA_TARGETDEFINITION();
     M_PROJECTDATA_PRODUCTENVIRONMENT m_projectData_productEnvironment = new M_PROJECTDATA_PRODUCTENVIRONMENT();
 
-    M_PROJECTDATA_FUNCTIONPOINTESTIMATION m_projectData_functionPointEstimation = new M_PROJECTDATA_FUNCTIONPOINTESTIMATION();
-
     M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA m_projectData_functionPointEstimation_configData = M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA.getConfigData();
+    M_PROJECTDATA_FUNCTIONPOINTESTIMATION m_projectData_functionPointEstimation = new M_PROJECTDATA_FUNCTIONPOINTESTIMATION(m_projectData_functionPointEstimation_configData);
+
+    public M_PROJECTDATA(){}
 
     public M_PROJECTDATA_PRODUCTUSE getM_projectData_productUse() {
         return m_projectData_productUse;

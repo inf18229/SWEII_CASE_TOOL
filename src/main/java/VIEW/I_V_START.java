@@ -2,8 +2,6 @@ package VIEW;
 
 public interface I_V_START extends I_V_BASIC {
 
-    void debugPrint(String output);
-
     /**
      * opens the JFileChooser and returns the chosen path
      *

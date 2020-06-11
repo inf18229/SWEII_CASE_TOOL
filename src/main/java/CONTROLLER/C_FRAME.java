@@ -282,8 +282,8 @@ public class C_FRAME implements I_C_FRAME {
     /**
      * notifies the Controller that the user wants to close the program window
      * the controller therefore asks if the user really want to do it
-     * if prompt allowed -> close program
-     * else -> do nothing
+     * if prompt allowed - close program
+     * else - do nothing
      */
     @Override
     public void notifyExit() {

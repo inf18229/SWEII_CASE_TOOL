@@ -1,11 +1,20 @@
 package MODEL.PROJECTDATA;
 
 public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
-    public M_PROJECTDATA_FUNCTIONPOINTESTIMATION() {
 
+    /**
+     * creates new Object of Function Point Estimation and sets a reference to configData
+     * @param confData reference to configData (must not be null)
+     */
+    public M_PROJECTDATA_FUNCTIONPOINTESTIMATION(M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA confData) {
+        if (confData == null) {
+            throw new NullPointerException("Config Data must not be null!");
+        } else {
+            configData = confData;
+        }
     }
 
-    private M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA configData;
+    private M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA configData; // reference to configData
 
     //variables for all counts
     private int countInputSimple = 0;
@@ -341,12 +350,7 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
      */
     public void calcInfluenceE3() {
         //TODO: check this try catch block. Nullpoint Exception caught
-        try{
-            e3Sum = (double) configData.getE2Sum() / 100 + 0.7;
-        }
-        catch(NullPointerException e){
-            System.out.println("config Data null");
-        }
+        e3Sum = (double) configData.getE2Sum() / 100 + 0.7;
     }
 
     /**

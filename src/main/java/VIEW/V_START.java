@@ -21,7 +21,7 @@ public class V_START implements I_V_START {
      * Constructor of the V_START Class
      * it needs a reference to the C_START Controller as param con
      *
-     * @param controllerStart
+     * @param controllerStart reference to the Start Controller
      */
     public V_START(I_C_start controllerStart) {
         conStart = controllerStart;
@@ -49,20 +49,9 @@ public class V_START implements I_V_START {
                 conStart.notifyOpen();
             }
         });
-        debugPrint("View erstellt");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack(); //pack method sizes the frame so that all its contents are at or above their preferred size (form)
         frame.setLocationRelativeTo(null);  //places the window in the center of the screen
-    }
-
-    /**
-     * method to simply print the string output as text to console
-     *
-     * @param output
-     */
-    @Override
-    public void debugPrint(String output) {
-        System.out.println(output);
     }
 
     /**
