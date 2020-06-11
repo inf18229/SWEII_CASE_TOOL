@@ -73,11 +73,7 @@ public class M_IMPORT {
 
         File xmlFile = new File(path);
         if (!xmlFile.exists()) {
-            JOptionPane.showMessageDialog(null,
-                    "XML Faktoren Konfigurations Datei existiert nicht.\nBitte Konfigurationsdatei in Projektordner ablegen.\n('Projektname'_config.xml)",
-                    "Achtung",
-                    JOptionPane.WARNING_MESSAGE);
-            //TODO: change Test
+            throw new InvalidPathException(path, "Invalid path");
         }
         else if(projData == null){
             throw new NullPointerException();

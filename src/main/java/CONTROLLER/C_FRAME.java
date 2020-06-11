@@ -226,8 +226,17 @@ public class C_FRAME implements I_C_FRAME {
     @Override
     public void notifyImportFactor() {
         System.out.println("Importiere Faktoren !");
-        projectData_import.importProject(projectData, confPath);
-        controllerEffort.updateProjectData();
+        try{
+            projectData_import.importProject(projectData, confPath);
+            controllerEffort.updateProjectData();
+        }
+        catch(InvalidPathException e){
+            JOptionPane.showMessageDialog(null,
+                    "XML Faktoren Konfigurations Datei existiert nicht.\nBitte Konfigurationsdatei in Projektordner ablegen.\n('Projektname'_config.xml)",
+                    "Achtung",
+                    JOptionPane.WARNING_MESSAGE);
+        }
+
     }
 
     /**
