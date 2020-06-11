@@ -9,6 +9,7 @@ package MODEL;
 import MODEL.PROJECTDATA.M_PROJECTDATA;
 import MODEL.PROJECTDATA.M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA;
 
+import javax.swing.*;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
@@ -28,7 +29,7 @@ public class M_IMPORT {
 
     public M_IMPORT() {
         projData = new M_PROJECTDATA();
-        confData = M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA.getInstance();
+        confData = M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA.getConfigData();
     }
 
     // code idea from: https://howtodoinjava.com/jaxb/unmarshal-without-xmlrootelement/

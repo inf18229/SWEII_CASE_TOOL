@@ -2,25 +2,16 @@ package MODEL.PROJECTDATA;
 
 public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
 
-    private static M_PROJECTDATA_FUNCTIONPOINTESTIMATION functionPointEstimation;
-
     /**
      * creates new Object of Function Point Estimation and sets a reference to configData
      * @param confData reference to configData (must not be null)
      */
-    private M_PROJECTDATA_FUNCTIONPOINTESTIMATION(M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA confData) {
+    public M_PROJECTDATA_FUNCTIONPOINTESTIMATION(M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA confData) {
         if (confData == null) {
             throw new NullPointerException("Config Data must not be null!");
         } else {
             configData = confData;
         }
-    }
-
-    public static M_PROJECTDATA_FUNCTIONPOINTESTIMATION getInstance(M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA confData) {
-        if (M_PROJECTDATA_FUNCTIONPOINTESTIMATION.functionPointEstimation == null) {
-            M_PROJECTDATA_FUNCTIONPOINTESTIMATION.functionPointEstimation = new M_PROJECTDATA_FUNCTIONPOINTESTIMATION(confData);
-        }
-        return M_PROJECTDATA_FUNCTIONPOINTESTIMATION.functionPointEstimation;
     }
 
     private M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA configData; // reference to configData

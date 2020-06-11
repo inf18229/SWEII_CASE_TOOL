@@ -90,7 +90,7 @@ class M_EXPORT_TEST {
     @Test
     void export_configData_emptyFilenameTest() {
         M_EXPORT export_test = new M_EXPORT();
-        M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA confData_test = M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA.getInstance();
+        M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA confData_test = M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA.getConfigData();
 
         //Class 1 --> string with blanks
         String path1 = " ";
@@ -114,7 +114,7 @@ class M_EXPORT_TEST {
     void export_configData_cleanRun() {
         try {
             M_EXPORT export_test = new M_EXPORT();
-            M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA confData_test = M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA.getInstance();
+            M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA confData_test = M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA.getConfigData();
             String path = "test_config.xml";
             export_test.export(confData_test, path);
         } catch (Exception e) {
