@@ -4,15 +4,16 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name="M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA")
+@XmlRootElement(name = "M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA")
 @XmlAccessorType(XmlAccessType.FIELD)
 
 public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA {
     private static M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA configData;
 
-    private M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA() {}
+    private M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA() {
+    }
 
-    public static M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA getConfigData () {
+    public static M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA getInstance() {
         if (M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA.configData == null) {
             M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA.configData = new M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA();
         }
@@ -23,7 +24,7 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA {
     //int stuffElement = 0; // this element is ignored and the export starts with the second element   // TODO: try to fix and remove this
 
     //variables for factors
-    private int factorEntanglement = 0; //TODO: eig. alle privat und nür über set/get aufrufen -> extra Test notwendig?
+    private int factorEntanglement = 0;
     private int factorDecentralization = 0;
     private int factorTransactionrate = 0;
 
@@ -132,6 +133,7 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA {
 
     /**
      * getter Method for e2Sum
+     *
      * @return e2Sum
      */
     public int getE2Sum() {
@@ -140,6 +142,7 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA {
 
     /**
      * setter Method for e2Sum
+     *
      * @param e2Sum value to which e2Sum is set to
      */
     public void setE2Sum(int e2Sum) {
