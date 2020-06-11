@@ -11,19 +11,29 @@ import java.util.ArrayList;
 //TODO: Make to Singleton
 public class M_PROJECTDATA {
     //@XmlTransient // jumps over first element - TODO: why do we use this here?
-    //int stuffElement = 0; // this element is ignored and the export starts with the second element
 
-    ArrayList<M_PROJECTDATA_PRODUCTDATA> productDataList = new ArrayList<>();
-    ArrayList<M_PROJECTDATA_PRODUCTFUNCTION> productFunctionList = new ArrayList<>();
+    ArrayList<M_PROJECTDATA_PRODUCTDATA> productDataList;
+    ArrayList<M_PROJECTDATA_PRODUCTFUNCTION> productFunctionList;
 
-    M_PROJECTDATA_PRODUCTUSE m_projectData_productUse = new M_PROJECTDATA_PRODUCTUSE();
-    M_PROJECTDATA_TARGETDEFINITION m_projectData_targetDefinition = new M_PROJECTDATA_TARGETDEFINITION();
-    M_PROJECTDATA_PRODUCTENVIRONMENT m_projectData_productEnvironment = new M_PROJECTDATA_PRODUCTENVIRONMENT();
+    M_PROJECTDATA_PRODUCTUSE m_projectData_productUse;
+    M_PROJECTDATA_TARGETDEFINITION m_projectData_targetDefinition;
+    M_PROJECTDATA_PRODUCTENVIRONMENT m_projectData_productEnvironment;
 
-    M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA m_projectData_functionPointEstimation_configData = M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA.getConfigData();
-    M_PROJECTDATA_FUNCTIONPOINTESTIMATION m_projectData_functionPointEstimation = new M_PROJECTDATA_FUNCTIONPOINTESTIMATION(m_projectData_functionPointEstimation_configData);
+    M_PROJECTDATA_FUNCTIONPOINTESTIMATION m_projectData_functionPointEstimation;
+    M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA m_projectData_functionPointEstimation_configData;
 
-    public M_PROJECTDATA(){}
+    public M_PROJECTDATA(){
+        productDataList = new ArrayList<>();
+        productFunctionList = new ArrayList<>();
+
+        m_projectData_productUse = new M_PROJECTDATA_PRODUCTUSE();
+        m_projectData_targetDefinition = new M_PROJECTDATA_TARGETDEFINITION();
+        m_projectData_productEnvironment = new M_PROJECTDATA_PRODUCTENVIRONMENT();
+
+        m_projectData_functionPointEstimation = new M_PROJECTDATA_FUNCTIONPOINTESTIMATION();
+        m_projectData_functionPointEstimation_configData = M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA.getConfigData();
+        m_projectData_functionPointEstimation.setConfigData(m_projectData_functionPointEstimation_configData);
+    }
 
     public M_PROJECTDATA_PRODUCTUSE getM_projectData_productUse() {
         return m_projectData_productUse;

@@ -14,6 +14,11 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
         }
     }
 
+    /**
+     * creates new Object of Function Point Estimation and sets a reference to configData
+     */
+    public M_PROJECTDATA_FUNCTIONPOINTESTIMATION() {}
+
     private M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA configData; // reference to configData
 
     //variables for all counts
