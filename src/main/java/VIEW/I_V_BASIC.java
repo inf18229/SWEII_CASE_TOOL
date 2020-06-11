@@ -13,8 +13,6 @@ public interface I_V_BASIC {
     /**
      * this method tries to show the view if there exists one
      * it should alsways check if view is available and print error if showing is not possible
-     *
-     * @param frame reference to the JFrame which should be shown
      */
     static void show(JFrame frame) {
         try {
@@ -30,8 +28,6 @@ public interface I_V_BASIC {
     /**
      * this method tries to hide the view if there exists one
      * it should alsways check if view is available and print error if showing is not possible
-     *
-     * @param frame reference to the JFrame which should be hidden
      */
     static void hide(JFrame frame) {
         try {

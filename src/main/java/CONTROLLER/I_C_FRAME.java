@@ -12,10 +12,6 @@ public interface I_C_FRAME {
 
     /**
      * this method sets the necessary links after instantiation of the controller
-     *
-     * @param projData reference to the projectData
-     * @param conStart reference to the Start Controller
-     * @param path path of the projectData
      */
     void setLinks(M_PROJECTDATA projData, I_C_start conStart, String path);
 

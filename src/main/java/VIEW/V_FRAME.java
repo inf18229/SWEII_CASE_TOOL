@@ -283,8 +283,7 @@ public class V_FRAME implements I_V_FRAME {
     /**
      * Constructor of the V_FRAME class
      *
-     * @param conFrame reference to the Frame Controller
-     * @param projData reference to the projectData
+     * @param conFrame Frame Controller
      */
     public V_FRAME(I_C_FRAME conFrame, M_PROJECTDATA projData) {
         controllerFrame = conFrame;
@@ -1388,7 +1387,7 @@ public class V_FRAME implements I_V_FRAME {
      *
      * @param calcEff      effort calculated before
      * @param corrFact     correction factor calculated
-     * @param e2Correction  value that should be achieved for e2Sum
+     * @param e2Correction
      */
     @Override
     public void updateCorrectionPanel(double calcEff, double corrFact, int e2Correction) {
