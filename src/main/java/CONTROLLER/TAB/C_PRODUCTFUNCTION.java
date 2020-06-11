@@ -63,7 +63,7 @@ public class C_PRODUCTFUNCTION implements I_C_PRODUCTFUNCTION {
         }
         if (!alreadyexists) {
             //Using ProductContentFactory to create object
-            if(viewFrame.getTextFieldProdFuncID().getText()!=null) {
+            if(!viewFrame.getTextFieldProdFuncID().getText().isEmpty()) {
                 M_PROJECTDATA_PRODUCTFUNCTION newProductFunction = new M_PROJECTDATA_PRODUCTCONTENTFACTORY().createProductFunction(viewFrame.getTextFieldProdFuncID().getText());
                 setProductFunctionElements(newProductFunction);
                 viewFrame.setWeightDescription(newProductFunction.functionPointWeighting);
