@@ -12,7 +12,7 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA {
 
     private M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA() {}
 
-    public static M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA getConfigData () {
+    public static M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA getInstance() {
         if (M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA.configData == null) {
             M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA.configData = new M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA();
         }
@@ -20,10 +20,9 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA {
     }
 
     //@XmlTransient // jumps over first element
-    //int stuffElement = 0; // this element is ignored and the export starts with the second element   // TODO: try to fix and remove this
 
     //variables for factors
-    private int factorEntanglement = 0; //TODO: eig. alle privat und nür über set/get aufrufen -> extra Test notwendig?
+    private int factorEntanglement = 0;
     private int factorDecentralization = 0;
     private int factorTransactionrate = 0;
 
