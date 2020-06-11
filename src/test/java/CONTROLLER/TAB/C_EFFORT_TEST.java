@@ -37,6 +37,35 @@ class C_EFFORT_TEST {
     }
 
     /**
+     * this method tests the path where the e2Sum doesn't need to be decreased or increased
+     * as it is already corresponding the goal sum
+     * e2Sum = 10
+     * e2Correction = 10
+     */
+    @Test
+    void notifyAdjustFactorsEqual(){
+        int e2Sum = 10;
+        int e2Correction = 10;
+        String expectedOutput = "No failure to correct";
+
+        M_IMPORT m__import = new M_IMPORT();
+        I_C_EFFORT controllerEffort;
+        String path = "testFiles/test_adjustFactors.xml"; // fixed path relative
+        File xmlFile = new File(path);
+
+        M_PROJECTDATA projectData = new M_PROJECTDATA();
+        projectData = m__import.importProject(path);
+        projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
+        projectData.getM_projectData_functionPointEstimation_configData().setE2Sum(e2Sum);
+        projectData.getM_projectData_functionPointEstimation().setE2Correction(e2Correction);
+
+        controllerEffort = C_EFFORT.getInstance();
+        controllerEffort.setLinks(null, projectData);
+
+        assertEquals(expectedOutput, controllerEffort.notifyAdjustFactors());
+    }
+
+    /**
      * this method tests the path when e2Sum needs to and can be decreased
      * e2Sum = 10
      * e2Correction = 5
