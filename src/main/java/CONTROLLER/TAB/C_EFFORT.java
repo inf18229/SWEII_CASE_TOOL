@@ -282,7 +282,6 @@ public class C_EFFORT implements I_C_EFFORT {
     @Override
     public String notifyAdjustFactors() {
         String output;
-        System.out.println("Automatische Anpassung gedrückt");
         int e2Sum = projectData.getM_projectData_functionPointEstimation_configData().getE2Sum();
         int e2Correction = projectData.getM_projectData_functionPointEstimation().getE2Correction();
         // e2Failure positive if e2Sum > e2Correction

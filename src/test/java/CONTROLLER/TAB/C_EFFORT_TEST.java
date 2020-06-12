@@ -265,6 +265,7 @@ class C_EFFORT_TEST {
      * only happens if notify adjustFactors gets run with wrong value for e2Sum
      * e2Sum = 10
      * e2Correction = 60
+     * increase = 50 aber alle faktoren bereits maximal (test_effort_max.xml)
      */
     @Test
     void notifyAdjustFactorsIncreaseFactorIteratorOutOfBounds() {
@@ -376,6 +377,7 @@ class C_EFFORT_TEST {
      * only happens if notify adjustFactors gets run with wrong value for e2Sum
      * e2Sum = 10
      * e2Correction = 5
+     * int decrease = 5 aber alle faktoren bereits minimal (test_effort_zero.xml)
      */
     @Test
     void notifyAdjustFactorsDecreaseFactorIteratorOutOfBounds() {
