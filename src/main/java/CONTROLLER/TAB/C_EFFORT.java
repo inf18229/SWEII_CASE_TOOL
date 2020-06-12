@@ -15,6 +15,10 @@ public class C_EFFORT implements I_C_EFFORT {
     private I_V_FRAME viewFrame;    //  stores a reference to the viewFrame to update elements of it
     private M_PROJECTDATA projectData;      // stores a reference to the complete data modell
 
+    /**
+     * private Constructor of the C_EFFORT class
+     * if the constructor
+     */
     private C_EFFORT() {
     }
 
