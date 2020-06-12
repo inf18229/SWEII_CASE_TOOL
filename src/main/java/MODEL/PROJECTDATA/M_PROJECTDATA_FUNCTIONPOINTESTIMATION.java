@@ -1,6 +1,6 @@
 package MODEL.PROJECTDATA;
 
-public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
+public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION{
 
     private static M_PROJECTDATA_FUNCTIONPOINTESTIMATION functionPointEstimation;
     private M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA configData; // reference to configData
@@ -101,7 +101,8 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
     }
 
     /**
-     * this method gets the config data and therefore updates the reference stored in the estimation object
+     * this method gets the config data as parameter
+     * and therefore updates the reference stored in the estimation object
      *
      * @param confData reference of config data to which the local variable configData is set to
      */
