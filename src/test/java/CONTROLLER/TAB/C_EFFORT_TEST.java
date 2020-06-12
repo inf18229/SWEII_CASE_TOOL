@@ -18,6 +18,33 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class C_EFFORT_TEST {
 
+    /**
+     * this test shows Zweigüberdeckung as the correct value is calculated and the Zweig therefore was run
+     *
+     * the testfile is initialized with:
+     * jonesPersonNo = 1;
+     */
+    @Test
+    void calcE2Needed(){ //TODO: add test?
+        /*double realTime = 3.0;
+        double expectedTime = 3.0;
+        M_IMPORT m__import = new M_IMPORT();
+        I_C_EFFORT controllerEffort;
+        String path = "testFiles/test_calcE2Needed.xml"; // fixed path relative
+        File xmlFile = new File(path);
+
+        M_PROJECTDATA projectData;
+        projectData = m__import.importProject(path);
+        //projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
+
+        controllerEffort = C_EFFORT.getInstance();
+        controllerEffort.setLinks(null, projectData);
+
+        projectData.getM_projectData_functionPointEstimation().calcE2Needed(realTime); //calculation of e2Correction
+
+        assertEquals(expectedTime, projectData.getM_projectData_functionPointEstimation().getE2Correction());*/
+    }
+
     @Test
     void notifyAdjustFactors() {
         /**
@@ -268,7 +295,7 @@ class C_EFFORT_TEST {
      * increase = 50 aber alle faktoren bereits maximal (test_effort_max.xml)
      */
     @Test
-    void notifyAdjustFactorsIncreaseFactorIteratorOutOfBounds() {
+    void increaseFactorIteratorOutOfBounds() {
         int e2Sum = 10;
         int e2Correction = 60;
         String expectedOutput = "e2Sum needs to be increased - Corrected factors";
@@ -380,7 +407,7 @@ class C_EFFORT_TEST {
      * int decrease = 5 aber alle faktoren bereits minimal (test_effort_zero.xml)
      */
     @Test
-    void notifyAdjustFactorsDecreaseFactorIteratorOutOfBounds() {
+    void decreaseFactorIteratorOutOfBounds() {
         int e2Sum = 10;
         int e2Correction = 5;
         String expectedOutput = "e2Sum needs to be decreased - Corrected factors";
