@@ -284,19 +284,19 @@ public class C_EFFORT implements I_C_EFFORT {
         String output;
         System.out.println("Automatische Anpassung gedrückt");
         int e2Sum = projectData.getM_projectData_functionPointEstimation_configData().getE2Sum();
-        int e2Goal = projectData.getM_projectData_functionPointEstimation().getE2Correction();
-        // e2Failure positive if e2Sum > e2Goal
-        // e2Failure negative if e2Sum < e2Goal
-        int e2Failure = e2Sum - e2Goal;
+        int e2Correction = projectData.getM_projectData_functionPointEstimation().getE2Correction();
+        // e2Failure positive if e2Sum > e2Correction
+        // e2Failure negative if e2Sum < e2Correction
+        int e2Failure = e2Sum - e2Correction;
         // checks if e2Failure can be corrected
-        if (e2Failure > 0) {    // e2Sum > e2Goal -> factors should be decreased
+        if (e2Failure > 0) {    // e2Sum > e2Correction -> factors should be decreased
             if (e2Sum - e2Failure >= 0) {
                 decreaseFactors(Math.abs(e2Failure));
                 output = "e2Sum needs to be decreased - Corrected factors";
             } else {
                 output = "e2Sum needs to be decreased - Failure can't be corrected by just adjusting factors";
             }
-        } else if (e2Failure < 0) { // e2Sum < e2Goal -> factors should be increased
+        } else if (e2Failure < 0) { // e2Sum < e2Correction -> factors should be increased
             if (e2Sum + Math.abs(e2Failure) <= 60) {
                 increaseFactors(Math.abs(e2Failure));
                 output = "e2Sum needs to be increased - Corrected factors";
