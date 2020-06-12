@@ -260,6 +260,36 @@ class C_EFFORT_TEST {
         assertThrows(IllegalArgumentException.class, () -> controllerEffort.decreaseFactors(-5));
     }
 
+    /**
+     * this method tests what happens when nothing can be increased, but increase > 0
+     * only happens if notify adjustFactors gets run with wrong value for e2Sum
+     * e2Sum = 10
+     * e2Correction = 60
+     */
+    @Test
+    void notifyAdjustFactorsIncreaseFactorIteratorOutOfBounds() {
+        int e2Sum = 10;
+        int e2Correction = 60;
+        String expectedOutput = "e2Sum needs to be increased - Corrected factors";
+
+        M_IMPORT m__import = new M_IMPORT();
+        I_C_EFFORT controllerEffort;
+        String path = "testFiles/test_effort_max.xml"; // fixed path relative
+        File xmlFile = new File(path);
+
+        M_PROJECTDATA projectData; // vorher M_PROJECTDATA projectData = M_PROJECTDATA.getInstance()
+        projectData = m__import.importProject(path);
+        projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
+        projectData.getM_projectData_functionPointEstimation_configData().setE2Sum(e2Sum);
+        projectData.getM_projectData_functionPointEstimation().setE2Correction(e2Correction);
+
+        controllerEffort = C_EFFORT.getInstance();
+        controllerEffort.setLinks(null, projectData);
+
+        assertThrows(RuntimeException.class, () -> controllerEffort.notifyAdjustFactors());
+    }
+
+
     @Test
     void decreaseFactors() {
         /**
@@ -342,7 +372,8 @@ class C_EFFORT_TEST {
     }
 
     /**
-     * this method tests the path when e2Sum needs to and can be decreased
+     * this method tests what happens when nothing can be decreased, but decrease > 0
+     * only happens if notify adjustFactors gets run with wrong value for e2Sum
      * e2Sum = 10
      * e2Correction = 5
      */
@@ -367,6 +398,5 @@ class C_EFFORT_TEST {
         controllerEffort.setLinks(null, projectData);
 
         assertThrows(RuntimeException.class, () -> controllerEffort.notifyAdjustFactors());
-        //assertThrows(RuntimeException, controllerEffort.notifyAdjustFactors());
     }
 }
