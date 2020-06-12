@@ -351,9 +351,9 @@ public class C_EFFORT implements I_C_EFFORT {
                     } else {
                         factorIterator++;
                     }
-                } else {
-                    throw new RuntimeException("factorIterator out of bounds");
-                }
+                }/* else {
+                    throw new RuntimeException("factorIterator out of bounds"); //TODO: add Test for this case
+                }*/
             }
         }
         projectData.getM_projectData_functionPointEstimation_configData().calcFactorSumE2();
@@ -391,7 +391,7 @@ public class C_EFFORT implements I_C_EFFORT {
                         factorIterator++;
                     }
                 } else {
-                    throw new RuntimeException("factorIterator out of bounds");
+                    throw new RuntimeException("factorIterator out of bounds"); //TODO: add Test for this case
                 }
             }
             projectData.getM_projectData_functionPointEstimation_configData().calcFactorSumE2();
