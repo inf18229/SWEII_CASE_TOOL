@@ -2,7 +2,6 @@ package MODEL.PROJECTDATA;
 
 import MODEL.FUNCTIONPOINTESTIMATION.M_FUNCTIONPOINTESTIMATION;
 import MODEL.FUNCTIONPOINTESTIMATION.M_FUNCTIONPOINTESTIMATION_CONFIGDATA;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;

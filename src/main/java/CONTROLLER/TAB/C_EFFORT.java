@@ -380,9 +380,9 @@ public class C_EFFORT implements I_C_EFFORT {
                 if (factorIterator == 0 |                     // factorEntanglement
                         factorIterator == 1 |                 // factorDecentralization
                         factorIterator == 2 |                 // factorTransactionrate
-                        factorIterator == 3 |              // factorProcessingCalculation
+                        factorIterator == 3 |                 // factorProcessingCalculation
                         factorIterator == 4 |                 // factorProcessingControl
-                        factorIterator == 5 |                // factorProcessingException
+                        factorIterator == 5 |                 // factorProcessingException
                         factorIterator == 6 |                 // factorProcessingLogic
                         factorIterator == 7 |                 // factorReusability
                         factorIterator == 8 |                 // factorConversion

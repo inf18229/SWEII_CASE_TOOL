@@ -4,7 +4,7 @@ import MODEL.PROJECTDATA.M_PROJECTDATA;
 import VIEW.I_V_FRAME;
 
 /**
- * TODO: add description
+ * Tab Controller Interface defines all function that has to be provided by a tab Controller
  */
 public interface I_C_TAB {
     /**
@@ -15,7 +15,8 @@ public interface I_C_TAB {
      */
     public void setLinks(I_V_FRAME view, M_PROJECTDATA projData);
     /**
-     * //TODO: add description
+     * triggeres an update of Project Data
+     * minimal requirement of a Tab Element
      */
     public void updateProjectData();
 }

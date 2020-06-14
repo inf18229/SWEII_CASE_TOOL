@@ -32,7 +32,6 @@ public interface I_C_FRAME {
      *           1: button y
      */
 
-
     /**
      * switches to the specified Tab
      *

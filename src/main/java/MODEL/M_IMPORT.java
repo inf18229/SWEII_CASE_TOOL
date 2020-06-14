@@ -2,12 +2,11 @@ package MODEL;
 
 import MODEL.PROJECTDATA.M_PROJECTDATA;
 import MODEL.FUNCTIONPOINTESTIMATION.M_FUNCTIONPOINTESTIMATION_CONFIGDATA;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
+
+import javax.xml.bind.*;
 import javax.xml.transform.stream.StreamSource;
 import java.io.File;
+import java.io.InvalidObjectException;
 import java.nio.file.InvalidPathException;
 
 /**
@@ -32,7 +31,7 @@ public class M_IMPORT {
      * @throws InvalidPathException
      * @source code idea from: https://howtodoinjava.com/jaxb/unmarshal-without-xmlrootelement/
      */
-    public M_PROJECTDATA importProject(String path) throws InvalidPathException {
+    public M_PROJECTDATA importProject(String path) throws InvalidPathException, IllegalStateException {
         File xmlFile = new File(path);
         if (!xmlFile.exists()) {
             projectData = null;
@@ -50,6 +49,7 @@ public class M_IMPORT {
                 projectData = projectData_temp;
             } catch (JAXBException e) {
                 e.printStackTrace();
+                throw new IllegalStateException("Invalid XML structure in import file");
             }
         }
         return projectData;
