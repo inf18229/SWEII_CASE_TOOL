@@ -32,8 +32,8 @@ public class M_PROJECTDATA {
         productUse = new M_PROJECTDATA_PRODUCTUSE();
         targetDefinition = new M_PROJECTDATA_TARGETDEFINITION();
         productEnvironment = new M_PROJECTDATA_PRODUCTENVIRONMENT();
-        functionPointEstimation = M_FUNCTIONPOINTESTIMATION.getInstance();
-        functionPointEstimation_configData = M_FUNCTIONPOINTESTIMATION_CONFIGDATA.getInstance();
+        functionPointEstimation = new M_FUNCTIONPOINTESTIMATION();
+        functionPointEstimation_configData = new M_FUNCTIONPOINTESTIMATION_CONFIGDATA();
         functionPointEstimation.setConfigData(functionPointEstimation_configData);
     }
 

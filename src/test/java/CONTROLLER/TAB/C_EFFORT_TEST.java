@@ -1,11 +1,4 @@
-/**
- * @autor: Florian
- * Responsible: Florian
- * Last edit date: 10.06.2020
- */
-
 package CONTROLLER.TAB;
-// helpful links: https://junit.org/junit5/docs/current/user-guide/
 
 import MODEL.M_IMPORT;
 import MODEL.PROJECTDATA.M_PROJECTDATA;

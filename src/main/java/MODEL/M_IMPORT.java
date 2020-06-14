@@ -1,12 +1,14 @@
 package MODEL;
 
-import MODEL.PROJECTDATA.M_PROJECTDATA;
 import MODEL.FUNCTIONPOINTESTIMATION.M_FUNCTIONPOINTESTIMATION_CONFIGDATA;
+import MODEL.PROJECTDATA.M_PROJECTDATA;
 
-import javax.xml.bind.*;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
 import javax.xml.transform.stream.StreamSource;
 import java.io.File;
-import java.io.InvalidObjectException;
 import java.nio.file.InvalidPathException;
 
 /**
@@ -21,7 +23,7 @@ public class M_IMPORT {
      */
     public M_IMPORT() {
         projectData = M_PROJECTDATA.getInstance();
-        configData = M_FUNCTIONPOINTESTIMATION_CONFIGDATA.getInstance();
+        configData = new M_FUNCTIONPOINTESTIMATION_CONFIGDATA();
     }
 
     /**
