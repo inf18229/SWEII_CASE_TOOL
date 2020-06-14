@@ -1,7 +1,10 @@
 package MODEL.PROJECTDATA;
 
+/**
+ * Class contains all information of a Product function
+ * can calculates weight by itself
+ */
 public class M_PROJECTDATA_PRODUCTFUNCTION extends M_PROJECTDATA_PRODUCTCONTENT {
-    //TODO: renaming
     public String id = "";
     public String function = "";
     public String actor = "";
@@ -11,6 +14,12 @@ public class M_PROJECTDATA_PRODUCTFUNCTION extends M_PROJECTDATA_PRODUCTCONTENT 
     public int functionPointDET;
     public int functionPointFTR;
 
+    /**
+     * calculates the weight of Product Function
+     * 0 = low
+     * 1 = avarage
+     * 2 = high
+     */
     @Override
     public void calculateWeight() {
         /**

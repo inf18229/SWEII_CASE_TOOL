@@ -5,7 +5,6 @@ import MODEL.PROJECTDATA.M_PROJECTDATA;
 import VIEW.I_V_BASIC;
 import VIEW.I_V_START;
 import VIEW.V_START;
-
 import javax.swing.*;
 import java.io.File;
 import java.nio.file.InvalidPathException;

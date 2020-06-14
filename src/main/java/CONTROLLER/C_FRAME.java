@@ -7,7 +7,6 @@ import MODEL.PROJECTDATA.M_PROJECTDATA;
 import VIEW.I_V_BASIC;
 import VIEW.I_V_FRAME;
 import VIEW.V_FRAME;
-
 import javax.swing.*;
 import java.nio.file.InvalidPathException;
 
@@ -31,6 +30,9 @@ public class C_FRAME implements I_C_FRAME {
     private String projPath = "";
     private String confPath = "";
 
+    /**
+     * Singlton consturctor of C_FRAME
+     */
     private C_FRAME(){}
 
     /**

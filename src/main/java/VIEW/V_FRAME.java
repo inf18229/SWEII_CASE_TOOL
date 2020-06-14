@@ -733,91 +733,165 @@ public class V_FRAME implements I_V_FRAME {
         return frame;
     }
 
+
+    /**
+     * get Target Use Text Area Element
+     *
+     * @return returns a JTextArea Swing Element
+     */
     @Override
     public JTextArea getTargetUse() {
         return targetUse;
     }
 
+    /**
+     * get Product Use Text Area Element
+     * @return returns a JTextArea Swing Element
+     */
     @Override
     public JTextArea getProductUse() {
         return productUse;
     }
 
+    /**
+     * get Product Environment Text Area Element
+     * @return returns a JTextArea Swing Element
+     */
     @Override
     public JTextArea getProductEnvironment() {
         return productEnvironment;
     }
 
+    /**
+     * get Product Function ID Text Field Element
+     * @return returns a JTextField Swing Element
+     */
     @Override
     public JTextField getTextFieldProdFuncID() {
         return textFieldProductFunctionID;
     }
 
+    /**
+     * get Product Function Function Text Field Element
+     * @return returns a JTextField Swing Element
+     */
     @Override
     public JTextField getTextFieldProdFunc() {
         return textFieldProductFunctionFunction;
     }
 
+    /**
+     * get Product Function Protagonis Text Field Element
+     * @return returns a JTextField Swing Element
+     */
     @Override
     public JTextField getTextFieldProdFuncProtagonist() {
         return textFieldProductFunctionProtagonist;
     }
 
+    /**
+     * get Product Function Description Text Area Element
+     * @return returns a JTextField Swing Element
+     */
     @Override
     public JTextArea getTextAreaprodFuncDescription() {
         return textAreaProductFunctionDescription;
     }
 
+    /**
+     * get Product Function Category Combo Box
+     * @return returns a JComboBox Swing Element
+     */
     @Override
     public JComboBox getComboBoxProdFuncCategory() {
         return comboBoxProductFunctionCategory;
     }
 
+    /**
+     * get Product Function FTR JSpinner Element
+     * @return returns a JSpinner Swing Element
+     */
     @Override
     public JSpinner getSpinnerProdFuncFTR() {
         return spinnerProductFunctionFTR;
     }
 
+    /**
+     * get Product Function DET JSpinner Element
+     * @return returns a JSpinner Swing Element
+     */
     @Override
     public JSpinner getSpinnerProdFuncDET() {
         return spinnerProductFunctionDET;
     }
 
+    /**
+     * get Product Function List Element
+     * @return returns a JList Swing Element
+     */
     @Override
     public JList getProdFuncIDList() {
         return listProductFunctionID;
     }
 
+    /**
+     * get ProductData List Element
+     * @return returns a JList Swing Element
+     */
     @Override
     public JList getListproductDataID() {
         return listproductDataID;
     }
 
+    /**
+     * get Product Data Id Text Field
+     * @return returns a JTextField Swing Element
+     */
     @Override
     public JTextField getTextFieldproductDataID() {
         return textFieldproductDataID;
     }
 
+    /**
+     * get Product Data Refernece Text Field
+     * @return returns a JTextField Swing Element
+     */
     @Override
     public JTextField getTextFieldproductDataReference() {
         return textFieldproductDataReference;
     }
 
+    /**
+     * get Product Data Description Text Area Element
+     * @return returns a JTextArea Swing Element
+     */
     @Override
     public JTextArea getTextAreaproductDataDescription() {
         return textAreaproductDataDescription;
     }
 
+    /**
+     * get Product Data RET Spinner Element
+     * @return returns JSpinner Swing Element
+     */
     @Override
     public JSpinner getSpinnerproductDataRET() {
         return spinnerproductDataRET;
     }
 
+    /**
+     * get Product Data DET Spinner Element
+     * @return returns JSpinner Swing Element
+     */
     @Override
     public JSpinner getSpinnerproductDataDET() {
         return spinnerproductDataDET;
     }
 
+    /**
+     * get Product Data Category Combo Box Element
+     * @return returns JComboBox Swing Element
+     */
     @Override
     public JComboBox getComboBoxProdDataCategory() {
         return comboBoxproductDataCategory;
@@ -1376,6 +1450,11 @@ public class V_FRAME implements I_V_FRAME {
         }
     }
 
+    /**
+     * adds new Product Function List Element in Tab Product Data
+     *
+     * @param id new Element ID
+     */
     @Override
     public void addProdFuncIDListElement(String id) {
         try{
@@ -1387,6 +1466,11 @@ public class V_FRAME implements I_V_FRAME {
 
     }
 
+    /**
+     * updates textboxes depending on selected Index
+     *
+     * @param projDataFunction new Product Function content
+     */
     public void updateProdFuncInfo(M_PROJECTDATA_PRODUCTFUNCTION projDataFunction) {
         textFieldProductFunctionID.setText(projDataFunction.id);
         textFieldProductFunctionFunction.setText(projDataFunction.function);
@@ -1406,11 +1490,21 @@ public class V_FRAME implements I_V_FRAME {
         spinnerProductFunctionDET.setValue(projDataFunction.functionPointDET);
     }
 
+    /**
+     * change the current selected List Element with a new Element
+     *
+     * @param id defines what exact Element to change
+     */
     @Override
     public void changeprodFuncIDListElement(String id) {
         listModelProductFunction.setElementAt(id, listProductFunctionID.getSelectedIndex());
     }
 
+    /**
+     * function can reinitialize complente Product Function ID List with new Project Data
+     *
+     * @param projData referenece to new project data
+     */
     @Override
     public void reinitializeProdFuncIDList(M_PROJECTDATA projData) {
 
@@ -1427,6 +1521,11 @@ public class V_FRAME implements I_V_FRAME {
 
     }
 
+    /**
+     * change the current selected List Element with a new Element
+     *
+     * @param id defines what exact Element to change
+     */
     @Override
     public void addProdDataIDListElement(String id) {
         listModelProductData.addElement(id);
@@ -1434,11 +1533,21 @@ public class V_FRAME implements I_V_FRAME {
 
     }
 
+    /**
+     * change the current selected List Element with a new Element
+     *
+     * @param id defines what exact Element to change
+     */
     @Override
     public void changeProdDataIDListElement(String id) {
         listModelProductData.setElementAt(id, listproductDataID.getSelectedIndex());
     }
 
+    /**
+     * function can reinitialize complente Product Data ID List with new Project Data
+     *
+     * @param projData referenece to new project data
+     */
     @Override
     public void reinitializeProdDataIDList(M_PROJECTDATA projData) {
         listModelProductData = new DefaultListModel();
@@ -1452,6 +1561,11 @@ public class V_FRAME implements I_V_FRAME {
         }
     }
 
+    /**
+     * updates textboxes depending on selected Index
+     *
+     * @param projDataProductData new Product Data content
+     */
     @Override
     public void updateProdDataInfo(M_PROJECTDATA_PRODUCTDATA projDataProductData) {
         textFieldproductDataID.setText(projDataProductData.id);

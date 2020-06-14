@@ -1,5 +1,8 @@
 package MODEL.PROJECTDATA;
 
+/**
+ * Class holds all Information of product data element
+ */
 public class M_PROJECTDATA_PRODUCTDATA extends M_PROJECTDATA_PRODUCTCONTENT {
     //TODO: add to documentation why public
     public String id = "";
@@ -10,6 +13,12 @@ public class M_PROJECTDATA_PRODUCTDATA extends M_PROJECTDATA_PRODUCTCONTENT {
     public int functionPointRET;
     public String functionPointCategory = "";
 
+    /**
+     * calculates the weight of Product data
+     * 0 = low
+     * 1 = avarage
+     * 2 = high
+     */
     @Override
     public void calculateWeight() {
         if(functionPointRET==1){

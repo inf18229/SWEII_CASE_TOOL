@@ -2,6 +2,9 @@ package VIEW;
 
 import javax.swing.*;
 
+/**
+ * Basic Interface defines all basic methods that are required from a frame
+ */
 public interface I_V_BASIC {
     /**
      * this method returns a reference to the frame Object
