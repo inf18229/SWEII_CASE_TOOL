@@ -77,8 +77,7 @@ public class C_START implements I_C_START {
      */
     public void notifyOpen() {
         System.out.println("Öffne Projekt wurde gedrückt.");
-        String path = "test.xml"; // fixed path relative
-        //String path  = viewStart.getPath(true); //TODO: abfangen wenn man name von nicht existierender Datei eingegeben und auf open gedrückt wird
+        String path  = viewStart.getPath(true); //TODO: abfangen wenn man name von nicht existierender Datei eingegeben und auf open gedrückt wird
         File xmlFile = new File(path);
         if (xmlFile.exists()) {
             M_PROJECTDATA projectData = M_PROJECTDATA.getInstance();

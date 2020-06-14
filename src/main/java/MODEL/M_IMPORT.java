@@ -83,6 +83,7 @@ public class M_IMPORT {
                 projData.setFunctionPointEstimation_configData(configData); //TODO: Kontrollflussgraph
             } catch (JAXBException e) {
                 e.printStackTrace();
+                throw new IllegalStateException("Invalid XML structure in import file");
             }
         }
     }
