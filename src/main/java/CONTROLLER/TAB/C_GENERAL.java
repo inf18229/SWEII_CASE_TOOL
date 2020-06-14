@@ -10,16 +10,37 @@ import javax.swing.*;
  * it is responsible for all actions regarding the general tab in I_C_FRAME
  */
 public class C_GENERAL implements I_C_GENERAL {
+    private static C_GENERAL controllerGeneral;
+    private I_V_FRAME view;
     private JTextArea targetUse;    // stores text Area "Zielbestimmungen" for which the controller is responsible for
     private JTextArea productUse;   // stores text Area "Produkteinsatz" for which the controller is responsible for
     private JTextArea productEnvironment; // stores text Area "Umgebung" for which the controller is responsible for
     private M_PROJECTDATA projectData;  // stores a reference to the complete data modell
 
-    public C_GENERAL(I_V_FRAME mainFrame, M_PROJECTDATA projectData) {
-        this.targetUse = mainFrame.getTargetUse();
-        this.productUse = mainFrame.getProductUse();
-        this.productEnvironment = mainFrame.getProductEnvironment();
-        this.projectData = projectData;
+    private C_GENERAL() {
+    }
+
+    public static C_GENERAL getInstance() {
+        if (controllerGeneral == null) {
+            controllerGeneral = new C_GENERAL();
+        }
+        else{
+            System.out.println("C_GENERAL Instance already created");
+        }
+        return controllerGeneral;
+    }
+
+    @Override
+    public void setLinks(I_V_FRAME view, M_PROJECTDATA projData) {
+        if (projectData == null || view == null){
+            targetUse = view.getTargetUse();
+            productUse = view.getProductUse();
+            productEnvironment = view.getProductEnvironment();
+            projectData = projData;
+        }
+        else {
+            System.out.println("C_GENERAL Links already set");
+        }
     }
 
     /**
@@ -30,12 +51,12 @@ public class C_GENERAL implements I_C_GENERAL {
     @Override
     public void updateProjectData() {
         System.out.println("Update Project Data from general Tab triggered.");
-        projectData.getM_projectData_targetDefinition().setContent(targetUse.getText());
-        projectData.getM_projectData_productUse().setContent(productUse.getText());
-        projectData.getM_projectData_productEnvironment().setContent(productEnvironment.getText());
-        System.out.println(projectData.getM_projectData_targetDefinition().toString());
-        System.out.println(projectData.getM_projectData_productUse().toString());
-        System.out.println(projectData.getM_projectData_productEnvironment().toString());
+        projectData.getTargetDefinition().setContent(targetUse.getText());
+        projectData.getProductUse().setContent(productUse.getText());
+        projectData.getProductEnvironment().setContent(productEnvironment.getText());
+        System.out.println(projectData.getTargetDefinition().toString());
+        System.out.println(projectData.getProductUse().toString());
+        System.out.println(projectData.getProductEnvironment().toString());
 
     }
 }

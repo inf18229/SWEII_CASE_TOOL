@@ -10,13 +10,7 @@ public interface I_C_EFFORT extends I_C_TAB {
 
     //TODO: getInstance here?
 
-    /**
-     * this method sets the necessary links after instantiation of the controller
-     *
-     * @param view     reference to the view that should be referenced in this object
-     * @param projData reference to the project data that should be referenced in this object
-     */
-    void setLinks(I_V_FRAME view, M_PROJECTDATA projData);
+
 
     /**
      * this method updates the V_framePanel_effort

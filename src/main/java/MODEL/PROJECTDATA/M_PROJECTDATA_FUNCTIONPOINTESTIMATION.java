@@ -1,6 +1,6 @@
 package MODEL.PROJECTDATA;
 
-public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION{
+public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
 
     private static M_PROJECTDATA_FUNCTIONPOINTESTIMATION functionPointEstimation;
     private M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA configData; // reference to configData
@@ -96,6 +96,8 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION{
     public static M_PROJECTDATA_FUNCTIONPOINTESTIMATION getInstance() {
         if (M_PROJECTDATA_FUNCTIONPOINTESTIMATION.functionPointEstimation == null) {
             M_PROJECTDATA_FUNCTIONPOINTESTIMATION.functionPointEstimation = new M_PROJECTDATA_FUNCTIONPOINTESTIMATION();
+        } else {
+            System.out.println("FounctionPointEstimation Instance already created");
         }
         return M_PROJECTDATA_FUNCTIONPOINTESTIMATION.functionPointEstimation;
     }

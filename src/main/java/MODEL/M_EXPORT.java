@@ -14,7 +14,6 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import java.io.File;
 import java.nio.file.InvalidPathException;
-import java.nio.file.Paths;
 
 //TODO: KONTROLLFLUSSGRAPH
 //TODO: Reicht es einmal im Try Block zu sein für Zweigabdeckung

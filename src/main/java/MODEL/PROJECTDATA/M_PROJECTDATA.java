@@ -8,52 +8,60 @@ import java.util.ArrayList;
 @XmlRootElement(name = "M_PROJECTDATA")
 @XmlAccessorType(XmlAccessType.FIELD)
 
-//TODO: Make to Singleton
+/**
+ * Class holds all information of a project file.
+ */
 public class M_PROJECTDATA {
-    //@XmlTransient // jumps over first element - TODO: why do we use this here?
+    private static M_PROJECTDATA projectData; //holds Singleton reference to Project Data
+    private ArrayList<M_PROJECTDATA_PRODUCTDATA> productDataList;
+    private ArrayList<M_PROJECTDATA_PRODUCTFUNCTION> productFunctionList;
+    private M_PROJECTDATA_PRODUCTUSE productUse;
+    private M_PROJECTDATA_TARGETDEFINITION targetDefinition;
+    private M_PROJECTDATA_PRODUCTENVIRONMENT productEnvironment;
+    private M_PROJECTDATA_FUNCTIONPOINTESTIMATION functionPointEstimation;
+    private M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA functionPointEstimation_configData;
 
-    private static M_PROJECTDATA projectData;
-
-    ArrayList<M_PROJECTDATA_PRODUCTDATA> productDataList;
-    ArrayList<M_PROJECTDATA_PRODUCTFUNCTION> productFunctionList;
-
-    M_PROJECTDATA_PRODUCTUSE m_projectData_productUse;
-    M_PROJECTDATA_TARGETDEFINITION m_projectData_targetDefinition;
-    M_PROJECTDATA_PRODUCTENVIRONMENT m_projectData_productEnvironment;
-
-    M_PROJECTDATA_FUNCTIONPOINTESTIMATION m_projectData_functionPointEstimation;
-    M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA m_projectData_functionPointEstimation_configData;
-
+    /**
+     * Singlton Constructor of M_PROJECTDATA Class
+     */
     private M_PROJECTDATA() {
         productDataList = new ArrayList<>();
         productFunctionList = new ArrayList<>();
-
-        m_projectData_productUse = new M_PROJECTDATA_PRODUCTUSE();
-        m_projectData_targetDefinition = new M_PROJECTDATA_TARGETDEFINITION();
-        m_projectData_productEnvironment = new M_PROJECTDATA_PRODUCTENVIRONMENT();
-
-        m_projectData_functionPointEstimation = M_PROJECTDATA_FUNCTIONPOINTESTIMATION.getInstance();
-        m_projectData_functionPointEstimation_configData = M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA.getInstance();
-        m_projectData_functionPointEstimation.setConfigData(m_projectData_functionPointEstimation_configData);
+        productUse = new M_PROJECTDATA_PRODUCTUSE();
+        targetDefinition = new M_PROJECTDATA_TARGETDEFINITION();
+        productEnvironment = new M_PROJECTDATA_PRODUCTENVIRONMENT();
+        functionPointEstimation = M_PROJECTDATA_FUNCTIONPOINTESTIMATION.getInstance();
+        functionPointEstimation_configData = M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA.getInstance();
+        functionPointEstimation.setConfigData(functionPointEstimation_configData);
     }
 
+    /**
+     * create or receive Object of M_PROJECTDATA
+     * @return M_PROJECTDATA Object
+     */
     public static M_PROJECTDATA getInstance() {
         if (M_PROJECTDATA.projectData == null) {
             M_PROJECTDATA.projectData = new M_PROJECTDATA();
+        } else {
+            System.out.println("ProjectData Instance already created");
         }
         return M_PROJECTDATA.projectData;
     }
 
-    public M_PROJECTDATA_PRODUCTUSE getM_projectData_productUse() {
-        return m_projectData_productUse;
+    /**
+     * get the Product Use of a Project
+     * @return return project
+     */
+    public M_PROJECTDATA_PRODUCTUSE getProductUse() {
+        return productUse;
     }
 
-    public M_PROJECTDATA_TARGETDEFINITION getM_projectData_targetDefinition() {
-        return m_projectData_targetDefinition;
+    public M_PROJECTDATA_TARGETDEFINITION getTargetDefinition() {
+        return targetDefinition;
     }
 
-    public M_PROJECTDATA_PRODUCTENVIRONMENT getM_projectData_productEnvironment() {
-        return m_projectData_productEnvironment;
+    public M_PROJECTDATA_PRODUCTENVIRONMENT getProductEnvironment() {
+        return productEnvironment;
     }
 
     public ArrayList<M_PROJECTDATA_PRODUCTDATA> getProductDataList() {
@@ -64,17 +72,17 @@ public class M_PROJECTDATA {
         return productFunctionList;
     }
 
-    public M_PROJECTDATA_FUNCTIONPOINTESTIMATION getM_projectData_functionPointEstimation() {
-        return m_projectData_functionPointEstimation;
+    public M_PROJECTDATA_FUNCTIONPOINTESTIMATION getFunctionPointEstimation() {
+        return functionPointEstimation;
     }
 
-    public M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA getM_projectData_functionPointEstimation_configData() {
-        return m_projectData_functionPointEstimation_configData;
+    public M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA getFunctionPointEstimation_configData() {
+        return functionPointEstimation_configData;
     }
 
-    public void setM_projectData_functionPointEstimation_configData(M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA confData) {
-        m_projectData_functionPointEstimation_configData = confData;
-        m_projectData_functionPointEstimation.setConfigData(confData);
+    public void setFunctionPointEstimation_configData(M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA confData) {
+        functionPointEstimation_configData = confData;
+        functionPointEstimation.setConfigData(confData);
     }
 
     @Override
@@ -82,11 +90,11 @@ public class M_PROJECTDATA {
         return "Model{" +
                 "productDataList=" + productDataList +
                 ", productFunctionList=" + productFunctionList +
-                ", productUse=" + m_projectData_productUse +
-                ", targetDefinition=" + m_projectData_targetDefinition +
-                ", productEnvironment=" + m_projectData_productEnvironment +
-                ", functionPointEstimation=" + m_projectData_functionPointEstimation +
-                ", functionPointEstimation=" + m_projectData_functionPointEstimation_configData +
+                ", productUse=" + productUse +
+                ", targetDefinition=" + targetDefinition +
+                ", productEnvironment=" + productEnvironment +
+                ", functionPointEstimation=" + functionPointEstimation +
+                ", functionPointEstimation=" + functionPointEstimation_configData +
                 '}';
     }
 }

@@ -293,9 +293,9 @@ public class V_FRAME implements I_V_FRAME {
         frame.setResizable(false);
         frame.getContentPane().setPreferredSize(new Dimension(1200, 800)); //460
         //Set initial Values here
-        targetUse.setText(projData.getM_projectData_targetDefinition().getContent());
-        productUse.setText(projData.getM_projectData_productUse().getContent());
-        productEnvironment.setText(projData.getM_projectData_productEnvironment().getContent());
+        targetUse.setText(projData.getTargetDefinition().getContent());
+        productUse.setText(projData.getProductUse().getContent());
+        productEnvironment.setText(projData.getProductEnvironment().getContent());
 
         tabbedPane.addChangeListener(new ChangeListener() {
             /**

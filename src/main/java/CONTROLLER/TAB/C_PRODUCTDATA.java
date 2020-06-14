@@ -3,17 +3,35 @@ package CONTROLLER.TAB;
 import MODEL.PROJECTDATA.M_PROJECTDATA;
 import MODEL.PROJECTDATA.M_PROJECTDATA_PRODUCTCONTENTFACTORY;
 import MODEL.PROJECTDATA.M_PROJECTDATA_PRODUCTDATA;
-import MODEL.PROJECTDATA.M_PROJECTDATA_PRODUCTFUNCTION;
 import VIEW.I_V_FRAME;
 
 public class C_PRODUCTDATA implements I_C_PRODUCTDATA {
+    private static C_PRODUCTDATA controllerProductData;
     private I_V_FRAME viewFrame;
-
     private M_PROJECTDATA projectData;
 
-    public C_PRODUCTDATA(I_V_FRAME mainFrame, M_PROJECTDATA projData) {
-        viewFrame = mainFrame;
-        projectData = projData;
+    private C_PRODUCTDATA() {
+    }
+
+    public static C_PRODUCTDATA getInstance(){
+        if (controllerProductData == null) {
+            controllerProductData = new C_PRODUCTDATA();
+        }
+        else{
+            System.out.println("C_PRODUCTDATA Instance already created");
+        }
+        return controllerProductData;
+    }
+
+    @Override
+    public void setLinks(I_V_FRAME view, M_PROJECTDATA projData) {
+        if (projectData == null || view == null){
+            viewFrame = view;
+            projectData = projData;
+        }
+        else{
+            System.out.println("C_PRODUCTDATA Links already set");
+        }
     }
 
     private void setProductDataElements(M_PROJECTDATA_PRODUCTDATA projectDataProductData) {

@@ -1,14 +1,7 @@
-/**
- * @autor: David
- * Responsible: David
- * Last edit date: 10.06.2020
- */
-
 package MODEL;
 
 import MODEL.PROJECTDATA.M_PROJECTDATA;
 import MODEL.PROJECTDATA.M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA;
-
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
@@ -85,7 +78,7 @@ public class M_IMPORT {
                 M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA confData_temp = jaxbElement.getValue();
                 confData = confData_temp;
                 System.out.println(confData);
-                projData.setM_projectData_functionPointEstimation_configData(confData); //TODO: check if relevant für Tests? (in fPEstimation muss eine Referenz auf die configData gehalten werden, sonst werden die Berechnungen zu kompliziert) sh. ProjectData Funktion
+                projData.setFunctionPointEstimation_configData(confData); //TODO: check if relevant für Tests? (in fPEstimation muss eine Referenz auf die configData gehalten werden, sonst werden die Berechnungen zu kompliziert) sh. ProjectData Funktion
             } catch (JAXBException e) {
                 e.printStackTrace();
             }

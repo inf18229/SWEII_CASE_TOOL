@@ -30,18 +30,24 @@ public class C_EFFORT implements I_C_EFFORT {
      * @return C_EFFORT.controllerEffort - reference to controllerEffort
      */
     public static C_EFFORT getInstance() {
-        if (C_EFFORT.controllerEffort == null) {
-            C_EFFORT.controllerEffort = new C_EFFORT();
+        if (controllerEffort == null) {
+            controllerEffort = new C_EFFORT();
+        } else {
+            System.out.println("C_EFFORT Instance already created");
         }
-        return C_EFFORT.controllerEffort;
+        return controllerEffort;
     }
 
     /**
      * this method sets the necessary links after instantiation of the controller
      */
     public void setLinks(I_V_FRAME view, M_PROJECTDATA projData) {
-        viewFrame = view;
-        projectData = projData;
+        if (viewFrame == null || projectData == null) {
+            viewFrame = view;
+            projectData = projData;
+        } else {
+            System.out.println("Links already set");
+        }
     }
 
     /**
@@ -52,27 +58,27 @@ public class C_EFFORT implements I_C_EFFORT {
     public void updateView() {
         //TODO: evtl. aufteilen je gewähltem Tab
         for (int i = 0; i <= 14; i++) {
-            viewFrame.setEstimationCount(i, projectData.getM_projectData_functionPointEstimation().getCount(i));
-            viewFrame.setEstimationSum(i, projectData.getM_projectData_functionPointEstimation().getSum(i));
-            viewFrame.setEstimationWeight(i, projectData.getM_projectData_functionPointEstimation().getWeight(i)); //TODO: evtl. nicht jedes mal aufrufen nur am Anfang
+            viewFrame.setEstimationCount(i, projectData.getFunctionPointEstimation().getCount(i));
+            viewFrame.setEstimationSum(i, projectData.getFunctionPointEstimation().getSum(i));
+            viewFrame.setEstimationWeight(i, projectData.getFunctionPointEstimation().getWeight(i)); //TODO: evtl. nicht jedes mal aufrufen nur am Anfang
         }
-        viewFrame.setTotalRowSum(projectData.getM_projectData_functionPointEstimation().getE1Sum());
+        viewFrame.setTotalRowSum(projectData.getFunctionPointEstimation().getE1Sum());
         //initialize slider position and initialize the text fields for each slider
         for (int i = 0; i <= 9; i++) {
-            viewFrame.setSliderValue(i, projectData.getM_projectData_functionPointEstimation_configData().getFactor(i));
-            viewFrame.setSliderText(i, projectData.getM_projectData_functionPointEstimation_configData().getFactor(i));
+            viewFrame.setSliderValue(i, projectData.getFunctionPointEstimation_configData().getFactor(i));
+            viewFrame.setSliderText(i, projectData.getFunctionPointEstimation_configData().getFactor(i));
         }
-        viewFrame.setFactorSumE2(projectData.getM_projectData_functionPointEstimation_configData().getE2Sum(),
-                projectData.getM_projectData_functionPointEstimation().getE2Correction());
+        viewFrame.setFactorSumE2(projectData.getFunctionPointEstimation_configData().getE2Sum(),
+                projectData.getFunctionPointEstimation().getE2Correction());
         // update values in tab Calculation
         viewFrame.updateCalculationTab(
-                projectData.getM_projectData_functionPointEstimation().getE1Sum(),
-                projectData.getM_projectData_functionPointEstimation_configData().getE2Sum(),
-                projectData.getM_projectData_functionPointEstimation().getE3Sum(),
-                projectData.getM_projectData_functionPointEstimation().getAFP(),
-                projectData.getM_projectData_functionPointEstimation().getJonesDuration(),
-                projectData.getM_projectData_functionPointEstimation().getJonesPersonNo(),
-                projectData.getM_projectData_functionPointEstimation().getJonesPersonMonths());
+                projectData.getFunctionPointEstimation().getE1Sum(),
+                projectData.getFunctionPointEstimation_configData().getE2Sum(),
+                projectData.getFunctionPointEstimation().getE3Sum(),
+                projectData.getFunctionPointEstimation().getAFP(),
+                projectData.getFunctionPointEstimation().getJonesDuration(),
+                projectData.getFunctionPointEstimation().getJonesPersonNo(),
+                projectData.getFunctionPointEstimation().getJonesPersonMonths());
     }
 
     /**
@@ -101,11 +107,11 @@ public class C_EFFORT implements I_C_EFFORT {
      */
     @Override
     public void notifySlider(int sliderNo, int value) {
-        projectData.getM_projectData_functionPointEstimation_configData().setFactor(sliderNo, value);
-        projectData.getM_projectData_functionPointEstimation_configData().calcFactorSumE2();
+        projectData.getFunctionPointEstimation_configData().setFactor(sliderNo, value);
+        projectData.getFunctionPointEstimation_configData().calcFactorSumE2();
         viewFrame.setSliderText(sliderNo, value);
-        viewFrame.setFactorSumE2(projectData.getM_projectData_functionPointEstimation_configData().getE2Sum(),
-                projectData.getM_projectData_functionPointEstimation().getE2Correction());
+        viewFrame.setFactorSumE2(projectData.getFunctionPointEstimation_configData().getE2Sum(),
+                projectData.getFunctionPointEstimation().getE2Correction());
     }
 
     /**
@@ -115,13 +121,13 @@ public class C_EFFORT implements I_C_EFFORT {
     @Override
     public void notifyCalculate() {
         updateProjectData();    // guaranties that the shown/used values are up to date
-        projectData.getM_projectData_functionPointEstimation().setActualDuration(viewFrame.getActualDuration());
-        projectData.getM_projectData_functionPointEstimation().calcCorrection(projectData.getM_projectData_functionPointEstimation().getActualDuration());
-        projectData.getM_projectData_functionPointEstimation().calcE2Needed(projectData.getM_projectData_functionPointEstimation().getActualDuration());
+        projectData.getFunctionPointEstimation().setActualDuration(viewFrame.getActualDuration());
+        projectData.getFunctionPointEstimation().calcCorrection(projectData.getFunctionPointEstimation().getActualDuration());
+        projectData.getFunctionPointEstimation().calcE2Needed(projectData.getFunctionPointEstimation().getActualDuration());
         viewFrame.updateCorrectionPanel(
-                projectData.getM_projectData_functionPointEstimation().getJonesPersonMonths(),
-                projectData.getM_projectData_functionPointEstimation().getCorrectionFactor(),
-                projectData.getM_projectData_functionPointEstimation().getE2Correction()
+                projectData.getFunctionPointEstimation().getJonesPersonMonths(),
+                projectData.getFunctionPointEstimation().getCorrectionFactor(),
+                projectData.getFunctionPointEstimation().getE2Correction()
         );
         updateView();
 
@@ -256,25 +262,25 @@ public class C_EFFORT implements I_C_EFFORT {
         }
 
         //store calculated values in project data
-        projectData.getM_projectData_functionPointEstimation().setCount(0, countInputSimple);
-        projectData.getM_projectData_functionPointEstimation().setCount(1, countInputMedium);
-        projectData.getM_projectData_functionPointEstimation().setCount(2, countInputComplex);
+        projectData.getFunctionPointEstimation().setCount(0, countInputSimple);
+        projectData.getFunctionPointEstimation().setCount(1, countInputMedium);
+        projectData.getFunctionPointEstimation().setCount(2, countInputComplex);
 
-        projectData.getM_projectData_functionPointEstimation().setCount(3, countQuerySimple);
-        projectData.getM_projectData_functionPointEstimation().setCount(4, countQueryMedium);
-        projectData.getM_projectData_functionPointEstimation().setCount(5, countQueryComplex);
+        projectData.getFunctionPointEstimation().setCount(3, countQuerySimple);
+        projectData.getFunctionPointEstimation().setCount(4, countQueryMedium);
+        projectData.getFunctionPointEstimation().setCount(5, countQueryComplex);
 
-        projectData.getM_projectData_functionPointEstimation().setCount(6, countOutputSimple);
-        projectData.getM_projectData_functionPointEstimation().setCount(7, countOutputMedium);
-        projectData.getM_projectData_functionPointEstimation().setCount(8, countOutputComplex);
+        projectData.getFunctionPointEstimation().setCount(6, countOutputSimple);
+        projectData.getFunctionPointEstimation().setCount(7, countOutputMedium);
+        projectData.getFunctionPointEstimation().setCount(8, countOutputComplex);
 
-        projectData.getM_projectData_functionPointEstimation().setCount(9, countDatasetSimple);
-        projectData.getM_projectData_functionPointEstimation().setCount(10, countDatasetMedium);
-        projectData.getM_projectData_functionPointEstimation().setCount(11, countDatasetComplex);
+        projectData.getFunctionPointEstimation().setCount(9, countDatasetSimple);
+        projectData.getFunctionPointEstimation().setCount(10, countDatasetMedium);
+        projectData.getFunctionPointEstimation().setCount(11, countDatasetComplex);
 
-        projectData.getM_projectData_functionPointEstimation().setCount(12, countReferenceSimple);
-        projectData.getM_projectData_functionPointEstimation().setCount(13, countReferenceMedium);
-        projectData.getM_projectData_functionPointEstimation().setCount(14, countReferenceComplex);
+        projectData.getFunctionPointEstimation().setCount(12, countReferenceSimple);
+        projectData.getFunctionPointEstimation().setCount(13, countReferenceMedium);
+        projectData.getFunctionPointEstimation().setCount(14, countReferenceComplex);
     }
 
     /**
@@ -286,8 +292,8 @@ public class C_EFFORT implements I_C_EFFORT {
     @Override
     public String notifyAdjustFactors() {
         String output;
-        int e2Sum = projectData.getM_projectData_functionPointEstimation_configData().getE2Sum();
-        int e2Correction = projectData.getM_projectData_functionPointEstimation().getE2Correction();
+        int e2Sum = projectData.getFunctionPointEstimation_configData().getE2Sum();
+        int e2Correction = projectData.getFunctionPointEstimation().getE2Correction();
         // e2Failure positive if e2Sum > e2Correction
         // e2Failure negative if e2Sum < e2Correction
         int e2Failure = e2Sum - e2Correction;
@@ -322,7 +328,7 @@ public class C_EFFORT implements I_C_EFFORT {
         int factorIterator = 0; // Iterator to decide which factor to switch
         int adjustment = -1;    // variable stores how much the selected factor can be adjusted
         if (increase < 0 |
-                (projectData.getM_projectData_functionPointEstimation_configData().getE2Sum() + increase) > 60) {
+                (projectData.getFunctionPointEstimation_configData().getE2Sum() + increase) > 60) {
             throw new IllegalArgumentException("increase out of bounds");
         } else {
             while (increase > 0) {     // the goal sum is not achieved yet
@@ -335,10 +341,10 @@ public class C_EFFORT implements I_C_EFFORT {
                         factorIterator == 8 |                 // factorConversion
                         factorIterator == 9) {                // factorCustomizability
 
-                    adjustment = Math.abs(5 - projectData.getM_projectData_functionPointEstimation_configData().getFactor(factorIterator));
+                    adjustment = Math.abs(5 - projectData.getFunctionPointEstimation_configData().getFactor(factorIterator));
                     if (adjustment > 0) {
-                        projectData.getM_projectData_functionPointEstimation_configData().setFactor(factorIterator,
-                                projectData.getM_projectData_functionPointEstimation_configData().getFactor(factorIterator) + 1);
+                        projectData.getFunctionPointEstimation_configData().setFactor(factorIterator,
+                                projectData.getFunctionPointEstimation_configData().getFactor(factorIterator) + 1);
                         increase--;
                     } else {
                         factorIterator++;
@@ -346,10 +352,10 @@ public class C_EFFORT implements I_C_EFFORT {
                 } else if (factorIterator == 3 |              // factorProcessingCalculation
                         factorIterator == 5) {                // factorProcessingException
 
-                    adjustment = Math.abs(10 - projectData.getM_projectData_functionPointEstimation_configData().getFactor(factorIterator));
+                    adjustment = Math.abs(10 - projectData.getFunctionPointEstimation_configData().getFactor(factorIterator));
                     if (adjustment > 0) {
-                        projectData.getM_projectData_functionPointEstimation_configData().setFactor(factorIterator,
-                                projectData.getM_projectData_functionPointEstimation_configData().getFactor(factorIterator) + 1);
+                        projectData.getFunctionPointEstimation_configData().setFactor(factorIterator,
+                                projectData.getFunctionPointEstimation_configData().getFactor(factorIterator) + 1);
                         increase--;
                     } else {
                         factorIterator++;
@@ -359,7 +365,7 @@ public class C_EFFORT implements I_C_EFFORT {
                 }
             }
         }
-        projectData.getM_projectData_functionPointEstimation_configData().calcFactorSumE2();
+        projectData.getFunctionPointEstimation_configData().calcFactorSumE2();
     }
 
     /**
@@ -372,7 +378,7 @@ public class C_EFFORT implements I_C_EFFORT {
         int factorIterator = 0; // Iterator to decide which factor to switch
         int adjustment = -1;    // variable stores how much the selected factor can be adjusted
         if (decrease < 0
-                | (projectData.getM_projectData_functionPointEstimation_configData().getE2Sum() - decrease) < 0) {   //TODO: if called with decrease=5, but all factors=0 function never stops
+                | (projectData.getFunctionPointEstimation_configData().getE2Sum() - decrease) < 0) {   //TODO: if called with decrease=5, but all factors=0 function never stops
             throw new IllegalArgumentException("decrease out of bounds");
         } else {
             while (decrease > 0) { // the goal sum is not achieved yet
@@ -386,9 +392,9 @@ public class C_EFFORT implements I_C_EFFORT {
                         factorIterator == 7 |                 // factorReusability
                         factorIterator == 8 |                 // factorConversion
                         factorIterator == 9) {                // factorCustomizability
-                    adjustment = Math.abs(0 - projectData.getM_projectData_functionPointEstimation_configData().getFactor(factorIterator));
+                    adjustment = Math.abs(0 - projectData.getFunctionPointEstimation_configData().getFactor(factorIterator));
                     if (adjustment > 0) {
-                        projectData.getM_projectData_functionPointEstimation_configData().setFactor(factorIterator, projectData.getM_projectData_functionPointEstimation_configData().getFactor(factorIterator) - 1);
+                        projectData.getFunctionPointEstimation_configData().setFactor(factorIterator, projectData.getFunctionPointEstimation_configData().getFactor(factorIterator) - 1);
                         decrease--;
                     } else {
                         factorIterator++;
@@ -397,7 +403,7 @@ public class C_EFFORT implements I_C_EFFORT {
                     throw new RuntimeException("factorIterator out of bounds");
                 }
             }
-            projectData.getM_projectData_functionPointEstimation_configData().calcFactorSumE2();
+            projectData.getFunctionPointEstimation_configData().calcFactorSumE2();
         }
     }
 
@@ -405,12 +411,12 @@ public class C_EFFORT implements I_C_EFFORT {
     public void updateProjectData() {
         //TODO: get Data from Model
         calculateCounts();
-        projectData.getM_projectData_functionPointEstimation().calculateAllRowSums();
-        projectData.getM_projectData_functionPointEstimation().calculateTotalRowSumE1();
-        projectData.getM_projectData_functionPointEstimation_configData().calcFactorSumE2();
-        projectData.getM_projectData_functionPointEstimation().calcInfluenceE3();
-        projectData.getM_projectData_functionPointEstimation().calcAdjustedFunctionPoints();
-        projectData.getM_projectData_functionPointEstimation().calcJonesEstimation();
+        projectData.getFunctionPointEstimation().calculateAllRowSums();
+        projectData.getFunctionPointEstimation().calculateTotalRowSumE1();
+        projectData.getFunctionPointEstimation_configData().calcFactorSumE2();
+        projectData.getFunctionPointEstimation().calcInfluenceE3();
+        projectData.getFunctionPointEstimation().calcAdjustedFunctionPoints();
+        projectData.getFunctionPointEstimation().calcJonesEstimation();
         updateView();
     }
 }

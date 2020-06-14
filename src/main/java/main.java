@@ -28,7 +28,6 @@ public class main {
 
 //TODO: ADD DESCRIPTIONS WHENEVER POSSIBLE!
 
-//TODO: Controller and ProjectData to Singleton
 //TODO: updateProjectData bei jedem Controller triggern bevor gespeichert wird -> geänderte Werte in Berechnung mit einbeziehen z.B. Art des FunctionPoints in Estimation Count übernehmen
 
 //TODO: Auskommentieren unwichtiger Komentare s. C_FRAME
@@ -39,8 +38,6 @@ public class main {
 //TODO: add notifyButton(int id); which calls the required functions depending on the id
 
 //TODO: throw errors in default case?
-
-//TODO: Singlton change getInstance(params...)
 
 //TODO: ELF und ILF in XML und Programm nicht korrekt gesetzt
 

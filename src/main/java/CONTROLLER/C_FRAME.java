@@ -62,19 +62,6 @@ public class C_FRAME implements I_C_FRAME {
         projPath = path;
         confPath = path.replace(".xml", "_config.xml");
     }
-    /*public C_FRAME(M_PROJECTDATA projData, I_C_start conStart, String path) {
-        System.out.println("C_FRAME created");
-        controllerStart = conStart;
-        projectData = projData;
-        viewFrame = new V_FRAME(this, projectData);
-        projectData_export = new M_EXPORT();
-        projectData_import = new M_IMPORT();    //TODO: check if necessary or better when used?
-        createTabControllers();
-        I_V_BASIC.show(viewFrame.getJFrame());
-        currentController = controllerGeneral;
-        projPath = path;
-        confPath = path.replace(".xml", "_config.xml");
-    }*/
 
     /**
      * creates Controller for each tab
@@ -84,10 +71,15 @@ public class C_FRAME implements I_C_FRAME {
     public void createTabControllers(/*I_C_FRAME.tabs tabs*/) {
         controllerEffort = C_EFFORT.getInstance();  // gets only Instance of the Effort Controller
         controllerEffort.setLinks(viewFrame, projectData);  // sets the necessary links to the Frame view and the project Data
-        controllerProductFunction = new C_PRODUCTFUNCTION(viewFrame, projectData);
-        controllerProductData = new C_PRODUCTDATA(viewFrame,projectData);
-        controllerGeneral = new C_GENERAL(viewFrame, projectData);
-        System.out.println("General Controller created");
+
+        controllerProductFunction = C_PRODUCTFUNCTION.getInstance();
+        controllerProductFunction.setLinks(viewFrame, projectData);
+
+        controllerProductData = C_PRODUCTDATA.getInstance();
+        controllerProductData.setLinks(viewFrame,projectData);
+
+        controllerGeneral = C_GENERAL.getInstance();
+        controllerGeneral.setLinks(viewFrame,projectData);
     }
 
     /**
@@ -245,7 +237,7 @@ public class C_FRAME implements I_C_FRAME {
     @Override
     public void notifyExportFactor() {
         System.out.println("Exportiere Faktoren !");
-        projectData_export.export(projectData.getM_projectData_functionPointEstimation_configData(), confPath);
+        projectData_export.export(projectData.getFunctionPointEstimation_configData(), confPath);
     }
 
     /**
