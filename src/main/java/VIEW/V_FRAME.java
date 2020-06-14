@@ -350,6 +350,12 @@ public class V_FRAME implements I_V_FRAME {
             @Override
             public void actionPerformed(ActionEvent e) {
                 controllerFrame.notifyProductContentDELETE();
+                textFieldProductFunctionID.setText("");
+                textFieldProductFunctionFunction.setText("");
+                textFieldProductFunctionProtagonist.setText("");
+                textAreaProductFunctionDescription.setText("");
+                spinnerProductFunctionFTR.setValue(0);
+                getSpinnerProdFuncDET().setValue(1);
             }
         });
 
@@ -452,7 +458,7 @@ public class V_FRAME implements I_V_FRAME {
         SpinnerNumberModel nMSpinnerProductFunctionFTR = new SpinnerNumberModel(0, 0, 1000, 1);
         spinnerProductFunctionFTR.setModel(nMSpinnerProductFunctionFTR);
 
-        SpinnerNumberModel nMSpinnerProductFunctionDET = new SpinnerNumberModel(0, 0, 1000, 1);
+        SpinnerNumberModel nMSpinnerProductFunctionDET = new SpinnerNumberModel(1, 1, 1000, 1);
         spinnerProductFunctionDET.setModel(nMSpinnerProductFunctionDET);
 
         buttonNewProductFunction.addActionListener(new ActionListener() {
@@ -507,8 +513,13 @@ public class V_FRAME implements I_V_FRAME {
         buttonproductDataDelete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controllerFrame.notifyProductContentDELETE();
-                System.out.println("DELETE Product Data Element requested");
+                    controllerFrame.notifyProductContentDELETE();
+                    textFieldproductDataID.setText("");
+                    textAreaproductDataDescription.setText("");
+                    textFieldproductDataReference.setText("");
+                    spinnerproductDataRET.setValue(1);
+                    spinnerproductDataDET.setValue(1);
+                    System.out.println("DELETE Product Data Element requested");
             }
         });
         buttonproductDataSave.addActionListener(new ActionListener() {
