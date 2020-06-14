@@ -76,7 +76,7 @@ public class M_PROJECTDATA {
 
     /**
      * get List of Product Data's
-     * @return ArrayList<M_PROJECTDATA_PRODUCTDATA> Object
+     * @return ArrayList(M_PROJECTDATA_PRODUCTDATA) Object
      */
     public ArrayList<M_PROJECTDATA_PRODUCTDATA> getProductDataList() {
         return productDataList;
@@ -84,7 +84,7 @@ public class M_PROJECTDATA {
 
     /**
      * get List of Product Function's
-     * @return ArrayList<M_PROJECTDATA_PRODUCTFUNCTION> Object
+     * @return ArrayList(M_PROJECTDATA_PRODUCTFUNCTION) Object
      */
     public ArrayList<M_PROJECTDATA_PRODUCTFUNCTION> getProductFunctionList() {
         return productFunctionList;
