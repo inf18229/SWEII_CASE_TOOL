@@ -48,7 +48,6 @@ public class M_IMPORT {
 
                 M_PROJECTDATA projectData_temp = jaxbElement.getValue();
                 projectData = projectData_temp;
-                System.out.println(projectData_temp);
             } catch (JAXBException e) {
                 e.printStackTrace();
             }
@@ -81,7 +80,6 @@ public class M_IMPORT {
 
                 M_FUNCTIONPOINTESTIMATION_CONFIGDATA confData_temp = jaxbElement.getValue();
                 configData = confData_temp;
-                System.out.println(configData);
                 projData.setFunctionPointEstimation_configData(configData); //TODO: Kontrollflussgraph
             } catch (JAXBException e) {
                 e.printStackTrace();

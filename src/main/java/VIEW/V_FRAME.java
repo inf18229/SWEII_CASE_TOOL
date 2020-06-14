@@ -480,7 +480,6 @@ public class V_FRAME implements I_V_FRAME {
         listproductDataID.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
-                System.out.println(listproductDataID.getSelectedValue().toString());
                 controllerFrame.notifySelectedListChange(listproductDataID.getSelectedValue().toString());
             }
         });
@@ -1370,11 +1369,9 @@ public class V_FRAME implements I_V_FRAME {
     public void addProdFuncIDListElement(String id) {
         try{
             listModelProductFunction.addElement(id);
-            System.out.println(listProductFunctionID.getLastVisibleIndex());
             listProductFunctionID.setSelectedIndex(listProductFunctionID.getLastVisibleIndex());
         }
         catch (NullPointerException e){
-            System.out.println("Debug output");
         }
 
     }
@@ -1413,7 +1410,7 @@ public class V_FRAME implements I_V_FRAME {
         try {
             listProductFunctionID.setModel(listModelProductFunction);
         } catch (NullPointerException exception) {
-
+            //Nullpointer exception expected when List is empty
         }
 
 
@@ -1422,7 +1419,6 @@ public class V_FRAME implements I_V_FRAME {
     @Override
     public void addProdDataIDListElement(String id) {
         listModelProductData.addElement(id);
-        System.out.println(listproductDataID.getLastVisibleIndex());
         listproductDataID.setSelectedIndex(listproductDataID.getLastVisibleIndex());
 
     }

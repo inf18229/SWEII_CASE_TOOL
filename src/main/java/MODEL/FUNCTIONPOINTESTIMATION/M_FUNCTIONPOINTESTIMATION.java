@@ -94,7 +94,7 @@ public class M_FUNCTIONPOINTESTIMATION {
         if (M_FUNCTIONPOINTESTIMATION.functionPointEstimation == null) {
             M_FUNCTIONPOINTESTIMATION.functionPointEstimation = new M_FUNCTIONPOINTESTIMATION();
         } else {
-            System.out.println("FounctionPointEstimation Instance already created");
+            System.out.println("FunctionPointEstimation Instance already created");
         }
         return M_FUNCTIONPOINTESTIMATION.functionPointEstimation;
     }

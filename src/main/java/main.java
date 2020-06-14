@@ -16,13 +16,11 @@ public class main {
 
 //TODO: Maven? (bei neuer Installation)
 
-//TODO: refact Func Req
 
 //TODO: ADD DESCRIPTIONS WHENEVER POSSIBLE!
 
 //TODO: updateProjectData bei jedem Controller triggern bevor gespeichert wird -> geänderte Werte in Berechnung mit einbeziehen z.B. Art des FunctionPoints in Estimation Count übernehmen
 
-//TODO: Auskommentieren unwichtiger Komentare s. C_FRAME
 //============================================sonstige Ideen und Anmerkungen============================================
 //TODO: löschen Knopf entfernen/deaktivieren, wenn Liste leer
 //TODO: entscheiden in welcher Reihenfolge paramter übergeben werden (model, view, controller oder anders?)

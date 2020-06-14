@@ -5,6 +5,8 @@ import MODEL.PROJECTDATA.M_PROJECTDATA_PRODUCTCONTENTFACTORY;
 import MODEL.PROJECTDATA.M_PROJECTDATA_PRODUCTDATA;
 import VIEW.I_V_FRAME;
 
+import javax.swing.*;
+
 public class C_PRODUCTDATA implements I_C_PRODUCTDATA {
     private static C_PRODUCTDATA controllerProductData;
     private I_V_FRAME viewFrame;
@@ -39,7 +41,6 @@ public class C_PRODUCTDATA implements I_C_PRODUCTDATA {
         projectDataProductData.memoryContent = viewFrame.getTextAreaproductDataDescription().getText();
         projectDataProductData.functionPointRET = (int) viewFrame.getSpinnerproductDataRET().getValue();
         projectDataProductData.functionPointDET = (int) viewFrame.getSpinnerproductDataDET().getValue();
-        System.out.println(viewFrame.getComboBoxProdDataCategory().getSelectedItem().toString());
         projectDataProductData.functionPointCategory = viewFrame.getComboBoxProdDataCategory().getSelectedItem().toString();
         projectDataProductData.calculateWeight();
     }
@@ -60,16 +61,19 @@ public class C_PRODUCTDATA implements I_C_PRODUCTDATA {
                 M_PROJECTDATA_PRODUCTDATA newProductData = new M_PROJECTDATA_PRODUCTCONTENTFACTORY().createProductData(viewFrame.getTextFieldproductDataID().getText());
                 setProductDataElements(newProductData);
                 projectData.getProductDataList().add(newProductData);
-                for (M_PROJECTDATA_PRODUCTDATA dataelement : projectData.getProductDataList()) {
-                    System.out.println(dataelement.memoryContent);
-                }
                 viewFrame.addProdDataIDListElement(viewFrame.getTextFieldproductDataID().getText());
                 viewFrame.setWeightDescription(newProductData.functionPointWeighting);
             } else {
-                System.out.println("Please enter a ID to create new Project Data");
+                JOptionPane.showMessageDialog(null,
+                        "Bitte ID eingeben um ein neues Produktdatum anzulegen",
+                        "Achtung",
+                        JOptionPane.WARNING_MESSAGE);
             }
         } else {
-            System.out.println("ID already exists in project Function");
+            JOptionPane.showMessageDialog(null,
+                    "Produktdaten ID existiert bereits",
+                    "Achtung",
+                    JOptionPane.WARNING_MESSAGE);
         }
     }
 
@@ -83,7 +87,10 @@ public class C_PRODUCTDATA implements I_C_PRODUCTDATA {
             }
         }
         if (selectedProjectData == null) {
-            System.out.println("Selected ID does not exist no update of Info can occur");
+            JOptionPane.showMessageDialog(null,
+                    "Keine ID selektiert um Aktualisierung durchzuführen",
+                    "Achtung",
+                    JOptionPane.WARNING_MESSAGE);
         } else {
             viewFrame.updateProdDataInfo(selectedProjectData);
         }

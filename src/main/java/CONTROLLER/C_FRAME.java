@@ -50,7 +50,6 @@ public class C_FRAME implements I_C_FRAME {
      * this method sets the necessary links after instantiation of the controller
      */
     public void setLinks(M_PROJECTDATA projData, I_C_START conStart, String path) {
-        //System.out.println("C_FRAME created");
         controllerStart = conStart;
         projectData = projData;
         viewFrame = new V_FRAME(this, projectData);
@@ -218,7 +217,6 @@ public class C_FRAME implements I_C_FRAME {
      */
     @Override
     public void notifyImportFactor() {
-        System.out.println("Importiere Faktoren !");
         try{
             projectData_import.importProject(projectData, confPath);
             controllerEffort.updateProjectData();
@@ -237,7 +235,6 @@ public class C_FRAME implements I_C_FRAME {
      */
     @Override
     public void notifyExportFactor() {
-        System.out.println("Exportiere Faktoren !");
         projectData_export.export(projectData.getFunctionPointEstimation_configData(), confPath);
     }
 

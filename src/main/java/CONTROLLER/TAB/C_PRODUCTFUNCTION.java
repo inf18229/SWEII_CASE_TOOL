@@ -5,6 +5,8 @@ import MODEL.PROJECTDATA.M_PROJECTDATA_PRODUCTCONTENTFACTORY;
 import MODEL.PROJECTDATA.M_PROJECTDATA_PRODUCTFUNCTION;
 import VIEW.I_V_FRAME;
 
+import javax.swing.*;
+
 public class C_PRODUCTFUNCTION implements I_C_PRODUCTFUNCTION {
     private static C_PRODUCTFUNCTION controllerProductFunction;
     private I_V_FRAME viewFrame;
@@ -80,14 +82,19 @@ public class C_PRODUCTFUNCTION implements I_C_PRODUCTFUNCTION {
                 M_PROJECTDATA_PRODUCTFUNCTION newProductFunction = new M_PROJECTDATA_PRODUCTCONTENTFACTORY().createProductFunction(viewFrame.getTextFieldProdFuncID().getText());
                 setProductFunctionElements(newProductFunction);
                 viewFrame.setWeightDescription(newProductFunction.functionPointWeighting);
-                System.out.println(newProductFunction.toString());
                 projectData.getProductFunctionList().add(newProductFunction);
                 viewFrame.addProdFuncIDListElement(viewFrame.getTextFieldProdFuncID().getText());
             } else {
-                System.out.println("Please enter ID to create new Project Function");
+                JOptionPane.showMessageDialog(null,
+                        "Bitte ID eingeben um eine neue Produktfunktion anzulegen",
+                        "Achtung",
+                        JOptionPane.WARNING_MESSAGE);
             }
         } else {
-            System.out.println("ID already exists in project Function");
+            JOptionPane.showMessageDialog(null,
+                    "Produktfunktions ID existiert bereits",
+                    "Achtung",
+                    JOptionPane.WARNING_MESSAGE);
         }
 
 
@@ -108,7 +115,10 @@ public class C_PRODUCTFUNCTION implements I_C_PRODUCTFUNCTION {
             }
         }
         if (selectedProjectData == null) {
-            System.out.println("Selected ID does not exist no update of Info can occur");
+            JOptionPane.showMessageDialog(null,
+                    "Keine ID selektiert um Aktualisierung durchzuführen",
+                    "Achtung",
+                    JOptionPane.WARNING_MESSAGE);
         } else {
             viewFrame.updateProdFuncInfo(selectedProjectData);
         }
