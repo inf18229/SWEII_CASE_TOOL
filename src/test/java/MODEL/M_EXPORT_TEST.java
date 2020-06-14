@@ -7,8 +7,8 @@
 package MODEL;
 // helpful links: https://junit.org/junit5/docs/current/user-guide/
 
+import MODEL.FUNCTIONPOINTESTIMATION.M_FUNCTIONPOINTESTIMATION_CONFIGDATA;
 import MODEL.PROJECTDATA.M_PROJECTDATA;
-import MODEL.PROJECTDATA.M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA;
 import org.junit.jupiter.api.Test;
 
 import java.nio.file.InvalidPathException;
@@ -80,7 +80,7 @@ class M_EXPORT_TEST {
     @Test
     void export_configData_nullProjectDataTest() {
         M_EXPORT export_test = new M_EXPORT();
-        M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA confData_test = null;
+        M_FUNCTIONPOINTESTIMATION_CONFIGDATA confData_test = null;
         String path = "test_export.xml";
         //Tests whether an error has occured by transforming from java into xml
         assertThrows(NullPointerException.class, () -> export_test.export(confData_test, path));
@@ -90,7 +90,7 @@ class M_EXPORT_TEST {
     @Test
     void export_configData_emptyFilenameTest() {
         M_EXPORT export_test = new M_EXPORT();
-        M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA confData_test = M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA.getInstance();
+        M_FUNCTIONPOINTESTIMATION_CONFIGDATA confData_test = M_FUNCTIONPOINTESTIMATION_CONFIGDATA.getInstance();
 
         //Class 1 --> string with blanks
         String path1 = " ";
@@ -114,7 +114,7 @@ class M_EXPORT_TEST {
     void export_configData_cleanRun() {
         try {
             M_EXPORT export_test = new M_EXPORT();
-            M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA confData_test = M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA.getInstance();
+            M_FUNCTIONPOINTESTIMATION_CONFIGDATA confData_test = M_FUNCTIONPOINTESTIMATION_CONFIGDATA.getInstance();
             String path = "test_config.xml";
             export_test.export(confData_test, path);
         } catch (Exception e) {

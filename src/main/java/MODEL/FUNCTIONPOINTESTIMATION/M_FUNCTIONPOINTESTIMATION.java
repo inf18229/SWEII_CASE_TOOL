@@ -1,11 +1,14 @@
-package MODEL.PROJECTDATA;
+package MODEL.FUNCTIONPOINTESTIMATION;
 
-public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
+/**
+ * Class contains all Information for Functionpoint Estimation
+ * Calculates Functionpoint Estimation
+ */
+public class M_FUNCTIONPOINTESTIMATION {
 
-    private static M_PROJECTDATA_FUNCTIONPOINTESTIMATION functionPointEstimation;
-    private M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA configData; // reference to configData
+    private static M_FUNCTIONPOINTESTIMATION functionPointEstimation;
+    private M_FUNCTIONPOINTESTIMATION_CONFIGDATA configData; // reference to configData
 
-    //variables for all counts
     private int countInputSimple = 0;
     private int countInputMedium = 0;
     private int countInputComplex = 0;
@@ -26,7 +29,6 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
     private int countReferenceMedium = 0;
     private int countReferenceComplex = 0;
 
-    //variables for all weights
     private int weightInputSimple = 3;
     private int weightInputMedium = 4;
     private int weightInputComplex = 6;
@@ -47,7 +49,6 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
     private int weightReferenceMedium = 7;
     private int weightReferenceComplex = 10;
 
-    //variables for all calculated sums
     private int sumInputSimple = 0;
     private int sumInputMedium = 0;
     private int sumInputComplex = 0;
@@ -68,24 +69,20 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
     private int sumReferenceMedium = 0;
     private int sumReferenceComplex = 0;
 
-    private int e1Sum = 0;
-    private double e3Sum = 0;
-    private double afp = 0;
-
+    private int e1Sum = 0; //Sum of unajusted Function Points (naming Schema by SWE script)
+    private double e3Sum = 0; //factor of influence points
+    private double afp = 0; //adjusted Function Points
     private double jonesDuration = 0;
     private int jonesPersonNo = 0;
     private double jonesPersonMonths = 0;
-
     private double actualDuration = 0;
     private double correctionFactor = 0;
-
-    private int e2Correction = -1;
-
+    private int e2Correction = -1; //correction factor for influence points Sum
 
     /**
      * creates new Object of Function Point Estimation and sets a reference to configData
      */
-    private M_PROJECTDATA_FUNCTIONPOINTESTIMATION() {
+    private M_FUNCTIONPOINTESTIMATION() {
     }
 
     /**
@@ -93,13 +90,13 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
      *
      * @return function Point Estimation
      */
-    public static M_PROJECTDATA_FUNCTIONPOINTESTIMATION getInstance() {
-        if (M_PROJECTDATA_FUNCTIONPOINTESTIMATION.functionPointEstimation == null) {
-            M_PROJECTDATA_FUNCTIONPOINTESTIMATION.functionPointEstimation = new M_PROJECTDATA_FUNCTIONPOINTESTIMATION();
+    public static M_FUNCTIONPOINTESTIMATION getInstance() {
+        if (M_FUNCTIONPOINTESTIMATION.functionPointEstimation == null) {
+            M_FUNCTIONPOINTESTIMATION.functionPointEstimation = new M_FUNCTIONPOINTESTIMATION();
         } else {
             System.out.println("FounctionPointEstimation Instance already created");
         }
-        return M_PROJECTDATA_FUNCTIONPOINTESTIMATION.functionPointEstimation;
+        return M_FUNCTIONPOINTESTIMATION.functionPointEstimation;
     }
 
     /**
@@ -108,7 +105,7 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
      *
      * @param confData reference of config data to which the local variable configData is set to
      */
-    public void setConfigData(M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA confData) {
+    public void setConfigData(M_FUNCTIONPOINTESTIMATION_CONFIGDATA confData) {
         configData = confData;
     }
 
@@ -401,6 +398,7 @@ public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION {
      * @param realTime time, the project really took till completion
      */
     public void calcE2Needed(double realTime) {
+        //TODO: delete temp variables
         double temp = realTime / (Math.exp(0) * jonesPersonNo);
         double temp1 = Math.pow(temp, 1 / 0.4);
         double temp2 = temp1 / e1Sum;

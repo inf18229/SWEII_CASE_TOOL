@@ -1,4 +1,4 @@
-package MODEL.PROJECTDATA;
+package MODEL.FUNCTIONPOINTESTIMATION;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -7,19 +7,19 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA")
 @XmlAccessorType(XmlAccessType.FIELD)
 
-public class M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA {
-    private static M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA configData;
+public class M_FUNCTIONPOINTESTIMATION_CONFIGDATA {
+    private static M_FUNCTIONPOINTESTIMATION_CONFIGDATA configData;
 
-    private M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA() {
+    private M_FUNCTIONPOINTESTIMATION_CONFIGDATA() {
     }
 
-    public static M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA getInstance() {
-        if (M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA.configData == null) {
-            M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA.configData = new M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA();
+    public static M_FUNCTIONPOINTESTIMATION_CONFIGDATA getInstance() {
+        if (M_FUNCTIONPOINTESTIMATION_CONFIGDATA.configData == null) {
+            M_FUNCTIONPOINTESTIMATION_CONFIGDATA.configData = new M_FUNCTIONPOINTESTIMATION_CONFIGDATA();
         } else {
             System.out.println("ConfigData Instance already created");
         }
-        return M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA.configData;
+        return M_FUNCTIONPOINTESTIMATION_CONFIGDATA.configData;
     }
 
     //@XmlTransient // jumps over first element

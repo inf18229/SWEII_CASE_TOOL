@@ -1,13 +1,7 @@
-/**
- * @autor: David
- * Responsible: David
- * Last edit date: 10.06.2020
- */
-
 package MODEL;
 
+import MODEL.FUNCTIONPOINTESTIMATION.M_FUNCTIONPOINTESTIMATION_CONFIGDATA;
 import MODEL.PROJECTDATA.M_PROJECTDATA;
-import MODEL.PROJECTDATA.M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -66,7 +60,7 @@ public class M_EXPORT {
         }
     }
 
-    public void export(M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA confData, String confPath) throws  InvalidPathException, NullPointerException {
+    public void export(M_FUNCTIONPOINTESTIMATION_CONFIGDATA confData, String confPath) throws  InvalidPathException, NullPointerException {
         /**
          * this function converts the current project to XML and saves the new XML file
          * @param projData the projectData of the current project
@@ -76,7 +70,7 @@ public class M_EXPORT {
             if(!confPath.isEmpty() && !confPath.isBlank()) {
             try {
                 //Create JAXB Context
-                JAXBContext jaxbContext = JAXBContext.newInstance(M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA.class);
+                JAXBContext jaxbContext = JAXBContext.newInstance(M_FUNCTIONPOINTESTIMATION_CONFIGDATA.class);
 
                 //Create Marshaller
                 Marshaller jaxbMarshaller = jaxbContext.createMarshaller();

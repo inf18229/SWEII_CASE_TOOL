@@ -1,6 +1,5 @@
 package CONTROLLER.TAB;
 
-import CONTROLLER.C_FRAME;
 import MODEL.PROJECTDATA.M_PROJECTDATA;
 import MODEL.PROJECTDATA.M_PROJECTDATA_PRODUCTCONTENTFACTORY;
 import MODEL.PROJECTDATA.M_PROJECTDATA_PRODUCTFUNCTION;
@@ -17,24 +16,19 @@ public class C_PRODUCTFUNCTION implements I_C_PRODUCTFUNCTION {
     public C_PRODUCTFUNCTION() {
     }
 
-    public static C_PRODUCTFUNCTION getInstance(){
+    public static C_PRODUCTFUNCTION getInstance() {
         if (controllerProductFunction == null) {
             controllerProductFunction = new C_PRODUCTFUNCTION();
-        }
-        else{
+        } else {
             System.out.println("C_PRODUCTFUNCTION Instance already created");
         }
         return controllerProductFunction;
     }
+
     @Override
     public void setLinks(I_V_FRAME view, M_PROJECTDATA projData) {
-        if (projectData == null || view == null){
-            viewFrame = view;
-            projectData = projData;
-        }
-        else {
-            System.out.println("C_PRODUCTFUNCTION Links already set");
-        }
+        viewFrame = view;
+        projectData = projData;
     }
 
     /**
@@ -54,6 +48,7 @@ public class C_PRODUCTFUNCTION implements I_C_PRODUCTFUNCTION {
 
     /**
      * set the Project Data Function object that is given as an argument
+     *
      * @param projectDataFunction contains a project data element that wants to be configured by the function
      */
     private void setProductFunctionElements(M_PROJECTDATA_PRODUCTFUNCTION projectDataFunction) {
@@ -81,15 +76,14 @@ public class C_PRODUCTFUNCTION implements I_C_PRODUCTFUNCTION {
         }
         if (!alreadyexists) {
             //Using ProductContentFactory to create object
-            if(!viewFrame.getTextFieldProdFuncID().getText().isEmpty()) {
+            if (!viewFrame.getTextFieldProdFuncID().getText().isEmpty()) {
                 M_PROJECTDATA_PRODUCTFUNCTION newProductFunction = new M_PROJECTDATA_PRODUCTCONTENTFACTORY().createProductFunction(viewFrame.getTextFieldProdFuncID().getText());
                 setProductFunctionElements(newProductFunction);
                 viewFrame.setWeightDescription(newProductFunction.functionPointWeighting);
                 System.out.println(newProductFunction.toString());
                 projectData.getProductFunctionList().add(newProductFunction);
                 viewFrame.addProdFuncIDListElement(viewFrame.getTextFieldProdFuncID().getText());
-            }
-            else{
+            } else {
                 System.out.println("Please enter ID to create new Project Function");
             }
         } else {
@@ -101,6 +95,7 @@ public class C_PRODUCTFUNCTION implements I_C_PRODUCTFUNCTION {
 
     /**
      * Saves the elements of the selected Product Function ID
+     *
      * @param selectedID is the current selected ID from JList Panel
      */
     @Override

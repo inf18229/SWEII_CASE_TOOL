@@ -63,6 +63,7 @@ public class C_FRAME implements I_C_FRAME {
         confPath = path.replace(".xml", "_config.xml");
     }
 
+
     /**
      * creates Controller for each tab
      * method iterates through enum tabs and creates the specific Controller for each

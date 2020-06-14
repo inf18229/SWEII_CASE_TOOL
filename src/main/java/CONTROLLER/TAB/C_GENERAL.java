@@ -23,8 +23,7 @@ public class C_GENERAL implements I_C_GENERAL {
     public static C_GENERAL getInstance() {
         if (controllerGeneral == null) {
             controllerGeneral = new C_GENERAL();
-        }
-        else{
+        } else {
             System.out.println("C_GENERAL Instance already created");
         }
         return controllerGeneral;
@@ -32,15 +31,10 @@ public class C_GENERAL implements I_C_GENERAL {
 
     @Override
     public void setLinks(I_V_FRAME view, M_PROJECTDATA projData) {
-        if (projectData == null || view == null){
-            targetUse = view.getTargetUse();
-            productUse = view.getProductUse();
-            productEnvironment = view.getProductEnvironment();
-            projectData = projData;
-        }
-        else {
-            System.out.println("C_GENERAL Links already set");
-        }
+        targetUse = view.getTargetUse();
+        productUse = view.getProductUse();
+        productEnvironment = view.getProductEnvironment();
+        projectData = projData;
     }
 
     /**

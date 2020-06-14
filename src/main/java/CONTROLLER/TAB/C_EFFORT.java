@@ -42,12 +42,8 @@ public class C_EFFORT implements I_C_EFFORT {
      * this method sets the necessary links after instantiation of the controller
      */
     public void setLinks(I_V_FRAME view, M_PROJECTDATA projData) {
-        if (viewFrame == null || projectData == null) {
-            viewFrame = view;
-            projectData = projData;
-        } else {
-            System.out.println("Links already set");
-        }
+        viewFrame = view;
+        projectData = projData;
     }
 
     /**
