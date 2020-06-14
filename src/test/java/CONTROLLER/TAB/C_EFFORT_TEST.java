@@ -288,7 +288,7 @@ class C_EFFORT_TEST {
     }
 
     /**
-     * this method tests what happens when nothing can be increased, but increase > 0
+     * this method tests what happens when nothing can be increased, but increase greater 0
      * only happens if notify adjustFactors gets run with wrong value for e2Sum
      * e2Sum = 10
      * e2Correction = 60
@@ -400,7 +400,7 @@ class C_EFFORT_TEST {
     }
 
     /**
-     * this method tests what happens when nothing can be decreased, but decrease > 0
+     * this method tests what happens when nothing can be decreased, but decrease greater 0
      * only happens if notify adjustFactors gets run with wrong value for e2Sum
      * e2Sum = 10
      * e2Correction = 5

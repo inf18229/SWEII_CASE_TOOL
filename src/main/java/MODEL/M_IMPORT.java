@@ -1,12 +1,14 @@
 package MODEL;
 
-import MODEL.PROJECTDATA.M_PROJECTDATA;
 import MODEL.FUNCTIONPOINTESTIMATION.M_FUNCTIONPOINTESTIMATION_CONFIGDATA;
+import MODEL.PROJECTDATA.M_PROJECTDATA;
 
-import javax.xml.bind.*;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
 import javax.xml.transform.stream.StreamSource;
 import java.io.File;
-import java.io.InvalidObjectException;
 import java.nio.file.InvalidPathException;
 
 /**
@@ -28,8 +30,8 @@ public class M_IMPORT {
      * This function imports a project by converting an XML file to the M_PROJECTDATA Java Object
      * @param path the path for the project that has to be imported
      * @return projectData returns the loaded project in a M_PROJECTDATA object
-     * @throws InvalidPathException
-     * @source code idea from: https://howtodoinjava.com/jaxb/unmarshal-without-xmlrootelement/
+     * @throws InvalidPathException Invalid path
+     * //TODO: @throws add State Exception
      */
     public M_PROJECTDATA importProject(String path) throws InvalidPathException, IllegalStateException {
         File xmlFile = new File(path);
@@ -59,9 +61,8 @@ public class M_IMPORT {
      * This function imports a projects config data by converting a XML file to the M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA Java Object
      * @param projData the project where the imported configData should be inserted
      * @param path the path for the project that has to be imported
-     * @throws InvalidPathException
-     * @throws NullPointerException
-     * @source code idea from: https://howtodoinjava.com/jaxb/unmarshal-without-xmlrootelement/
+     * @throws InvalidPathException Invalid path
+     * @throws NullPointerException //TODO: add description
      */
     public void importProject(M_PROJECTDATA projData, String path) throws InvalidPathException, NullPointerException {
         File xmlFile = new File(path);
