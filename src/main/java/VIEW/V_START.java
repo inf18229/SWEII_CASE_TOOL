@@ -9,44 +9,44 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class V_START implements I_V_START {
-    private static I_C_START conStart;
+    private static I_C_START controllerStart;
     private JFrame frame;
-    private JPanel V_startPanel;
-    private JLabel t_newProject;
-    private JButton b_createProject;
-    private JButton b_openProject;
+    private JPanel panelStart;
+    private JLabel labelNewProject;
+    private JButton buttonCreateProject;
+    private JButton buttonOpenProject;
 
 
     /**
      * Constructor of the V_START Class
      * it needs a reference to the C_START Controller as param con
      *
-     * @param controllerStart reference to the Start Controller
+     * @param conStart reference to the Start Controller
      */
-    public V_START(I_C_START controllerStart) {
-        conStart = controllerStart;
+    public V_START(I_C_START conStart) {
+        controllerStart = conStart;
         frame = new JFrame("SWE CASE TOOL");
-        frame.setContentPane(this.V_startPanel);
+        frame.setContentPane(this.panelStart);
         frame.setResizable(false);
         frame.getContentPane().setPreferredSize(new Dimension(400, 120));
 
 
-        b_createProject.addActionListener(new ActionListener() {
+        buttonCreateProject.addActionListener(new ActionListener() {
             /**
              * includes all actions that should be processed when the "Neues Projekt" button gets pressed
              */
             @Override
             public void actionPerformed(ActionEvent e) {
-                conStart.notifyCreate();
+                controllerStart.notifyCreate();
             }
         });
-        b_openProject.addActionListener(new ActionListener() {
+        buttonOpenProject.addActionListener(new ActionListener() {
             /**
              * includes all actions that should be processed when the "Öffne Projekt" button gets pressed
              */
             @Override
             public void actionPerformed(ActionEvent e) {
-                conStart.notifyOpen();
+                controllerStart.notifyOpen();
             }
         });
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

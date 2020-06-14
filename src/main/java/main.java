@@ -16,8 +16,6 @@ public class main {
 
 //TODO: Maven? (bei neuer Installation)
 
-//TODO: check variable names (english or german?)
-
 //TODO: ADD DESCRIPTIONS WHENEVER POSSIBLE!
 
 //TODO: updateProjectData bei jedem Controller triggern bevor gespeichert wird -> geänderte Werte in Berechnung mit einbeziehen z.B. Art des FunctionPoints in Estimation Count übernehmen

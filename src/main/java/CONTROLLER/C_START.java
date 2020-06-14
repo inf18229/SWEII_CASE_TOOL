@@ -20,7 +20,7 @@ public class C_START implements I_C_START {
     //TODO: create Model and store in local Variable
     //TODO: create VIEW and store in local Variable
     private I_V_START viewStart;
-    private M_IMPORT m__import;
+    private M_IMPORT importObj;
 
     /**
      * creates Object of Class C_START
@@ -31,7 +31,7 @@ public class C_START implements I_C_START {
     private C_START(){
         viewStart = new V_START(this);
         I_V_BASIC.show(viewStart.getJFrame());  // makes viewStart visible and enables user input
-        m__import = new M_IMPORT();
+        importObj = new M_IMPORT();
     }
 
     /**
@@ -85,7 +85,7 @@ public class C_START implements I_C_START {
             M_PROJECTDATA projectData = M_PROJECTDATA.getInstance();
             if (path instanceof String) {
                 try{
-                    projectData = m__import.importProject(path);
+                    projectData = importObj.importProject(path);
                     projectData.setFunctionPointEstimation_configData(projectData.getFunctionPointEstimation_configData()); //TODO: check if relevant for testing
                     projectData.getFunctionPointEstimation().setE2Correction(-1); //clean Correction Factor from last Calculation
                 }

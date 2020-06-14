@@ -1,16 +1,46 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <M_PROJECTDATA>
+    <productFunctionList>
+        <id>LF00-1</id>
+        <function>Projekt anlegen</function>
+        <actor>Requirements Engineer</actor>
+        <description>Die Software muss dem Requirements Engineer die Möglichkeit bieten neue Projekte anlegen zu können.</description>
+        <functionPointWeighting>2</functionPointWeighting>
+        <functionPointCategory>EI-Eingabe</functionPointCategory>
+        <functionPointDET>7</functionPointDET>
+        <functionPointFTR>20</functionPointFTR>
+    </productFunctionList>
+    <productFunctionList>
+        <id>LF00-2</id>
+        <function>Projektspeicherung</function>
+        <actor>Requirements Engineer</actor>
+        <description>Die Software muss jedes Projekt als Datei speichern.</description>
+        <functionPointWeighting>2</functionPointWeighting>
+        <functionPointCategory>EO-Ausgabe</functionPointCategory>
+        <functionPointDET>7</functionPointDET>
+        <functionPointFTR>20</functionPointFTR>
+    </productFunctionList>
+    <productFunctionList>
+        <id>LF00-3</id>
+        <function>Projekt löschen</function>
+        <actor>Requirements Engineer</actor>
+        <description>Die Software muss den Requirements Engineer die Möglichkeit bieten Projekte löschen zu können.</description>
+        <functionPointWeighting>0</functionPointWeighting>
+        <functionPointCategory>EQ-Abfrage</functionPointCategory>
+        <functionPointDET>51</functionPointDET>
+        <functionPointFTR>20</functionPointFTR>
+    </productFunctionList>
     <productUse>
-        <content>TestProductUse</content>
         <title>Produkteinsatz</title>
+        <content></content>
     </productUse>
     <targetDefinition>
-        <content></content>
         <title>Zielbestimmung</title>
+        <content></content>
     </targetDefinition>
     <productEnvironment>
-        <content></content>
         <title>Produktumgebung</title>
+        <content></content>
     </productEnvironment>
     <functionPointEstimation>
         <actualDuration>0.0</actualDuration>

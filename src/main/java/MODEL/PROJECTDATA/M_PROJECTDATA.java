@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 
-@XmlRootElement(name = "M_PROJECTDATA")
+@XmlRootElement(name = "PROJECTDATA")
 @XmlAccessorType(XmlAccessType.FIELD)
 
 /**

@@ -22,24 +22,24 @@ public class V_FRAME implements I_V_FRAME {
     private JFrame frame;
 
     // declaration for the desired decimal format -> improves readability
-    private static DecimalFormat df2 = new DecimalFormat("#.##");
+    private static DecimalFormat decimalFormat2 = new DecimalFormat("#.##");
 
     /**
      * Declarations of Variables for V_FRAME
      * all detailed information are saved in V_FRAME.form
      */
-    private JPanel V_framePanel;
+    private JPanel panelFrame;
     private JTabbedPane tabbedPane;
-    private JPanel V_General;
-    private JPanel V_FuncReq;
-    private JPanel V_NonFuncReq;
-    private JPanel V_effort;
+    private JPanel panelGeneral;
+    private JPanel panelProductFunction;
+    private JPanel panelProductData;
+    private JPanel panelEffort;
     private JTextArea targetUse;
     private JTextArea productUse;
-    private JButton b_nextStep; // button is only visible in effort view and brings the user to next step
-    private JButton b_lastStep; // button is only visible in effort view and brings the user to last step
-    private JButton b_closeProject;
-    private JButton b_saveProject;
+    private JButton buttonNextStep; // button is only visible in effort view and brings the user to next step
+    private JButton buttonLastStep; // button is only visible in effort view and brings the user to last step
+    private JButton buttonCloseProject;
+    private JButton buttonSaveProject;
     private JLabel labelCountInputSimple;
     private JLabel labelCountInputMedium;
     private JLabel labelCountInputComplex;
@@ -87,7 +87,7 @@ public class V_FRAME implements I_V_FRAME {
     private JLabel labelSumReferenceComplex;
     private JLabel labelSumSum;
     private JTextArea productEnvironment;
-    private JTabbedPane V_Effort_Tabs;
+    private JTabbedPane tabbedPaneEffort;
     private JPanel panelMainContainer;
     private JPanel panelCategory;
     private JPanel panelCategoryInput;
@@ -220,7 +220,7 @@ public class V_FRAME implements I_V_FRAME {
     private JLabel labelE2Sum;
     private JLabel labelCalculationE1Value;
     private JLabel labelCalculationE2Value;
-    private JList functionalReqIDList;
+    private JList listProductFunctionID;
     private JTextField textFieldReqID;
     private JTextField textFieldReqFunction;
     private JTextField textFieldReqProtagonist;
@@ -239,30 +239,30 @@ public class V_FRAME implements I_V_FRAME {
     private JPanel panelCalculationE3;
     private JLabel labelCalculationE3;
     private JLabel labelCalculationE3Value;
-    private JButton speichernButton;
-    private JButton neuButton;
+    private JButton buttonSaveProductFunction;
+    private JButton buttonNewProductFunction;
     private JLabel labelCalculationAFPValue;
     private JLabel labelCalculationJPersonMonthsValue;
     private JLabel labelCalculationJPersonNoValue;
     private JLabel labelCalculationJDurationValue;
     private JLabel labelCorrectionCalculated;
     private JSpinner spinnerCorrectionActualValue;
-    private JButton newCorrectionFactorButton;
+    private JButton buttonNewCorrectionFactor;
     private JPanel panelCorrection;
     private JLabel labelCorrectionFactor;
     private JLabel labelCorrectionCalculation;
     private JLabel labelWeightDescription;
-    private JButton b_deleteProductFunction;
+    private JButton buttonDeleteProductFunction;
     private JLabel labelE2Correction;
     private JLabel labelE2CorrectioDescription;
-    private JButton b_automaticSliderValues;    // button is only visible in effort view/factors and randomly updates some slider to achieve the desired project effort
+    private JButton buttonAutomaticSliderValues;    // button is only visible in effort view/factors and randomly updates some slider to achieve the desired project effort
     private JLabel labelE2SumGoalDescription;
     private JLabel labelE2SumGoal;
-    private JButton b_factorImport;             // button is only visible in effort view and imports a saved set of factors from XML
-    private JButton b_factorExport;             // button is only visible in effort view and exports a saved set of factors to XML
-    private JProgressBar pb_E2Sum;
+    private JButton buttonFactorImport;             // button is only visible in effort view and imports a saved set of factors from XML
+    private JButton buttonFactorExport;             // button is only visible in effort view and exports a saved set of factors to XML
+    private JProgressBar progressBarE2Sum;
     private JLabel labelprogressBarE2SumDescription;
-    private JButton b_automaticSliderValuesCorrection;
+    private JButton buttonAutomaticSliderValuesCorrection;
     private JList listproductDataID;
     private JLabel labelproductDataDetails;
     private JLabel labelproductDataFP;
@@ -288,7 +288,7 @@ public class V_FRAME implements I_V_FRAME {
     public V_FRAME(I_C_FRAME conFrame, M_PROJECTDATA projData) {
         controllerFrame = conFrame;
         frame = new JFrame("SWE CASE TOOL");
-        frame.setContentPane(this.V_framePanel);
+        frame.setContentPane(this.panelFrame);
         frame.setResizable(false);
         frame.getContentPane().setPreferredSize(new Dimension(1200, 800)); //460
         //Set initial Values here
@@ -308,7 +308,7 @@ public class V_FRAME implements I_V_FRAME {
                 controllerFrame.notifyTabChange(tabbedPane.getSelectedIndex());
             }
         });
-        b_closeProject.addActionListener(new ActionListener() {
+        buttonCloseProject.addActionListener(new ActionListener() {
             /**
              * notifies C_FRAME, that the closeProject button was pressed
              */
@@ -317,7 +317,7 @@ public class V_FRAME implements I_V_FRAME {
                 controllerFrame.notifyClose();
             }
         });
-        b_saveProject.addActionListener(new ActionListener() {
+        buttonSaveProject.addActionListener(new ActionListener() {
             /**
              * notifies C_FRAME, that the saveProject button was pressed
              */
@@ -326,7 +326,7 @@ public class V_FRAME implements I_V_FRAME {
                 controllerFrame.notifySave();
             }
         });
-        b_nextStep.addActionListener(new ActionListener() {
+        buttonNextStep.addActionListener(new ActionListener() {
             /**
              * notifies C_FRAME, that the nextStep button was pressed
              */
@@ -335,7 +335,7 @@ public class V_FRAME implements I_V_FRAME {
                 controllerFrame.notifyNext();
             }
         });
-        b_lastStep.addActionListener(new ActionListener() {
+        buttonLastStep.addActionListener(new ActionListener() {
             /**
              * Invoked when an action occurs.
              *
@@ -346,7 +346,7 @@ public class V_FRAME implements I_V_FRAME {
                 controllerFrame.notifyLast();
             }
         });
-        b_deleteProductFunction.addActionListener(new ActionListener() {
+        buttonDeleteProductFunction.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 controllerFrame.notifyProductContentDELETE();
@@ -426,20 +426,20 @@ public class V_FRAME implements I_V_FRAME {
 
         //Initialize Product Function Tab
 
-        functionalReqIDList.setSelectionMode(2);
+        listProductFunctionID.setSelectionMode(2);
         functionalReqListModell = new DefaultListModel();
         for (M_PROJECTDATA_PRODUCTFUNCTION productFunction : projData.getProductFunctionList()) {
             functionalReqListModell.addElement(productFunction.id);
         }
-        functionalReqIDList.setModel(functionalReqListModell);
+        listProductFunctionID.setModel(functionalReqListModell);
         /**
          * listen for a change of selection in the list
          */
-        functionalReqIDList.addListSelectionListener(new ListSelectionListener() {
+        listProductFunctionID.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 //System.out.println(functionalReqIDList.getSelectedValue().toString());  //TODO: fix NullPointerException
-                controllerFrame.notifySelectedListChange(functionalReqIDList.getSelectedValue().toString());    //TODO: fix error during compilation ("cannot find symbol")
+                controllerFrame.notifySelectedListChange(listProductFunctionID.getSelectedValue().toString());    //TODO: fix error during compilation ("cannot find symbol")
             }
         });
         labelReqDetails.setFont(labelReqDetails.getFont().deriveFont(labelReqDetails.getFont().getStyle() | Font.BOLD, 18));
@@ -535,14 +535,14 @@ public class V_FRAME implements I_V_FRAME {
             }
         });
 
-        neuButton.addActionListener(new ActionListener() {
+        buttonNewProductFunction.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 controllerFrame.notifyProductContentNEW();
                 System.out.println("Functional Reqirement Tab - New Button Pressed");
             }
         });
-        speichernButton.addActionListener(new ActionListener() {
+        buttonSaveProductFunction.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Functional Reqirement Tab - Save Button Pressed");
@@ -661,10 +661,10 @@ public class V_FRAME implements I_V_FRAME {
 
         frame.pack(); //pack method sizes the frame so that all its contents are at or above their preferred size (form)
         frame.setLocationRelativeTo(null);  //places the window in the center of the screen
-        b_nextStep.setVisible(false);
-        b_lastStep.setVisible(false);
-        b_factorImport.setVisible(false);
-        b_factorExport.setVisible(false);
+        buttonNextStep.setVisible(false);
+        buttonLastStep.setVisible(false);
+        buttonFactorImport.setVisible(false);
+        buttonFactorExport.setVisible(false);
         frame.setVisible(true);
         //change listeners to notify changes on sliders in factor tab and notify frame controller
         slider0Entanglement.addChangeListener(new ChangeListener() {
@@ -778,7 +778,7 @@ public class V_FRAME implements I_V_FRAME {
             }
         });
 
-        newCorrectionFactorButton.addActionListener(new ActionListener() {
+        buttonNewCorrectionFactor.addActionListener(new ActionListener() {
             /**
              * Invoked when an action occurs.
              *
@@ -799,7 +799,7 @@ public class V_FRAME implements I_V_FRAME {
             }
         });
         spinnerCorrectionActualValue.addComponentListener(new ComponentAdapter() {});*/
-        b_automaticSliderValues.addActionListener(new ActionListener() {
+        buttonAutomaticSliderValues.addActionListener(new ActionListener() {
             /**
              * Invoked when an action occurs.
              *
@@ -810,8 +810,8 @@ public class V_FRAME implements I_V_FRAME {
                 controllerFrame.notifyAdjustFactors();
             }
         });
-        b_automaticSliderValues.setEnabled(false);  // button is disabled when created
-        V_Effort_Tabs.addChangeListener(new ChangeListener() {
+        buttonAutomaticSliderValues.setEnabled(false);  // button is disabled when created
+        tabbedPaneEffort.addChangeListener(new ChangeListener() {
             /**
              * Invoked when the target of the listener has changed its state.
              *
@@ -822,7 +822,7 @@ public class V_FRAME implements I_V_FRAME {
                 controllerFrame.notifyTabChangeEffort();
             }
         });
-        b_factorImport.addActionListener(new ActionListener() {
+        buttonFactorImport.addActionListener(new ActionListener() {
             /**
              * Invoked when an action occurs.
              *
@@ -833,7 +833,7 @@ public class V_FRAME implements I_V_FRAME {
                 controllerFrame.notifyImportFactor();
             }
         });
-        b_factorExport.addActionListener(new ActionListener() {
+        buttonFactorExport.addActionListener(new ActionListener() {
             /**
              * Invoked when an action occurs.
              *
@@ -844,7 +844,7 @@ public class V_FRAME implements I_V_FRAME {
                 controllerFrame.notifyExportFactor();
             }
         });
-        b_automaticSliderValuesCorrection.addActionListener(new ActionListener() {
+        buttonAutomaticSliderValuesCorrection.addActionListener(new ActionListener() {
             /**
              * Invoked when an action occurs.
              *
@@ -856,7 +856,7 @@ public class V_FRAME implements I_V_FRAME {
                 controllerFrame.notifyLast();
             }
         });
-        b_automaticSliderValuesCorrection.setEnabled(false);  // button is disabled when created
+        buttonAutomaticSliderValuesCorrection.setEnabled(false);  // button is disabled when created
     }
 
     /**
@@ -921,7 +921,7 @@ public class V_FRAME implements I_V_FRAME {
 
     @Override
     public JList getProdFuncIDList() {
-        return functionalReqIDList;
+        return listProductFunctionID;
     }
 
     @Override
@@ -1327,28 +1327,28 @@ public class V_FRAME implements I_V_FRAME {
     @Override
     public void setFactorSumE2(int e2Sum, int e2Goal) {
         if (e2Goal == -1) {
-            b_automaticSliderValues.setEnabled(false);
-            b_automaticSliderValuesCorrection.setEnabled(false); // disables button as factor correction is not possible/not necessary as it isn't initialized yet
+            buttonAutomaticSliderValues.setEnabled(false);
+            buttonAutomaticSliderValuesCorrection.setEnabled(false); // disables button as factor correction is not possible/not necessary as it isn't initialized yet
             labelE2Sum.setForeground(Color.black);
         } else if (e2Sum == e2Goal) {
-            b_automaticSliderValues.setEnabled(false);
-            b_automaticSliderValuesCorrection.setEnabled(false); // enables button as factor correction is not necessary
+            buttonAutomaticSliderValues.setEnabled(false);
+            buttonAutomaticSliderValuesCorrection.setEnabled(false); // enables button as factor correction is not necessary
             labelE2Sum.setForeground(Color.green.darker());
         } else if (e2Sum <= e2Goal + 5 & e2Sum >= e2Goal - 5) { // e2Sum == e2Goal +-5
-            b_automaticSliderValues.setEnabled(true);
-            b_automaticSliderValuesCorrection.setEnabled(true); // enables button as factor correction is possible
+            buttonAutomaticSliderValues.setEnabled(true);
+            buttonAutomaticSliderValuesCorrection.setEnabled(true); // enables button as factor correction is possible
             labelE2Sum.setForeground(Color.orange.darker());
         } else if (e2Goal < 0 | e2Goal > 60) {  // e2Goal was not yet calculated or is out of the correctable range
-            b_automaticSliderValues.setEnabled(false);
-            b_automaticSliderValuesCorrection.setEnabled(false); // enables button as factor correction is not possible
+            buttonAutomaticSliderValues.setEnabled(false);
+            buttonAutomaticSliderValuesCorrection.setEnabled(false); // enables button as factor correction is not possible
             labelE2Sum.setForeground(Color.black);
         } else {
-            b_automaticSliderValues.setEnabled(true);
-            b_automaticSliderValuesCorrection.setEnabled(true); // enables button as factor correction is possible
+            buttonAutomaticSliderValues.setEnabled(true);
+            buttonAutomaticSliderValuesCorrection.setEnabled(true); // enables button as factor correction is possible
             labelE2Sum.setForeground(Color.red.darker());   // e2Goal was calculated but e2Sum is more than 5 off its value
         }
         labelE2Sum.setText(String.valueOf(e2Sum));
-        pb_E2Sum.setValue(e2Sum);
+        progressBarE2Sum.setValue(e2Sum);
         labelprogressBarE2SumDescription.setText(String.valueOf(e2Sum - 30) + " %");
     }
 
@@ -1367,11 +1367,11 @@ public class V_FRAME implements I_V_FRAME {
     public void updateCalculationTab(int e1, int e2, double e3, double afp, double jDuration, int jPersons, double jPersonMonths) {
         labelCalculationE1Value.setText(String.valueOf(e1));
         labelCalculationE2Value.setText(String.valueOf(e2));
-        labelCalculationE3Value.setText(String.valueOf(df2.format(e3)));
-        labelCalculationAFPValue.setText(String.valueOf(df2.format(afp)));
-        labelCalculationJDurationValue.setText(String.valueOf(df2.format(jDuration)));
+        labelCalculationE3Value.setText(String.valueOf(decimalFormat2.format(e3)));
+        labelCalculationAFPValue.setText(String.valueOf(decimalFormat2.format(afp)));
+        labelCalculationJDurationValue.setText(String.valueOf(decimalFormat2.format(jDuration)));
         labelCalculationJPersonNoValue.setText(String.valueOf(jPersons));
-        labelCalculationJPersonMonthsValue.setText(String.valueOf(df2.format(jPersonMonths)));
+        labelCalculationJPersonMonthsValue.setText(String.valueOf(decimalFormat2.format(jPersonMonths)));
     }
 
     /**
@@ -1392,9 +1392,9 @@ public class V_FRAME implements I_V_FRAME {
      */
     @Override
     public void updateCorrectionPanel(double calcEff, double corrFact, int e2Correction) {
-        labelCorrectionCalculated.setText(String.valueOf(df2.format(calcEff)) + " Mannmonate");
-        labelCorrectionFactor.setText(String.valueOf(df2.format(corrFact)));
-        labelCorrectionCalculation.setText(String.valueOf(df2.format(calcEff) + " * e^" + df2.format(corrFact) + " = " + String.valueOf(df2.format((calcEff * Math.exp(corrFact))))));
+        labelCorrectionCalculated.setText(String.valueOf(decimalFormat2.format(calcEff)) + " Mannmonate");
+        labelCorrectionFactor.setText(String.valueOf(decimalFormat2.format(corrFact)));
+        labelCorrectionCalculation.setText(String.valueOf(decimalFormat2.format(calcEff) + " * e^" + decimalFormat2.format(corrFact) + " = " + String.valueOf(decimalFormat2.format((calcEff * Math.exp(corrFact))))));
         /**
          * checks if e2Correction is within the boundaries
          * TODO: maybe better in controller but not so efficient
@@ -1414,7 +1414,7 @@ public class V_FRAME implements I_V_FRAME {
      */
     @Override
     public void showNext() {
-        b_nextStep.setVisible(true);
+        buttonNextStep.setVisible(true);
     }
 
 
@@ -1423,7 +1423,7 @@ public class V_FRAME implements I_V_FRAME {
      */
     @Override
     public void hideNext() {
-        b_nextStep.setVisible(false);
+        buttonNextStep.setVisible(false);
     }
 
     /**
@@ -1431,7 +1431,7 @@ public class V_FRAME implements I_V_FRAME {
      */
     @Override
     public void showLast() {
-        b_lastStep.setVisible(true);
+        buttonLastStep.setVisible(true);
     }
 
     /**
@@ -1439,7 +1439,7 @@ public class V_FRAME implements I_V_FRAME {
      */
     @Override
     public void hideLast() {
-        b_lastStep.setVisible(false);
+        buttonLastStep.setVisible(false);
     }
 
     /**
@@ -1447,7 +1447,7 @@ public class V_FRAME implements I_V_FRAME {
      */
     @Override
     public void showFactorImport() {
-        b_factorImport.setVisible(true);
+        buttonFactorImport.setVisible(true);
     }
 
     /**
@@ -1455,7 +1455,7 @@ public class V_FRAME implements I_V_FRAME {
      */
     @Override
     public void hideFactorImport() {
-        b_factorImport.setVisible(false);
+        buttonFactorImport.setVisible(false);
     }
 
     /**
@@ -1463,7 +1463,7 @@ public class V_FRAME implements I_V_FRAME {
      */
     @Override
     public void showFactorExport() {
-        b_factorExport.setVisible(true);
+        buttonFactorExport.setVisible(true);
     }
 
     /**
@@ -1471,7 +1471,7 @@ public class V_FRAME implements I_V_FRAME {
      */
     @Override
     public void hideFactorExport() {
-        b_factorExport.setVisible(false);
+        buttonFactorExport.setVisible(false);
     }
 
     /**
@@ -1481,12 +1481,12 @@ public class V_FRAME implements I_V_FRAME {
      */
     @Override
     public void nextStepEffort() {
-        switch (V_Effort_Tabs.getSelectedIndex()) {
+        switch (tabbedPaneEffort.getSelectedIndex()) {
             case 0:
-                V_Effort_Tabs.setSelectedIndex(1);
+                tabbedPaneEffort.setSelectedIndex(1);
                 break;
             case 1:
-                V_Effort_Tabs.setSelectedIndex(2);
+                tabbedPaneEffort.setSelectedIndex(2);
                 break;
             case 2:
                 break;
@@ -1500,14 +1500,14 @@ public class V_FRAME implements I_V_FRAME {
      */
     @Override
     public void lastStepEffort() {
-        switch (V_Effort_Tabs.getSelectedIndex()) {
+        switch (tabbedPaneEffort.getSelectedIndex()) {
             case 0:
                 break;
             case 1:
-                V_Effort_Tabs.setSelectedIndex(0);
+                tabbedPaneEffort.setSelectedIndex(0);
                 break;
             case 2:
-                V_Effort_Tabs.setSelectedIndex(1);
+                tabbedPaneEffort.setSelectedIndex(1);
                 break;
         }
     }
@@ -1516,8 +1516,8 @@ public class V_FRAME implements I_V_FRAME {
     public void addProdFuncIDListElement(String id) {
         try{
             functionalReqListModell.addElement(id);
-            System.out.println(functionalReqIDList.getLastVisibleIndex());
-            functionalReqIDList.setSelectedIndex(functionalReqIDList.getLastVisibleIndex());
+            System.out.println(listProductFunctionID.getLastVisibleIndex());
+            listProductFunctionID.setSelectedIndex(listProductFunctionID.getLastVisibleIndex());
         }
         catch (NullPointerException e){
             System.out.println("Debug output");
@@ -1546,7 +1546,7 @@ public class V_FRAME implements I_V_FRAME {
 
     @Override
     public void changeprodFuncIDListElement(String id) {
-        functionalReqListModell.setElementAt(id, functionalReqIDList.getSelectedIndex());
+        functionalReqListModell.setElementAt(id, listProductFunctionID.getSelectedIndex());
     }
 
     @Override
@@ -1557,7 +1557,7 @@ public class V_FRAME implements I_V_FRAME {
             functionalReqListModell.addElement(productFunction.id);
         }
         try {
-            functionalReqIDList.setModel(functionalReqListModell);
+            listProductFunctionID.setModel(functionalReqListModell);
         } catch (NullPointerException exception) {
 
         }
