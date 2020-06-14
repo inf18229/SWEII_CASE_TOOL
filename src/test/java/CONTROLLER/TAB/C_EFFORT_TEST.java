@@ -1,4 +1,11 @@
+/**
+ * @autor: Florian
+ * Responsible: Florian
+ * Last edit date: 10.06.2020
+ */
+
 package CONTROLLER.TAB;
+// helpful links: https://junit.org/junit5/docs/current/user-guide/
 
 import MODEL.M_IMPORT;
 import MODEL.PROJECTDATA.M_PROJECTDATA;
@@ -281,7 +288,7 @@ class C_EFFORT_TEST {
     }
 
     /**
-     * this method tests what happens when nothing can be increased, but increase greater 0
+     * this method tests what happens when nothing can be increased, but increase > 0
      * only happens if notify adjustFactors gets run with wrong value for e2Sum
      * e2Sum = 10
      * e2Correction = 60
@@ -359,9 +366,7 @@ class C_EFFORT_TEST {
         String path = "testFiles/test_effort_max.xml"; // fixed path relative
         File xmlFile = new File(path);
 
-        System.out.println("T");
-        M_PROJECTDATA projectData = null;
-        projectData = projectData.getInstance();
+        M_PROJECTDATA projectData;
         projectData = m__import.importProject(path);
         projectData.setFunctionPointEstimation_configData(projectData.getFunctionPointEstimation_configData());
         int e2SumStart = projectData.getFunctionPointEstimation_configData().getE2Sum();   // speichert e2Sum zu Beginn zwischen
@@ -395,7 +400,7 @@ class C_EFFORT_TEST {
     }
 
     /**
-     * this method tests what happens when nothing can be decreased, but decrease lower 0
+     * this method tests what happens when nothing can be decreased, but decrease > 0
      * only happens if notify adjustFactors gets run with wrong value for e2Sum
      * e2Sum = 10
      * e2Correction = 5
