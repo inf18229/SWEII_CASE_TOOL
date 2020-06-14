@@ -116,7 +116,7 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="65594" class="javax.swing.JLabel" binding="labelReqDetails">
+              <component id="65594" class="javax.swing.JLabel" binding="labelProductFunctionDetails">
                 <constraints>
                   <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -124,7 +124,7 @@
                   <text value="Details"/>
                 </properties>
               </component>
-              <component id="ac6a0" class="javax.swing.JLabel" binding="labelReqFunctionpointDefinition">
+              <component id="ac6a0" class="javax.swing.JLabel" binding="labelProductFunctionFunctionpointDefinition">
                 <constraints>
                   <grid row="7" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -140,7 +140,7 @@
                   <text value="ID"/>
                 </properties>
               </component>
-              <component id="82ba2" class="javax.swing.JTextField" binding="textFieldReqID">
+              <component id="82ba2" class="javax.swing.JTextField" binding="textFieldProductFunctionID">
                 <constraints>
                   <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -156,7 +156,7 @@
                   <text value="Funktion"/>
                 </properties>
               </component>
-              <component id="1b7ea" class="javax.swing.JTextField" binding="textFieldReqFunction">
+              <component id="1b7ea" class="javax.swing.JTextField" binding="textFieldProductFunctionFunction">
                 <constraints>
                   <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -172,7 +172,7 @@
                   <text value="Akteur"/>
                 </properties>
               </component>
-              <component id="c4dab" class="javax.swing.JTextField" binding="textFieldReqProtagonist">
+              <component id="c4dab" class="javax.swing.JTextField" binding="textFieldProductFunctionProtagonist">
                 <constraints>
                   <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -196,7 +196,7 @@
                   <text value="Kategorie"/>
                 </properties>
               </component>
-              <component id="6d110" class="javax.swing.JComboBox" binding="comboBoxReqCategory">
+              <component id="6d110" class="javax.swing.JComboBox" binding="comboBoxProductFunctionCategory">
                 <constraints>
                   <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -218,13 +218,13 @@
                   <text value="DET"/>
                 </properties>
               </component>
-              <component id="caad5" class="javax.swing.JSpinner" binding="spinnerReqFTR">
+              <component id="caad5" class="javax.swing.JSpinner" binding="spinnerProductFunctionFTR">
                 <constraints>
                   <grid row="9" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
-              <component id="4ae46" class="javax.swing.JSpinner" binding="spinnerReqDET">
+              <component id="4ae46" class="javax.swing.JSpinner" binding="spinnerProductFunctionDET">
                 <constraints>
                   <grid row="10" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -269,7 +269,7 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="68959" class="javax.swing.JTextArea" binding="textAreaReqDescription">
+                  <component id="68959" class="javax.swing.JTextArea" binding="textAreaProductFunctionDescription">
                     <constraints/>
                     <properties>
                       <lineWrap value="true"/>

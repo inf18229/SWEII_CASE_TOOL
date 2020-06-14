@@ -221,16 +221,16 @@ public class V_FRAME implements I_V_FRAME {
     private JLabel labelCalculationE1Value;
     private JLabel labelCalculationE2Value;
     private JList listProductFunctionID;
-    private JTextField textFieldReqID;
-    private JTextField textFieldReqFunction;
-    private JTextField textFieldReqProtagonist;
-    private JTextArea textAreaReqDescription;
-    private JComboBox comboBoxReqCategory;
-    private JComboBox comboBoxReqWeight;
-    private JSpinner spinnerReqFTR;
-    private JSpinner spinnerReqDET;
-    private JLabel labelReqDetails;
-    private JLabel labelReqFunctionpointDefinition;
+    private JTextField textFieldProductFunctionID;
+    private JTextField textFieldProductFunctionFunction;
+    private JTextField textFieldProductFunctionProtagonist;
+    private JTextArea textAreaProductFunctionDescription;
+    private JComboBox comboBoxProductFunctionCategory;
+    private JComboBox comboBoxProductFunctionWeight;
+    private JSpinner spinnerProductFunctionFTR;
+    private JSpinner spinnerProductFunctionDET;
+    private JLabel labelProductFunctionDetails;
+    private JLabel labelProductFunctionFunctionpointDefinition;
     private JPanel panelCalculationDescription;
     private JPanel panelCalculationE1;
     private JLabel labelCalculationE1;
@@ -276,8 +276,8 @@ public class V_FRAME implements I_V_FRAME {
     private JButton buttonproductDataDelete;
     private JButton buttonproductDataNew;
     private JComboBox comboBoxproductDataCategory;
-    private DefaultListModel functionalReqListModell;
-    private DefaultListModel productDataListModell;
+    private DefaultListModel listModelProductFunction;
+    private DefaultListModel listModelProductData;
 
     /**
      * Constructor of the V_FRAME class
@@ -427,136 +427,56 @@ public class V_FRAME implements I_V_FRAME {
         //Initialize Product Function Tab
 
         listProductFunctionID.setSelectionMode(2);
-        functionalReqListModell = new DefaultListModel();
+        listModelProductFunction = new DefaultListModel();
         for (M_PROJECTDATA_PRODUCTFUNCTION productFunction : projData.getProductFunctionList()) {
-            functionalReqListModell.addElement(productFunction.id);
+            listModelProductFunction.addElement(productFunction.id);
         }
-        listProductFunctionID.setModel(functionalReqListModell);
+        listProductFunctionID.setModel(listModelProductFunction);
         /**
          * listen for a change of selection in the list
          */
         listProductFunctionID.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
-                //System.out.println(functionalReqIDList.getSelectedValue().toString());  //TODO: fix NullPointerException
-                controllerFrame.notifySelectedListChange(listProductFunctionID.getSelectedValue().toString());    //TODO: fix error during compilation ("cannot find symbol")
+                controllerFrame.notifySelectedListChange(listProductFunctionID.getSelectedValue().toString());
             }
         });
-        labelReqDetails.setFont(labelReqDetails.getFont().deriveFont(labelReqDetails.getFont().getStyle() | Font.BOLD, 18));
-        labelReqFunctionpointDefinition.setFont(labelReqFunctionpointDefinition.getFont().deriveFont(labelReqFunctionpointDefinition.getFont().getStyle() | Font.BOLD, 18));
-        textFieldReqID.getDocument().addDocumentListener(new DocumentListener() {
-            @Override
-            public void insertUpdate(DocumentEvent e) {
-                System.out.println("Functional Requirement ID: " + textFieldReqID.getText());
-            }
+        labelProductFunctionDetails.setFont(labelProductFunctionDetails.getFont().deriveFont(labelProductFunctionDetails.getFont().getStyle() | Font.BOLD, 18));
+        labelProductFunctionFunctionpointDefinition.setFont(labelProductFunctionFunctionpointDefinition.getFont().deriveFont(labelProductFunctionFunctionpointDefinition.getFont().getStyle() | Font.BOLD, 18));
 
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-                System.out.println("Functional Requirement ID: " + textFieldReqID.getText());
-            }
+        comboBoxProductFunctionCategory.addItem("EI-Eingabe");
+        comboBoxProductFunctionCategory.addItem("EO-Ausgabe");
+        comboBoxProductFunctionCategory.addItem("EQ-Abfrage");
 
-            @Override
-            public void changedUpdate(DocumentEvent e) {
-                System.out.println("Functional Requirement ID: " + textFieldReqID.getText());
-            }
-        });
-        textFieldReqFunction.getDocument().addDocumentListener(new DocumentListener() {
-            @Override
-            public void insertUpdate(DocumentEvent e) {
-                System.out.println("Functional Requirement Function: " + textFieldReqFunction.getText());
-            }
-
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-                System.out.println("Functional Requirement ID: " + textFieldReqFunction.getText());
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent e) {
-                System.out.println("Functional Requirement ID: " + textFieldReqFunction.getText());
-            }
-        });
-        textFieldReqProtagonist.getDocument().addDocumentListener(new DocumentListener() {
-            @Override
-            public void insertUpdate(DocumentEvent e) {
-                System.out.println("Functional Requirement Protagonist: " + textFieldReqProtagonist.getText());
-            }
-
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-                System.out.println("Functional Requirement Protagonist: " + textFieldReqProtagonist.getText());
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent e) {
-                System.out.println("Functional Requirement Protagonist: " + textFieldReqProtagonist.getText());
-            }
-        });
-        textAreaReqDescription.getDocument().addDocumentListener(new DocumentListener() {
-            @Override
-            public void insertUpdate(DocumentEvent e) {
-                System.out.println("Functional Requirement Description: " + textAreaReqDescription.getText());
-            }
-
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-                System.out.println("Functional Requirement Description: " + textAreaReqDescription.getText());
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent e) {
-                System.out.println("Functional Requirement Description: " + textAreaReqDescription.getText());
-            }
-        });
-        comboBoxReqCategory.addItem("EI-Eingabe");
-        comboBoxReqCategory.addItem("EO-Ausgabe");
-        comboBoxReqCategory.addItem("EQ-Abfrage");
-        comboBoxReqCategory.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println(comboBoxReqCategory.getSelectedItem());
-            }
-        });
         //TODO: add same limits for estimation Mannmonate
-        SpinnerNumberModel nMspinnerReqFTR = new SpinnerNumberModel(0, 0, 1000, 1);
-        spinnerReqFTR.setModel(nMspinnerReqFTR);
-        spinnerReqFTR.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-                System.out.println("Functional Requirment Function Point FTR: " + spinnerReqFTR.getValue());
-            }
-        });
-        SpinnerNumberModel nMspinnerReqDET = new SpinnerNumberModel(0, 0, 1000, 1);
-        spinnerReqDET.setModel(nMspinnerReqDET);
-        spinnerReqDET.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-                System.out.println("Functional Requirment Function Point DET: " + spinnerReqDET.getValue());
-            }
-        });
+        SpinnerNumberModel nMSpinnerProductFunctionFTR = new SpinnerNumberModel(0, 0, 1000, 1);
+        spinnerProductFunctionFTR.setModel(nMSpinnerProductFunctionFTR);
+
+        SpinnerNumberModel nMSpinnerProductFunctionDET = new SpinnerNumberModel(0, 0, 1000, 1);
+        spinnerProductFunctionDET.setModel(nMSpinnerProductFunctionDET);
 
         buttonNewProductFunction.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 controllerFrame.notifyProductContentNEW();
-                System.out.println("Functional Reqirement Tab - New Button Pressed");
+                System.out.println("Product Function Tab - New Button Pressed");
             }
         });
         buttonSaveProductFunction.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Functional Reqirement Tab - Save Button Pressed");
+                System.out.println("Product Function Tab - Save Button Pressed");
                 conFrame.getCurrentController().updateProjectData();
             }
         });
 
         //Initialize Product Data Tab
         listproductDataID.setSelectionMode(2);
-        productDataListModell = new DefaultListModel();
+        listModelProductData = new DefaultListModel();
         for (M_PROJECTDATA_PRODUCTDATA productData : projData.getProductDataList()) {
-            productDataListModell.addElement(productData.id);
+            listModelProductData.addElement(productData.id);
         }
-        listproductDataID.setModel(productDataListModell);
+        listproductDataID.setModel(listModelProductData);
         listproductDataID.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
@@ -567,75 +487,16 @@ public class V_FRAME implements I_V_FRAME {
         labelproductDataDetails.setFont(labelproductDataDetails.getFont().deriveFont(labelproductDataDetails.getFont().getStyle() | Font.BOLD, 18));
         labelproductDataFP.setFont(labelproductDataFP.getFont().deriveFont(labelproductDataFP.getFont().getStyle() | Font.BOLD, 18));
 
-        textFieldproductDataID.getDocument().addDocumentListener(new DocumentListener() {
-            @Override
-            public void insertUpdate(DocumentEvent e) {
-                System.out.println("INSERT Product Data ID");
-            }
 
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-                System.out.println("REMOVE Product Data ID");
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent e) {
-                System.out.println("CHANGE Product Data ID");
-
-            }
-        });
-        textFieldproductDataReference.getDocument().addDocumentListener(new DocumentListener() {
-            @Override
-            public void insertUpdate(DocumentEvent e) {
-                System.out.println("INSERT Product Data Reference");
-            }
-
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-                System.out.println("REMOVE Product Data Reference");
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent e) {
-                System.out.println("CHANGE Product Data Reference");
-            }
-        });
-        textAreaproductDataDescription.getDocument().addDocumentListener(new DocumentListener() {
-            @Override
-            public void insertUpdate(DocumentEvent e) {
-                System.out.println("INSERT Product Data Description");
-            }
-
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-                System.out.println("REMOVE Product Data Description");
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent e) {
-                System.out.println("CHANGE Product Data Description");
-            }
-        });
         comboBoxproductDataCategory.addItem("ILF-Interner Datenbestand");
         comboBoxproductDataCategory.addItem("ELF-Externer Datenbestand");
 
         SpinnerNumberModel nMSpinnerproductFunctionRET = new SpinnerNumberModel(1,1,1000,1);
         spinnerproductDataRET.setModel(nMSpinnerproductFunctionRET);
-        spinnerproductDataRET.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-                System.out.println("CHANGE of Product Data RET Spinner detected");
-            }
-        });
+
 
         SpinnerNumberModel nMSpinnerproductFunctionDET = new SpinnerNumberModel(1,1,1000,1);
         spinnerproductDataDET.setModel(nMSpinnerproductFunctionDET);
-        spinnerproductDataDET.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-                System.out.println("CHANGE of Product Data DET Spinner detected");
-            }
-        });
 
         buttonproductDataNew.addActionListener(new ActionListener() {
             @Override
@@ -792,13 +653,6 @@ public class V_FRAME implements I_V_FRAME {
         //sets min/max Values for spinnerCorrectionActualValue
         SpinnerNumberModel spinnerCorrectionActualValue2 = new SpinnerNumberModel(0, 0, 1000, 0.1);
         spinnerCorrectionActualValue.setModel(spinnerCorrectionActualValue2);
-        /*spinnerCorrectionActualValue.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-                System.out.println("Functional Requirment Function Point FTR: " + spinnerReqFTR.getValue());
-            }
-        });
-        spinnerCorrectionActualValue.addComponentListener(new ComponentAdapter() {});*/
         buttonAutomaticSliderValues.addActionListener(new ActionListener() {
             /**
              * Invoked when an action occurs.
@@ -886,37 +740,37 @@ public class V_FRAME implements I_V_FRAME {
 
     @Override
     public JTextField getTextFieldProdFuncID() {
-        return textFieldReqID;
+        return textFieldProductFunctionID;
     }
 
     @Override
     public JTextField getTextFieldProdFunc() {
-        return textFieldReqFunction;
+        return textFieldProductFunctionFunction;
     }
 
     @Override
     public JTextField getTextFieldProdFuncProtagonist() {
-        return textFieldReqProtagonist;
+        return textFieldProductFunctionProtagonist;
     }
 
     @Override
     public JTextArea getTextAreaprodFuncDescription() {
-        return textAreaReqDescription;
+        return textAreaProductFunctionDescription;
     }
 
     @Override
     public JComboBox getComboBoxProdFuncCategory() {
-        return comboBoxReqCategory;
+        return comboBoxProductFunctionCategory;
     }
 
     @Override
     public JSpinner getSpinnerProdFuncFTR() {
-        return spinnerReqFTR;
+        return spinnerProductFunctionFTR;
     }
 
     @Override
     public JSpinner getSpinnerProdFuncDET() {
-        return spinnerReqDET;
+        return spinnerProductFunctionDET;
     }
 
     @Override
@@ -1515,7 +1369,7 @@ public class V_FRAME implements I_V_FRAME {
     @Override
     public void addProdFuncIDListElement(String id) {
         try{
-            functionalReqListModell.addElement(id);
+            listModelProductFunction.addElement(id);
             System.out.println(listProductFunctionID.getLastVisibleIndex());
             listProductFunctionID.setSelectedIndex(listProductFunctionID.getLastVisibleIndex());
         }
@@ -1526,38 +1380,38 @@ public class V_FRAME implements I_V_FRAME {
     }
 
     public void updateProdFuncInfo(M_PROJECTDATA_PRODUCTFUNCTION projDataFunction) {
-        textFieldReqID.setText(projDataFunction.id);
-        textFieldReqFunction.setText(projDataFunction.function);
-        textFieldReqProtagonist.setText(projDataFunction.actor);
-        textAreaReqDescription.setText(projDataFunction.description);
+        textFieldProductFunctionID.setText(projDataFunction.id);
+        textFieldProductFunctionFunction.setText(projDataFunction.function);
+        textFieldProductFunctionProtagonist.setText(projDataFunction.actor);
+        textAreaProductFunctionDescription.setText(projDataFunction.description);
         switch (projDataFunction.functionPointCategory) {
             case "EI-Eingabe":
-                comboBoxReqCategory.setSelectedIndex(0);
+                comboBoxProductFunctionCategory.setSelectedIndex(0);
                 break;
             case "EO-Ausgabe":
-                comboBoxReqCategory.setSelectedIndex(1);
+                comboBoxProductFunctionCategory.setSelectedIndex(1);
                 break;
             case "EQ-Abfrage":
-                comboBoxReqCategory.setSelectedIndex(2);
+                comboBoxProductFunctionCategory.setSelectedIndex(2);
         }
-        spinnerReqFTR.setValue(projDataFunction.functionPointFTR);
-        spinnerReqDET.setValue(projDataFunction.functionPointDET);
+        spinnerProductFunctionFTR.setValue(projDataFunction.functionPointFTR);
+        spinnerProductFunctionDET.setValue(projDataFunction.functionPointDET);
     }
 
     @Override
     public void changeprodFuncIDListElement(String id) {
-        functionalReqListModell.setElementAt(id, listProductFunctionID.getSelectedIndex());
+        listModelProductFunction.setElementAt(id, listProductFunctionID.getSelectedIndex());
     }
 
     @Override
     public void reinitializeProdFuncIDList(M_PROJECTDATA projData) {
 
-        functionalReqListModell = new DefaultListModel();
+        listModelProductFunction = new DefaultListModel();
         for (M_PROJECTDATA_PRODUCTFUNCTION productFunction : projData.getProductFunctionList()) {
-            functionalReqListModell.addElement(productFunction.id);
+            listModelProductFunction.addElement(productFunction.id);
         }
         try {
-            listProductFunctionID.setModel(functionalReqListModell);
+            listProductFunctionID.setModel(listModelProductFunction);
         } catch (NullPointerException exception) {
 
         }
@@ -1567,7 +1421,7 @@ public class V_FRAME implements I_V_FRAME {
 
     @Override
     public void addProdDataIDListElement(String id) {
-        productDataListModell.addElement(id);
+        listModelProductData.addElement(id);
         System.out.println(listproductDataID.getLastVisibleIndex());
         listproductDataID.setSelectedIndex(listproductDataID.getLastVisibleIndex());
 
@@ -1575,17 +1429,17 @@ public class V_FRAME implements I_V_FRAME {
 
     @Override
     public void changeProdDataIDListElement(String id) {
-        productDataListModell.setElementAt(id, listproductDataID.getSelectedIndex());
+        listModelProductData.setElementAt(id, listproductDataID.getSelectedIndex());
     }
 
     @Override
     public void reinitializeProdDataIDList(M_PROJECTDATA projData) {
-        productDataListModell = new DefaultListModel();
+        listModelProductData = new DefaultListModel();
         for (M_PROJECTDATA_PRODUCTDATA productData : projData.getProductDataList()) {
-            productDataListModell.addElement(productData.id);
+            listModelProductData.addElement(productData.id);
         }
         try {
-            listproductDataID.setModel(productDataListModell);
+            listproductDataID.setModel(listModelProductData);
         } catch (NullPointerException exception) {
 
         }
