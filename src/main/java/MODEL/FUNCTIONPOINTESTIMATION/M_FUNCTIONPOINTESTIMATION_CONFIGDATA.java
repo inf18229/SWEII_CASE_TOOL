@@ -11,6 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * Class holds all configuration Data for the function Point Estimation Class
  */
 public class M_FUNCTIONPOINTESTIMATION_CONFIGDATA {
+    private static M_FUNCTIONPOINTESTIMATION_CONFIGDATA configData;
 
     private int factorEntanglement = 0;
     private int factorDecentralization = 0;
@@ -30,7 +31,20 @@ public class M_FUNCTIONPOINTESTIMATION_CONFIGDATA {
     /**
      * Constructs M_FUNCTIONPOINTESTIMATION_CONFIGDATA Object
      */
-    public M_FUNCTIONPOINTESTIMATION_CONFIGDATA() {
+    private M_FUNCTIONPOINTESTIMATION_CONFIGDATA() {
+    }
+
+    /**
+     * Singleton Method to get Instance of M_FUNCTIONPOINTESTIMATION_CONFIGDATA Class
+     * @return M_FUNCTIONPOINTESTIMATION_CONFIGDATA Object
+     */
+    public static M_FUNCTIONPOINTESTIMATION_CONFIGDATA getInstance() {
+        if (M_FUNCTIONPOINTESTIMATION_CONFIGDATA.configData == null) {
+            M_FUNCTIONPOINTESTIMATION_CONFIGDATA.configData = new M_FUNCTIONPOINTESTIMATION_CONFIGDATA();
+        } else {
+            System.out.println("ConfigData Instance already created");
+        }
+        return M_FUNCTIONPOINTESTIMATION_CONFIGDATA.configData;
     }
 
     /**

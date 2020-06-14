@@ -6,6 +6,7 @@ package MODEL.FUNCTIONPOINTESTIMATION;
  */
 public class M_FUNCTIONPOINTESTIMATION {
 
+    private static M_FUNCTIONPOINTESTIMATION functionPointEstimation;
     private M_FUNCTIONPOINTESTIMATION_CONFIGDATA configData; // reference to configData
 
     private int countInputSimple = 0;
@@ -81,7 +82,21 @@ public class M_FUNCTIONPOINTESTIMATION {
     /**
      * creates new Object of Function Point Estimation and sets a reference to configData
      */
-    public M_FUNCTIONPOINTESTIMATION() {
+    private M_FUNCTIONPOINTESTIMATION() {
+    }
+
+    /**
+     * creates new Object of Function Point Estimation
+     *
+     * @return function Point Estimation
+     */
+    public static M_FUNCTIONPOINTESTIMATION getInstance() {
+        if (M_FUNCTIONPOINTESTIMATION.functionPointEstimation == null) {
+            M_FUNCTIONPOINTESTIMATION.functionPointEstimation = new M_FUNCTIONPOINTESTIMATION();
+        } else {
+            System.out.println("FunctionPointEstimation Instance already created");
+        }
+        return M_FUNCTIONPOINTESTIMATION.functionPointEstimation;
     }
 
     /**
