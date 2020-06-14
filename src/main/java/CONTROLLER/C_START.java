@@ -14,14 +14,13 @@ import java.nio.file.InvalidPathException;
  * C_START is the basic controller, that is always created first.
  * Its only purpose is to handle USER-IO during the start sequence
  */
-public class C_START implements I_C_start {
+public class C_START implements I_C_START {
     private static C_START controllerStart;
 
     //TODO: create Model and store in local Variable
     //TODO: create VIEW and store in local Variable
-    I_V_START viewStart;
-    M_IMPORT m__import;
-    //I_C_FRAME controllerFrame;
+    private I_V_START viewStart;
+    private M_IMPORT m__import;
 
     /**
      * creates Object of Class C_START

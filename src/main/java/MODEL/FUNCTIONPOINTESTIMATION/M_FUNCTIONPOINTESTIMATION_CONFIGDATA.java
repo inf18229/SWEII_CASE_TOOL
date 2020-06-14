@@ -7,25 +7,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA")
 @XmlAccessorType(XmlAccessType.FIELD)
 
+/**
+ * Class holds all configuration Data for the function Point Estimation Class
+ */
 public class M_FUNCTIONPOINTESTIMATION_CONFIGDATA {
     private static M_FUNCTIONPOINTESTIMATION_CONFIGDATA configData;
 
-    private M_FUNCTIONPOINTESTIMATION_CONFIGDATA() {
-    }
-
-    public static M_FUNCTIONPOINTESTIMATION_CONFIGDATA getInstance() {
-        if (M_FUNCTIONPOINTESTIMATION_CONFIGDATA.configData == null) {
-            M_FUNCTIONPOINTESTIMATION_CONFIGDATA.configData = new M_FUNCTIONPOINTESTIMATION_CONFIGDATA();
-        } else {
-            System.out.println("ConfigData Instance already created");
-        }
-        return M_FUNCTIONPOINTESTIMATION_CONFIGDATA.configData;
-    }
-
-    //@XmlTransient // jumps over first element
-    //int stuffElement = 0; // this element is ignored and the export starts with the second element   // TODO: try to fix and remove this
-
-    //variables for factors
     private int factorEntanglement = 0;
     private int factorDecentralization = 0;
     private int factorTransactionrate = 0;
@@ -40,6 +27,25 @@ public class M_FUNCTIONPOINTESTIMATION_CONFIGDATA {
     private int factorCustomizability = 0;
 
     private int e2Sum = 0;
+
+    /**
+     * Constructs M_FUNCTIONPOINTESTIMATION_CONFIGDATA Object
+     */
+    private M_FUNCTIONPOINTESTIMATION_CONFIGDATA() {
+    }
+
+    /**
+     * Singleton Method to get Instance of M_FUNCTIONPOINTESTIMATION_CONFIGDATA Class
+     * @return M_FUNCTIONPOINTESTIMATION_CONFIGDATA Object
+     */
+    public static M_FUNCTIONPOINTESTIMATION_CONFIGDATA getInstance() {
+        if (M_FUNCTIONPOINTESTIMATION_CONFIGDATA.configData == null) {
+            M_FUNCTIONPOINTESTIMATION_CONFIGDATA.configData = new M_FUNCTIONPOINTESTIMATION_CONFIGDATA();
+        } else {
+            System.out.println("ConfigData Instance already created");
+        }
+        return M_FUNCTIONPOINTESTIMATION_CONFIGDATA.configData;
+    }
 
     /**
      * sets one factor to the provided value

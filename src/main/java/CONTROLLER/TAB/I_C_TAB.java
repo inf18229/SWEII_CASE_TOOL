@@ -13,9 +13,9 @@ public interface I_C_TAB {
      * @param view     reference to the view that should be referenced in this object
      * @param projData reference to the project data that should be referenced in this object
      */
-    void setLinks(I_V_FRAME view, M_PROJECTDATA projData);
+    public void setLinks(I_V_FRAME view, M_PROJECTDATA projData);
     /**
-     * TODO: add description
+     * //TODO: add description
      */
-    void updateProjectData();
+    public void updateProjectData();
 }

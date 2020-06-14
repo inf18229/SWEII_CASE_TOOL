@@ -1,6 +1,6 @@
 package VIEW;
 
-import CONTROLLER.I_C_start;
+import CONTROLLER.I_C_START;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class V_START implements I_V_START {
-    private static I_C_start conStart;
+    private static I_C_START conStart;
     private JFrame frame;
     private JPanel V_startPanel;
     private JLabel t_newProject;
@@ -23,7 +23,7 @@ public class V_START implements I_V_START {
      *
      * @param controllerStart reference to the Start Controller
      */
-    public V_START(I_C_start controllerStart) {
+    public V_START(I_C_START controllerStart) {
         conStart = controllerStart;
         frame = new JFrame("SWE CASE TOOL");
         frame.setContentPane(this.V_startPanel);

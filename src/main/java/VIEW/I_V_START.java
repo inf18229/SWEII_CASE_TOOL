@@ -9,5 +9,5 @@ public interface I_V_START extends I_V_BASIC {
      *                true: existing file should be opened
      * @return path to the chosen file
      */
-    String getPath(boolean existingFile);
+    public String getPath(boolean existingFile);
 }

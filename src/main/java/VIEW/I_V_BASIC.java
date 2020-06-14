@@ -8,7 +8,7 @@ public interface I_V_BASIC {
      *
      * @return frame
      */
-    JFrame getJFrame();
+    public JFrame getJFrame();
 
     /**
      * this method tries to show the view if there exists one
@@ -16,7 +16,7 @@ public interface I_V_BASIC {
      *
      * @param frame reference to the JFrame which should be shown
      */
-    static void show(JFrame frame) {
+    public static void show(JFrame frame) {
         try {
             frame.setVisible(true);
         } catch (Exception exc) {
@@ -33,7 +33,7 @@ public interface I_V_BASIC {
      *
      * @param frame reference to the JFrame which should be hidden
      */
-    static void hide(JFrame frame) {
+    public static void hide(JFrame frame) {
         try {
             frame.setVisible(false);
         } catch (Exception exc) {

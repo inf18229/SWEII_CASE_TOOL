@@ -1,0 +1,119 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: I_C_EFFORT</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">CONTROLLER.TAB</a> ]
+</div>
+
+<h1>Coverage Summary for Class: I_C_EFFORT (CONTROLLER.TAB)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">I_C_EFFORT</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package CONTROLLER.TAB;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import MODEL.PROJECTDATA.M_PROJECTDATA;
+<i>4</i>&nbsp;import VIEW.I_V_FRAME;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;/**
+<i>7</i>&nbsp; * This Interface manages all actions regarding the &quot;Aufwandsschätzung&quot; tab
+<i>8</i>&nbsp; */
+<i>9</i>&nbsp;public interface I_C_EFFORT extends I_C_TAB {
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;    //TODO: getInstance here?
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;    /**
+<i>16</i>&nbsp;     * this method updates the V_framePanel_effort
+<i>17</i>&nbsp;     * therefore all current values are set as View attributes
+<i>18</i>&nbsp;     */
+<i>19</i>&nbsp;    void updateView();
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;    /**
+<i>22</i>&nbsp;     * notifies the Controller that the nextButton was pressed
+<i>23</i>&nbsp;     */
+<i>24</i>&nbsp;    void notifyNext();
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;    /**
+<i>27</i>&nbsp;     * notifies the Controller that the lastButton was pressed
+<i>28</i>&nbsp;     */
+<i>29</i>&nbsp;    void notifyLast();
+<i>30</i>&nbsp;
+<i>31</i>&nbsp;    /**
+<i>32</i>&nbsp;     * notifies the Controller, that a slider was changed
+<i>33</i>&nbsp;     *
+<i>34</i>&nbsp;     * @param sliderNo integer to identify the slider that was changed
+<i>35</i>&nbsp;     * @param value    integer to which the slider was changed to
+<i>36</i>&nbsp;     */
+<i>37</i>&nbsp;    void notifySlider(int sliderNo, int value);
+<i>38</i>&nbsp;
+<i>39</i>&nbsp;    /**
+<i>40</i>&nbsp;     * this method triggers all necessary functions to recalculate and show the new values
+<i>41</i>&nbsp;     */
+<i>42</i>&nbsp;    void notifyCalculate();
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;    /**
+<i>45</i>&nbsp;     * method iterates through all product functions,
+<i>46</i>&nbsp;     * adds up the number of elements
+<i>47</i>&nbsp;     * and saves the calculated value in the corresponding count variable
+<i>48</i>&nbsp;     */
+<i>49</i>&nbsp;    void calculateCounts();
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;    /**
+<i>52</i>&nbsp;     * this method should automatically update the values for the factors to meet the e2goal
+<i>53</i>&nbsp;     * it outputs a message to determine if values could be corrected
+<i>54</i>&nbsp;     *
+<i>55</i>&nbsp;     * @return string of output which should be printed to console (mainly for development purposes)
+<i>56</i>&nbsp;     */
+<i>57</i>&nbsp;    String notifyAdjustFactors();
+<i>58</i>&nbsp;
+<i>59</i>&nbsp;    /**
+<i>60</i>&nbsp;     * increases Factors by given value
+<i>61</i>&nbsp;     *
+<i>62</i>&nbsp;     * @param increase value how much the factors should be increased
+<i>63</i>&nbsp;     */
+<i>64</i>&nbsp;    void increaseFactors(int increase);
+<i>65</i>&nbsp;
+<i>66</i>&nbsp;    /**
+<i>67</i>&nbsp;     * decreases Factors by given value
+<i>68</i>&nbsp;     *
+<i>69</i>&nbsp;     * @param decrease value how much the factors should be decreased
+<i>70</i>&nbsp;     */
+<i>71</i>&nbsp;    void decreaseFactors(int decrease);
+<i>72</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-14 13:52</div>
+</div>
+</body>
+</html>

@@ -1,9 +1,3 @@
-/**
- * @autor: Florian
- * Responsible: David, Stefan, Flo
- * Last edit date: 10.06.2020
- */
-
 import CONTROLLER.C_START;
 
 
@@ -19,7 +13,6 @@ public class main {
 }
 
 //================================================wichtige Änderungen===================================================
-//TODO: Information hiding - variable prefix public/private aktualisieren V_FRAME
 
 //TODO: Maven? (bei neuer Installation)
 

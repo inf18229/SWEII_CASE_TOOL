@@ -1,0 +1,210 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: C_START</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">CONTROLLER</a> ]
+</div>
+
+<h1>Coverage Summary for Class: C_START (CONTROLLER)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">C_START</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    80%
+  </span>
+  <span class="absValue">
+    (4/ 5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    67,6%
+  </span>
+  <span class="absValue">
+    (25/ 37)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package CONTROLLER;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import MODEL.M_IMPORT;
+<i>4</i>&nbsp;import MODEL.PROJECTDATA.M_PROJECTDATA;
+<i>5</i>&nbsp;import VIEW.I_V_BASIC;
+<i>6</i>&nbsp;import VIEW.I_V_START;
+<i>7</i>&nbsp;import VIEW.V_START;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;import javax.swing.*;
+<i>10</i>&nbsp;import java.io.File;
+<i>11</i>&nbsp;import java.nio.file.InvalidPathException;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;/**
+<i>14</i>&nbsp; * C_START is the basic controller, that is always created first.
+<i>15</i>&nbsp; * Its only purpose is to handle USER-IO during the start sequence
+<i>16</i>&nbsp; */
+<i>17</i>&nbsp;public class C_START implements I_C_start {
+<i>18</i>&nbsp;    private static C_START controllerStart;
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;    //TODO: create Model and store in local Variable
+<i>21</i>&nbsp;    //TODO: create VIEW and store in local Variable
+<i>22</i>&nbsp;    I_V_START viewStart;
+<i>23</i>&nbsp;    M_IMPORT m__import;
+<i>24</i>&nbsp;    //I_C_FRAME controllerFrame;
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;    /**
+<i>27</i>&nbsp;     * creates Object of Class C_START
+<i>28</i>&nbsp;     * creates the startwindow of the programm viewStart and makes it visible
+<i>29</i>&nbsp;     * it passes itself as C_START controllerStart into the main
+<i>30</i>&nbsp;     * and therefore creates a reference to itself in the viewStart
+<i>31</i>&nbsp;     */
+<b class="fc"><i>32</i>&nbsp;    private C_START(){</b>
+<b class="fc"><i>33</i>&nbsp;        viewStart = new V_START(this);</b>
+<b class="fc"><i>34</i>&nbsp;        I_V_BASIC.show(viewStart.getJFrame());  // makes viewStart visible and enables user input</b>
+<b class="fc"><i>35</i>&nbsp;        m__import = new M_IMPORT();</b>
+<b class="fc"><i>36</i>&nbsp;    }</b>
+<i>37</i>&nbsp;
+<i>38</i>&nbsp;    /**
+<i>39</i>&nbsp;     * this method checks if controller was already created
+<i>40</i>&nbsp;     * if it wasn&#39;t it creates a new controller
+<i>41</i>&nbsp;     * it always returns a reference to the controller
+<i>42</i>&nbsp;     * @return reference to controller
+<i>43</i>&nbsp;     */
+<i>44</i>&nbsp;    public static C_START getInstance () {
+<b class="fc"><i>45</i>&nbsp;        if (C_START.controllerStart == null) {</b>
+<b class="fc"><i>46</i>&nbsp;            C_START.controllerStart = new C_START();</b>
+<i>47</i>&nbsp;        }
+<b class="fc"><i>48</i>&nbsp;        return C_START.controllerStart;</b>
+<i>49</i>&nbsp;    }
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;    /**
+<i>52</i>&nbsp;     * this message gets called by Views to notify the start Controller that a new project should be created
+<i>53</i>&nbsp;     * the Controller therefore asks the viewStart for a path where the new project should get created
+<i>54</i>&nbsp;     * after getting the path the Controller has to close viewStart (hide) and pass the job of handeling the project
+<i>55</i>&nbsp;     * to the newly created controllerFrame
+<i>56</i>&nbsp;     */
+<i>57</i>&nbsp;    public void notifyCreate() {
+<b class="nc"><i>58</i>&nbsp;        System.out.println(&quot;Neues Projekt wurde gedrückt.&quot;);</b>
+<b class="nc"><i>59</i>&nbsp;        String path = viewStart.getPath(false);</b>
+<b class="nc"><i>60</i>&nbsp;        if (path == &quot;&quot; | path == null) {</b>
+<i>61</i>&nbsp;            //go to start view
+<i>62</i>&nbsp;        } else {
+<i>63</i>&nbsp;            //TODO: Model den Pfad (in createData(path)) übergeben --&gt; Beachten: im path muss pfad und name des files ein
+<i>64</i>&nbsp;            //TODO: Idee: Pfad auswählen lassen und Namen separat angeben + erweitern mit .xml --&gt; überprüfen auf leeren Namen
+<b class="nc"><i>65</i>&nbsp;            I_V_BASIC.hide(viewStart.getJFrame());  // makes viewStart invisible and disables user input</b>
+<b class="nc"><i>66</i>&nbsp;            I_C_FRAME controllerFrame = C_FRAME.getInstance();</b>
+<b class="nc"><i>67</i>&nbsp;            controllerFrame.setLinks(M_PROJECTDATA.getInstance(), this, path);</b>
+<i>68</i>&nbsp;        }
+<i>69</i>&nbsp;
+<i>70</i>&nbsp;        //String path = &quot;test.xml&quot;;
+<i>71</i>&nbsp;
+<b class="nc"><i>72</i>&nbsp;    }</b>
+<i>73</i>&nbsp;
+<i>74</i>&nbsp;    /**
+<i>75</i>&nbsp;     * notifyOpen()
+<i>76</i>&nbsp;     * &lt;p&gt;
+<i>77</i>&nbsp;     * this message gets called by Views to notify the start Controller that a existing project should be opened
+<i>78</i>&nbsp;     * the Controller therefore asks the viewStart for a path to the file that should be opened
+<i>79</i>&nbsp;     */
+<i>80</i>&nbsp;    public void notifyOpen() {
+<b class="fc"><i>81</i>&nbsp;        System.out.println(&quot;Öffne Projekt wurde gedrückt.&quot;);</b>
+<b class="fc"><i>82</i>&nbsp;        String path = &quot;test.xml&quot;; // fixed path relative</b>
+<i>83</i>&nbsp;        //String path  = viewStart.getPath(true); //TODO: abfangen wenn man name von nicht existierender Datei eingegeben und auf open gedrückt wird
+<b class="fc"><i>84</i>&nbsp;        File xmlFile = new File(path);</b>
+<b class="fc"><i>85</i>&nbsp;        if (xmlFile.exists()) {</b>
+<b class="fc"><i>86</i>&nbsp;            M_PROJECTDATA projectData = M_PROJECTDATA.getInstance();</b>
+<b class="fc"><i>87</i>&nbsp;            if (path instanceof String) {</b>
+<i>88</i>&nbsp;                try{
+<b class="fc"><i>89</i>&nbsp;                    projectData = m__import.importProject(path);</b>
+<b class="fc"><i>90</i>&nbsp;                    projectData.setFunctionPointEstimation_configData(projectData.getFunctionPointEstimation_configData()); //TODO: check if relevant for testing</b>
+<b class="fc"><i>91</i>&nbsp;                    projectData.getFunctionPointEstimation().setE2Correction(-1); //clean Correction Factor from last Calculation</b>
+<i>92</i>&nbsp;                }
+<b class="nc"><i>93</i>&nbsp;                catch(InvalidPathException e)</b>
+<i>94</i>&nbsp;                {
+<b class="nc"><i>95</i>&nbsp;                    e.getStackTrace();</b>
+<b class="nc"><i>96</i>&nbsp;                    JOptionPane.showMessageDialog(null,</b>
+<i>97</i>&nbsp;                            &quot;Sie müssen einen korrekten Dateipfad angeben&quot;,
+<i>98</i>&nbsp;                            &quot;Achtung&quot;,
+<i>99</i>&nbsp;                            JOptionPane.WARNING_MESSAGE);
+<b class="fc"><i>100</i>&nbsp;                }</b>
+<i>101</i>&nbsp;            }
+<i>102</i>&nbsp;            else {
+<b class="nc"><i>103</i>&nbsp;                JOptionPane.showMessageDialog(null,</b>
+<i>104</i>&nbsp;                        &quot;Sie müssen einen korrekten Dateipfad angeben&quot;,
+<i>105</i>&nbsp;                        &quot;Achtung&quot;,
+<i>106</i>&nbsp;                        JOptionPane.WARNING_MESSAGE);
+<i>107</i>&nbsp;            }
+<b class="fc"><i>108</i>&nbsp;            I_V_BASIC.hide(viewStart.getJFrame());  // makes viewStart invisible and disables user input</b>
+<i>109</i>&nbsp;            //TODO: initialize C_Frame with Project Data from XML file (und pfad übergeben)
+<b class="fc"><i>110</i>&nbsp;            I_C_FRAME controllerFrame = C_FRAME.getInstance();</b>
+<b class="fc"><i>111</i>&nbsp;            controllerFrame.setLinks(projectData, this, path);//new C_FRAME(new M_PROJECTDATA(), this, path);</b>
+<b class="fc"><i>112</i>&nbsp;        } else {</b>
+<b class="nc"><i>113</i>&nbsp;            JOptionPane.showMessageDialog(null,</b>
+<i>114</i>&nbsp;                    &quot;Sie müssen einen korrekten Dateipfad angeben&quot;,
+<i>115</i>&nbsp;                    &quot;Achtung&quot;,
+<i>116</i>&nbsp;                    JOptionPane.WARNING_MESSAGE);
+<i>117</i>&nbsp;        }
+<b class="fc"><i>118</i>&nbsp;    }</b>
+<i>119</i>&nbsp;
+<i>120</i>&nbsp;    /**
+<i>121</i>&nbsp;     * this method shows the viewStart and tells the Start Controller, that he is in charge now
+<i>122</i>&nbsp;     */
+<i>123</i>&nbsp;    @Override
+<i>124</i>&nbsp;    public void notifyShow() {
+<b class="fc"><i>125</i>&nbsp;        I_V_BASIC.show(viewStart.getJFrame());</b>
+<b class="fc"><i>126</i>&nbsp;    }</b>
+<i>127</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-14 13:52</div>
+</div>
+</body>
+</html>

@@ -94,48 +94,4 @@ public class M_PROJECTDATA_PRODUCTFUNCTION extends M_PROJECTDATA_PRODUCTCONTENT 
                 break;
         }
     }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getFunction() {
-        return function;
-    }
-
-    public String getActor() {
-        return actor;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public int getFunctionPointWeighting() {
-        return functionPointWeighting;
-    }
-
-    public String getFunctionPointCategory() {
-        return functionPointCategory;
-    }
-
-    public int getFunctionPointDET() {
-        return functionPointDET;
-    }
-
-    public int getFunctionPointFTR() {
-        return functionPointFTR;
-    }
-
-    public String toString() {
-        return "ProductDataElement:"
-                + id + ", "
-                + function + ", "
-                + actor + ", "
-                + description + ", "
-                + functionPointCategory + ", "
-                + functionPointWeighting + ", "
-                + functionPointFTR + ", "
-                + getFunctionPointDET();
-    }
 }

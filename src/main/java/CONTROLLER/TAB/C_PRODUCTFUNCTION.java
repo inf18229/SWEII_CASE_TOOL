@@ -13,7 +13,7 @@ public class C_PRODUCTFUNCTION implements I_C_PRODUCTFUNCTION {
     /**
      * initialize Productfunction Object
      */
-    public C_PRODUCTFUNCTION() {
+    private C_PRODUCTFUNCTION() {
     }
 
     public static C_PRODUCTFUNCTION getInstance() {

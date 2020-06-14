@@ -62,6 +62,7 @@ public class M_IMPORT {
      * @param path the path for the project that has to be imported
      * @throws InvalidPathException
      * @throws NullPointerException
+     * @source code idea from: https://howtodoinjava.com/jaxb/unmarshal-without-xmlrootelement/
      */
     public void importProject(M_PROJECTDATA projData, String path) throws InvalidPathException, NullPointerException {
         File xmlFile = new File(path);

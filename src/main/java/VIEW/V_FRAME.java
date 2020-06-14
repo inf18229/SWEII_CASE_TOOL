@@ -17,9 +17,9 @@ import java.text.DecimalFormat;
 
 
 public class V_FRAME implements I_V_FRAME {
-    I_C_FRAME controllerFrame;
-    I_C_EFFORT conEffort;
-    JFrame frame;
+    private I_C_FRAME controllerFrame;
+    private I_C_EFFORT conEffort;
+    private JFrame frame;
 
     // declaration for the desired decimal format -> improves readability
     private static DecimalFormat df2 = new DecimalFormat("#.##");
@@ -276,9 +276,8 @@ public class V_FRAME implements I_V_FRAME {
     private JButton buttonproductDataDelete;
     private JButton buttonproductDataNew;
     private JComboBox comboBoxproductDataCategory;
-    DefaultListModel functionalReqListModell;
-    DefaultListModel productDataListModell;
-
+    private DefaultListModel functionalReqListModell;
+    private DefaultListModel productDataListModell;
 
     /**
      * Constructor of the V_FRAME class
@@ -293,9 +292,9 @@ public class V_FRAME implements I_V_FRAME {
         frame.setResizable(false);
         frame.getContentPane().setPreferredSize(new Dimension(1200, 800)); //460
         //Set initial Values here
-        targetUse.setText(projData.getTargetDefinition().getContent());
-        productUse.setText(projData.getProductUse().getContent());
-        productEnvironment.setText(projData.getProductEnvironment().getContent());
+        targetUse.setText(projData.getTargetDefinition().content);
+        productUse.setText(projData.getProductUse().content);
+        productEnvironment.setText(projData.getProductEnvironment().content);
 
         tabbedPane.addChangeListener(new ChangeListener() {
             /**
@@ -1202,6 +1201,7 @@ public class V_FRAME implements I_V_FRAME {
      */
     @Override
     public int getSliderValue(int sliderNo) {
+        //TODO: rename cases
         switch (sliderNo) {
             case 1:
                 return slider0Entanglement.getValue();

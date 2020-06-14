@@ -17,12 +17,12 @@ public interface I_C_FRAME {
      * @param conStart reference to the Start Controller
      * @param path     path of the projectData
      */
-    void setLinks(M_PROJECTDATA projData, I_C_start conStart, String path);
+    public void setLinks(M_PROJECTDATA projData, I_C_START conStart, String path);
 
     /**
      * creates Controller for each tab
      */
-    void createTabControllers();
+    public void createTabControllers();
 
     //TODO: decide if this should be implemented?
     /**
@@ -38,12 +38,12 @@ public interface I_C_FRAME {
      *
      * @param newTab integer of the newly selected tab
      */
-    void notifyTabChange(int newTab);
+    public void notifyTabChange(int newTab);
 
     /**
      * should notify C_EFFORT that the tab in V_Effort_Tabs has changed
      */
-    void notifyTabChangeEffort();
+    public void notifyTabChangeEffort();
 
     /**
      * notifies the Controller, that a slider was changed
@@ -51,69 +51,69 @@ public interface I_C_FRAME {
      * @param sliderNo integer to identify the slider that was changed
      * @param value    integer to which the slider was changed to
      */
-    void notifySlider(int sliderNo, int value);
+    public void notifySlider(int sliderNo, int value);
 
     /**
      * notifies the effort controller to recalculate the estimation
      */
-    void notifyCalculate();
+    public void notifyCalculate();
 
     /**
      * notifies the Controller that he should close the project and open the welcome window
      */
-    void notifyClose();
+    public void notifyClose();
 
     /**
      * notifies the Controller that he should save the project
      */
-    void notifySave();
+    public void notifySave();
 
     /**
      * notifies the Controller that he should import new factors
      */
-    void notifyImportFactor();
+    public void notifyImportFactor();
 
     /**
      * notifies the Controller that he should export the factors
      */
-    void notifyExportFactor();
+    public void notifyExportFactor();
 
     /**
      * notifies the Controller that the next button was pressed
      */
-    void notifyNext();
+    public void notifyNext();
 
     /**
      * notifies the Controller that the last button was pressed
      */
-    void notifyLast();
+    public void notifyLast();
 
     /**
      * this method should automatically update the values for the factors to meet the e2goal
      */
-    void notifyAdjustFactors();
+    public void notifyAdjustFactors();
 
     /**
      * notifies the Controller that the user wants to close the program window
      */
-    void notifyExit();
+    public void notifyExit();
 
     I_C_TAB getCurrentController();
 
     /**
      * notfies the controller that the new Button in Functional Reqirement Tab is pressed
      */
-    void notifyProductContentNEW();
+    public void notifyProductContentNEW();
 
     /**
      * notifies the controller that save Button in Functional Reqirement Tab is pressed
      */
-    void notifyProductContentDELETE();
+    public void notifyProductContentDELETE();
 
     /**
      * notify Controller that selected List Item has changed
      *
      * @param selectedID //TODO: add description
      */
-    void notifySelectedListChange(String selectedID);
+    public void notifySelectedListChange(String selectedID);
 }

@@ -1,9 +1,7 @@
 package MODEL.PROJECTDATA;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class M_PROJECTDATA_PRODUCTDATA extends M_PROJECTDATA_PRODUCTCONTENT {
+    //TODO: add to documentation why public
     public String id = "";
     public String memoryContent = "";
     public String reference = "";
@@ -48,33 +46,4 @@ public class M_PROJECTDATA_PRODUCTDATA extends M_PROJECTDATA_PRODUCTCONTENT {
             }
         }
     }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getMemoryContent() {
-        return memoryContent;
-    }
-
-    public String getReference() {
-        return reference;
-    }
-
-    public int getFunctionPointWeighting() {
-        return functionPointWeighting;
-    }
-
-    public int getFunctionPointDET() {
-        return functionPointDET;
-    }
-
-    public int getFunctionPointRET() {
-        return functionPointRET;
-    }
-
-    public String getFunctionPointCategory() {
-        return functionPointCategory;
-    }
-
 }

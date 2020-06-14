@@ -45,9 +45,9 @@ public class C_GENERAL implements I_C_GENERAL {
     @Override
     public void updateProjectData() {
         System.out.println("Update Project Data from general Tab triggered.");
-        projectData.getTargetDefinition().setContent(targetUse.getText());
-        projectData.getProductUse().setContent(productUse.getText());
-        projectData.getProductEnvironment().setContent(productEnvironment.getText());
+        projectData.getTargetDefinition().content = targetUse.getText();
+        projectData.getProductUse().content = productUse.getText();
+        projectData.getProductEnvironment().content = productEnvironment.getText();
         System.out.println(projectData.getTargetDefinition().toString());
         System.out.println(projectData.getProductUse().toString());
         System.out.println(projectData.getProductEnvironment().toString());

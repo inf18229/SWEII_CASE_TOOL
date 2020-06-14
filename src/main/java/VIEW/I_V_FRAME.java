@@ -8,27 +8,27 @@ import javax.swing.*;
 
 public interface I_V_FRAME extends I_V_BASIC {
     //TODO: alternative solution to get access to elements of the view in the current tab controller
-    JTextArea getTargetUse();
+    public JTextArea getTargetUse();
 
-    JTextArea getProductUse();
+    public JTextArea getProductUse();
 
-    JTextArea getProductEnvironment();
+    public JTextArea getProductEnvironment();
 
-    JTextField getTextFieldProdFuncID();
+    public JTextField getTextFieldProdFuncID();
 
-    JTextField getTextFieldProdFunc();
+    public JTextField getTextFieldProdFunc();
 
-    JTextField getTextFieldProdFuncProtagonist();
+    public JTextField getTextFieldProdFuncProtagonist();
 
-    JTextArea getTextAreaprodFuncDescription();
+    public JTextArea getTextAreaprodFuncDescription();
 
-    JComboBox getComboBoxProdFuncCategory();
+    public JComboBox getComboBoxProdFuncCategory();
 
-    JSpinner getSpinnerProdFuncFTR();
+    public JSpinner getSpinnerProdFuncFTR();
 
-    JSpinner getSpinnerProdFuncDET();
+    public JSpinner getSpinnerProdFuncDET();
 
-    JList getProdFuncIDList();
+    public JList getProdFuncIDList();
 
     public JList getListproductDataID();
 
@@ -51,7 +51,7 @@ public interface I_V_FRAME extends I_V_BASIC {
      *
      * @param weight value to which the weight should be set to
      */
-    void setWeightDescription(int weight);
+    public void setWeightDescription(int weight);
 
     /**
      * this method gets the count values from the controller
@@ -60,7 +60,7 @@ public interface I_V_FRAME extends I_V_BASIC {
      * @param countNo which count to update
      * @param value   value to the selected count
      */
-    void setEstimationCount(int countNo, int value);
+    public void setEstimationCount(int countNo, int value);
 
     /**
      * this method gets the weight values from the controller
@@ -69,7 +69,7 @@ public interface I_V_FRAME extends I_V_BASIC {
      * @param weightNo which count to update
      * @param value    value to the selected count
      */
-    void setEstimationWeight(int weightNo, int value);
+    public void setEstimationWeight(int weightNo, int value);
 
     /**
      * this method gets the sum values from the controller
@@ -78,7 +78,7 @@ public interface I_V_FRAME extends I_V_BASIC {
      * @param sumNo which count to update
      * @param value value to the selected count
      */
-    void setEstimationSum(int sumNo, int value);
+    public void setEstimationSum(int sumNo, int value);
 
     /**
      * this method gets the weight values from the controller
@@ -86,7 +86,7 @@ public interface I_V_FRAME extends I_V_BASIC {
      *
      * @param sum the totalRowSumE1 of M_projectData_fuctionPointEstimation
      */
-    void setTotalRowSum(int sum);
+    public void setTotalRowSum(int sum);
 
     /**
      * returns the value of the selected slider
@@ -94,7 +94,7 @@ public interface I_V_FRAME extends I_V_BASIC {
      * @param sliderNo which slider to get
      * @return value of the selected slider
      */
-    int getSliderValue(int sliderNo);
+    public int getSliderValue(int sliderNo);
 
     /**
      * sets slider to the passed possition
@@ -102,7 +102,7 @@ public interface I_V_FRAME extends I_V_BASIC {
      * @param sliderNo defines which slider to change
      * @param value    defines the value to which the slider should be set
      */
-    void setSliderValue(int sliderNo, int value);
+    public void setSliderValue(int sliderNo, int value);
 
     /**
      * sets the value of the corresponding text field to the value given
@@ -110,7 +110,7 @@ public interface I_V_FRAME extends I_V_BASIC {
      * @param sliderNo integer to identify the slider that was changed
      * @param value    integer to which the slider was changed to
      */
-    void setSliderText(int sliderNo, int value);
+    public void setSliderText(int sliderNo, int value);
 
     /**
      * set the value of E2
@@ -118,7 +118,7 @@ public interface I_V_FRAME extends I_V_BASIC {
      * @param e2sum  sum of all factors
      * @param e2Goal sum to achieve the same effort in calculation as in the real project
      */
-    void setFactorSumE2(int e2sum, int e2Goal);
+    public void setFactorSumE2(int e2sum, int e2Goal);
 
     /**
      * this method updates the value for E1, E2 and E3 in the Calculation Tab
@@ -131,14 +131,14 @@ public interface I_V_FRAME extends I_V_BASIC {
      * @param jPersons      number of persons working, according to jones estimation
      * @param jPersonMonths person months, according to jones estimation
      */
-    void updateCalculationTab(int e1, int e2, double e3, double afp, double jDuration, int jPersons, double jPersonMonths);
+    public void updateCalculationTab(int e1, int e2, double e3, double afp, double jDuration, int jPersons, double jPersonMonths);
 
     /**
      * this method returns the value of the real Duration entered by the user
      *
      * @return actualDuration
      */
-    double getActualDuration();
+    public double getActualDuration();
 
     /**
      * this method updates all values of the correction factor panel
@@ -147,111 +147,111 @@ public interface I_V_FRAME extends I_V_BASIC {
      * @param corrFact     correction factor
      * @param e2Correction goal for e2Sum
      */
-    void updateCorrectionPanel(double calcEff, double corrFact, int e2Correction);
+    public void updateCorrectionPanel(double calcEff, double corrFact, int e2Correction);
 
     /**
      * this method shows the next button
      */
-    void showNext();
+    public void showNext();
 
     /**
      * this method hides the next button
      */
-    void hideNext();
+    public void hideNext();
 
     /**
      * this method shows the last button
      */
-    void showLast();
+    public void showLast();
 
     /**
      * this method hides the last button
      */
-    void hideLast();
+    public void hideLast();
 
     /**
      * this method shows the import button to import all factors
      */
-    void showFactorImport();
+    public void showFactorImport();
 
     /**
      * this method hides the import button to import all factors
      */
-    void hideFactorImport();
+    public void hideFactorImport();
 
     /**
      * this method shows the export button to export all factors
      */
-    void showFactorExport();
+    public void showFactorExport();
 
     /**
      * this method hides the export button to export all factors
      */
-    void hideFactorExport();
+    public void hideFactorExport();
 
     /**
      * method goes to the next step in effort analysis
      */
-    void nextStepEffort();
+    public void nextStepEffort();
 
     /**
      * method goes to the last step in effort analysis
      */
-    void lastStepEffort();
+    public void lastStepEffort();
 
     /**
      * adds the FuncReqID List in Tab
      *
      * @param id //TODO: add description for id
      */
-    void addProdFuncIDListElement(String id);
+    public void addProdFuncIDListElement(String id);
 
     /**
      * change ReqID List element with String i
      *
      * @param id is the new value for the list element
      */
-    void changeprodFuncIDListElement(String id);
+    public void changeprodFuncIDListElement(String id);
 
     /**
      * function can reinitialize complente Product Function ID List with new Project Data
      *
      * @param projData referenece to new project data
      */
-    void reinitializeProdFuncIDList(M_PROJECTDATA projData);
+    public void reinitializeProdFuncIDList(M_PROJECTDATA projData);
 
     /**
      * updates textboxes depending on the selected Index
      *
      * @param projDataFunction //TODO: add description
      */
-    void updateProdFuncInfo(M_PROJECTDATA_PRODUCTFUNCTION projDataFunction);
+    public void updateProdFuncInfo(M_PROJECTDATA_PRODUCTFUNCTION projDataFunction);
 
     /**
      * adds new Product Data List Element in Tab Product Data
      *
      * @param id new Element ID
      */
-    void addProdDataIDListElement(String id);
+    public void addProdDataIDListElement(String id);
 
     /**
      * change the current selected List Element with a new Element
      *
      * @param id defines what exact Element to change
      */
-    void changeProdDataIDListElement(String id);
+    public void changeProdDataIDListElement(String id);
 
     /**
      * function can reinitialize complente Product Data ID List with new Project Data
      *
      * @param projData referenece to new project data
      */
-    void reinitializeProdDataIDList(M_PROJECTDATA projData);
+    public void reinitializeProdDataIDList(M_PROJECTDATA projData);
 
     /**
      * updates textboxes depending on selected Index
      *
      * @param projDataProductData new Product Data content
      */
-    void updateProdDataInfo(M_PROJECTDATA_PRODUCTDATA projDataProductData);
+    public void updateProdDataInfo(M_PROJECTDATA_PRODUCTDATA projDataProductData);
 }

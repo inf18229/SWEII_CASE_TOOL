@@ -1,32 +1,25 @@
 package CONTROLLER.TAB;
 
-import MODEL.PROJECTDATA.M_PROJECTDATA;
-import VIEW.I_V_FRAME;
-
 /**
  * This Interface manages all actions regarding the "Aufwandsschätzung" tab
  */
 public interface I_C_EFFORT extends I_C_TAB {
 
-    //TODO: getInstance here?
-
-
-
     /**
      * this method updates the V_framePanel_effort
      * therefore all current values are set as View attributes
      */
-    void updateView();
+    public void updateView();
 
     /**
      * notifies the Controller that the nextButton was pressed
      */
-    void notifyNext();
+    public void notifyNext();
 
     /**
      * notifies the Controller that the lastButton was pressed
      */
-    void notifyLast();
+    public void notifyLast();
 
     /**
      * notifies the Controller, that a slider was changed
@@ -34,19 +27,19 @@ public interface I_C_EFFORT extends I_C_TAB {
      * @param sliderNo integer to identify the slider that was changed
      * @param value    integer to which the slider was changed to
      */
-    void notifySlider(int sliderNo, int value);
+    public void notifySlider(int sliderNo, int value);
 
     /**
      * this method triggers all necessary functions to recalculate and show the new values
      */
-    void notifyCalculate();
+    public void notifyCalculate();
 
     /**
      * method iterates through all product functions,
      * adds up the number of elements
      * and saves the calculated value in the corresponding count variable
      */
-    void calculateCounts();
+    public void calculateCounts();
 
     /**
      * this method should automatically update the values for the factors to meet the e2goal
@@ -54,19 +47,19 @@ public interface I_C_EFFORT extends I_C_TAB {
      *
      * @return string of output which should be printed to console (mainly for development purposes)
      */
-    String notifyAdjustFactors();
+    public String notifyAdjustFactors();
 
     /**
      * increases Factors by given value
      *
      * @param increase value how much the factors should be increased
      */
-    void increaseFactors(int increase);
+    public void increaseFactors(int increase);
 
     /**
      * decreases Factors by given value
      *
      * @param decrease value how much the factors should be decreased
      */
-    void decreaseFactors(int decrease);
+    public void decreaseFactors(int decrease);
 }

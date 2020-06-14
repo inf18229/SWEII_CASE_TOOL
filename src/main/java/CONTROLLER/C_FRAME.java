@@ -18,18 +18,18 @@ import java.nio.file.InvalidPathException;
 public class C_FRAME implements I_C_FRAME {
     private static C_FRAME controllerFrame;
 
-    I_V_FRAME viewFrame;
-    I_C_start controllerStart;
-    I_C_GENERAL controllerGeneral;
-    I_C_PRODUCTCONTENT controllerProductFunction;
-    I_C_PRODUCTCONTENT controllerProductData;
-    I_C_EFFORT controllerEffort;
-    I_C_TAB currentController; //stores current active Controller
-    M_PROJECTDATA projectData;  //stores projectData before export TODO: clarify: projectData also stored before pressing the save button?
-    M_EXPORT projectData_export;
-    M_IMPORT projectData_import;
-    String projPath = "";
-    String confPath = "";
+    private I_V_FRAME viewFrame;
+    private I_C_START controllerStart;
+    private I_C_GENERAL controllerGeneral;
+    private I_C_PRODUCTCONTENT controllerProductFunction;
+    private I_C_PRODUCTCONTENT controllerProductData;
+    private I_C_EFFORT controllerEffort;
+    private I_C_TAB currentController; //stores current active Controller
+    private M_PROJECTDATA projectData;  //stores projectData before export TODO: clarify: projectData also stored before pressing the save button?
+    private M_EXPORT projectData_export;
+    private M_IMPORT projectData_import;
+    private String projPath = "";
+    private String confPath = "";
 
     private C_FRAME(){}
 
@@ -49,7 +49,7 @@ public class C_FRAME implements I_C_FRAME {
     /**
      * this method sets the necessary links after instantiation of the controller
      */
-    public void setLinks(M_PROJECTDATA projData, I_C_start conStart, String path) {
+    public void setLinks(M_PROJECTDATA projData, I_C_START conStart, String path) {
         //System.out.println("C_FRAME created");
         controllerStart = conStart;
         projectData = projData;
