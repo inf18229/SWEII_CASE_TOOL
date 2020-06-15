@@ -16,8 +16,6 @@ import java.nio.file.InvalidPathException;
 public class C_START implements I_C_START {
     private static C_START controllerStart;
 
-    //TODO: create Model and store in local Variable
-    //TODO: create VIEW and store in local Variable
     private I_V_START viewStart;
     private M_IMPORT importObj;
 
@@ -58,14 +56,12 @@ public class C_START implements I_C_START {
         if (path == "" | path == null) {
             //go to start view
         } else {
-            //TODO: Model den Pfad (in createData(path)) übergeben --> Beachten: im path muss pfad und name des files ein
-            //TODO: Idee: Pfad auswählen lassen und Namen separat angeben + erweitern mit .xml --> überprüfen auf leeren Namen
             I_V_BASIC.hide(viewStart.getJFrame());  // makes viewStart invisible and disables user input
             I_C_FRAME controllerFrame = C_FRAME.getInstance();
             controllerFrame.setLinks(M_PROJECTDATA.getInstance(), this, path);
         }
 
-        //String path = "test.xml";
+        //String path = "test_file.xml"; //TODO: remove hardcoded path
 
     }
 
@@ -77,14 +73,14 @@ public class C_START implements I_C_START {
      */
     public void notifyOpen() {
         System.out.println("Öffne Projekt wurde gedrückt.");
-        String path  = viewStart.getPath(true); //TODO: abfangen wenn man name von nicht existierender Datei eingegeben und auf open gedrückt wird
+        String path  = viewStart.getPath(true);
         File xmlFile = new File(path);
         if (xmlFile.exists()) {
             M_PROJECTDATA projectData = M_PROJECTDATA.getInstance();
             if (path instanceof String) {
                 try{
                     projectData = importObj.importProject(path);
-                    projectData.setFunctionPointEstimation_configData(projectData.getFunctionPointEstimation_configData()); //TODO: check if relevant for testing
+                    projectData.setFunctionPointEstimation_configData(projectData.getFunctionPointEstimation_configData());
                     projectData.getFunctionPointEstimation().setE2Correction(-1); //clean Correction Factor from last Calculation
                 }
                 catch(InvalidPathException e)
@@ -103,7 +99,6 @@ public class C_START implements I_C_START {
                         JOptionPane.WARNING_MESSAGE);
             }
             I_V_BASIC.hide(viewStart.getJFrame());  // makes viewStart invisible and disables user input
-            //TODO: initialize C_Frame with Project Data from XML file (und pfad übergeben)
             I_C_FRAME controllerFrame = C_FRAME.getInstance();
             controllerFrame.setLinks(projectData, this, path);//new C_FRAME(new M_PROJECTDATA(), this, path);
         } else {

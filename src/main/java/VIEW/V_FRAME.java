@@ -304,7 +304,6 @@ public class V_FRAME implements I_V_FRAME {
              */
             @Override
             public void stateChanged(ChangeEvent e) {
-                //TODO: activate Controller depending on open tab
                 controllerFrame.notifyTabChange(tabbedPane.getSelectedIndex());
             }
         });
@@ -454,7 +453,6 @@ public class V_FRAME implements I_V_FRAME {
         comboBoxProductFunctionCategory.addItem("EO-Ausgabe");
         comboBoxProductFunctionCategory.addItem("EQ-Abfrage");
 
-        //TODO: add same limits for estimation Mannmonate
         SpinnerNumberModel nMSpinnerProductFunctionFTR = new SpinnerNumberModel(0, 0, 1000, 1);
         spinnerProductFunctionFTR.setModel(nMSpinnerProductFunctionFTR);
 
@@ -1207,7 +1205,6 @@ public class V_FRAME implements I_V_FRAME {
                 slider9Customizability.setValue(value);
                 break;
             default:
-                // TODO: evtl. besser try catch -> prüfen und wenn besser implementieren
         }
     }
 
@@ -1251,7 +1248,6 @@ public class V_FRAME implements I_V_FRAME {
                 label9CustomizabilityValue.setText(String.valueOf(value));
                 break;
             default:
-                // TODO: evtl. besser try catch -> prüfen und wenn besser implementieren
         }
     }
 
@@ -1334,8 +1330,7 @@ public class V_FRAME implements I_V_FRAME {
         labelCorrectionFactor.setText(String.valueOf(decimalFormat2.format(corrFact)));
         labelCorrectionCalculation.setText(String.valueOf(decimalFormat2.format(calcEff) + " * e^" + decimalFormat2.format(corrFact) + " = " + String.valueOf(decimalFormat2.format((calcEff * Math.exp(corrFact))))));
         /**
-         * checks if e2Correction is within the boundaries
-         * TODO: maybe better in controller but not so efficient
+         * checks if e2Correction is within the boundaries //TODO: move to controller and give string to model function?
          */
         if (e2Correction >= 0 & e2Correction < 60) {
             labelE2CorrectioDescription.setText("Die Einflussfaktoren müssen geändert werden auf:");

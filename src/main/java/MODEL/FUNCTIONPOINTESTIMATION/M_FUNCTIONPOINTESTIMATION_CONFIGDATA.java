@@ -86,7 +86,6 @@ public class M_FUNCTIONPOINTESTIMATION_CONFIGDATA {
                 factorCustomizability = value;
                 break;
             default:
-                // TODO: evtl. besser try catch -> prüfen und wenn besser implementieren
         }
     }
 
@@ -120,7 +119,6 @@ public class M_FUNCTIONPOINTESTIMATION_CONFIGDATA {
                 return factorCustomizability;
             default:
                 return 0;
-            // TODO: evtl. besser try catch -> prüfen und wenn besser implementieren
         }
     }
 

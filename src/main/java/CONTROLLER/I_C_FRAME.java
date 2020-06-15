@@ -24,14 +24,6 @@ public interface I_C_FRAME {
      */
     public void createTabControllers();
 
-    //TODO: decide if this should be implemented?
-    /**
-     * calls the required functions dependend on the id given
-     * @param id identifier which button was pressed
-     *           0: button x
-     *           1: button y
-     */
-
     /**
      * switches to the specified Tab
      *

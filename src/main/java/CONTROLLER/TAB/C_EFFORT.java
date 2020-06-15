@@ -251,7 +251,7 @@ public class C_EFFORT implements I_C_EFFORT {
                             break;
                     }
                     break;
-                default:    //TODO: throw exception?
+                default:
                     break;
             }
         }
@@ -373,7 +373,7 @@ public class C_EFFORT implements I_C_EFFORT {
         int factorIterator = 0; // Iterator to decide which factor to switch
         int adjustment = -1;    // variable stores how much the selected factor can be adjusted
         if (decrease < 0
-                | (projectData.getFunctionPointEstimation_configData().getE2Sum() - decrease) < 0) {   //TODO: if called with decrease=5, but all factors=0 function never stops
+                | (projectData.getFunctionPointEstimation_configData().getE2Sum() - decrease) < 0) {
             throw new IllegalArgumentException("decrease out of bounds");
         } else {
             while (decrease > 0) { // the goal sum is not achieved yet
@@ -404,7 +404,6 @@ public class C_EFFORT implements I_C_EFFORT {
 
     @Override
     public void updateProjectData() {
-        //TODO: get Data from Model
         calculateCounts();
         projectData.getFunctionPointEstimation().calculateAllRowSums();
         projectData.getFunctionPointEstimation().calculateTotalRowSumE1();

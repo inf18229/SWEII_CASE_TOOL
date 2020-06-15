@@ -24,7 +24,7 @@ public class C_FRAME implements I_C_FRAME {
     private I_C_PRODUCTCONTENT controllerProductData;
     private I_C_EFFORT controllerEffort;
     private I_C_TAB currentController; //stores current active Controller
-    private M_PROJECTDATA projectData;  //stores projectData before export TODO: clarify: projectData also stored before pressing the save button?
+    private M_PROJECTDATA projectData;  //stores projectData before export
     private M_EXPORT projectData_export;
     private M_IMPORT projectData_import;
     private String projPath = "";
@@ -56,7 +56,7 @@ public class C_FRAME implements I_C_FRAME {
         projectData = projData;
         viewFrame = new V_FRAME(this, projectData);
         projectData_export = new M_EXPORT();
-        projectData_import = new M_IMPORT();    //TODO: check if necessary or better when used?
+        projectData_import = new M_IMPORT();
         createTabControllers();
         I_V_BASIC.show(viewFrame.getJFrame());
         currentController = controllerGeneral;
@@ -120,7 +120,7 @@ public class C_FRAME implements I_C_FRAME {
             case 3:
                 System.out.println("Tab: 3 - Effort Tab Controller active");
                 currentController = controllerEffort;
-                currentController.updateProjectData(); //reads project data and refreshes view TODO: maybe add updateView() for all Controllers?
+                currentController.updateProjectData(); //reads project data and refreshes view
                 viewFrame.showNext();
                 viewFrame.showLast();
                 viewFrame.showFactorImport();
@@ -194,9 +194,11 @@ public class C_FRAME implements I_C_FRAME {
     /**
      * notifies the Controller that he should save the project
      * the controller therefore tells the model to save the data
+     * the export class handles the export to a xml file
+     * changes will disappear when not exported/saved, but program closed
      */
     @Override
-    public void notifySave() {  //TODO: clarify: save means export and changes will disappear when not exported/saved, but programm closed?
+    public void notifySave() {
         try{
             projectData_export.export(projectData, projPath);
         }

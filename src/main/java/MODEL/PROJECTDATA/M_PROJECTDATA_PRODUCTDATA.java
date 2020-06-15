@@ -4,7 +4,7 @@ package MODEL.PROJECTDATA;
  * Class holds all Information of product data element
  */
 public class M_PROJECTDATA_PRODUCTDATA extends M_PROJECTDATA_PRODUCTCONTENT {
-    //TODO: add to documentation why public
+    //TODO: describe in documentation why public
     public String id = "";
     public String memoryContent = "";
     public String reference = "";
