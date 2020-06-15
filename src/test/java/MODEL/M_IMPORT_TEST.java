@@ -13,12 +13,16 @@ class M_IMPORT_TEST {
 
     /**
      * tests M_IMPORT for throwing an InvalidPathException while importing the project data of a project if the XML file given by path does not exist
+     * and for throwing a NullPointerException if the path string is null
      */
     @Test
     void import_projectData_fileFromPathDoesNotExists() {
         M_IMPORT import_test = new M_IMPORT();
-        String path = "testFiles/non_existing_file.xml";
-        assertThrows(InvalidPathException.class, () -> import_test.importProject(path));
+        String path1 = "testFiles/non_existing_file.xml";
+        assertThrows(InvalidPathException.class, () -> import_test.importProject(path1));
+
+        String path2 = null;
+        assertThrows(NullPointerException.class, () -> import_test.importProject(path2));
     }
 
     /**
@@ -55,20 +59,22 @@ class M_IMPORT_TEST {
     void import_configData_fileFromPathDoesNotExists() {
         M_IMPORT import_test = new M_IMPORT();
         M_PROJECTDATA projData_test = M_PROJECTDATA.getInstance();
-        String path = "testFiles/non_existing_file.xml";
-        assertThrows(InvalidPathException.class, () -> import_test.importProject(projData_test, path));
+        String path1 = "testFiles/non_existing_file.xml";
+        assertThrows(InvalidPathException.class, () -> import_test.importProject(projData_test, path1));
+
+        String path2 = null;
+        assertThrows(NullPointerException.class, () -> import_test.importProject(projData_test, path2));
     }
 
     /**
      * tests M_IMPORT for throwing a NullPointerException while importing the config data of a project if the project that imports the config data is null
+     * and for throwing a NullPointerException if the path string is null
      */
     @Test
     void import_configData_nullProjectDataTest() {
         M_IMPORT import_test = new M_IMPORT();
         M_PROJECTDATA projData_test = null;
         String path = "testFiles/test_config.xml";
-
-        //Tests whether the file at location path exists
         assertThrows(NullPointerException.class, () -> import_test.importProject(projData_test, path));
     }
 
