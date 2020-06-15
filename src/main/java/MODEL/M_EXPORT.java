@@ -11,7 +11,7 @@ import java.nio.file.InvalidPathException;
 /**
  * this class saves the current Project to XML
  */
-public class M_EXPORT {
+public class M_EXPORT implements I_M_EXPORT {
 
     /**
      * constructor of M_EXPORT class

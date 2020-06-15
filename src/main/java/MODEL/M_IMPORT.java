@@ -14,7 +14,7 @@ import java.nio.file.InvalidPathException;
 /**
  * this class imports a project or a projects config Data from an XML file
  */
-public class M_IMPORT {
+public class M_IMPORT implements  I_M_IMPORT{
     private M_PROJECTDATA projectData;
     private M_FUNCTIONPOINTESTIMATION_CONFIGDATA configData;
 
