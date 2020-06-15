@@ -8,9 +8,6 @@ import javax.xml.bind.Marshaller;
 import java.io.File;
 import java.nio.file.InvalidPathException;
 
-//TODO: KONTROLLFLUSSGRAPH
-//TODO: Reicht es einmal im Try Block zu sein für Zweigabdeckung
-
 /**
  * this class saves the current Project to XML
  */
@@ -23,16 +20,13 @@ public class M_EXPORT {
 
     }
 
-    //TODO: check how to add source tag or remove link
-    //@source code idea from: https://howtodoinjava.com/jaxb/write-object-to-xml/
-
-
     /**
      * this function converts the current project to XML and saves the new XML file
+     * code idea from: https://howtodoinjava.com/jaxb/write-object-to-xml/
      * @param projData the projectData of the current project
      * @param projPath the path that defines where to save the data into a XML file
      * @throws InvalidPathException Invalid Filename
-     * @throws NullPointerException //TODO: add description
+     * @throws NullPointerException NullPointerException
      */
     public void export(M_PROJECTDATA projData, String projPath) throws InvalidPathException, NullPointerException {
         if (projPath != null && projData != null) {
@@ -59,10 +53,11 @@ public class M_EXPORT {
 
     /**
      * this function converts the current confData of a project to XML and saves the new XML file
+     * code idea from: https://howtodoinjava.com/jaxb/write-object-to-xml/
      * @param confData the confData of the current project
      * @param confPath the Path that defines where to save the data into a XML file
      * @throws InvalidPathException Invalid Filename
-     * @throws NullPointerException //TODO: add description
+     * @throws NullPointerException NullPointerException
      */
     public void export(M_FUNCTIONPOINTESTIMATION_CONFIGDATA confData, String confPath) throws  InvalidPathException, NullPointerException {
         if (confPath != null && confData != null) {
