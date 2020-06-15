@@ -69,15 +69,15 @@ public class M_FUNCTIONPOINTESTIMATION {
     private int sumReferenceMedium = 0;
     private int sumReferenceComplex = 0;
 
-    private int e1Sum = 0; //Sum of unajusted Function Points (naming Schema by SWE script)
-    private double e3Sum = 0; //factor of influence points
-    private double afp = 0; //adjusted Function Points
+    private int e1Sum = 0; // Sum of unadjusted Function Points (naming Schema by SWE script)
+    private double e3Sum = 0; // factor of influence points
+    private double afp = 0; // adjusted Function Points
     private double jonesDuration = 0;
     private int jonesPersonNo = 0;
     private double jonesPersonMonths = 0;
     private double actualDuration = 0;
     private double correctionFactor = 0;
-    private int e2Correction = -1; //correction factor for influence points Sum
+    private int e2Correction = -1; // correction factor for influence points Sum
 
     /**
      * creates new Object of Function Point Estimation and sets a reference to configData
@@ -302,11 +302,10 @@ public class M_FUNCTIONPOINTESTIMATION {
      *
      * @param count  total number of type
      * @param weight importance of this factor
-     * @return result = count * weight
+     * @return count * weight
      */
     public int calculateRowSum(int count, int weight) {
-        int result = count * weight;
-        return result;
+        return count * weight;
     }
 
     /**
@@ -362,7 +361,6 @@ public class M_FUNCTIONPOINTESTIMATION {
      * method calculates and sets the influence sum e3
      */
     public void calcInfluenceE3() {
-        //TODO: check this try catch block. Nullpoint Exception caught
         e3Sum = (double) configData.getE2Sum() / 100 + 0.7;
     }
 
@@ -398,20 +396,14 @@ public class M_FUNCTIONPOINTESTIMATION {
      * @param realTime time, the project really took till completion
      */
     public void calcE2Needed(double realTime) {
-        //TODO: delete temp variables
-        double temp = realTime / (Math.exp(0) * jonesPersonNo);
+        e2Correction = (int) (((Math.pow((realTime / (Math.exp(0) * jonesPersonNo)), (1 / 0.4)) / e1Sum) - 0.7) * 100);
+
+        /*double temp = realTime / (Math.exp(0) * jonesPersonNo);
         double temp1 = Math.pow(temp, 1 / 0.4);
         double temp2 = temp1 / e1Sum;
         double temp3 = temp2 - 0.7;
         double tempFinal = (temp3 * 100);
-        e2Correction = (int) tempFinal;
-
-        /*double temp = realTime/(Math.exp(correctionFactor)*jonesPersonNo);
-        double temp1 = Math.pow(temp, 1/0.4);
-        double temp2 = temp1/e1Sum;
-        double temp3 = temp2 - 0.7;
-        double tempFinal = temp3 * 100;
-        return (int) tempFinal;*/
+        e2Correction = (int) tempFinal;*/
     }
 
     /**

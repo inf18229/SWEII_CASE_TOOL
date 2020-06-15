@@ -15,8 +15,8 @@ import java.util.ArrayList;
  */
 public class M_PROJECTDATA {
     private static M_PROJECTDATA projectData; //holds Singleton reference to Project Data
-    private ArrayList<M_PROJECTDATA_PRODUCTDATA> productDataList;
-    private ArrayList<M_PROJECTDATA_PRODUCTFUNCTION> productFunctionList;
+    private ArrayList<M_PROJECTDATA_PRODUCTDATA> productDataList; //TODO: evtl. list entfernen, sonst sind in XML-Datei alle Daten einzelne Listen
+    private ArrayList<M_PROJECTDATA_PRODUCTFUNCTION> productFunctionList;   //TODO: evtl. list entfernen, sonst sind in XML-Datei alle Daten einzelne Listen
     private M_PROJECTDATA_PRODUCTUSE productUse;
     private M_PROJECTDATA_TARGETDEFINITION targetDefinition;
     private M_PROJECTDATA_PRODUCTENVIRONMENT productEnvironment;
