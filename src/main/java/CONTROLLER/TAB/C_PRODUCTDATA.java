@@ -27,13 +27,8 @@ public class C_PRODUCTDATA implements I_C_PRODUCTDATA {
 
     @Override
     public void setLinks(I_V_FRAME view, M_PROJECTDATA projData) {
-        if (projectData == null || view == null){
             viewFrame = view;
             projectData = projData;
-        }
-        else{
-            System.out.println("C_PRODUCTDATA Links already set");
-        }
     }
 
     private void setProductDataElements(M_PROJECTDATA_PRODUCTDATA projectDataProductData) {
