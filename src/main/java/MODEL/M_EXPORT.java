@@ -62,18 +62,18 @@ public class M_EXPORT {
     public void export(M_FUNCTIONPOINTESTIMATION_CONFIGDATA confData, String confPath) throws  InvalidPathException, NullPointerException {
         if (confPath != null && confData != null) {
             if(!confPath.isEmpty() && !confPath.isBlank()) {
-            try {
-                JAXBContext jaxbContext = JAXBContext.newInstance(M_FUNCTIONPOINTESTIMATION_CONFIGDATA.class);
-                Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-                jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+                try {
+                    JAXBContext jaxbContext = JAXBContext.newInstance(M_FUNCTIONPOINTESTIMATION_CONFIGDATA.class);
+                    Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+                    jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
-                confPath = confPath.trim(); //delete whitespaces at beginning and ending of confPath
-                File file = new File(confPath);
-                jaxbMarshaller.marshal(confData, file);
-            } catch (JAXBException e) {
-                e.printStackTrace();
-            }
-        } else{
+                    confPath = confPath.trim(); //delete whitespaces at beginning and ending of confPath
+                    File file = new File(confPath);
+                    jaxbMarshaller.marshal(confData, file);
+                } catch (JAXBException e) {
+                    e.printStackTrace();
+                }
+            } else{
                 throw new InvalidPathException(confPath, "Invalid Filename");
             }
         } else {
