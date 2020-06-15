@@ -64,7 +64,7 @@ class M_EXPORT_TEST {
      * tests M_EXPORT for throwing a NullPointerException while exporting the config data of a project if the project data is null
      */
     @Test
-    void export_configData_nullProjectDataTest() {
+    void export_configData_nullConfigDataTest() {
         M_EXPORT export_test = new M_EXPORT();
         M_FUNCTIONPOINTESTIMATION_CONFIGDATA confData_test = null;
         String path = "testFiles/test_export.xml";
