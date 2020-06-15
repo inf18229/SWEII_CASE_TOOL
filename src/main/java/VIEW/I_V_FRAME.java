@@ -163,14 +163,6 @@ public interface I_V_FRAME extends I_V_BASIC {
     public void setTotalRowSum(int sum);
 
     /**
-     * returns the value of the selected slider
-     *
-     * @param sliderNo which slider to get
-     * @return value of the selected slider
-     */
-    public int getSliderValue(int sliderNo);
-
-    /**
      * sets slider to the passed possition
      *
      * @param sliderNo defines which slider to change

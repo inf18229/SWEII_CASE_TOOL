@@ -1130,42 +1130,6 @@ public class V_FRAME implements I_V_FRAME {
     }
 
     /**
-     * returns the value of the selected slider
-     *
-     * @param sliderNo which slider to return
-     * @return value of the selected slider
-     */
-    @Override
-    public int getSliderValue(int sliderNo) {
-        //TODO: rename cases
-        switch (sliderNo) {
-            case 1:
-                return slider0Entanglement.getValue();
-            case 2:
-                return slider1Decentralization.getValue();
-            case 3:
-                return slider2Transactionrate.getValue();
-            case 41:
-                return slider3ProcessingCalculation.getValue();
-            case 42:
-                return slider4ProcessingControl.getValue();
-            case 43:
-                return slider5ProcessingException.getValue();
-            case 44:
-                return slider6ProcessingLogic.getValue();
-            case 5:
-                return slider7Reusability.getValue();
-            case 6:
-                return slider8Conversion.getValue();
-            case 7:
-                return slider9Customizability.getValue();
-            default:
-                return 0;
-        }
-
-    }
-
-    /**
      * sets slider to the passed possition
      *
      * @param sliderNo defines which slider to change
