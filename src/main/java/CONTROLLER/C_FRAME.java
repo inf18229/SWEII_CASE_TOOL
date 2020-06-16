@@ -71,17 +71,10 @@ public class C_FRAME implements I_C_FRAME {
      */
     @Override
     public void createTabControllers(/*I_C_FRAME.tabs tabs*/) {
-        controllerEffort = C_EFFORT.getInstance();  // gets only Instance of the Effort Controller
-        controllerEffort.setLinks(viewFrame, projectData);  // sets the necessary links to the Frame view and the project Data
-
-        controllerProductFunction = C_PRODUCTFUNCTION.getInstance();
-        controllerProductFunction.setLinks(viewFrame, projectData);
-
-        controllerProductData = C_PRODUCTDATA.getInstance();
-        controllerProductData.setLinks(viewFrame,projectData);
-
-        controllerGeneral = C_GENERAL.getInstance();
-        controllerGeneral.setLinks(viewFrame,projectData);
+        controllerEffort = C_TABCONTROLLERFACTORY.createController(viewFrame,projectData,"EFFORT");
+        controllerProductFunction = C_TABCONTROLLERFACTORY.createController(viewFrame,projectData,"PRODUCTFUNCTION");
+        controllerProductData = C_TABCONTROLLERFACTORY.createController(viewFrame,projectData,"PRODUCTDATA");
+        controllerGeneral = C_TABCONTROLLERFACTORY.createController(viewFrame,projectData,"GENERAL");
     }
 
     /**
