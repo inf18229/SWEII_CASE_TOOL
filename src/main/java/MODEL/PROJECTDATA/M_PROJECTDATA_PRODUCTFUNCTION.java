@@ -5,13 +5,9 @@ package MODEL.PROJECTDATA;
  * can calculates weight by itself
  */
 public class M_PROJECTDATA_PRODUCTFUNCTION extends M_PROJECTDATA_PRODUCTCONTENT {
-    public String id = "";
     public String function = "";
     public String actor = "";
     public String description = "";
-    public int functionPointWeighting;
-    public String functionPointCategory = "";
-    public int functionPointDET;
     public int functionPointFTR;
 
     /**

@@ -5,13 +5,9 @@ package MODEL.PROJECTDATA;
  */
 public class M_PROJECTDATA_PRODUCTDATA extends M_PROJECTDATA_PRODUCTCONTENT {
     //TODO: describe in documentation why public
-    public String id = "";
     public String memoryContent = "";
     public String reference = "";
-    public int functionPointWeighting;
-    public int functionPointDET;
     public int functionPointRET;
-    public String functionPointCategory = "";
 
     /**
      * calculates the weight of Product data
