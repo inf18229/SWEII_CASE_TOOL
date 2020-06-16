@@ -1,0 +1,72 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: I_M_IMPORT</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">MODEL</a> ]
+</div>
+
+<h1>Coverage Summary for Class: I_M_IMPORT (MODEL)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">I_M_IMPORT</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package MODEL;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import MODEL.PROJECTDATA.M_PROJECTDATA;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;/**
+<i>6</i>&nbsp; * I_M_IMPORT is the interface for import
+<i>7</i>&nbsp; */
+<i>8</i>&nbsp;public interface I_M_IMPORT {
+<i>9</i>&nbsp;
+<i>10</i>&nbsp;    /**
+<i>11</i>&nbsp;     * the import method for project data has to be implemented to be run by the M_IMPOT class
+<i>12</i>&nbsp;     * it should import the project data of a project
+<i>13</i>&nbsp;     * @param path the path from where the project data should be imported
+<i>14</i>&nbsp;     * @return the imported project data
+<i>15</i>&nbsp;     */
+<i>16</i>&nbsp;    public M_PROJECTDATA importProject(String path);
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;    /**
+<i>19</i>&nbsp;     * the import method for config data has to be implemented to be run by the M_IMPORT class
+<i>20</i>&nbsp;     * it should import the config data of a project into the current project
+<i>21</i>&nbsp;     * @param projData the project that imports the config data
+<i>22</i>&nbsp;     * @param path the path from where the config data should be imported
+<i>23</i>&nbsp;     */
+<i>24</i>&nbsp;    public void importProject(M_PROJECTDATA projData, String path);
+<i>25</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-16 11:11</div>
+</div>
+</body>
+</html>

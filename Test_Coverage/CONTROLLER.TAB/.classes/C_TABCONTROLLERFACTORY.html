@@ -1,0 +1,120 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: C_TABCONTROLLERFACTORY</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">CONTROLLER.TAB</a> ]
+</div>
+
+<h1>Coverage Summary for Class: C_TABCONTROLLERFACTORY (CONTROLLER.TAB)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">C_TABCONTROLLERFACTORY</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/ 15)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package CONTROLLER.TAB;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import MODEL.PROJECTDATA.M_PROJECTDATA;
+<i>4</i>&nbsp;import VIEW.I_V_FRAME;
+<i>5</i>&nbsp;
+<b class="nc"><i>6</i>&nbsp;public class C_TABCONTROLLERFACTORY {</b>
+<i>7</i>&nbsp;    /**
+<i>8</i>&nbsp;     *
+<i>9</i>&nbsp;     * @param view reference to I_V_FRAME Object
+<i>10</i>&nbsp;     * @param projData reference to M_PROJECTDATA Object
+<i>11</i>&nbsp;     * @param controllerType Type of controller that has to be created. Either EFFORT,GENERAL,PRODUCTDATA or PRODUCTFUNCTION
+<i>12</i>&nbsp;     * @param &lt;Any&gt; type that is expected to return
+<i>13</i>&nbsp;     * @return returns an object of type  I_C_EFFORT, I_C_GENERAL or I_C_PRODUCTCONTENT depending on controller Type. If Type is not supported function returns string
+<i>14</i>&nbsp;     */
+<i>15</i>&nbsp;    public static &lt;Any&gt; Any createController(I_V_FRAME view, M_PROJECTDATA projData,String controllerType){
+<b class="nc"><i>16</i>&nbsp;        switch(controllerType){</b>
+<i>17</i>&nbsp;            case &quot;EFFORT&quot;:
+<b class="nc"><i>18</i>&nbsp;                I_C_EFFORT controllerEffort = C_EFFORT.getInstance();</b>
+<b class="nc"><i>19</i>&nbsp;                controllerEffort.setLinks(view,projData);</b>
+<b class="nc"><i>20</i>&nbsp;                return ((Any)controllerEffort);</b>
+<i>21</i>&nbsp;            case &quot;GENERAL&quot;:
+<b class="nc"><i>22</i>&nbsp;                I_C_GENERAL controllerGeneral = C_GENERAL.getInstance();</b>
+<b class="nc"><i>23</i>&nbsp;                controllerGeneral.setLinks(view,projData);</b>
+<b class="nc"><i>24</i>&nbsp;                return ((Any)controllerGeneral);</b>
+<i>25</i>&nbsp;            case &quot;PRODUCTDATA&quot;:
+<b class="nc"><i>26</i>&nbsp;                I_C_PRODUCTCONTENT controllerProductData = C_PRODUCTDATA.getInstance();</b>
+<b class="nc"><i>27</i>&nbsp;                controllerProductData.setLinks(view, projData);</b>
+<b class="nc"><i>28</i>&nbsp;                return ((Any)controllerProductData);</b>
+<i>29</i>&nbsp;            case &quot;PRODUCTFUNCTION&quot;:
+<b class="nc"><i>30</i>&nbsp;                I_C_PRODUCTCONTENT controllerProductFunction = C_PRODUCTFUNCTION.getInstance();</b>
+<b class="nc"><i>31</i>&nbsp;                controllerProductFunction.setLinks(view, projData);</b>
+<b class="nc"><i>32</i>&nbsp;                return ((Any)controllerProductFunction);</b>
+<i>33</i>&nbsp;        }
+<b class="nc"><i>34</i>&nbsp;        return ((Any)&quot;Object cant be created&quot;);</b>
+<i>35</i>&nbsp;    }
+<i>36</i>&nbsp;
+<i>37</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-16 11:11</div>
+</div>
+</body>
+</html>
