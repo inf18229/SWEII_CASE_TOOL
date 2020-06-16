@@ -1290,7 +1290,7 @@ public class V_FRAME implements I_V_FRAME {
      */
     @Override
     public void updateCorrectionPanel(double calcEff, double corrFact, int e2Correction) {
-        labelCorrectionCalculated.setText(String.valueOf(decimalFormat2.format(calcEff)) + " Mannmonate");
+        labelCorrectionCalculated.setText(String.valueOf(decimalFormat2.format(calcEff)) + " Personenmonate");
         labelCorrectionFactor.setText(String.valueOf(decimalFormat2.format(corrFact)));
         labelCorrectionCalculation.setText(String.valueOf(decimalFormat2.format(calcEff) + " * e^" + decimalFormat2.format(corrFact) + " = " + String.valueOf(decimalFormat2.format((calcEff * Math.exp(corrFact))))));
         /**
