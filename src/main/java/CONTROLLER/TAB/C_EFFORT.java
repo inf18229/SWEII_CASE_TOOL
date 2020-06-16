@@ -317,6 +317,8 @@ public class C_EFFORT implements I_C_EFFORT {
      * increases Factors by given value
      *
      * @param increase value how much the factors should be increased
+     * @throws IllegalArgumentException increase out of bounds
+     * @throws RuntimeException         factorIterator out of bounds
      */
     @Override
     public void increaseFactors(int increase) throws IllegalArgumentException, RuntimeException {
@@ -367,6 +369,8 @@ public class C_EFFORT implements I_C_EFFORT {
      * decreases Factors by given value
      *
      * @param decrease value how much the factors should be decreased
+     * @throws IllegalArgumentException decrease out of bounds
+     * @throws RuntimeException         factorIterator out of bounds
      */
     @Override
     public void decreaseFactors(int decrease) throws IllegalArgumentException, RuntimeException {

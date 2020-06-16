@@ -21,7 +21,7 @@ class C_EFFORT_TEST {
     /**
      * this test shows Zweigüberdeckung as the correct value is calculated and the Zweig therefore was run
      *
-     * the testfile is initialized with:
+     * the test file is initialized with:
      * jonesPersonNo = 1;
      */
     @Test
@@ -76,10 +76,10 @@ class C_EFFORT_TEST {
 
         M_IMPORT m__import = new M_IMPORT();
         I_C_EFFORT controllerEffort;
-        String path = "testFiles/test_adjustFactors.xml"; // fixed path relative
+        String path = "testFiles/test_adjustFactors.xml"; // fixed path to test file
         File xmlFile = new File(path);
 
-        M_PROJECTDATA projectData; // vorher M_PROJECTDATA projectData = M_PROJECTDATA.getInstance()
+        M_PROJECTDATA projectData;
         projectData = m__import.importProject(path);
         projectData.setFunctionPointEstimation_configData(projectData.getFunctionPointEstimation_configData());
         projectData.getFunctionPointEstimation_configData().setE2Sum(e2Sum);
@@ -104,7 +104,7 @@ class C_EFFORT_TEST {
 
         M_IMPORT m__import = new M_IMPORT();
         I_C_EFFORT controllerEffort;
-        String path = "testFiles/test_adjustFactors.xml"; // fixed path relative
+        String path = "testFiles/test_adjustFactors.xml"; // fixed path to test file
         File xmlFile = new File(path);
 
         M_PROJECTDATA projectData;
@@ -132,7 +132,7 @@ class C_EFFORT_TEST {
 
         M_IMPORT m__import = new M_IMPORT();
         I_C_EFFORT controllerEffort;
-        String path = "testFiles/test_adjustFactors.xml"; // fixed path relative
+        String path = "testFiles/test_adjustFactors.xml"; // fixed path to test file
         File xmlFile = new File(path);
 
         M_PROJECTDATA projectData;
@@ -160,7 +160,7 @@ class C_EFFORT_TEST {
 
         M_IMPORT m__import = new M_IMPORT();
         I_C_EFFORT controllerEffort;
-        String path = "testFiles/test_adjustFactors.xml"; // fixed path relative
+        String path = "testFiles/test_adjustFactors.xml"; // fixed path to test file
         File xmlFile = new File(path);
 
         M_PROJECTDATA projectData;
@@ -189,7 +189,7 @@ class C_EFFORT_TEST {
 
         M_IMPORT m__import = new M_IMPORT();
         I_C_EFFORT controllerEffort;
-        String path = "testFiles/test_adjustFactors.xml"; // fixed path relative
+        String path = "testFiles/test_adjustFactors.xml"; // fixed path to test file
         File xmlFile = new File(path);
 
         M_PROJECTDATA projectData = M_PROJECTDATA.getInstance();
@@ -228,19 +228,19 @@ class C_EFFORT_TEST {
         int increaseValue = 0;
         M_IMPORT m__import = new M_IMPORT();
         I_C_EFFORT controllerEffort;
-        String path = "testFiles/test_effort_zero.xml"; // fixed path relative
+        String path = "testFiles/test_effort_zero.xml"; // fixed path to test file where all factors are set to zero
         File xmlFile = new File(path);
 
         M_PROJECTDATA projectData;
         projectData = m__import.importProject(path);
         projectData.setFunctionPointEstimation_configData(projectData.getFunctionPointEstimation_configData());
-        int e2SumStart = projectData.getFunctionPointEstimation_configData().getE2Sum();   // speichert e2Sum zu Beginn zwischen
+        int e2SumStart = projectData.getFunctionPointEstimation_configData().getE2Sum();   // saves current value of e2Sum before running the desired function
 
         controllerEffort = C_EFFORT.getInstance();
         controllerEffort.setLinks(null, projectData);
         controllerEffort.increaseFactors(increaseValue);
 
-        assertEquals(e2SumStart + increaseValue, projectData.getFunctionPointEstimation_configData().getE2Sum());
+        assertEquals(e2SumStart, projectData.getFunctionPointEstimation_configData().getE2Sum());
     }
 
     /**
@@ -251,13 +251,13 @@ class C_EFFORT_TEST {
         int increaseValue = 60;
         M_IMPORT m__import = new M_IMPORT();
         I_C_EFFORT controllerEffort;
-        String path = "testFiles/test_effort_zero.xml"; // fixed path relative
+        String path = "testFiles/test_effort_zero.xml"; // fixed path to test file where all factors are set to zero
         File xmlFile = new File(path);
 
         M_PROJECTDATA projectData;
         projectData = m__import.importProject(path);
         projectData.setFunctionPointEstimation_configData(projectData.getFunctionPointEstimation_configData());
-        int e2SumStart = projectData.getFunctionPointEstimation_configData().getE2Sum();   // speichert e2Sum zu Beginn zwischen
+        int e2SumStart = projectData.getFunctionPointEstimation_configData().getE2Sum();   // saves current value of e2Sum before running the desired function
 
         controllerEffort = C_EFFORT.getInstance();
         controllerEffort.setLinks(null, projectData);
@@ -274,7 +274,7 @@ class C_EFFORT_TEST {
         int increaseValue = -1;
         M_IMPORT m__import = new M_IMPORT();
         I_C_EFFORT controllerEffort;
-        String path = "testFiles/test_effort_zero.xml"; // fixed path relative
+        String path = "testFiles/test_effort_zero.xml"; // fixed path to test file where all factors are set to zero
         File xmlFile = new File(path);
 
         M_PROJECTDATA projectData;
@@ -292,7 +292,7 @@ class C_EFFORT_TEST {
      * only happens if notify adjustFactors gets run with wrong value for e2Sum
      * e2Sum = 10
      * e2Correction = 60
-     * increase = 50 aber alle faktoren bereits maximal (test_effort_max.xml)
+     * increase = 50 all factors are already set to their maximum (test_effort_max.xml)
      */
     @Test
     void increaseFactorIteratorOutOfBounds() {
@@ -302,10 +302,10 @@ class C_EFFORT_TEST {
 
         M_IMPORT m__import = new M_IMPORT();
         I_C_EFFORT controllerEffort;
-        String path = "testFiles/test_effort_max.xml"; // fixed path relative
+        String path = "testFiles/test_effort_max.xml"; // fixed path to test file where all factors are set to max
         File xmlFile = new File(path);
 
-        M_PROJECTDATA projectData; // vorher M_PROJECTDATA projectData = M_PROJECTDATA.getInstance()
+        M_PROJECTDATA projectData;
         projectData = m__import.importProject(path);
         projectData.setFunctionPointEstimation_configData(projectData.getFunctionPointEstimation_configData());
         projectData.getFunctionPointEstimation_configData().setE2Sum(e2Sum);
@@ -340,19 +340,19 @@ class C_EFFORT_TEST {
         int decreaseValue = 0;
         M_IMPORT m__import = new M_IMPORT();
         I_C_EFFORT controllerEffort;
-        String path = "testFiles/test_effort_max.xml"; // fixed path relative
+        String path = "testFiles/test_effort_max.xml"; // fixed path to test file where all factors are set to max
         File xmlFile = new File(path);
 
         M_PROJECTDATA projectData;
         projectData = m__import.importProject(path);
         projectData.setFunctionPointEstimation_configData(projectData.getFunctionPointEstimation_configData());
-        int e2SumStart = projectData.getFunctionPointEstimation_configData().getE2Sum();   // speichert e2Sum zu Beginn zwischen
+        int e2SumStart = projectData.getFunctionPointEstimation_configData().getE2Sum();   // saves current value of e2Sum before running the desired function
 
         controllerEffort = C_EFFORT.getInstance();
         controllerEffort.setLinks(null, projectData);
         controllerEffort.decreaseFactors(decreaseValue);
 
-        assertEquals(e2SumStart - decreaseValue, projectData.getFunctionPointEstimation_configData().getE2Sum());
+        assertEquals(e2SumStart, projectData.getFunctionPointEstimation_configData().getE2Sum());
     }
 
     /**
@@ -363,7 +363,7 @@ class C_EFFORT_TEST {
         int decreaseValue = 60;
         M_IMPORT m__import = new M_IMPORT();
         I_C_EFFORT controllerEffort;
-        String path = "testFiles/test_effort_max.xml"; // fixed path relative
+        String path = "testFiles/test_effort_max.xml"; // fixed path to test file where all factors are set to max
         File xmlFile = new File(path);
 
         M_PROJECTDATA projectData;
@@ -386,7 +386,7 @@ class C_EFFORT_TEST {
         int decreaseValue = -1;
         M_IMPORT m__import = new M_IMPORT();
         I_C_EFFORT controllerEffort;
-        String path = "testFiles/test_effort_max.xml"; // fixed path relative
+        String path = "testFiles/test_effort_max.xml"; // fixed path to test file where all factors are set to max
         File xmlFile = new File(path);
 
         M_PROJECTDATA projectData;
@@ -404,7 +404,7 @@ class C_EFFORT_TEST {
      * only happens if notify adjustFactors gets run with wrong value for e2Sum
      * e2Sum = 10
      * e2Correction = 5
-     * int decrease = 5 aber alle faktoren bereits minimal (test_effort_zero.xml)
+     * int decrease = 5 all factors are already set to their minimum (0)  (test_effort_zero.xml)
      */
     @Test
     void decreaseFactorIteratorOutOfBounds() {
@@ -414,10 +414,10 @@ class C_EFFORT_TEST {
 
         M_IMPORT m__import = new M_IMPORT();
         I_C_EFFORT controllerEffort;
-        String path = "testFiles/test_effort_zero.xml"; // fixed path relative
+        String path = "testFiles/test_effort_zero.xml"; // fixed path to test file where all factors are set to zero
         File xmlFile = new File(path);
 
-        M_PROJECTDATA projectData; // vorher M_PROJECTDATA projectData = M_PROJECTDATA.getInstance()
+        M_PROJECTDATA projectData;
         projectData = m__import.importProject(path);
         projectData.setFunctionPointEstimation_configData(projectData.getFunctionPointEstimation_configData());
         projectData.getFunctionPointEstimation_configData().setE2Sum(e2Sum);
