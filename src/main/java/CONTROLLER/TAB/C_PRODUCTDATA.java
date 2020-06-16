@@ -53,7 +53,7 @@ public class C_PRODUCTDATA implements I_C_PRODUCTDATA {
         if (!alreadyexists) {
             if (!viewFrame.getTextFieldproductDataID().getText().isEmpty()) {
                 //Using ProductContentFactory to create object
-                M_PROJECTDATA_PRODUCTDATA newProductData = new M_PROJECTDATA_PRODUCTCONTENTFACTORY().createProductData(viewFrame.getTextFieldproductDataID().getText());
+                M_PROJECTDATA_PRODUCTDATA newProductData = M_PROJECTDATA_PRODUCTCONTENTFACTORY.createProductContent(viewFrame.getTextFieldproductDataID().getText(),"PRODUCTDATA");
                 setProductDataElements(newProductData);
                 projectData.getProductDataList().add(newProductData);
                 viewFrame.addProdDataIDListElement(viewFrame.getTextFieldproductDataID().getText());
