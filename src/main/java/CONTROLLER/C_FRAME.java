@@ -36,7 +36,7 @@ public class C_FRAME implements I_C_FRAME {
     private C_FRAME(){}
 
     /**
-     * this method checks if controller was already created
+     * checks if controller was already created
      * if it wasn't it creates a new controller
      * it always returns a reference to the controller
      * @return reference to controller
@@ -49,7 +49,7 @@ public class C_FRAME implements I_C_FRAME {
     }
 
     /**
-     * this method sets the necessary links after instantiation of the controller
+     * sets the necessary links after instantiation of the controller
      */
     public void setLinks(M_PROJECTDATA projData, I_C_START conStart, String path) {
         controllerStart = conStart;
@@ -256,7 +256,7 @@ public class C_FRAME implements I_C_FRAME {
     }
 
     /**
-     * this method should automatically update the values for the factors to meet the e2goal
+     * automatically updates the values for the factors to meet the e2goal
      */
     @Override
     public void notifyAdjustFactors() {

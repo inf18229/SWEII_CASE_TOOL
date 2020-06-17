@@ -18,7 +18,7 @@ public interface I_C_START {
     public void notifyOpen();
 
     /**
-     * this method shows the viewStart and tells the Start Controller, that he is in charge now
+     * shows the viewStart and tells the Start Controller, that he is in charge now
      */
     public void notifyShow();
 }

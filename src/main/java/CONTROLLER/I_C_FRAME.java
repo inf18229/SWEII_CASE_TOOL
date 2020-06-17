@@ -11,7 +11,7 @@ import MODEL.PROJECTDATA.M_PROJECTDATA;
 public interface I_C_FRAME {
 
     /**
-     * this method sets the necessary links after instantiation of the controller
+     * sets the necessary links after instantiation of the controller
      *
      * @param projData reference to the projectData
      * @param conStart reference to the Start Controller
@@ -80,7 +80,7 @@ public interface I_C_FRAME {
     public void notifyLast();
 
     /**
-     * this method should automatically update the values for the factors to meet the e2goal
+     * automatically updates the values for the factors to meet the e2goal
      */
     public void notifyAdjustFactors();
 

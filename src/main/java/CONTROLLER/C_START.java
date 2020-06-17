@@ -32,7 +32,7 @@ public class C_START implements I_C_START {
     }
 
     /**
-     * this method checks if controller was already created
+     * checks if controller was already created
      * if it wasn't it creates a new controller
      * it always returns a reference to the controller
      * @return reference to controller
@@ -45,7 +45,7 @@ public class C_START implements I_C_START {
     }
 
     /**
-     * this message gets called by Views to notify the start Controller that a new project should be created
+     * gets called by Views to notify the start Controller that a new project should be created
      * the Controller therefore asks the viewStart for a path where the new project should get created
      * after getting the path the Controller has to close viewStart (hide) and pass the job of handeling the project
      * to the newly created controllerFrame
@@ -66,9 +66,7 @@ public class C_START implements I_C_START {
     }
 
     /**
-     * notifyOpen()
-     * <p>
-     * this message gets called by Views to notify the start Controller that a existing project should be opened
+     * gets called by Views to notify the start Controller that a existing project should be opened
      * the Controller therefore asks the viewStart for a path to the file that should be opened
      */
     public void notifyOpen() {
@@ -100,7 +98,7 @@ public class C_START implements I_C_START {
             }
             I_V_BASIC.hide(viewStart.getJFrame());  // makes viewStart invisible and disables user input
             I_C_FRAME controllerFrame = C_FRAME.getInstance();
-            controllerFrame.setLinks(projectData, this, path);//new C_FRAME(new M_PROJECTDATA(), this, path);
+            controllerFrame.setLinks(projectData, this, path);
         } else {
             JOptionPane.showMessageDialog(null,
                     "Sie müssen einen korrekten Dateipfad angeben",
@@ -110,7 +108,7 @@ public class C_START implements I_C_START {
     }
 
     /**
-     * this method shows the viewStart and tells the Start Controller, that he is in charge now
+     * shows the viewStart and tells the Start Controller, that he is in charge now
      */
     @Override
     public void notifyShow() {

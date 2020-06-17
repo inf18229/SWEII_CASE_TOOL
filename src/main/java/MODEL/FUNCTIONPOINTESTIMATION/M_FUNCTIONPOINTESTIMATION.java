@@ -100,7 +100,7 @@ public class M_FUNCTIONPOINTESTIMATION {
     }
 
     /**
-     * this method gets the config data as parameter
+     * gets the config data as parameter
      * and therefore updates the reference stored in the estimation object
      *
      * @param confData reference of config data to which the local variable configData is set to
@@ -153,7 +153,7 @@ public class M_FUNCTIONPOINTESTIMATION {
     }
 
     /**
-     * this method sets the corresponding count variable depending on countNo
+     * sets the corresponding count variable depending on countNo
      *
      * @param countNo which count to set
      * @param value   value to which the selected count variable should be set to
@@ -337,7 +337,7 @@ public class M_FUNCTIONPOINTESTIMATION {
     }
 
     /**
-     * this method calculates the total row Sum E1
+     * calculates the total row Sum E1
      */
     public void calculateTotalRowSumE1() {
         e1Sum = sumInputSimple
@@ -381,7 +381,7 @@ public class M_FUNCTIONPOINTESTIMATION {
     }
 
     /**
-     * this method uses an input for the real duration and calculates a correction factor
+     * uses an input for the real duration and calculates a correction factor
      * to estimate the duration better next time
      *
      * @param realTime time, the project really took till completion
