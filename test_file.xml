@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <PROJECTDATA>
-    <productDataList>
+    <productDataElement>
         <id>LD1-1</id>
         <memoryContent>Die Software speichert die eingegbenen Projektinformationen ab.</memoryContent>
         <reference>Projektinformationen</reference>
@@ -8,8 +8,8 @@
         <functionPointDET>2</functionPointDET>
         <functionPointRET>5</functionPointRET>
         <functionPointCategory>ILF-Interner Datenbestand</functionPointCategory>
-    </productDataList>
-    <productDataList>
+    </productDataElement>
+    <productDataElement>
         <id>LD2-1</id>
         <memoryContent>Die Software speichert die eingegbenen Produktinformationen ab. Dazu gehört neben einer Id auch der Akteur sowie die Funktion. Außerdem müssen FTRs und DETs abgespeichert werden können.</memoryContent>
         <reference>Produktfunktionen</reference>
@@ -17,8 +17,8 @@
         <functionPointDET>22</functionPointDET>
         <functionPointRET>15</functionPointRET>
         <functionPointCategory>ILF-Interner Datenbestand</functionPointCategory>
-    </productDataList>
-    <productFunctionList>
+    </productDataElement>
+    <productFunctionElement>
         <id>LF00-1</id>
         <function>Projekt anlegen</function>
         <actor>Requirements Engineer</actor>
@@ -27,8 +27,8 @@
         <functionPointCategory>EI-Eingabe</functionPointCategory>
         <functionPointDET>7</functionPointDET>
         <functionPointFTR>20</functionPointFTR>
-    </productFunctionList>
-    <productFunctionList>
+    </productFunctionElement>
+    <productFunctionElement>
         <id>LF00-2</id>
         <function>Projektspeicherung</function>
         <actor>Requirements Engineer</actor>
@@ -37,8 +37,8 @@
         <functionPointCategory>EO-Ausgabe</functionPointCategory>
         <functionPointDET>7</functionPointDET>
         <functionPointFTR>20</functionPointFTR>
-    </productFunctionList>
-    <productFunctionList>
+    </productFunctionElement>
+    <productFunctionElement>
         <id>LF00-3</id>
         <function>Projekt löschen</function>
         <actor>Requirements Engineer</actor>
@@ -47,7 +47,7 @@
         <functionPointCategory>EQ-Abfrage</functionPointCategory>
         <functionPointDET>51</functionPointDET>
         <functionPointFTR>20</functionPointFTR>
-    </productFunctionList>
+    </productFunctionElement>
     <productUse>
         <title>Produkteinsatz</title>
         <content>Das Produkt soll in der Firma DHBW Software Solutions gGmbH eingesetzt werden. Es dient den Projektleitern bei neuen Projekten als Unterstützung zum Erstellen von Anforderungssammlungen. Dabei werden sie durch den notwendigen Prozess geführt und können Ergänzungen hinzufügen. Im Austausch mit dem Kunden können ganze Anforderungssammlungen über das Requirements Interchange Format weitergegeben und mit anderen Tools geöffnet werden. Außerdem können Ergebnisdokumente erstellt werden, um Kunden über den aktuellen Stand der Anforderungssammlung zu informieren. Zusätzlich bietet die Software den Software-Engineers ein Plugin um in einer IDE die zu bearbeitenden Anforderungen anzuzeigen.</content>

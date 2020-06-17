@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<M_projectData>
-    <productFunctionList>
-        <_id></_id>
+<PROJECTDATA>
+    <productDataElement>
+        <id>LD1-1</id>
+        <memoryContent>Die Software speichert die eingegbenen Projektinformationen ab.</memoryContent>
+        <reference>Projektinformationen</reference>
+        <functionPointWeighting>0</functionPointWeighting>
+        <functionPointDET>2</functionPointDET>
+        <functionPointRET>5</functionPointRET>
+        <functionPointCategory>ILF-Interner Datenbestand</functionPointCategory>
+    </productDataElement>
+    <productDataElement>
+        <id>LD2-1</id>
+        <memoryContent>Die Software speichert die eingegbenen Produktinformationen ab. Dazu gehört neben einer Id auch der Akteur sowie die Funktion. Außerdem müssen FTRs und DETs abgespeichert werden können.</memoryContent>
+        <reference>Produktfunktionen</reference>
+        <functionPointWeighting>2</functionPointWeighting>
+        <functionPointDET>22</functionPointDET>
+        <functionPointRET>15</functionPointRET>
+        <functionPointCategory>ILF-Interner Datenbestand</functionPointCategory>
+    </productDataElement>
+    <productFunctionElement>
         <id>LF00-1</id>
         <function>Projekt anlegen</function>
         <actor>Requirements Engineer</actor>
@@ -10,9 +27,8 @@
         <functionPointCategory>EI-Eingabe</functionPointCategory>
         <functionPointDET>7</functionPointDET>
         <functionPointFTR>20</functionPointFTR>
-    </productFunctionList>
-    <productFunctionList>
-        <_id></_id>
+    </productFunctionElement>
+    <productFunctionElement>
         <id>LF00-2</id>
         <function>Projektspeicherung</function>
         <actor>Requirements Engineer</actor>
@@ -21,9 +37,8 @@
         <functionPointCategory>EO-Ausgabe</functionPointCategory>
         <functionPointDET>7</functionPointDET>
         <functionPointFTR>20</functionPointFTR>
-    </productFunctionList>
-    <productFunctionList>
-        <_id></_id>
+    </productFunctionElement>
+    <productFunctionElement>
         <id>LF00-3</id>
         <function>Projekt löschen</function>
         <actor>Requirements Engineer</actor>
@@ -32,85 +47,35 @@
         <functionPointCategory>EQ-Abfrage</functionPointCategory>
         <functionPointDET>51</functionPointDET>
         <functionPointFTR>20</functionPointFTR>
-    </productFunctionList>
-    <m_projectData_productUse>
-        <content>Das Produkt soll in der Firma DHBW Software Solutions gGmbH eingesetzt werden. Es dient den Projektleitern bei neuen Projekten als Unterstützung zum Erstellen von Anforderungssammlungen. Dabei werden sie durch den notwendigen Prozess geführt und können Ergänzungen hinzufügen. Im Austausch mit dem Kunden können ganze Anforderungssammlungen über das Requirements Interchange Format weitergegeben und mit anderen Tools geöffnet werden. Außerdem können Ergebnisdokumente erstellt werden, um Kunden über den aktuellen Stand der Anforderungssammlung zu informieren. Zusätzlich bietet die Software den Software-Engineers ein Plugin um in einer IDE die zu bearbeitenden Anforderungen anzuzeigen.</content>
+    </productFunctionElement>
+    <productUse>
         <title>Produkteinsatz</title>
-    </m_projectData_productUse>
-    <m_projectData_targetDefinition>
+        <content>Das Produkt soll in der Firma DHBW Software Solutions gGmbH eingesetzt werden. Es dient den Projektleitern bei neuen Projekten als Unterstützung zum Erstellen von Anforderungssammlungen. Dabei werden sie durch den notwendigen Prozess geführt und können Ergänzungen hinzufügen. Im Austausch mit dem Kunden können ganze Anforderungssammlungen über das Requirements Interchange Format weitergegeben und mit anderen Tools geöffnet werden. Außerdem können Ergebnisdokumente erstellt werden, um Kunden über den aktuellen Stand der Anforderungssammlung zu informieren. Zusätzlich bietet die Software den Software-Engineers ein Plugin um in einer IDE die zu bearbeitenden Anforderungen anzuzeigen.</content>
+    </productUse>
+    <targetDefinition>
+        <title>Zielbestimmung</title>
         <content>Das Ziel, welches durch das Softwareprodukt erreicht werden soll, ist es primär, mit Hilfe eines festgelegten Prozesses, die Anforderungsanalyse im Produktiveinsatz der DHBW Software Systems gGmbH zu strukturieren. Das unternehmensweit einsetzbare Tool erlaubt es Projektleitern die aufgenommenen Anforderungen, definierten Begriffe und sonstige Anmerkungen bereits vor Ort einzugeben. Durch die geleitete Eingabe, die trotzdem die nötigen Freiheiten bietet, speziell auf den Kunden einzugehen, ist es möglich unternehmensintern jederzeit Anforderungssammlungen zu vergleichen oder sie zu Analysen heranzuziehen. Zusätzlich ermöglicht es die Export Funktion im Requirements Interchange Format näher mit dem Kunden zusammenarbeiten zu können und sich noch während des Erstellens der Sammlung über mögliche Anpassungen auszutauschen. Auch Kunden, die in ihrem Unternehmen noch keine Anforderungssammlungssoftware einsetzen, ist es möglich, dank eines übersichtlichen Ergebnisdokuments, jederzeit den Status des Projekts abzufragen. Dieses Dokument kann sowohl schnell und einfach elektronisch als PDF-Dokument weitergereicht werden, oder auch bei persönlichen Kontakten mit dem Kunden als Anschauungsmaterial zur Hand gehabt werden.
 In der weiteren Entwicklung der Software ist es vorgesehen, eine automatische Kosten- und Terminabschätzung zu erstellen. Der Projektleiter kann dann also die aufgenommenen Anforderungen eingeben, welche dann durch Gliederung in verschiedene Aufwandsklassen automatisch eine Kostenabschätzung sowie in Abhängigkeit der verfügbaren Mitarbeiter daraus eine Terminabschätzung inklusive der standardmäßigen Puffer erstellt. Außerdem soll im weiteren Verlauf des Softwareprojekts die Integration in eine der im Unternehmen verwendeten IDEs Visual Studio oder Eclipse implementiert werden. So können Programmierer der DHBW Software Systems gGmbH ihre Aufgaben zeitnah und individuell von ihrem Projektleiter zugeteilt bekommen. Zudem gelingt die Implementierung neuer Funktionen durch Einbindung in die IDE wesentlich strukturierter, da die genauen Ziele festgelegt sind und sich immer im Blick befinden.</content>
-        <title>Zielbestimmung</title>
-    </m_projectData_targetDefinition>
-    <m_projectData_productEnvironment>
-        <content></content>
+    </targetDefinition>
+    <productEnvironment>
         <title>Produktumgebung</title>
-    </m_projectData_productEnvironment>
-    <m_projectData_functionPointEstimation>
-        <countInputSimple>0</countInputSimple>
-        <countInputMedium>0</countInputMedium>
-        <countInputComplex>1</countInputComplex>
-        <countQuerySimple>0</countQuerySimple>
-        <countQueryMedium>0</countQueryMedium>
-        <countQueryComplex>0</countQueryComplex>
-        <countOutputSimple>0</countOutputSimple>
-        <countOutputMedium>0</countOutputMedium>
-        <countOutputComplex>1</countOutputComplex>
-        <countDatasetSimple>0</countDatasetSimple>
-        <countDatasetMedium>0</countDatasetMedium>
-        <countDatasetComplex>0</countDatasetComplex>
-        <countReferenceSimple>0</countReferenceSimple>
-        <countReferenceMedium>0</countReferenceMedium>
-        <countReferenceComplex>0</countReferenceComplex>
-        <weightInputSimple>3</weightInputSimple>
-        <weightInputMedium>4</weightInputMedium>
-        <weightInputComplex>6</weightInputComplex>
-        <weightQuerySimple>3</weightQuerySimple>
-        <weightQueryMedium>4</weightQueryMedium>
-        <weightQueryComplex>6</weightQueryComplex>
-        <weightOutputSimple>4</weightOutputSimple>
-        <weightOutputMedium>5</weightOutputMedium>
-        <weightOutputComplex>7</weightOutputComplex>
-        <weightDatasetSimple>7</weightDatasetSimple>
-        <weightDatasetMedium>10</weightDatasetMedium>
-        <weightDatasetComplex>15</weightDatasetComplex>
-        <weightReferenceSimple>5</weightReferenceSimple>
-        <weightReferenceMedium>7</weightReferenceMedium>
-        <weightReferenceComplex>10</weightReferenceComplex>
-        <sumInputSimple>0</sumInputSimple>
-        <sumInputMedium>0</sumInputMedium>
-        <sumInputComplex>6</sumInputComplex>
-        <sumQuerySimple>0</sumQuerySimple>
-        <sumQueryMedium>0</sumQueryMedium>
-        <sumQueryComplex>0</sumQueryComplex>
-        <sumOutputSimple>0</sumOutputSimple>
-        <sumOutputMedium>0</sumOutputMedium>
-        <sumOutputComplex>7</sumOutputComplex>
-        <sumDatasetSimple>0</sumDatasetSimple>
-        <sumDatasetMedium>0</sumDatasetMedium>
-        <sumDatasetComplex>0</sumDatasetComplex>
-        <sumReferenceSimple>0</sumReferenceSimple>
-        <sumReferenceMedium>0</sumReferenceMedium>
-        <sumReferenceComplex>0</sumReferenceComplex>
-        <e1Sum>13</e1Sum>
+        <content></content>
+    </productEnvironment>
+    <functionPointEstimation>
+        <actualDuration>3.25</actualDuration>
+        <e2Correction>12</e2Correction>
+    </functionPointEstimation>
+    <functionPointEstimation_configData>
         <factorEntanglement>1</factorEntanglement>
-        <factorDecentralization>1</factorDecentralization>
-        <factorTransactionrate>3</factorTransactionrate>
-        <factorProcessingCalculation>3</factorProcessingCalculation>
+        <factorDecentralization>2</factorDecentralization>
+        <factorTransactionrate>1</factorTransactionrate>
+        <factorProcessingCalculation>2</factorProcessingCalculation>
         <factorProcessingControl>2</factorProcessingControl>
-        <factorProcessingException>8</factorProcessingException>
+        <factorProcessingException>1</factorProcessingException>
         <factorProcessingLogic>2</factorProcessingLogic>
-        <factorReusability>3</factorReusability>
-        <factorConversion>5</factorConversion>
-        <factorCustomizability>1</factorCustomizability>
-        <e2Sum>29</e2Sum>
-        <e3Sum>0.99</e3Sum>
-        <afp>12.87</afp>
-        <jonesDuration>2.778634468498354</jonesDuration>
-        <jonesPersonNo>1</jonesPersonNo>
-        <jonesPersonMonths>2.778634468498354</jonesPersonMonths>
-        <actualDuration>0.0</actualDuration>
-        <correctionFactor>0.3288124280832689</correctionFactor>
-        <correctedDuration>0.0</correctedDuration>
-    </m_projectData_functionPointEstimation>
-</M_projectData>
+        <factorReusability>0</factorReusability>
+        <factorConversion>1</factorConversion>
+        <factorCustomizability>0</factorCustomizability>
+        <e2Sum>12</e2Sum>
+    </functionPointEstimation_configData>
+</PROJECTDATA>
