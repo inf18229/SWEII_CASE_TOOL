@@ -19,7 +19,7 @@ public class M_PROJECTDATA_PRODUCTFUNCTION extends M_PROJECTDATA_PRODUCTCONTENT 
     @Override
     public void calculateWeight() {
         /**
-         * calculates the weight depending on DET and FTR depending on schmea //TODO: schmea?
+         * calculates the weight depending on DET and FTR depending on specification
          */
         switch (functionPointCategory) {
             case "EI-Eingabe":

@@ -104,7 +104,7 @@ public interface I_C_FRAME {
     /**
      * notify Controller that selected List Item has changed
      *
-     * @param selectedID //TODO: add description
+     * @param selectedID selected ID from JList Element
      */
     public void notifySelectedListChange(String selectedID);
 }

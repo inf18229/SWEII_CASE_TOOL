@@ -155,5 +155,5 @@ public class M_FUNCTIONPOINTESTIMATION_CONFIGDATA {
      */
     public void setE2Sum(int e2Sum) {
         this.e2Sum = e2Sum;
-    } //TODO: evtl besser entfernen
+    }
 }

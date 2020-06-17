@@ -62,9 +62,6 @@ public class C_START implements I_C_START {
             I_C_FRAME controllerFrame = C_FRAME.getInstance();
             controllerFrame.setLinks(M_PROJECTDATA.getInstance(), this, path);
         }
-
-        //String path = "test_file.xml"; //TODO: remove hardcoded path
-
     }
 
     /**

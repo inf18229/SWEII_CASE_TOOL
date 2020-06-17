@@ -397,13 +397,6 @@ public class M_FUNCTIONPOINTESTIMATION {
      */
     public void calcE2Needed(double realTime) {
         e2Correction = (int) (((Math.pow((realTime / (Math.exp(0) * jonesPersonNo)), (1 / 0.4)) / e1Sum) - 0.7) * 100);
-
-        /*double temp = realTime / (Math.exp(0) * jonesPersonNo);
-        double temp1 = Math.pow(temp, 1 / 0.4);
-        double temp2 = temp1 / e1Sum;
-        double temp3 = temp2 - 0.7;
-        double tempFinal = (temp3 * 100);
-        e2Correction = (int) tempFinal;*/
     }
 
     /**

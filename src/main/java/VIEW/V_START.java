@@ -8,6 +8,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * implements the start screen
+ */
 public class V_START implements I_V_START {
     private static I_C_START controllerStart;
     private JFrame frame;
@@ -15,7 +18,6 @@ public class V_START implements I_V_START {
     private JLabel labelNewProject;
     private JButton buttonCreateProject;
     private JButton buttonOpenProject;
-
 
     /**
      * Constructor of the V_START Class

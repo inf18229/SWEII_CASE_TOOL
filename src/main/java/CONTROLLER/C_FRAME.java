@@ -7,6 +7,7 @@ import MODEL.PROJECTDATA.M_PROJECTDATA;
 import VIEW.I_V_BASIC;
 import VIEW.I_V_FRAME;
 import VIEW.V_FRAME;
+
 import javax.swing.*;
 import java.nio.file.InvalidPathException;
 
@@ -33,15 +34,17 @@ public class C_FRAME implements I_C_FRAME {
     /**
      * Singlton consturctor of C_FRAME
      */
-    private C_FRAME(){}
+    private C_FRAME() {
+    }
 
     /**
      * checks if controller was already created
      * if it wasn't it creates a new controller
      * it always returns a reference to the controller
+     *
      * @return reference to controller
      */
-    public static C_FRAME getInstance () {
+    public static C_FRAME getInstance() {
         if (C_FRAME.controllerFrame == null) {
             C_FRAME.controllerFrame = new C_FRAME();
         }
@@ -71,10 +74,10 @@ public class C_FRAME implements I_C_FRAME {
      */
     @Override
     public void createTabControllers(/*I_C_FRAME.tabs tabs*/) {
-        controllerEffort = C_TABCONTROLLERFACTORY.createController(viewFrame,projectData,"EFFORT");
-        controllerProductFunction = C_TABCONTROLLERFACTORY.createController(viewFrame,projectData,"PRODUCTFUNCTION");
-        controllerProductData = C_TABCONTROLLERFACTORY.createController(viewFrame,projectData,"PRODUCTDATA");
-        controllerGeneral = C_TABCONTROLLERFACTORY.createController(viewFrame,projectData,"GENERAL");
+        controllerEffort = C_TABCONTROLLERFACTORY.createController(viewFrame, projectData, "EFFORT");
+        controllerProductFunction = C_TABCONTROLLERFACTORY.createController(viewFrame, projectData, "PRODUCTFUNCTION");
+        controllerProductData = C_TABCONTROLLERFACTORY.createController(viewFrame, projectData, "PRODUCTDATA");
+        controllerGeneral = C_TABCONTROLLERFACTORY.createController(viewFrame, projectData, "GENERAL");
     }
 
     /**
@@ -192,16 +195,14 @@ public class C_FRAME implements I_C_FRAME {
      */
     @Override
     public void notifySave() {
-        try{
+        try {
             projectData_export.export(projectData, projPath);
-        }
-        catch(InvalidPathException e){
+        } catch (InvalidPathException e) {
             JOptionPane.showMessageDialog(null,
                     "Sie müssen einen korrekten Dateipfad angeben",
                     "Achtung",
                     JOptionPane.WARNING_MESSAGE);
-        }
-        catch(NullPointerException e){
+        } catch (NullPointerException e) {
             JOptionPane.showMessageDialog(null,
                     "Ein Fehler ist aufgetreten, bitte versuchen Sie es erneut",
                     "Achtung",
@@ -214,11 +215,10 @@ public class C_FRAME implements I_C_FRAME {
      */
     @Override
     public void notifyImportFactor() {
-        try{
+        try {
             projectData_import.importProject(projectData, confPath);
             controllerEffort.updateProjectData();
-        }
-        catch(InvalidPathException e){
+        } catch (InvalidPathException e) {
             JOptionPane.showMessageDialog(null,
                     "XML Faktoren Konfigurations Datei existiert nicht.\nBitte Konfigurationsdatei in Projektordner ablegen.\n('Projektname'_config.xml)",
                     "Achtung",
@@ -289,28 +289,37 @@ public class C_FRAME implements I_C_FRAME {
         }
     }
 
+    /**
+     * returns active Tab Controller
+     *
+     * @return returns a I_C_TAB Object
+     */
     @Override
     public I_C_TAB getCurrentController() {
         return currentController;
     }
 
+    /**
+     * notifies the current Tab Controller that New Button is pressed
+     */
     @Override
     public void notifyProductContentNEW() {
-        if(currentController == controllerProductFunction){
+        if (currentController == controllerProductFunction) {
             controllerProductFunction.newProductContent();
-        }
-        else if(currentController == controllerProductData){
+        } else if (currentController == controllerProductData) {
             controllerProductData.newProductContent();
         }
 
     }
 
+    /**
+     * notifies the current Tab Controller that Delete Button is pressed
+     */
     @Override
     public void notifyProductContentDELETE() {
-        if(currentController == controllerProductFunction){
+        if (currentController == controllerProductFunction) {
             controllerProductFunction.deleteProductContent();
-        }
-        else if(currentController == controllerProductData){
+        } else if (currentController == controllerProductData) {
             controllerProductData.deleteProductContent();
         }
     }
@@ -318,14 +327,13 @@ public class C_FRAME implements I_C_FRAME {
     /**
      * notify Controller that selected List Item has changed
      *
-     * @param selectedID //TODO: add description
+     * @param selectedID ID that is selected in JList Element
      */
     @Override
     public void notifySelectedListChange(String selectedID) {
         if (currentController == controllerProductFunction) {
             controllerProductFunction.notifySelectionChange(selectedID);
-        }
-        else if(currentController == controllerProductData){
+        } else if (currentController == controllerProductData) {
             controllerProductData.notifySelectionChange(selectedID);
         }
     }

@@ -11,16 +11,3 @@ public class main {
         C_START.getInstance();    //create a new Object con which is capable to manage all further actions
     }
 }
-
-//================================================wichtige Änderungen===================================================
-
-//TODO: Maven? (bei neuer Installation)
-
-//TODO: ADD DESCRIPTIONS WHENEVER POSSIBLE!
-
-//TODO: updateProjectData bei jedem Controller triggern bevor gespeichert wird -> geänderte Werte in Berechnung mit einbeziehen z.B. Art des FunctionPoints in Estimation Count übernehmen
-
-//============================================sonstige Ideen und Anmerkungen============================================
-
-
-//TODO: fix warnings in javadoc

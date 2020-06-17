@@ -51,17 +51,18 @@ public class C_EFFORT implements I_C_EFFORT {
      */
     @Override
     public void updateView() {
-        //TODO: evtl. aufteilen je gewähltem Tab
-        for (int i = 0; i <= 14; i++) {
-            viewFrame.setEstimationCount(i, projectData.getFunctionPointEstimation().getCount(i));
-            viewFrame.setEstimationSum(i, projectData.getFunctionPointEstimation().getSum(i));
-            viewFrame.setEstimationWeight(i, projectData.getFunctionPointEstimation().getWeight(i)); //TODO: evtl. nicht jedes mal aufrufen nur am Anfang
+
+        //update table values in function point tab
+        for (int row = 0; row <= 14; row++) {
+            viewFrame.setEstimationCount(row, projectData.getFunctionPointEstimation().getCount(row));
+            viewFrame.setEstimationSum(row, projectData.getFunctionPointEstimation().getSum(row));
+            viewFrame.setEstimationWeight(row, projectData.getFunctionPointEstimation().getWeight(row));
         }
         viewFrame.setTotalRowSum(projectData.getFunctionPointEstimation().getE1Sum());
         //initialize slider position and initialize the text fields for each slider
-        for (int i = 0; i <= 9; i++) {
-            viewFrame.setSliderValue(i, projectData.getFunctionPointEstimation_configData().getFactor(i));
-            viewFrame.setSliderText(i, projectData.getFunctionPointEstimation_configData().getFactor(i));
+        for (int factorNo = 0; factorNo <= 9; factorNo++) {
+            viewFrame.setSliderValue(factorNo, projectData.getFunctionPointEstimation_configData().getFactor(factorNo));
+            viewFrame.setSliderText(factorNo, projectData.getFunctionPointEstimation_configData().getFactor(factorNo));
         }
         viewFrame.setFactorSumE2(projectData.getFunctionPointEstimation_configData().getE2Sum(),
                 projectData.getFunctionPointEstimation().getE2Correction());
@@ -125,7 +126,6 @@ public class C_EFFORT implements I_C_EFFORT {
                 projectData.getFunctionPointEstimation().getE2Correction()
         );
         updateView();
-
     }
 
     /**
@@ -156,7 +156,7 @@ public class C_EFFORT implements I_C_EFFORT {
         int countReferenceComplex = 0;
 
         //iterate through all stored product functions
-        for (M_PROJECTDATA_PRODUCTFUNCTION productFunction : projectData.getProductFunctionList()) {
+        for (M_PROJECTDATA_PRODUCTFUNCTION productFunction : projectData.getProductFunctionElement()) {
             /**
              * switches on type
              * in type switches on weight
@@ -214,7 +214,7 @@ public class C_EFFORT implements I_C_EFFORT {
         }
 
         //iterate through all stored product data
-        for (M_PROJECTDATA_PRODUCTDATA productData : projectData.getProductDataList()) {
+        for (M_PROJECTDATA_PRODUCTDATA productData : projectData.getProductDataElement()) {
             /**
              * switches on type
              * in type switches on weight

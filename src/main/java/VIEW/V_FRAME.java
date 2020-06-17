@@ -15,7 +15,9 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.text.DecimalFormat;
 
-
+/**
+ * implements the Frame of the main View
+ */
 public class V_FRAME implements I_V_FRAME {
     private I_C_FRAME controllerFrame;
     private I_C_EFFORT conEffort;
@@ -399,7 +401,6 @@ public class V_FRAME implements I_V_FRAME {
         /**
          * Document Listener for productEnvironment that informs current Controller on update
          */
-        //TODO: Ersatzhandlungen bei change oder remove für Document Listener
         productEnvironment.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent documentEvent) {
@@ -433,7 +434,7 @@ public class V_FRAME implements I_V_FRAME {
 
         listProductFunctionID.setSelectionMode(2);
         listModelProductFunction = new DefaultListModel();
-        for (M_PROJECTDATA_PRODUCTFUNCTION productFunction : projData.getProductFunctionList()) {
+        for (M_PROJECTDATA_PRODUCTFUNCTION productFunction : projData.getProductFunctionElement()) {
             listModelProductFunction.addElement(productFunction.id);
         }
         listProductFunctionID.setModel(listModelProductFunction);
@@ -477,7 +478,7 @@ public class V_FRAME implements I_V_FRAME {
         //Initialize Product Data Tab
         listproductDataID.setSelectionMode(2);
         listModelProductData = new DefaultListModel();
-        for (M_PROJECTDATA_PRODUCTDATA productData : projData.getProductDataList()) {
+        for (M_PROJECTDATA_PRODUCTDATA productData : projData.getProductDataElement()) {
             listModelProductData.addElement(productData.id);
         }
         listproductDataID.setModel(listModelProductData);
@@ -544,7 +545,7 @@ public class V_FRAME implements I_V_FRAME {
              */
             @Override
             public void stateChanged(ChangeEvent e) {
-                controllerFrame.notifySlider(0, slider0Entanglement.getValue()); //TODO: check if correct listener (always gives more than one event per change)
+                controllerFrame.notifySlider(0, slider0Entanglement.getValue()); //Sends event 3 times (doesn't effect program functionality). //TODO:Fix it on next release! :)
             }
         });
         slider1Decentralization.addChangeListener(new ChangeListener() {
@@ -1310,7 +1311,7 @@ public class V_FRAME implements I_V_FRAME {
         labelCorrectionFactor.setText(String.valueOf(decimalFormat2.format(corrFact)));
         labelCorrectionCalculation.setText(String.valueOf(decimalFormat2.format(calcEff) + " * e^" + decimalFormat2.format(corrFact) + " = " + String.valueOf(decimalFormat2.format((calcEff * Math.exp(corrFact))))));
         /**
-         * checks if e2Correction is within the boundaries //TODO: move to controller and give string to model function?
+         * checks if e2Correction is within the boundaries
          */
         if (e2Correction >= 0 & e2Correction < 60) {
             labelE2CorrectioDescription.setText("Die Einflussfaktoren müssen geändert werden auf:");
@@ -1483,7 +1484,7 @@ public class V_FRAME implements I_V_FRAME {
     public void reinitializeProdFuncIDList(M_PROJECTDATA projData) {
 
         listModelProductFunction = new DefaultListModel();
-        for (M_PROJECTDATA_PRODUCTFUNCTION productFunction : projData.getProductFunctionList()) {
+        for (M_PROJECTDATA_PRODUCTFUNCTION productFunction : projData.getProductFunctionElement()) {
             listModelProductFunction.addElement(productFunction.id);
         }
         try {
@@ -1525,7 +1526,7 @@ public class V_FRAME implements I_V_FRAME {
     @Override
     public void reinitializeProdDataIDList(M_PROJECTDATA projData) {
         listModelProductData = new DefaultListModel();
-        for (M_PROJECTDATA_PRODUCTDATA productData : projData.getProductDataList()) {
+        for (M_PROJECTDATA_PRODUCTDATA productData : projData.getProductDataElement()) {
             listModelProductData.addElement(productData.id);
         }
         try {

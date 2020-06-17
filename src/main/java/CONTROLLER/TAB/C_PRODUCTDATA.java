@@ -16,13 +16,14 @@ public class C_PRODUCTDATA implements I_C_PRODUCTDATA {
     private M_PROJECTDATA projectData;
 
     /**
-     * Singlton Constructor for Productdata Controller
+     * Singleton Constructor for Productdata Controller
      */
     private C_PRODUCTDATA() {
     }
 
     /**
      * creates exactly one instance of C_PRODUCTDATA Controller
+     *
      * @return C_PRODUCTDATA Object
      */
     public static C_PRODUCTDATA getInstance() {
@@ -36,6 +37,7 @@ public class C_PRODUCTDATA implements I_C_PRODUCTDATA {
 
     /**
      * sets the References to view and Projectdata to manage all objects
+     *
      * @param view     reference to the view that should be referenced in this object
      * @param projData reference to the project data that should be referenced in this object
      */
@@ -47,6 +49,7 @@ public class C_PRODUCTDATA implements I_C_PRODUCTDATA {
 
     /**
      * sets values for M_PROJECTDATA_PRODUCTDATA object
+     *
      * @param projectDataProductData is the element that gets changed
      */
     private void setProductDataElements(M_PROJECTDATA_PRODUCTDATA projectDataProductData) {
@@ -65,7 +68,7 @@ public class C_PRODUCTDATA implements I_C_PRODUCTDATA {
     public void newProductContent() {
         System.out.println("Notified Tab Product Data that a new Element is requested");
         boolean alreadyexists = false;
-        for (M_PROJECTDATA_PRODUCTDATA projectDataProductData : projectData.getProductDataList()) {
+        for (M_PROJECTDATA_PRODUCTDATA projectDataProductData : projectData.getProductDataElement()) {
             if (projectDataProductData.id.equals(viewFrame.getTextFieldproductDataID().getText())) {
                 alreadyexists = true;
                 break;
@@ -76,7 +79,7 @@ public class C_PRODUCTDATA implements I_C_PRODUCTDATA {
                 //Using ProductContentFactory to create object
                 M_PROJECTDATA_PRODUCTDATA newProductData = M_PROJECTDATA_PRODUCTCONTENTFACTORY.createProductContent(viewFrame.getTextFieldproductDataID().getText(), "PRODUCTDATA");
                 setProductDataElements(newProductData);
-                projectData.getProductDataList().add(newProductData);
+                projectData.getProductDataElement().add(newProductData);
                 viewFrame.addProdDataIDListElement(viewFrame.getTextFieldproductDataID().getText());
                 viewFrame.setWeightDescription(newProductData.functionPointWeighting);
             } else {
@@ -95,12 +98,13 @@ public class C_PRODUCTDATA implements I_C_PRODUCTDATA {
 
     /**
      * function recieves that another element is select from JList and triggers the View to load correct data Elements
+     *
      * @param selectedID is the current selected ID from JList Panel
      */
     @Override
     public void notifySelectionChange(String selectedID) {
         M_PROJECTDATA_PRODUCTDATA selectedProjectData = null;
-        for (M_PROJECTDATA_PRODUCTDATA projectDataproductData : projectData.getProductDataList()) {
+        for (M_PROJECTDATA_PRODUCTDATA projectDataproductData : projectData.getProductDataElement()) {
             if (projectDataproductData.id.equals(selectedID)) {
                 selectedProjectData = projectDataproductData;
 
@@ -124,14 +128,14 @@ public class C_PRODUCTDATA implements I_C_PRODUCTDATA {
     public void deleteProductContent() {
         int index = 0;
         int removedElement = -1;
-        for (M_PROJECTDATA_PRODUCTDATA projectDataproductData : projectData.getProductDataList()) {
+        for (M_PROJECTDATA_PRODUCTDATA projectDataproductData : projectData.getProductDataElement()) {
             if (projectDataproductData.id.equals(viewFrame.getListproductDataID().getSelectedValue())) {
                 removedElement = index;
             }
             index++;
         }
         if (removedElement >= 0) {
-            projectData.getProductDataList().remove(removedElement);
+            projectData.getProductDataElement().remove(removedElement);
             viewFrame.reinitializeProdDataIDList(projectData);
         }
     }
@@ -141,7 +145,7 @@ public class C_PRODUCTDATA implements I_C_PRODUCTDATA {
      */
     @Override
     public void updateProjectData() {
-        for (M_PROJECTDATA_PRODUCTDATA projectDataproductData : projectData.getProductDataList()) {
+        for (M_PROJECTDATA_PRODUCTDATA projectDataproductData : projectData.getProductDataElement()) {
             if (projectDataproductData.id.equals(viewFrame.getListproductDataID().getSelectedValue())) {
                 projectDataproductData.id = viewFrame.getTextFieldproductDataID().getText();
                 setProductDataElements(projectDataproductData);

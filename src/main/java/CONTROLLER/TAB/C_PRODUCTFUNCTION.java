@@ -23,6 +23,7 @@ public class C_PRODUCTFUNCTION implements I_C_PRODUCTFUNCTION {
 
     /**
      * creates on instance of C_PRODUCTFUNCTION
+     *
      * @return a Singlton object of C_PRODUCTFUNCTION
      */
     public static C_PRODUCTFUNCTION getInstance() {
@@ -36,6 +37,7 @@ public class C_PRODUCTFUNCTION implements I_C_PRODUCTFUNCTION {
 
     /**
      * set References to view and model
+     *
      * @param view     reference to the view that should be referenced in this object
      * @param projData reference to the project data that should be referenced in this object
      */
@@ -50,7 +52,7 @@ public class C_PRODUCTFUNCTION implements I_C_PRODUCTFUNCTION {
      */
     @Override
     public void updateProjectData() {
-        for (M_PROJECTDATA_PRODUCTFUNCTION projectDataFunction : projectData.getProductFunctionList()) {
+        for (M_PROJECTDATA_PRODUCTFUNCTION projectDataFunction : projectData.getProductFunctionElement()) {
             if (projectDataFunction.id.equals(viewFrame.getProdFuncIDList().getSelectedValue())) {
                 projectDataFunction.id = viewFrame.getTextFieldProdFuncID().getText();
                 setProductFunctionElements(projectDataFunction);
@@ -82,7 +84,7 @@ public class C_PRODUCTFUNCTION implements I_C_PRODUCTFUNCTION {
     public void newProductContent() {
         System.out.println("Notified Tab Product Function that a new Element is requested");
         boolean alreadyexists = false;
-        for (M_PROJECTDATA_PRODUCTFUNCTION projectDataFunction : projectData.getProductFunctionList()) {
+        for (M_PROJECTDATA_PRODUCTFUNCTION projectDataFunction : projectData.getProductFunctionElement()) {
             if (projectDataFunction.id.equals(viewFrame.getTextFieldProdFuncID().getText())) {
                 alreadyexists = true;
                 break;
@@ -94,7 +96,7 @@ public class C_PRODUCTFUNCTION implements I_C_PRODUCTFUNCTION {
                 M_PROJECTDATA_PRODUCTFUNCTION newProductFunction = M_PROJECTDATA_PRODUCTCONTENTFACTORY.createProductContent(viewFrame.getTextFieldProdFuncID().getText(), "PRODUCTFUNCTION");
                 setProductFunctionElements(newProductFunction);
                 viewFrame.setWeightDescription(newProductFunction.functionPointWeighting);
-                projectData.getProductFunctionList().add(newProductFunction);
+                projectData.getProductFunctionElement().add(newProductFunction);
                 viewFrame.addProdFuncIDListElement(viewFrame.getTextFieldProdFuncID().getText());
             } else {
                 JOptionPane.showMessageDialog(null,
@@ -120,7 +122,7 @@ public class C_PRODUCTFUNCTION implements I_C_PRODUCTFUNCTION {
     @Override
     public void notifySelectionChange(String selectedID) {
         M_PROJECTDATA_PRODUCTFUNCTION selectedProjectData = null;
-        for (M_PROJECTDATA_PRODUCTFUNCTION projectDataFunction : projectData.getProductFunctionList()) {
+        for (M_PROJECTDATA_PRODUCTFUNCTION projectDataFunction : projectData.getProductFunctionElement()) {
             if (projectDataFunction.id.equals(selectedID)) {
                 selectedProjectData = projectDataFunction;
 
@@ -144,14 +146,14 @@ public class C_PRODUCTFUNCTION implements I_C_PRODUCTFUNCTION {
     public void deleteProductContent() {
         int index = 0;
         int removedElement = -1;
-        for (M_PROJECTDATA_PRODUCTFUNCTION projectDataFunction : projectData.getProductFunctionList()) {
+        for (M_PROJECTDATA_PRODUCTFUNCTION projectDataFunction : projectData.getProductFunctionElement()) {
             if (projectDataFunction.id.equals(viewFrame.getProdFuncIDList().getSelectedValue())) {
                 removedElement = index;
             }
             index++;
         }
         if (removedElement >= 0) {
-            projectData.getProductFunctionList().remove(removedElement);
+            projectData.getProductFunctionElement().remove(removedElement);
             viewFrame.reinitializeProdFuncIDList(projectData);
         }
 

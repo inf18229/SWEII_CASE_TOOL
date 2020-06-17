@@ -22,6 +22,7 @@ public class C_GENERAL implements I_C_GENERAL {
 
     /**
      * constructs one Element of C_GENERAL
+     *
      * @return C_GENERAL Object
      */
     public static C_GENERAL getInstance() {
@@ -35,12 +36,13 @@ public class C_GENERAL implements I_C_GENERAL {
 
     /**
      * set References to view and projData
+     *
      * @param view     reference to the view that should be referenced in this object
      * @param projData reference to the project data that should be referenced in this object
      */
     @Override
     public void setLinks(I_V_FRAME view, M_PROJECTDATA projData) {
-        viewFrame =view;
+        viewFrame = view;
         projectData = projData;
     }
 

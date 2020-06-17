@@ -16,8 +16,8 @@ import java.util.ArrayList;
  */
 public class M_PROJECTDATA {
     private static M_PROJECTDATA projectData; //holds Singleton reference to Project Data
-    private ArrayList<M_PROJECTDATA_PRODUCTDATA> productDataList; //TODO: evtl. list entfernen, sonst sind in XML-Datei alle Daten einzelne Listen
-    private ArrayList<M_PROJECTDATA_PRODUCTFUNCTION> productFunctionList;   //TODO: evtl. list entfernen, sonst sind in XML-Datei alle Daten einzelne Listen
+    private ArrayList<M_PROJECTDATA_PRODUCTDATA> productDataElement;
+    private ArrayList<M_PROJECTDATA_PRODUCTFUNCTION> productFunctionElement;
     private M_PROJECTDATA_PRODUCTUSE productUse;
     private M_PROJECTDATA_TARGETDEFINITION targetDefinition;
     private M_PROJECTDATA_PRODUCTENVIRONMENT productEnvironment;
@@ -28,8 +28,8 @@ public class M_PROJECTDATA {
      * Singleton Constructor of M_PROJECTDATA Class
      */
     private M_PROJECTDATA() {
-        productDataList = new ArrayList<>();
-        productFunctionList = new ArrayList<>();
+        productDataElement = new ArrayList<>();
+        productFunctionElement = new ArrayList<>();
         productUse = new M_PROJECTDATA_PRODUCTUSE();
         targetDefinition = new M_PROJECTDATA_TARGETDEFINITION();
         productEnvironment = new M_PROJECTDATA_PRODUCTENVIRONMENT();
@@ -84,8 +84,8 @@ public class M_PROJECTDATA {
      *
      * @return ArrayList of M_PROJECTDATA_PRODUCTDATA Objects
      */
-    public ArrayList<M_PROJECTDATA_PRODUCTDATA> getProductDataList() {
-        return productDataList;
+    public ArrayList<M_PROJECTDATA_PRODUCTDATA> getProductDataElement() {
+        return productDataElement;
     }
 
     /**
@@ -93,8 +93,8 @@ public class M_PROJECTDATA {
      *
      * @return ArrayList of M_PROJECTDATA_PRODUCTFUNCTION Objects
      */
-    public ArrayList<M_PROJECTDATA_PRODUCTFUNCTION> getProductFunctionList() {
-        return productFunctionList;
+    public ArrayList<M_PROJECTDATA_PRODUCTFUNCTION> getProductFunctionElement() {
+        return productFunctionElement;
     }
 
     /**

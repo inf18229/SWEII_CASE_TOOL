@@ -1,5 +1,8 @@
 package CONTROLLER.TAB;
 
+/**
+ * implements Tab functionality and extends it's function for product content items
+ */
 public interface I_C_PRODUCTCONTENT extends I_C_TAB {
     /**
      * new Product Content Element is Reqiested

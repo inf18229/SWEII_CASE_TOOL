@@ -3,6 +3,9 @@ package CONTROLLER.TAB;
 import MODEL.PROJECTDATA.M_PROJECTDATA;
 import VIEW.I_V_FRAME;
 
+/**
+ * Creates a tab controller factory depending on controller Type
+ */
 public class C_TABCONTROLLERFACTORY {
     /**
      * @param view           reference to I_V_FRAME Object

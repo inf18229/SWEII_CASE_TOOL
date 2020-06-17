@@ -3,6 +3,7 @@ package VIEW;
 import MODEL.PROJECTDATA.M_PROJECTDATA;
 import MODEL.PROJECTDATA.M_PROJECTDATA_PRODUCTDATA;
 import MODEL.PROJECTDATA.M_PROJECTDATA_PRODUCTFUNCTION;
+
 import javax.swing.*;
 
 /**
@@ -12,108 +13,126 @@ public interface I_V_FRAME extends I_V_BASIC {
 
     /**
      * get Target Use Text Area Element
+     *
      * @return returns a JTextArea Swing Element
      */
     public JTextArea getTargetUse();
 
     /**
      * get Product Use Text Area Element
+     *
      * @return returns a JTextArea Swing Element
      */
     public JTextArea getProductUse();
 
     /**
      * get Product Environment Text Area Element
+     *
      * @return returns a JTextArea Swing Element
      */
     public JTextArea getProductEnvironment();
 
     /**
      * get Product Function ID Text Field Element
+     *
      * @return returns a JTextField Swing Element
      */
     public JTextField getTextFieldProdFuncID();
 
     /**
      * get Product Function Function Text Field Element
+     *
      * @return returns a JTextField Swing Element
      */
     public JTextField getTextFieldProdFunc();
 
     /**
      * get Product Function Protagonis Text Field Element
+     *
      * @return returns a JTextField Swing Element
      */
     public JTextField getTextFieldProdFuncProtagonist();
 
     /**
      * get Product Function Description Text Area Element
+     *
      * @return returns a JTextField Swing Element
      */
     public JTextArea getTextAreaprodFuncDescription();
 
     /**
      * get Product Function Category Combo Box
+     *
      * @return returns a JComboBox Swing Element
      */
     public JComboBox getComboBoxProdFuncCategory();
 
     /**
      * get Product Function FTR JSpinner Element
+     *
      * @return returns a JSpinner Swing Element
      */
     public JSpinner getSpinnerProdFuncFTR();
 
     /**
      * get Product Function DET JSpinner Element
+     *
      * @return returns a JSpinner Swing Element
      */
     public JSpinner getSpinnerProdFuncDET();
 
     /**
      * get Product Function List Element
+     *
      * @return returns a JList Swing Element
      */
     public JList getProdFuncIDList();
 
     /**
      * get ProductData List Element
+     *
      * @return returns a JList Swing Element
      */
     public JList getListproductDataID();
 
     /**
      * get Product Data Id Text Field
+     *
      * @return returns a JTextField Swing Element
      */
     public JTextField getTextFieldproductDataID();
 
     /**
      * get Product Data Refernece Text Field
+     *
      * @return returns a JTextField Swing Element
      */
     public JTextField getTextFieldproductDataReference();
 
     /**
      * get Product Data Description Text Area Element
+     *
      * @return returns a JTextArea Swing Element
      */
     public JTextArea getTextAreaproductDataDescription();
 
     /**
      * get Product Data RET Spinner Element
+     *
      * @return returns JSpinner Swing Element
      */
     public JSpinner getSpinnerproductDataRET();
 
     /**
      * get Product Data DET Spinner Element
+     *
      * @return returns JSpinner Swing Element
      */
     public JSpinner getSpinnerproductDataDET();
 
     /**
      * get Product Data Category Combo Box Element
+     *
      * @return returns JComboBox Swing Element
      */
     public JComboBox getComboBoxProdDataCategory();
@@ -266,14 +285,14 @@ public interface I_V_FRAME extends I_V_BASIC {
     public void lastStepEffort();
 
     /**
-     * adds the FuncReqID List in Tab
+     * adds the ProductFunctionID List in Tab
      *
-     * @param id //TODO: add description for id
+     * @param id ID that will be added to Product Function ID List
      */
     public void addProdFuncIDListElement(String id);
 
     /**
-     * change ReqID List element with String i
+     * change ProductFunctionID List element with String id
      *
      * @param id is the new value for the list element
      */
@@ -289,7 +308,7 @@ public interface I_V_FRAME extends I_V_BASIC {
     /**
      * updates textboxes depending on the selected Index
      *
-     * @param projDataFunction //TODO: add description
+     * @param projDataFunction new Product Function Element that has to be loaded into textboxes
      */
     public void updateProdFuncInfo(M_PROJECTDATA_PRODUCTFUNCTION projDataFunction);
 
