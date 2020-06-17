@@ -11,15 +11,19 @@ import javax.swing.*;
  */
 public class C_GENERAL implements I_C_GENERAL {
     private static C_GENERAL controllerGeneral;
-    private I_V_FRAME view;
-    private JTextArea targetUse;    // stores text Area "Zielbestimmungen" for which the controller is responsible for
-    private JTextArea productUse;   // stores text Area "Produkteinsatz" for which the controller is responsible for
-    private JTextArea productEnvironment; // stores text Area "Umgebung" for which the controller is responsible for
+    private I_V_FRAME viewFrame;
     private M_PROJECTDATA projectData;  // stores a reference to the complete data modell
 
+    /**
+     * private Singleton constructor
+     */
     private C_GENERAL() {
     }
 
+    /**
+     * constructs one Element of C_GENERAL
+     * @return C_GENERAL Object
+     */
     public static C_GENERAL getInstance() {
         if (controllerGeneral == null) {
             controllerGeneral = new C_GENERAL();
@@ -29,11 +33,14 @@ public class C_GENERAL implements I_C_GENERAL {
         return controllerGeneral;
     }
 
+    /**
+     * set References to view and projData
+     * @param view     reference to the view that should be referenced in this object
+     * @param projData reference to the project data that should be referenced in this object
+     */
     @Override
     public void setLinks(I_V_FRAME view, M_PROJECTDATA projData) {
-        targetUse = view.getTargetUse();
-        productUse = view.getProductUse();
-        productEnvironment = view.getProductEnvironment();
+        viewFrame =view;
         projectData = projData;
     }
 
@@ -44,9 +51,9 @@ public class C_GENERAL implements I_C_GENERAL {
      */
     @Override
     public void updateProjectData() {
-        projectData.getTargetDefinition().content = targetUse.getText();
-        projectData.getProductUse().content = productUse.getText();
-        projectData.getProductEnvironment().content = productEnvironment.getText();
+        projectData.getTargetDefinition().content = viewFrame.getTargetUse().getText();
+        projectData.getProductUse().content = viewFrame.getProductUse().getText();
+        projectData.getProductEnvironment().content = viewFrame.getProductEnvironment().getText();
     }
 }
 

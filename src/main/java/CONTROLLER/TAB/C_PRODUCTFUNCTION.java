@@ -7,6 +7,9 @@ import VIEW.I_V_FRAME;
 
 import javax.swing.*;
 
+/**
+ * Class controlls the creation, deletion and update of Productfunctions triggered from View Tab
+ */
 public class C_PRODUCTFUNCTION implements I_C_PRODUCTFUNCTION {
     private static C_PRODUCTFUNCTION controllerProductFunction;
     private I_V_FRAME viewFrame;
@@ -18,6 +21,10 @@ public class C_PRODUCTFUNCTION implements I_C_PRODUCTFUNCTION {
     private C_PRODUCTFUNCTION() {
     }
 
+    /**
+     * creates on instance of C_PRODUCTFUNCTION
+     * @return a Singlton object of C_PRODUCTFUNCTION
+     */
     public static C_PRODUCTFUNCTION getInstance() {
         if (controllerProductFunction == null) {
             controllerProductFunction = new C_PRODUCTFUNCTION();
@@ -27,6 +34,11 @@ public class C_PRODUCTFUNCTION implements I_C_PRODUCTFUNCTION {
         return controllerProductFunction;
     }
 
+    /**
+     * set References to view and model
+     * @param view     reference to the view that should be referenced in this object
+     * @param projData reference to the project data that should be referenced in this object
+     */
     @Override
     public void setLinks(I_V_FRAME view, M_PROJECTDATA projData) {
         viewFrame = view;

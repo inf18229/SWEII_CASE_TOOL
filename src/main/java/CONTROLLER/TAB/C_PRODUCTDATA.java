@@ -7,14 +7,24 @@ import VIEW.I_V_FRAME;
 
 import javax.swing.*;
 
+/**
+ * Class controlles the Productdata Tab and notifies the model if somthing is changed or a new element is requestes
+ */
 public class C_PRODUCTDATA implements I_C_PRODUCTDATA {
     private static C_PRODUCTDATA controllerProductData;
     private I_V_FRAME viewFrame;
     private M_PROJECTDATA projectData;
 
+    /**
+     * Singlton Constructor for Productdata Controller
+     */
     private C_PRODUCTDATA() {
     }
 
+    /**
+     * creates exactly one instance of C_PRODUCTDATA Controller
+     * @return C_PRODUCTDATA Object
+     */
     public static C_PRODUCTDATA getInstance() {
         if (controllerProductData == null) {
             controllerProductData = new C_PRODUCTDATA();
@@ -24,12 +34,21 @@ public class C_PRODUCTDATA implements I_C_PRODUCTDATA {
         return controllerProductData;
     }
 
+    /**
+     * sets the References to view and Projectdata to manage all objects
+     * @param view     reference to the view that should be referenced in this object
+     * @param projData reference to the project data that should be referenced in this object
+     */
     @Override
     public void setLinks(I_V_FRAME view, M_PROJECTDATA projData) {
         viewFrame = view;
         projectData = projData;
     }
 
+    /**
+     * sets values for M_PROJECTDATA_PRODUCTDATA object
+     * @param projectDataProductData is the element that gets changed
+     */
     private void setProductDataElements(M_PROJECTDATA_PRODUCTDATA projectDataProductData) {
         projectDataProductData.reference = viewFrame.getTextFieldproductDataReference().getText();
         projectDataProductData.memoryContent = viewFrame.getTextAreaproductDataDescription().getText();
@@ -39,6 +58,9 @@ public class C_PRODUCTDATA implements I_C_PRODUCTDATA {
         projectDataProductData.calculateWeight();
     }
 
+    /**
+     * function creates a now ProductContent item. In this case a ProductData Item with the factory method
+     */
     @Override
     public void newProductContent() {
         System.out.println("Notified Tab Product Data that a new Element is requested");
@@ -71,6 +93,10 @@ public class C_PRODUCTDATA implements I_C_PRODUCTDATA {
         }
     }
 
+    /**
+     * function recieves that another element is select from JList and triggers the View to load correct data Elements
+     * @param selectedID is the current selected ID from JList Panel
+     */
     @Override
     public void notifySelectionChange(String selectedID) {
         M_PROJECTDATA_PRODUCTDATA selectedProjectData = null;
@@ -91,6 +117,9 @@ public class C_PRODUCTDATA implements I_C_PRODUCTDATA {
         viewFrame.setWeightDescription(selectedProjectData.functionPointWeighting);
     }
 
+    /**
+     * triggers the deletion of a ProductData item in Model
+     */
     @Override
     public void deleteProductContent() {
         int index = 0;
@@ -107,6 +136,9 @@ public class C_PRODUCTDATA implements I_C_PRODUCTDATA {
         }
     }
 
+    /**
+     * updates the ProjectData if Save Button is pressed
+     */
     @Override
     public void updateProjectData() {
         for (M_PROJECTDATA_PRODUCTDATA projectDataproductData : projectData.getProductDataList()) {
