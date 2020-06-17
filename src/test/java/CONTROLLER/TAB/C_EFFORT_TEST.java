@@ -15,36 +15,25 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class C_EFFORT_TEST {
 
     /**
-     * this test shows Zweigüberdeckung as the correct value is calculated correctly and the if Zweig therefore was run
+     * this test shows Zweigüberdeckung as the correct value is calculated and the Zweig therefore was run
      *
      * the test file is initialized with:
-     * double realTime = 4.0;
-     * int jonesPersonNo = 1;
-     * int e1Sum = 38;
-     * double expectedE2 = 14;
+     * jonesPersonNo = 1;
      */
     @Test
-    void calcE2NeededClean(){
-        System.out.println("    /**\n" +
-                "     * this test shows Zweigüberdeckung as the correct value is calculated correctly and the if Zweig therefore was run\n" +
-                "     *\n" +
-                "     * the test file is initialized with:\n" +
-                "     * double realTime = 4.0;\n" +
-                "     * int jonesPersonNo = 1;\n" +
-                "     * int e1Sum = 38;\n" +
-                "     * double expectedE2 = 14;\n" +
-                "     */");
+    void calcE2Needed(){ //TODO: add test?
         double realTime = 4.0;
         int jonesPersonNo = 1;
         int e1Sum = 38;
         double expectedE2 = 14;
         M_IMPORT m__import = new M_IMPORT();
         I_C_EFFORT controllerEffort;
-        String path = "testFiles/test_calcE2Needed.xml"; // fixed path to calcE2Needed file
+        String path = "testFiles/test_calcE2Needed.xml"; // fixed path relative
         File xmlFile = new File(path);
 
         M_PROJECTDATA projectData;
         projectData = m__import.importProject(path);
+        //projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
 
         controllerEffort = C_EFFORT.getInstance();
         controllerEffort.setLinks(null, projectData);
@@ -54,80 +43,22 @@ class C_EFFORT_TEST {
         assertEquals(expectedE2, projectData.getFunctionPointEstimation().getE2Correction());
     }
 
-    /**
-     * this test shows Zweigüberdeckung as the gets thrown and the else Zweig therefore was run
-     *
-     * the test file is initialized with:
-     * double realTime = -1;
-     * int jonesPersonNo = 1;
-     * int e1Sum = 38;
-     */
     @Test
-    void calcE2NeededNegative(){
-        System.out.println("    /**\n" +
-                "     * this test shows Zweigüberdeckung as the gets thrown and the else Zweig therefore was run\n" +
-                "     *\n" +
-                "     * the test file is initialized with:\n" +
-                "     * double realTime = -1;\n" +
-                "     * int jonesPersonNo = 1;\n" +
-                "     * int e1Sum = 38;\n" +
-                "     */");
-        double realTime = -1;
-        int jonesPersonNo = 1;
-        int e1Sum = 38;
-        M_IMPORT m__import = new M_IMPORT();
-        I_C_EFFORT controllerEffort;
-        String path = "testFiles/test_calcE2Needed.xml"; // fixed path to calcE2Needed file
-        File xmlFile = new File(path);
-
-        M_PROJECTDATA projectData;
-        projectData = m__import.importProject(path);
-
-        controllerEffort = C_EFFORT.getInstance();
-        controllerEffort.setLinks(null, projectData);
-
-        assertThrows(IllegalArgumentException.class, () -> projectData.getFunctionPointEstimation().calcE2Needed(realTime, jonesPersonNo, e1Sum));
-    }
-
-    /**
-     * this test shows Zweigüberdeckung as the correct value is calculated and the if Zweig therefore was run
-     *
-     * the test file is initialized with:
-     * double realTime = Double.MAX_VALUE;
-     * System.out.println(realTime);
-     * int jonesPersonNo = 1;
-     * int e1Sum = 38;
-     * double expectedE2 = Integer.MAX_VALUE;
-     */
-    @Test
-    void calcE2NeededMax(){
-        System.out.println("    /**\n" +
-                "     * this test shows Zweigüberdeckung as the correct value is calculated and the if Zweig therefore was run\n" +
-                "     *\n" +
-                "     * the test file is initialized with:\n" +
-                "     * double realTime = Double.MAX_VALUE;\n" +
-                "     * System.out.println(realTime);\n" +
-                "     * int jonesPersonNo = 1;\n" +
-                "     * int e1Sum = 38;\n" +
-                "     * double expectedE2 = Integer.MAX_VALUE;\n" +
-                "     */");
-        double realTime = Double.MAX_VALUE;
-        int jonesPersonNo = 1;
-        int e1Sum = 38;
-        double expectedE2 = Integer.MAX_VALUE;
-        M_IMPORT m__import = new M_IMPORT();
-        I_C_EFFORT controllerEffort;
-        String path = "testFiles/test_calcE2Needed.xml"; // fixed path to calcE2Needed file
-        File xmlFile = new File(path);
-
-        M_PROJECTDATA projectData;
-        projectData = m__import.importProject(path);
-
-        controllerEffort = C_EFFORT.getInstance();
-        controllerEffort.setLinks(null, projectData);
-
-        projectData.getFunctionPointEstimation().calcE2Needed(realTime, jonesPersonNo, e1Sum); //calculation of e2Correction
-        assertEquals(expectedE2, projectData.getFunctionPointEstimation().getE2Correction());
+    void notifyAdjustFactors() {
+        /**
+         * e2Sum und e2Goal beide Integer - ganze Zahlen
+         *
+         * Äquivalenzklassen:
+         *      1. e2Failure > 0
+         *          - e2Sum > e2Goal (z.B. e2Sum = 10, e2Goal = 5)
+         *      2. e2Failure < 0
+         *          - e2Sum < e2Goal (z.B. e2Sum = 5, e2Goal = 10)
+         *      3. e2Failure = 0
+         *          - e2Sum = e2Goal (z.B. e2Sum = 5, e2Goal = 5)
+         *          can int be null? -> https://stackoverflow.com/questions/2254435/can-an-int-be-null-in-java (it depends)
+         *
+         *      + evtl. abfangen wenn e2Sum > 60 | < 0 ist? evtl. auch bei Berechnung abfangen? (kann eigentlich nicht passieren, wäre hier aber auch egal)
+         */
     }
 
     /**
@@ -137,11 +68,6 @@ class C_EFFORT_TEST {
      */
     @Test
     void notifyAdjustFactorsDecreaseCorrected() {
-        System.out.println("    /**\n" +
-                "     * this method tests the path when e2Sum needs to and can be decreased\n" +
-                "     * e2Sum = 10\n" +
-                "     * e2Correction = 5\n" +
-                "     */");
         int e2Sum = 10;
         int e2Correction = 5;
         String expectedOutput = "e2Sum needs to be decreased - Corrected factors";
@@ -170,11 +96,6 @@ class C_EFFORT_TEST {
      */
     @Test
     void notifyAdjustFactorsDecreaseFailed() {
-        System.out.println("    /**\n" +
-                "     * this method tests the path when e2Sum needs to but can't be decreased\n" +
-                "     * e2Sum = 10\n" +
-                "     * e2Correction = -10\n" +
-                "     */");
         int e2Sum = 10;
         int e2Correction = -10;
         String expectedOutput = "e2Sum needs to be decreased - Failure can't be corrected by just adjusting factors";
@@ -203,11 +124,6 @@ class C_EFFORT_TEST {
      */
     @Test
     void notifyAdjustFactorsIncreaseCorrected() {
-        System.out.println("    /**\n" +
-                "     * this method tests the path when e2Sum needs to and can be increased\n" +
-                "     * e2Sum = 5\n" +
-                "     * e2Correction = 10\n" +
-                "     */");
         int e2Sum = 5;
         int e2Correction = 10;
         String expectedOutput = "e2Sum needs to be increased - Corrected factors";
@@ -236,11 +152,6 @@ class C_EFFORT_TEST {
      */
     @Test
     void notifyAdjustFactorsIncreaseFailed() {
-        System.out.println("    /**\n" +
-                "     * this method tests the path when e2Sum needs to but can't be increased\n" +
-                "     * e2Sum = 10\n" +
-                "     * e2Correction = 80\n" +
-                "     */");
         int e2Sum = 10;
         int e2Correction = 80;
         String expectedOutput = "e2Sum needs to be increased - Failure can't be corrected by just adjusting factors";
@@ -270,12 +181,6 @@ class C_EFFORT_TEST {
      */
     @Test
     void notifyAdjustFactorsEqual() {
-        System.out.println("    /**\n" +
-                "     * this method tests the path where the e2Sum doesn't need to be decreased or increased\n" +
-                "     * as it is already corresponding the goal sum\n" +
-                "     * e2Sum = 10\n" +
-                "     * e2Correction = 10\n" +
-                "     */");
         int e2Sum = 10;
         int e2Correction = 10;
         String expectedOutput = "No failure to correct";
@@ -297,14 +202,27 @@ class C_EFFORT_TEST {
         assertEquals(expectedOutput, controllerEffort.notifyAdjustFactors());
     }
 
+
+    @Test
+    void increaseFactors() {
+        /**
+         * e2Sum und e2Goal beide Integer - ganze Zahlen
+         *
+         * Äquivalenzklassen:
+         *
+         *      1. increase >= 0 und e2Sum + increase <= 60
+         *          - Methode ausführen mit z.B. 0 und 60 als maximale Werte und 0 bzw. 60 am Ende für e2Sum
+         *
+         *      2. increase <0 oder e2Sum + increase > 60
+         *          - Methode ausführen mit z.B. -1 und IllegalArgumentException erwarten
+         */
+    }
+
     /**
      * test with the min value 0 for increase - e2Sum should not be changed
      */
     @Test
     void increaseFactorsCleanMin() {
-        System.out.println("    /**\n" +
-                "     * test with the min value 0 for increase - e2Sum should not be changed\n" +
-                "     */");
         int increaseValue = 0;
         M_IMPORT m__import = new M_IMPORT();
         I_C_EFFORT controllerEffort;
@@ -328,9 +246,6 @@ class C_EFFORT_TEST {
      */
     @Test
     void increaseFactorsCleanMax() {
-        System.out.println("    /**\n" +
-                "     * test with the max value for increase - all \"positive\" paths run\n" +
-                "     */");
         int increaseValue = 60;
         M_IMPORT m__import = new M_IMPORT();
         I_C_EFFORT controllerEffort;
@@ -354,9 +269,6 @@ class C_EFFORT_TEST {
      */
     @Test
     void increaseFactorsOutOfBounds() {
-        System.out.println("    /**\n" +
-                "     * test with a negative value for increase - out of bounds\n" +
-                "     */");
         int increaseValue = -1;
         M_IMPORT m__import = new M_IMPORT();
         I_C_EFFORT controllerEffort;
@@ -382,13 +294,6 @@ class C_EFFORT_TEST {
      */
     @Test
     void increaseFactorIteratorOutOfBounds() {
-        System.out.println("    /**\n" +
-                "     * this method tests what happens when nothing can be increased, but increase greater 0\n" +
-                "     * only happens if notify adjustFactors gets run with wrong value for e2Sum\n" +
-                "     * e2Sum = 10\n" +
-                "     * e2Correction = 60\n" +
-                "     * increase = 50 all factors are already set to their maximum (test_effort_max.xml)\n" +
-                "     */");
         int e2Sum = 10;
         int e2Correction = 60;
         String expectedOutput = "e2Sum needs to be increased - Corrected factors";
@@ -410,14 +315,26 @@ class C_EFFORT_TEST {
         assertThrows(RuntimeException.class, () -> controllerEffort.notifyAdjustFactors());
     }
 
+
+    @Test
+    void decreaseFactors() {
+        /**
+         * e2Sum und e2Goal beide Integer - ganze Zahlen
+         *
+         * Äquivalenzklassen:
+         *      1. decrease >= 0 und (e2Sum - deccrease) >= 0
+         *          - Methode ausführen mit z.B. 0 und 60 als maximale Werte und (e2SumStart - 0) bzw. (e2SumStart - 60) am Ende für e2Sum
+         *
+         *      2. decrease < 0 oder (e2Sum - decrease) <= 0
+         *          - Methode ausführen mit z.B. -1 und IllegalArgumentException erwarten
+         */
+    }
+
     /**
      * test with the min value for decrease - e2Sum should not be changed
      */
     @Test
     void decreaseFactorsCleanMin() {
-        System.out.println("    /**\n" +
-                "     * test with the min value for decrease - e2Sum should not be changed\n" +
-                "     */");
         int decreaseValue = 0;
         M_IMPORT m__import = new M_IMPORT();
         I_C_EFFORT controllerEffort;
@@ -441,9 +358,6 @@ class C_EFFORT_TEST {
      */
     @Test
     void decreaseFactorsCleanMax() {
-        System.out.println("    /**\n" +
-                "     * test with the max value for decrease - all \"positive\" paths run\n" +
-                "     */");
         int decreaseValue = 60;
         M_IMPORT m__import = new M_IMPORT();
         I_C_EFFORT controllerEffort;
@@ -467,9 +381,6 @@ class C_EFFORT_TEST {
      */
     @Test
     void decreaseFactorsOutOfBounds() {
-        System.out.println("    /**\n" +
-                "     * test with a negative value for decrease - out of boundaries\n" +
-                "     */");
         int decreaseValue = -1;
         M_IMPORT m__import = new M_IMPORT();
         I_C_EFFORT controllerEffort;
@@ -495,13 +406,6 @@ class C_EFFORT_TEST {
      */
     @Test
     void decreaseFactorIteratorOutOfBounds() {
-        System.out.println("    /**\n" +
-                "     * this method tests what happens when nothing can be decreased, but decrease greater 0\n" +
-                "     * only happens if notify adjustFactors gets run with wrong value for e2Sum\n" +
-                "     * e2Sum = 10\n" +
-                "     * e2Correction = 5\n" +
-                "     * int decrease = 5 all factors are already set to their minimum (0)  (test_effort_zero.xml)\n" +
-                "     */");
         int e2Sum = 10;
         int e2Correction = 5;
         String expectedOutput = "e2Sum needs to be decreased - Corrected factors";
