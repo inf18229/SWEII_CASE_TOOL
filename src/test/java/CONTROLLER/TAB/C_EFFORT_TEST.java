@@ -21,7 +21,7 @@ class C_EFFORT_TEST {
      * jonesPersonNo = 1;
      */
     @Test
-    void calcE2Needed(){ //TODO: add test?
+    void calcE2Needed(){
         double realTime = 4.0;
         int jonesPersonNo = 1;
         int e1Sum = 38;
@@ -40,6 +40,61 @@ class C_EFFORT_TEST {
 
         projectData.getFunctionPointEstimation().calcE2Needed(realTime, jonesPersonNo, e1Sum); //calculation of e2Correction
         System.out.println("Test");
+        assertEquals(expectedE2, projectData.getFunctionPointEstimation().getE2Correction());
+    }
+
+    /**
+     * this test shows Zweigüberdeckung as the correct value is calculated and the Zweig therefore was run
+     *
+     * the test file is initialized with:
+     * jonesPersonNo = 1;
+     */
+    @Test
+    void calcE2NeededMin(){
+        double realTime = -1;
+        int jonesPersonNo = 1;
+        int e1Sum = 38;
+        M_IMPORT m__import = new M_IMPORT();
+        I_C_EFFORT controllerEffort;
+        String path = "testFiles/test_calcE2Needed.xml"; // fixed path relative
+        File xmlFile = new File(path);
+
+        M_PROJECTDATA projectData;
+        projectData = m__import.importProject(path);
+
+        controllerEffort = C_EFFORT.getInstance();
+        controllerEffort.setLinks(null, projectData);
+
+        assertThrows(IllegalArgumentException.class, () -> projectData.getFunctionPointEstimation().calcE2Needed(realTime, jonesPersonNo, e1Sum));
+    }
+
+    /**
+     * this test shows Zweigüberdeckung as the correct value is calculated and the Zweig therefore was run
+     *
+     * the test file is initialized with:
+     * jonesPersonNo = 1;
+     */
+    @Test
+    void calcE2NeededMax(){
+        double realTime = Double.MAX_VALUE;
+        System.out.println(realTime);
+        int jonesPersonNo = 1;
+        int e1Sum = 38;
+        double expectedE2 = Integer.MAX_VALUE;
+        M_IMPORT m__import = new M_IMPORT();
+        I_C_EFFORT controllerEffort;
+        String path = "testFiles/test_calcE2Needed.xml"; // fixed path relative
+        File xmlFile = new File(path);
+
+        M_PROJECTDATA projectData;
+        projectData = m__import.importProject(path);
+        //projectData.setM_projectData_functionPointEstimation_configData(projectData.getM_projectData_functionPointEstimation_configData());
+
+        controllerEffort = C_EFFORT.getInstance();
+        controllerEffort.setLinks(null, projectData);
+
+        projectData.getFunctionPointEstimation().calcE2Needed(realTime, jonesPersonNo, e1Sum); //calculation of e2Correction
+        System.out.println(String.valueOf(projectData.getFunctionPointEstimation().getE2Correction()));
         assertEquals(expectedE2, projectData.getFunctionPointEstimation().getE2Correction());
     }
 
