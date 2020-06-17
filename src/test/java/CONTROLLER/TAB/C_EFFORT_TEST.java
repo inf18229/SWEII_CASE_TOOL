@@ -25,7 +25,7 @@ class C_EFFORT_TEST {
         double realTime = 4.0;
         int jonesPersonNo = 1;
         int e1Sum = 38;
-        double expectedTime = 4.0;
+        double expectedE2 = 14;
         M_IMPORT m__import = new M_IMPORT();
         I_C_EFFORT controllerEffort;
         String path = "testFiles/test_calcE2Needed.xml"; // fixed path relative
@@ -40,7 +40,7 @@ class C_EFFORT_TEST {
 
         projectData.getFunctionPointEstimation().calcE2Needed(realTime, jonesPersonNo, e1Sum); //calculation of e2Correction
         System.out.println("Test");
-        assertEquals(expectedTime, projectData.getFunctionPointEstimation().getE2Correction());
+        assertEquals(expectedE2, projectData.getFunctionPointEstimation().getE2Correction());
     }
 
     @Test
