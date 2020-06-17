@@ -494,11 +494,11 @@ public class V_FRAME implements I_V_FRAME {
         comboBoxproductDataCategory.addItem("ILF-Interner Datenbestand");
         comboBoxproductDataCategory.addItem("ELF-Externer Datenbestand");
 
-        SpinnerNumberModel nMSpinnerproductFunctionRET = new SpinnerNumberModel(1,1,1000,1);
+        SpinnerNumberModel nMSpinnerproductFunctionRET = new SpinnerNumberModel(1, 1, 1000, 1);
         spinnerproductDataRET.setModel(nMSpinnerproductFunctionRET);
 
 
-        SpinnerNumberModel nMSpinnerproductFunctionDET = new SpinnerNumberModel(1,1,1000,1);
+        SpinnerNumberModel nMSpinnerproductFunctionDET = new SpinnerNumberModel(1, 1, 1000, 1);
         spinnerproductDataDET.setModel(nMSpinnerproductFunctionDET);
 
         buttonproductDataNew.addActionListener(new ActionListener() {
@@ -511,13 +511,13 @@ public class V_FRAME implements I_V_FRAME {
         buttonproductDataDelete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                    controllerFrame.notifyProductContentDELETE();
-                    textFieldproductDataID.setText("");
-                    textAreaproductDataDescription.setText("");
-                    textFieldproductDataReference.setText("");
-                    spinnerproductDataRET.setValue(1);
-                    spinnerproductDataDET.setValue(1);
-                    System.out.println("DELETE Product Data Element requested");
+                controllerFrame.notifyProductContentDELETE();
+                textFieldproductDataID.setText("");
+                textAreaproductDataDescription.setText("");
+                textFieldproductDataReference.setText("");
+                spinnerproductDataRET.setValue(1);
+                spinnerproductDataDET.setValue(1);
+                System.out.println("DELETE Product Data Element requested");
             }
         });
         buttonproductDataSave.addActionListener(new ActionListener() {
@@ -744,6 +744,7 @@ public class V_FRAME implements I_V_FRAME {
 
     /**
      * get Product Use Text Area Element
+     *
      * @return returns a JTextArea Swing Element
      */
     @Override
@@ -753,6 +754,7 @@ public class V_FRAME implements I_V_FRAME {
 
     /**
      * get Product Environment Text Area Element
+     *
      * @return returns a JTextArea Swing Element
      */
     @Override
@@ -762,6 +764,7 @@ public class V_FRAME implements I_V_FRAME {
 
     /**
      * get Product Function ID Text Field Element
+     *
      * @return returns a JTextField Swing Element
      */
     @Override
@@ -771,6 +774,7 @@ public class V_FRAME implements I_V_FRAME {
 
     /**
      * get Product Function Function Text Field Element
+     *
      * @return returns a JTextField Swing Element
      */
     @Override
@@ -780,6 +784,7 @@ public class V_FRAME implements I_V_FRAME {
 
     /**
      * get Product Function Protagonis Text Field Element
+     *
      * @return returns a JTextField Swing Element
      */
     @Override
@@ -789,6 +794,7 @@ public class V_FRAME implements I_V_FRAME {
 
     /**
      * get Product Function Description Text Area Element
+     *
      * @return returns a JTextField Swing Element
      */
     @Override
@@ -798,6 +804,7 @@ public class V_FRAME implements I_V_FRAME {
 
     /**
      * get Product Function Category Combo Box
+     *
      * @return returns a JComboBox Swing Element
      */
     @Override
@@ -807,6 +814,7 @@ public class V_FRAME implements I_V_FRAME {
 
     /**
      * get Product Function FTR JSpinner Element
+     *
      * @return returns a JSpinner Swing Element
      */
     @Override
@@ -816,6 +824,7 @@ public class V_FRAME implements I_V_FRAME {
 
     /**
      * get Product Function DET JSpinner Element
+     *
      * @return returns a JSpinner Swing Element
      */
     @Override
@@ -825,6 +834,7 @@ public class V_FRAME implements I_V_FRAME {
 
     /**
      * get Product Function List Element
+     *
      * @return returns a JList Swing Element
      */
     @Override
@@ -834,6 +844,7 @@ public class V_FRAME implements I_V_FRAME {
 
     /**
      * get ProductData List Element
+     *
      * @return returns a JList Swing Element
      */
     @Override
@@ -843,6 +854,7 @@ public class V_FRAME implements I_V_FRAME {
 
     /**
      * get Product Data Id Text Field
+     *
      * @return returns a JTextField Swing Element
      */
     @Override
@@ -852,6 +864,7 @@ public class V_FRAME implements I_V_FRAME {
 
     /**
      * get Product Data Refernece Text Field
+     *
      * @return returns a JTextField Swing Element
      */
     @Override
@@ -861,6 +874,7 @@ public class V_FRAME implements I_V_FRAME {
 
     /**
      * get Product Data Description Text Area Element
+     *
      * @return returns a JTextArea Swing Element
      */
     @Override
@@ -870,6 +884,7 @@ public class V_FRAME implements I_V_FRAME {
 
     /**
      * get Product Data RET Spinner Element
+     *
      * @return returns JSpinner Swing Element
      */
     @Override
@@ -879,6 +894,7 @@ public class V_FRAME implements I_V_FRAME {
 
     /**
      * get Product Data DET Spinner Element
+     *
      * @return returns JSpinner Swing Element
      */
     @Override
@@ -888,6 +904,7 @@ public class V_FRAME implements I_V_FRAME {
 
     /**
      * get Product Data Category Combo Box Element
+     *
      * @return returns JComboBox Swing Element
      */
     @Override
@@ -904,7 +921,7 @@ public class V_FRAME implements I_V_FRAME {
     @Override
     public void setWeightDescription(int weight) {
 
-        if(controllerFrame.getCurrentController().toString().contains("CONTROLLER.TAB.C_PRODUCTFUNCTION")) {
+        if (controllerFrame.getCurrentController().toString().contains("CONTROLLER.TAB.C_PRODUCTFUNCTION")) {
             switch (weight) {
                 case 0:
                     labelWeightDescription.setText("Einfach");
@@ -919,8 +936,7 @@ public class V_FRAME implements I_V_FRAME {
                     labelWeightDescription.setText("Fehler bei der Bestimmung eines Gewichts");
                     break;
             }
-        }
-        else if(controllerFrame.getCurrentController().toString().contains("CONTROLLER.TAB.C_PRODUCTDATA")) {
+        } else if (controllerFrame.getCurrentController().toString().contains("CONTROLLER.TAB.C_PRODUCTDATA")) {
             switch (weight) {
                 case 0:
                     labelproductDataFPWeight.setText("Einfach");
@@ -947,7 +963,7 @@ public class V_FRAME implements I_V_FRAME {
      */
     @Override
     public void setEstimationCount(int countNo, int value) {
-        switch (countNo){
+        switch (countNo) {
             case 0:
                 labelCountInputSimple.setText(String.valueOf(value));
                 break;
@@ -1003,11 +1019,11 @@ public class V_FRAME implements I_V_FRAME {
      * and adds all corresponding labels in the estimation tab of the view
      *
      * @param weightNo which count to update
-     * @param value   value to the selected count
+     * @param value    value to the selected count
      */
     @Override
     public void setEstimationWeight(int weightNo, int value) {
-        switch (weightNo){
+        switch (weightNo) {
             case 0:
                 labelWeightInputSimple.setText("x " + String.valueOf(value));
                 break;
@@ -1063,11 +1079,11 @@ public class V_FRAME implements I_V_FRAME {
      * and adds all corresponding labels in the estimation tab of the view
      *
      * @param sumNo which count to update
-     * @param value   value to the selected count
+     * @param value value to the selected count
      */
     @Override
     public void setEstimationSum(int sumNo, int value) {
-        switch (sumNo){
+        switch (sumNo) {
             case 0:
                 labelSumInputSimple.setText(String.valueOf(value));
                 break;
@@ -1286,7 +1302,7 @@ public class V_FRAME implements I_V_FRAME {
      *
      * @param calcEff      effort calculated before
      * @param corrFact     correction factor calculated
-     * @param e2Correction  value that should be achieved for e2Sum
+     * @param e2Correction value that should be achieved for e2Sum
      */
     @Override
     public void updateCorrectionPanel(double calcEff, double corrFact, int e2Correction) {
@@ -1416,11 +1432,10 @@ public class V_FRAME implements I_V_FRAME {
      */
     @Override
     public void addProdFuncIDListElement(String id) {
-        try{
+        try {
             listModelProductFunction.addElement(id);
             listProductFunctionID.setSelectedIndex(listProductFunctionID.getLastVisibleIndex());
-        }
-        catch (NullPointerException e){
+        } catch (NullPointerException e) {
         }
 
     }

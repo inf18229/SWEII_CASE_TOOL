@@ -9,7 +9,8 @@ public class M_PROJECTDATA_PROJECTINFO {
 
     /**
      * construct a project information objet
-     * @param title contains the title of a project information object
+     *
+     * @param title   contains the title of a project information object
      * @param content contains the content of a project information object
      */
     public M_PROJECTDATA_PROJECTINFO(String title, String content) {

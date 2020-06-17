@@ -36,6 +36,7 @@ public class M_FUNCTIONPOINTESTIMATION_CONFIGDATA {
 
     /**
      * Singleton Method to get Instance of M_FUNCTIONPOINTESTIMATION_CONFIGDATA Class
+     *
      * @return M_FUNCTIONPOINTESTIMATION_CONFIGDATA Object
      */
     public static M_FUNCTIONPOINTESTIMATION_CONFIGDATA getInstance() {

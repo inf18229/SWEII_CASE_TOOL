@@ -14,7 +14,7 @@ import java.nio.file.InvalidPathException;
 /**
  * this class imports a project or a projects config Data from an XML file
  */
-public class M_IMPORT implements  I_M_IMPORT{
+public class M_IMPORT implements I_M_IMPORT {
     private M_PROJECTDATA projectData;
     private M_FUNCTIONPOINTESTIMATION_CONFIGDATA configData;
 
@@ -29,9 +29,10 @@ public class M_IMPORT implements  I_M_IMPORT{
     /**
      * This function imports a project by converting an XML file to the M_PROJECTDATA Java Object
      * code idea from https://howtodoinjava.com/jaxb/read-xml-to-java-object/
+     *
      * @param path the path for the project that has to be imported
      * @return projectData returns the loaded project in a M_PROJECTDATA object
-     * @throws InvalidPathException Invalid path
+     * @throws InvalidPathException  Invalid path
      * @throws IllegalStateException IllegalStateException
      */
     public M_PROJECTDATA importProject(String path) throws InvalidPathException, IllegalStateException {
@@ -61,8 +62,9 @@ public class M_IMPORT implements  I_M_IMPORT{
     /**
      * This function imports a projects config data by converting a XML file to the M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA Java Object
      * code idea from https://howtodoinjava.com/jaxb/read-xml-to-java-object/
+     *
      * @param projData the project where the imported configData should be inserted
-     * @param path the path for the project that has to be imported
+     * @param path     the path for the project that has to be imported
      * @throws InvalidPathException Invalid path
      * @throws NullPointerException NullPointerException
      */

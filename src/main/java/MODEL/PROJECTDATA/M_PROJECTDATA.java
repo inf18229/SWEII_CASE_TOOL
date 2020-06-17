@@ -2,6 +2,7 @@ package MODEL.PROJECTDATA;
 
 import MODEL.FUNCTIONPOINTESTIMATION.M_FUNCTIONPOINTESTIMATION;
 import MODEL.FUNCTIONPOINTESTIMATION.M_FUNCTIONPOINTESTIMATION_CONFIGDATA;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -39,6 +40,7 @@ public class M_PROJECTDATA {
 
     /**
      * create or receive Object of M_PROJECTDATA
+     *
      * @return M_PROJECTDATA Object
      */
     public static M_PROJECTDATA getInstance() {
@@ -52,6 +54,7 @@ public class M_PROJECTDATA {
 
     /**
      * get the Product Use of a Project
+     *
      * @return return M_PROJECTDATA_PRODUCTUSE Object
      */
     public M_PROJECTDATA_PRODUCTUSE getProductUse() {
@@ -60,6 +63,7 @@ public class M_PROJECTDATA {
 
     /**
      * get Target Defention of Project
+     *
      * @return return M_PROJECTDATA_TARGETDEFINITION Object
      */
     public M_PROJECTDATA_TARGETDEFINITION getTargetDefinition() {
@@ -68,6 +72,7 @@ public class M_PROJECTDATA {
 
     /**
      * get Product Environment Description
+     *
      * @return M_PROJECTDATA_PRODUCTENVIRONMENT Object
      */
     public M_PROJECTDATA_PRODUCTENVIRONMENT getProductEnvironment() {
@@ -76,6 +81,7 @@ public class M_PROJECTDATA {
 
     /**
      * get List of Product Data's
+     *
      * @return ArrayList of M_PROJECTDATA_PRODUCTDATA Objects
      */
     public ArrayList<M_PROJECTDATA_PRODUCTDATA> getProductDataList() {
@@ -84,6 +90,7 @@ public class M_PROJECTDATA {
 
     /**
      * get List of Product Function's
+     *
      * @return ArrayList of M_PROJECTDATA_PRODUCTFUNCTION Objects
      */
     public ArrayList<M_PROJECTDATA_PRODUCTFUNCTION> getProductFunctionList() {
@@ -92,6 +99,7 @@ public class M_PROJECTDATA {
 
     /**
      * get Function Point Estimation
+     *
      * @return M_PROJECTDATA_FUNCTIONPOINTESTIMATION Object
      */
     public M_FUNCTIONPOINTESTIMATION getFunctionPointEstimation() {
@@ -100,6 +108,7 @@ public class M_PROJECTDATA {
 
     /**
      * get Function Point Estimation Configuration Data
+     *
      * @return M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA Object
      */
     public M_FUNCTIONPOINTESTIMATION_CONFIGDATA getFunctionPointEstimation_configData() {
@@ -108,6 +117,7 @@ public class M_PROJECTDATA {
 
     /**
      * sets Function Point Estimation Configuration Data
+     *
      * @param confData M_PROJECTDATA_FUNCTIONPOINTESTIMATION_CONFIGDATA Object contains all config Data Elements
      */
     public void setFunctionPointEstimation_configData(M_FUNCTIONPOINTESTIMATION_CONFIGDATA confData) {

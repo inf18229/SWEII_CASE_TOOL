@@ -14,6 +14,7 @@ public interface I_C_TAB {
      * @param projData reference to the project data that should be referenced in this object
      */
     public void setLinks(I_V_FRAME view, M_PROJECTDATA projData);
+
     /**
      * triggeres an update of Project Data
      * minimal requirement of a Tab Element

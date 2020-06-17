@@ -15,11 +15,10 @@ public class C_PRODUCTDATA implements I_C_PRODUCTDATA {
     private C_PRODUCTDATA() {
     }
 
-    public static C_PRODUCTDATA getInstance(){
+    public static C_PRODUCTDATA getInstance() {
         if (controllerProductData == null) {
             controllerProductData = new C_PRODUCTDATA();
-        }
-        else{
+        } else {
             System.out.println("C_PRODUCTDATA Instance already created");
         }
         return controllerProductData;
@@ -27,8 +26,8 @@ public class C_PRODUCTDATA implements I_C_PRODUCTDATA {
 
     @Override
     public void setLinks(I_V_FRAME view, M_PROJECTDATA projData) {
-            viewFrame = view;
-            projectData = projData;
+        viewFrame = view;
+        projectData = projData;
     }
 
     private void setProductDataElements(M_PROJECTDATA_PRODUCTDATA projectDataProductData) {
@@ -53,7 +52,7 @@ public class C_PRODUCTDATA implements I_C_PRODUCTDATA {
         if (!alreadyexists) {
             if (!viewFrame.getTextFieldproductDataID().getText().isEmpty()) {
                 //Using ProductContentFactory to create object
-                M_PROJECTDATA_PRODUCTDATA newProductData = M_PROJECTDATA_PRODUCTCONTENTFACTORY.createProductContent(viewFrame.getTextFieldproductDataID().getText(),"PRODUCTDATA");
+                M_PROJECTDATA_PRODUCTDATA newProductData = M_PROJECTDATA_PRODUCTCONTENTFACTORY.createProductContent(viewFrame.getTextFieldproductDataID().getText(), "PRODUCTDATA");
                 setProductDataElements(newProductData);
                 projectData.getProductDataList().add(newProductData);
                 viewFrame.addProdDataIDListElement(viewFrame.getTextFieldproductDataID().getText());

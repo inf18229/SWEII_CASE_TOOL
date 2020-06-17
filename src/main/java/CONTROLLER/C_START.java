@@ -5,6 +5,7 @@ import MODEL.PROJECTDATA.M_PROJECTDATA;
 import VIEW.I_V_BASIC;
 import VIEW.I_V_START;
 import VIEW.V_START;
+
 import javax.swing.*;
 import java.io.File;
 import java.nio.file.InvalidPathException;
@@ -25,7 +26,7 @@ public class C_START implements I_C_START {
      * it passes itself as C_START controllerStart into the main
      * and therefore creates a reference to itself in the viewStart
      */
-    private C_START(){
+    private C_START() {
         viewStart = new V_START(this);
         I_V_BASIC.show(viewStart.getJFrame());  // makes viewStart visible and enables user input
         importObj = new M_IMPORT();
@@ -35,9 +36,10 @@ public class C_START implements I_C_START {
      * checks if controller was already created
      * if it wasn't it creates a new controller
      * it always returns a reference to the controller
+     *
      * @return reference to controller
      */
-    public static C_START getInstance () {
+    public static C_START getInstance() {
         if (C_START.controllerStart == null) {
             C_START.controllerStart = new C_START();
         }
@@ -71,26 +73,23 @@ public class C_START implements I_C_START {
      */
     public void notifyOpen() {
         System.out.println("Öffne Projekt wurde gedrückt.");
-        String path  = viewStart.getPath(true);
+        String path = viewStart.getPath(true);
         File xmlFile = new File(path);
         if (xmlFile.exists()) {
             M_PROJECTDATA projectData = M_PROJECTDATA.getInstance();
             if (path instanceof String) {
-                try{
+                try {
                     projectData = importObj.importProject(path);
                     projectData.setFunctionPointEstimation_configData(projectData.getFunctionPointEstimation_configData());
                     projectData.getFunctionPointEstimation().setE2Correction(-1); //clean Correction Factor from last Calculation
-                }
-                catch(InvalidPathException e)
-                {
+                } catch (InvalidPathException e) {
                     e.getStackTrace();
                     JOptionPane.showMessageDialog(null,
                             "Sie müssen einen korrekten Dateipfad angeben",
                             "Achtung",
                             JOptionPane.WARNING_MESSAGE);
                 }
-            }
-            else {
+            } else {
                 JOptionPane.showMessageDialog(null,
                         "Sie müssen einen korrekten Dateipfad angeben",
                         "Achtung",
