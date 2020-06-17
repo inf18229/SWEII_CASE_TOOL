@@ -1,0 +1,194 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: M_PROJECTDATA_PRODUCTDATA</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">MODEL.PROJECTDATA</a> ]
+</div>
+
+<h1>Coverage Summary for Class: M_PROJECTDATA_PRODUCTDATA (MODEL.PROJECTDATA)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">M_PROJECTDATA_PRODUCTDATA</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (1/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    12%
+  </span>
+  <span class="absValue">
+    (3/ 25)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">M_PROJECTDATA_PRODUCTDATA$JaxbAccessorF_functionPointRET</td>
+<td class="coverageStat">
+  <span class="percent">
+    66,7%
+  </span>
+  <span class="absValue">
+    (2/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    80%
+  </span>
+  <span class="absValue">
+    (4/ 5)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">M_PROJECTDATA_PRODUCTDATA$JaxbAccessorF_memoryContent</td>
+<td class="coverageStat">
+  <span class="percent">
+    66,7%
+  </span>
+  <span class="absValue">
+    (2/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    80%
+  </span>
+  <span class="absValue">
+    (4/ 5)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">M_PROJECTDATA_PRODUCTDATA$JaxbAccessorF_reference</td>
+<td class="coverageStat">
+  <span class="percent">
+    66,7%
+  </span>
+  <span class="absValue">
+    (2/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    80%
+  </span>
+  <span class="absValue">
+    (4/ 5)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    63,6%
+  </span>
+  <span class="absValue">
+    (7/ 11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    37,5%
+  </span>
+  <span class="absValue">
+    (15/ 40)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package MODEL.PROJECTDATA;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;/**
+<i>4</i>&nbsp; * Class holds all Information of product data element
+<i>5</i>&nbsp; */
+<b class="fc"><i>6</i>&nbsp;public class M_PROJECTDATA_PRODUCTDATA extends M_PROJECTDATA_PRODUCTCONTENT {</b>
+<b class="fc"><i>7</i>&nbsp;    public String memoryContent = &quot;&quot;;</b>
+<b class="fc"><i>8</i>&nbsp;    public String reference = &quot;&quot;;</b>
+<i>9</i>&nbsp;    public int functionPointRET;
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;    /**
+<i>12</i>&nbsp;     * calculates the weight of Product data
+<i>13</i>&nbsp;     * 0 = low
+<i>14</i>&nbsp;     * 1 = avarage
+<i>15</i>&nbsp;     * 2 = high
+<i>16</i>&nbsp;     */
+<i>17</i>&nbsp;    @Override
+<i>18</i>&nbsp;    public void calculateWeight() {
+<b class="nc"><i>19</i>&nbsp;        if (functionPointRET == 1) {</b>
+<b class="nc"><i>20</i>&nbsp;            if (functionPointDET &gt;= 1 &amp;&amp; functionPointDET &lt;= 19) {</b>
+<b class="nc"><i>21</i>&nbsp;                functionPointWeighting = 0;</b>
+<b class="nc"><i>22</i>&nbsp;            } else if (functionPointDET &gt;= 20 &amp;&amp; functionPointDET &lt;= 50) {</b>
+<b class="nc"><i>23</i>&nbsp;                functionPointWeighting = 0;</b>
+<b class="nc"><i>24</i>&nbsp;            } else if (functionPointDET &gt; 50) {</b>
+<b class="nc"><i>25</i>&nbsp;                functionPointWeighting = 1;</b>
+<i>26</i>&nbsp;            }
+<i>27</i>&nbsp;        }
+<b class="nc"><i>28</i>&nbsp;        if (functionPointRET &gt;= 2 &amp;&amp; functionPointRET &lt;= 5) {</b>
+<b class="nc"><i>29</i>&nbsp;            if (functionPointDET &gt;= 1 &amp;&amp; functionPointDET &lt;= 19) {</b>
+<b class="nc"><i>30</i>&nbsp;                functionPointWeighting = 0;</b>
+<b class="nc"><i>31</i>&nbsp;            } else if (functionPointDET &gt;= 20 &amp;&amp; functionPointDET &lt;= 50) {</b>
+<b class="nc"><i>32</i>&nbsp;                functionPointWeighting = 1;</b>
+<b class="nc"><i>33</i>&nbsp;            } else if (functionPointDET &gt; 50) {</b>
+<b class="nc"><i>34</i>&nbsp;                functionPointWeighting = 2;</b>
+<i>35</i>&nbsp;            }
+<i>36</i>&nbsp;        }
+<b class="nc"><i>37</i>&nbsp;        if (functionPointRET &gt; 5) {</b>
+<b class="nc"><i>38</i>&nbsp;            if (functionPointDET &gt;= 1 &amp;&amp; functionPointDET &lt;= 19) {</b>
+<b class="nc"><i>39</i>&nbsp;                functionPointWeighting = 1;</b>
+<b class="nc"><i>40</i>&nbsp;            } else if (functionPointDET &gt;= 20 &amp;&amp; functionPointDET &lt;= 50) {</b>
+<b class="nc"><i>41</i>&nbsp;                functionPointWeighting = 2;</b>
+<b class="nc"><i>42</i>&nbsp;            } else if (functionPointDET &gt; 50) {</b>
+<b class="nc"><i>43</i>&nbsp;                functionPointWeighting = 2;</b>
+<i>44</i>&nbsp;            }
+<i>45</i>&nbsp;        }
+<b class="nc"><i>46</i>&nbsp;    }</b>
+<i>47</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-17 19:06</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,268 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: M_PROJECTDATA_PRODUCTFUNCTION</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">MODEL.PROJECTDATA</a> ]
+</div>
+
+<h1>Coverage Summary for Class: M_PROJECTDATA_PRODUCTFUNCTION (MODEL.PROJECTDATA)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">M_PROJECTDATA_PRODUCTFUNCTION</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (1/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    7,5%
+  </span>
+  <span class="absValue">
+    (4/ 53)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">M_PROJECTDATA_PRODUCTFUNCTION$JaxbAccessorF_actor</td>
+<td class="coverageStat">
+  <span class="percent">
+    66,7%
+  </span>
+  <span class="absValue">
+    (2/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    80%
+  </span>
+  <span class="absValue">
+    (4/ 5)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">M_PROJECTDATA_PRODUCTFUNCTION$JaxbAccessorF_description</td>
+<td class="coverageStat">
+  <span class="percent">
+    66,7%
+  </span>
+  <span class="absValue">
+    (2/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    80%
+  </span>
+  <span class="absValue">
+    (4/ 5)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">M_PROJECTDATA_PRODUCTFUNCTION$JaxbAccessorF_function</td>
+<td class="coverageStat">
+  <span class="percent">
+    66,7%
+  </span>
+  <span class="absValue">
+    (2/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    80%
+  </span>
+  <span class="absValue">
+    (4/ 5)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">M_PROJECTDATA_PRODUCTFUNCTION$JaxbAccessorF_functionPointFTR</td>
+<td class="coverageStat">
+  <span class="percent">
+    66,7%
+  </span>
+  <span class="absValue">
+    (2/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    80%
+  </span>
+  <span class="absValue">
+    (4/ 5)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    64,3%
+  </span>
+  <span class="absValue">
+    (9/ 14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    27,4%
+  </span>
+  <span class="absValue">
+    (20/ 73)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package MODEL.PROJECTDATA;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;/**
+<i>4</i>&nbsp; * Class contains all information of a Product function
+<i>5</i>&nbsp; * can calculates weight by itself
+<i>6</i>&nbsp; */
+<b class="fc"><i>7</i>&nbsp;public class M_PROJECTDATA_PRODUCTFUNCTION extends M_PROJECTDATA_PRODUCTCONTENT {</b>
+<b class="fc"><i>8</i>&nbsp;    public String function = &quot;&quot;;</b>
+<b class="fc"><i>9</i>&nbsp;    public String actor = &quot;&quot;;</b>
+<b class="fc"><i>10</i>&nbsp;    public String description = &quot;&quot;;</b>
+<i>11</i>&nbsp;    public int functionPointFTR;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;    /**
+<i>14</i>&nbsp;     * calculates the weight of Product Function
+<i>15</i>&nbsp;     * 0 = low
+<i>16</i>&nbsp;     * 1 = avarage
+<i>17</i>&nbsp;     * 2 = high
+<i>18</i>&nbsp;     */
+<i>19</i>&nbsp;    @Override
+<i>20</i>&nbsp;    public void calculateWeight() {
+<i>21</i>&nbsp;        /**
+<i>22</i>&nbsp;         * calculates the weight depending on DET and FTR depending on specification
+<i>23</i>&nbsp;         */
+<b class="nc"><i>24</i>&nbsp;        switch (functionPointCategory) {</b>
+<i>25</i>&nbsp;            case &quot;EI-Eingabe&quot;:
+<b class="nc"><i>26</i>&nbsp;                if (functionPointFTR &lt;= 1) {</b>
+<b class="nc"><i>27</i>&nbsp;                    if (functionPointDET &lt;= 15) {</b>
+<b class="nc"><i>28</i>&nbsp;                        functionPointWeighting = 0;</b>
+<i>29</i>&nbsp;                    } else {
+<b class="nc"><i>30</i>&nbsp;                        functionPointWeighting = 1;</b>
+<i>31</i>&nbsp;                    }
+<b class="nc"><i>32</i>&nbsp;                } else if (functionPointFTR == 2) {</b>
+<b class="nc"><i>33</i>&nbsp;                    if (functionPointDET &lt;= 4) {</b>
+<b class="nc"><i>34</i>&nbsp;                        functionPointWeighting = 0;</b>
+<b class="nc"><i>35</i>&nbsp;                    } else if (functionPointDET &gt;= 5 &amp;&amp; functionPointDET &lt;= 15) {</b>
+<b class="nc"><i>36</i>&nbsp;                        functionPointWeighting = 1;</b>
+<i>37</i>&nbsp;                    } else {
+<b class="nc"><i>38</i>&nbsp;                        functionPointWeighting = 2;</b>
+<i>39</i>&nbsp;                    }
+<i>40</i>&nbsp;                } else {
+<b class="nc"><i>41</i>&nbsp;                    if (functionPointDET &lt;= 4) {</b>
+<b class="nc"><i>42</i>&nbsp;                        functionPointWeighting = 1;</b>
+<b class="nc"><i>43</i>&nbsp;                    } else if (functionPointDET &gt;= 5 &amp;&amp; functionPointDET &lt;= 15) {</b>
+<b class="nc"><i>44</i>&nbsp;                        functionPointWeighting = 2;</b>
+<i>45</i>&nbsp;                    } else {
+<b class="nc"><i>46</i>&nbsp;                        functionPointWeighting = 2;</b>
+<i>47</i>&nbsp;                    }
+<i>48</i>&nbsp;                }
+<b class="nc"><i>49</i>&nbsp;                break;</b>
+<i>50</i>&nbsp;            case &quot;EO-Ausgabe&quot;:
+<b class="nc"><i>51</i>&nbsp;                if (functionPointFTR &lt;= 1) {</b>
+<b class="pc"><i>52</i>&nbsp;                    if (functionPointDET &lt;= 19) {</b>
+<b class="pc"><i>53</i>&nbsp;                        functionPointWeighting = 0;</b>
+<i>54</i>&nbsp;                    } else {
+<b class="nc"><i>55</i>&nbsp;                        functionPointWeighting = 1;</b>
+<b class="nc"><i>56</i>&nbsp;                    }</b>
+<b class="pc"><i>57</i>&nbsp;                } else if (functionPointFTR &gt;= 2 &amp;&amp; functionPointFTR &lt;= 3) {</b>
+<b class="pc"><i>58</i>&nbsp;                    if (functionPointDET &lt;= 5) {</b>
+<b class="nc"><i>59</i>&nbsp;                        functionPointWeighting = 0;</b>
+<b class="pc"><i>60</i>&nbsp;                    } else if (functionPointDET &gt;= 6 &amp;&amp; functionPointDET &lt;= 19) {</b>
+<b class="pc"><i>61</i>&nbsp;                        functionPointWeighting = 1;</b>
+<i>62</i>&nbsp;                    } else {
+<b class="nc"><i>63</i>&nbsp;                        functionPointWeighting = 2;</b>
+<i>64</i>&nbsp;                    }
+<b class="fc"><i>65</i>&nbsp;                } else {</b>
+<b class="pc"><i>66</i>&nbsp;                    if (functionPointDET &lt;= 5) {</b>
+<b class="nc"><i>67</i>&nbsp;                        functionPointWeighting = 1;</b>
+<b class="nc"><i>68</i>&nbsp;                    } else if (functionPointDET &gt;= 6 &amp;&amp; functionPointDET &lt;= 19) {</b>
+<b class="nc"><i>69</i>&nbsp;                        functionPointWeighting = 2;</b>
+<i>70</i>&nbsp;                    } else {
+<b class="nc"><i>71</i>&nbsp;                        functionPointWeighting = 2;</b>
+<i>72</i>&nbsp;                    }
+<i>73</i>&nbsp;                }
+<b class="nc"><i>74</i>&nbsp;                break;</b>
+<i>75</i>&nbsp;            case &quot;EQ-Abfrage&quot;:
+<b class="nc"><i>76</i>&nbsp;                if (functionPointFTR &lt;= 1) {</b>
+<b class="nc"><i>77</i>&nbsp;                    if (functionPointDET &lt;= 19) {</b>
+<b class="nc"><i>78</i>&nbsp;                        functionPointWeighting = 0;</b>
+<i>79</i>&nbsp;                    } else {
+<b class="nc"><i>80</i>&nbsp;                        functionPointWeighting = 1;</b>
+<i>81</i>&nbsp;                    }
+<b class="nc"><i>82</i>&nbsp;                } else if (functionPointFTR &gt;= 2 &amp;&amp; functionPointFTR &lt;= 3) {</b>
+<b class="nc"><i>83</i>&nbsp;                    if (functionPointDET &lt;= 5) {</b>
+<b class="nc"><i>84</i>&nbsp;                        functionPointWeighting = 0;</b>
+<b class="nc"><i>85</i>&nbsp;                    } else if (functionPointDET &gt;= 6 &amp;&amp; functionPointDET &lt;= 19) {</b>
+<b class="nc"><i>86</i>&nbsp;                        functionPointWeighting = 1;</b>
+<i>87</i>&nbsp;                    } else {
+<b class="nc"><i>88</i>&nbsp;                        functionPointWeighting = 2;</b>
+<i>89</i>&nbsp;                    }
+<i>90</i>&nbsp;                } else {
+<b class="nc"><i>91</i>&nbsp;                    if (functionPointDET &lt;= 5) {</b>
+<b class="nc"><i>92</i>&nbsp;                        functionPointWeighting = 1;</b>
+<b class="nc"><i>93</i>&nbsp;                    } else if (functionPointDET &gt;= 6 &amp;&amp; functionPointDET &lt;= 19) {</b>
+<b class="nc"><i>94</i>&nbsp;                        functionPointWeighting = 2;</b>
+<i>95</i>&nbsp;                    } else {
+<b class="nc"><i>96</i>&nbsp;                        functionPointWeighting = 2;</b>
+<i>97</i>&nbsp;                    }
+<i>98</i>&nbsp;                }
+<i>99</i>&nbsp;                break;
+<i>100</i>&nbsp;        }
+<b class="nc"><i>101</i>&nbsp;    }</b>
+<i>102</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-17 19:06</div>
+</div>
+</body>
+</html>

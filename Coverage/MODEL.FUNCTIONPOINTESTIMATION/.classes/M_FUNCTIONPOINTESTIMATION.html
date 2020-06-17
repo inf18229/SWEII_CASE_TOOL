@@ -1,0 +1,646 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: M_FUNCTIONPOINTESTIMATION</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">MODEL.FUNCTIONPOINTESTIMATION</a> ]
+</div>
+
+<h1>Coverage Summary for Class: M_FUNCTIONPOINTESTIMATION (MODEL.FUNCTIONPOINTESTIMATION)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">M_FUNCTIONPOINTESTIMATION</td>
+<td class="coverageStat">
+  <span class="percent">
+    29,6%
+  </span>
+  <span class="absValue">
+    (8/ 27)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    36,9%
+  </span>
+  <span class="absValue">
+    (72/ 195)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">M_FUNCTIONPOINTESTIMATION$JaxbAccessorM_getActualDuration_setActualDuration_double</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (5/ 5)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">M_FUNCTIONPOINTESTIMATION$JaxbAccessorM_getE2Correction_setE2Correction_int</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (5/ 5)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    42,4%
+  </span>
+  <span class="absValue">
+    (14/ 33)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    40%
+  </span>
+  <span class="absValue">
+    (82/ 205)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package MODEL.FUNCTIONPOINTESTIMATION;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;/**
+<i>4</i>&nbsp; * Class contains all Information for Functionpoint Estimation
+<i>5</i>&nbsp; * Calculates Functionpoint Estimation
+<i>6</i>&nbsp; */
+<i>7</i>&nbsp;public class M_FUNCTIONPOINTESTIMATION {
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;    private static M_FUNCTIONPOINTESTIMATION functionPointEstimation;
+<i>10</i>&nbsp;    private M_FUNCTIONPOINTESTIMATION_CONFIGDATA configData; // reference to configData
+<i>11</i>&nbsp;
+<b class="fc"><i>12</i>&nbsp;    private int countInputSimple = 0;</b>
+<b class="fc"><i>13</i>&nbsp;    private int countInputMedium = 0;</b>
+<b class="fc"><i>14</i>&nbsp;    private int countInputComplex = 0;</b>
+<i>15</i>&nbsp;
+<b class="fc"><i>16</i>&nbsp;    private int countQuerySimple = 0;</b>
+<b class="fc"><i>17</i>&nbsp;    private int countQueryMedium = 0;</b>
+<b class="fc"><i>18</i>&nbsp;    private int countQueryComplex = 0;</b>
+<i>19</i>&nbsp;
+<b class="fc"><i>20</i>&nbsp;    private int countOutputSimple = 0;</b>
+<b class="fc"><i>21</i>&nbsp;    private int countOutputMedium = 0;</b>
+<b class="fc"><i>22</i>&nbsp;    private int countOutputComplex = 0;</b>
+<i>23</i>&nbsp;
+<b class="fc"><i>24</i>&nbsp;    private int countDatasetSimple = 0;</b>
+<b class="fc"><i>25</i>&nbsp;    private int countDatasetMedium = 0;</b>
+<b class="fc"><i>26</i>&nbsp;    private int countDatasetComplex = 0;</b>
+<i>27</i>&nbsp;
+<b class="fc"><i>28</i>&nbsp;    private int countReferenceSimple = 0;</b>
+<b class="fc"><i>29</i>&nbsp;    private int countReferenceMedium = 0;</b>
+<b class="fc"><i>30</i>&nbsp;    private int countReferenceComplex = 0;</b>
+<i>31</i>&nbsp;
+<b class="fc"><i>32</i>&nbsp;    private int weightInputSimple = 3;</b>
+<b class="fc"><i>33</i>&nbsp;    private int weightInputMedium = 4;</b>
+<b class="fc"><i>34</i>&nbsp;    private int weightInputComplex = 6;</b>
+<i>35</i>&nbsp;
+<b class="fc"><i>36</i>&nbsp;    private int weightQuerySimple = 3;</b>
+<b class="fc"><i>37</i>&nbsp;    private int weightQueryMedium = 4;</b>
+<b class="fc"><i>38</i>&nbsp;    private int weightQueryComplex = 6;</b>
+<i>39</i>&nbsp;
+<b class="fc"><i>40</i>&nbsp;    private int weightOutputSimple = 4;</b>
+<b class="fc"><i>41</i>&nbsp;    private int weightOutputMedium = 5;</b>
+<b class="fc"><i>42</i>&nbsp;    private int weightOutputComplex = 7;</b>
+<i>43</i>&nbsp;
+<b class="fc"><i>44</i>&nbsp;    private int weightDatasetSimple = 7;</b>
+<b class="fc"><i>45</i>&nbsp;    private int weightDatasetMedium = 10;</b>
+<b class="fc"><i>46</i>&nbsp;    private int weightDatasetComplex = 15;</b>
+<i>47</i>&nbsp;
+<b class="fc"><i>48</i>&nbsp;    private int weightReferenceSimple = 5;</b>
+<b class="fc"><i>49</i>&nbsp;    private int weightReferenceMedium = 7;</b>
+<b class="fc"><i>50</i>&nbsp;    private int weightReferenceComplex = 10;</b>
+<i>51</i>&nbsp;
+<b class="fc"><i>52</i>&nbsp;    private int sumInputSimple = 0;</b>
+<b class="fc"><i>53</i>&nbsp;    private int sumInputMedium = 0;</b>
+<b class="fc"><i>54</i>&nbsp;    private int sumInputComplex = 0;</b>
+<i>55</i>&nbsp;
+<b class="fc"><i>56</i>&nbsp;    private int sumQuerySimple = 0;</b>
+<b class="fc"><i>57</i>&nbsp;    private int sumQueryMedium = 0;</b>
+<b class="fc"><i>58</i>&nbsp;    private int sumQueryComplex = 0;</b>
+<i>59</i>&nbsp;
+<b class="fc"><i>60</i>&nbsp;    private int sumOutputSimple = 0;</b>
+<b class="fc"><i>61</i>&nbsp;    private int sumOutputMedium = 0;</b>
+<b class="fc"><i>62</i>&nbsp;    private int sumOutputComplex = 0;</b>
+<i>63</i>&nbsp;
+<b class="fc"><i>64</i>&nbsp;    private int sumDatasetSimple = 0;</b>
+<b class="fc"><i>65</i>&nbsp;    private int sumDatasetMedium = 0;</b>
+<b class="fc"><i>66</i>&nbsp;    private int sumDatasetComplex = 0;</b>
+<i>67</i>&nbsp;
+<b class="fc"><i>68</i>&nbsp;    private int sumReferenceSimple = 0;</b>
+<b class="fc"><i>69</i>&nbsp;    private int sumReferenceMedium = 0;</b>
+<b class="fc"><i>70</i>&nbsp;    private int sumReferenceComplex = 0;</b>
+<i>71</i>&nbsp;
+<b class="fc"><i>72</i>&nbsp;    private int e1Sum = 0; // Sum of unadjusted Function Points (naming Schema by SWE script)</b>
+<b class="fc"><i>73</i>&nbsp;    private double e3Sum = 0; // factor of influence points</b>
+<b class="fc"><i>74</i>&nbsp;    private double afp = 0; // adjusted Function Points</b>
+<b class="fc"><i>75</i>&nbsp;    private double jonesDuration = 0;</b>
+<b class="fc"><i>76</i>&nbsp;    private int jonesPersonNo = 0;</b>
+<b class="fc"><i>77</i>&nbsp;    private double jonesPersonMonths = 0;</b>
+<b class="fc"><i>78</i>&nbsp;    private double actualDuration = 0;</b>
+<b class="fc"><i>79</i>&nbsp;    private double correctionFactor = 0;</b>
+<b class="fc"><i>80</i>&nbsp;    private int e2Correction = -1; // correction factor for influence points Sum</b>
+<i>81</i>&nbsp;
+<i>82</i>&nbsp;    /**
+<i>83</i>&nbsp;     * creates new Object of Function Point Estimation and sets a reference to configData
+<i>84</i>&nbsp;     */
+<b class="fc"><i>85</i>&nbsp;    private M_FUNCTIONPOINTESTIMATION() {</b>
+<b class="fc"><i>86</i>&nbsp;    }</b>
+<i>87</i>&nbsp;
+<i>88</i>&nbsp;    /**
+<i>89</i>&nbsp;     * creates new Object of Function Point Estimation
+<i>90</i>&nbsp;     *
+<i>91</i>&nbsp;     * @return function Point Estimation
+<i>92</i>&nbsp;     */
+<i>93</i>&nbsp;    public static M_FUNCTIONPOINTESTIMATION getInstance() {
+<b class="fc"><i>94</i>&nbsp;        if (M_FUNCTIONPOINTESTIMATION.functionPointEstimation == null) {</b>
+<b class="fc"><i>95</i>&nbsp;            M_FUNCTIONPOINTESTIMATION.functionPointEstimation = new M_FUNCTIONPOINTESTIMATION();</b>
+<i>96</i>&nbsp;        } else {
+<b class="fc"><i>97</i>&nbsp;            System.out.println(&quot;FunctionPointEstimation Instance already created&quot;);</b>
+<i>98</i>&nbsp;        }
+<b class="fc"><i>99</i>&nbsp;        return M_FUNCTIONPOINTESTIMATION.functionPointEstimation;</b>
+<i>100</i>&nbsp;    }
+<i>101</i>&nbsp;
+<i>102</i>&nbsp;    /**
+<i>103</i>&nbsp;     * gets the config data as parameter
+<i>104</i>&nbsp;     * and therefore updates the reference stored in the estimation object
+<i>105</i>&nbsp;     *
+<i>106</i>&nbsp;     * @param confData reference of config data to which the local variable configData is set to
+<i>107</i>&nbsp;     */
+<i>108</i>&nbsp;    public void setConfigData(M_FUNCTIONPOINTESTIMATION_CONFIGDATA confData) {
+<b class="fc"><i>109</i>&nbsp;        configData = confData;</b>
+<b class="fc"><i>110</i>&nbsp;    }</b>
+<i>111</i>&nbsp;
+<i>112</i>&nbsp;    /**
+<i>113</i>&nbsp;     * gets the value of the selected count Variable
+<i>114</i>&nbsp;     *
+<i>115</i>&nbsp;     * @param countNo which count Variable to get (-1 if countNo exceeds available variables)
+<i>116</i>&nbsp;     * @return the selected count
+<i>117</i>&nbsp;     */
+<i>118</i>&nbsp;    public int getCount(int countNo) {
+<b class="nc"><i>119</i>&nbsp;        switch (countNo) {</b>
+<i>120</i>&nbsp;            case 0:
+<b class="nc"><i>121</i>&nbsp;                return countInputSimple;</b>
+<i>122</i>&nbsp;            case 1:
+<b class="nc"><i>123</i>&nbsp;                return countInputMedium;</b>
+<i>124</i>&nbsp;            case 2:
+<b class="nc"><i>125</i>&nbsp;                return countInputComplex;</b>
+<i>126</i>&nbsp;            case 3:
+<b class="nc"><i>127</i>&nbsp;                return countQuerySimple;</b>
+<i>128</i>&nbsp;            case 4:
+<b class="nc"><i>129</i>&nbsp;                return countQueryMedium;</b>
+<i>130</i>&nbsp;            case 5:
+<b class="nc"><i>131</i>&nbsp;                return countQueryComplex;</b>
+<i>132</i>&nbsp;            case 6:
+<b class="nc"><i>133</i>&nbsp;                return countOutputSimple;</b>
+<i>134</i>&nbsp;            case 7:
+<b class="nc"><i>135</i>&nbsp;                return countOutputMedium;</b>
+<i>136</i>&nbsp;            case 8:
+<b class="nc"><i>137</i>&nbsp;                return countOutputComplex;</b>
+<i>138</i>&nbsp;            case 9:
+<b class="nc"><i>139</i>&nbsp;                return countDatasetSimple;</b>
+<i>140</i>&nbsp;            case 10:
+<b class="nc"><i>141</i>&nbsp;                return countDatasetMedium;</b>
+<i>142</i>&nbsp;            case 11:
+<b class="nc"><i>143</i>&nbsp;                return countDatasetComplex;</b>
+<i>144</i>&nbsp;            case 12:
+<b class="nc"><i>145</i>&nbsp;                return countReferenceSimple;</b>
+<i>146</i>&nbsp;            case 13:
+<b class="nc"><i>147</i>&nbsp;                return countReferenceMedium;</b>
+<i>148</i>&nbsp;            case 14:
+<b class="nc"><i>149</i>&nbsp;                return countReferenceComplex;</b>
+<i>150</i>&nbsp;            default:
+<b class="nc"><i>151</i>&nbsp;                return -1;</b>
+<i>152</i>&nbsp;        }
+<i>153</i>&nbsp;    }
+<i>154</i>&nbsp;
+<i>155</i>&nbsp;    /**
+<i>156</i>&nbsp;     * sets the corresponding count variable depending on countNo
+<i>157</i>&nbsp;     *
+<i>158</i>&nbsp;     * @param countNo which count to set
+<i>159</i>&nbsp;     * @param value   value to which the selected count variable should be set to
+<i>160</i>&nbsp;     */
+<i>161</i>&nbsp;    public void setCount(int countNo, int value) {
+<b class="nc"><i>162</i>&nbsp;        switch (countNo) {</b>
+<i>163</i>&nbsp;            case 0:
+<b class="nc"><i>164</i>&nbsp;                countInputSimple = value;</b>
+<b class="nc"><i>165</i>&nbsp;                break;</b>
+<i>166</i>&nbsp;            case 1:
+<b class="nc"><i>167</i>&nbsp;                countInputMedium = value;</b>
+<b class="nc"><i>168</i>&nbsp;                break;</b>
+<i>169</i>&nbsp;            case 2:
+<b class="nc"><i>170</i>&nbsp;                countInputComplex = value;</b>
+<b class="nc"><i>171</i>&nbsp;                break;</b>
+<i>172</i>&nbsp;            case 3:
+<b class="nc"><i>173</i>&nbsp;                countQuerySimple = value;</b>
+<b class="nc"><i>174</i>&nbsp;                break;</b>
+<i>175</i>&nbsp;            case 4:
+<b class="nc"><i>176</i>&nbsp;                countQueryMedium = value;</b>
+<b class="nc"><i>177</i>&nbsp;                break;</b>
+<i>178</i>&nbsp;            case 5:
+<b class="nc"><i>179</i>&nbsp;                countQueryComplex = value;</b>
+<b class="nc"><i>180</i>&nbsp;                break;</b>
+<i>181</i>&nbsp;            case 6:
+<b class="nc"><i>182</i>&nbsp;                countOutputSimple = value;</b>
+<b class="nc"><i>183</i>&nbsp;                break;</b>
+<i>184</i>&nbsp;            case 7:
+<b class="nc"><i>185</i>&nbsp;                countOutputMedium = value;</b>
+<b class="nc"><i>186</i>&nbsp;                break;</b>
+<i>187</i>&nbsp;            case 8:
+<b class="nc"><i>188</i>&nbsp;                countOutputComplex = value;</b>
+<b class="nc"><i>189</i>&nbsp;                break;</b>
+<i>190</i>&nbsp;            case 9:
+<b class="nc"><i>191</i>&nbsp;                countDatasetSimple = value;</b>
+<b class="nc"><i>192</i>&nbsp;                break;</b>
+<i>193</i>&nbsp;            case 10:
+<b class="nc"><i>194</i>&nbsp;                countDatasetMedium = value;</b>
+<b class="nc"><i>195</i>&nbsp;                break;</b>
+<i>196</i>&nbsp;            case 11:
+<b class="nc"><i>197</i>&nbsp;                countDatasetComplex = value;</b>
+<b class="nc"><i>198</i>&nbsp;                break;</b>
+<i>199</i>&nbsp;            case 12:
+<b class="nc"><i>200</i>&nbsp;                countReferenceSimple = value;</b>
+<b class="nc"><i>201</i>&nbsp;                break;</b>
+<i>202</i>&nbsp;            case 13:
+<b class="nc"><i>203</i>&nbsp;                countReferenceMedium = value;</b>
+<b class="nc"><i>204</i>&nbsp;                break;</b>
+<i>205</i>&nbsp;            case 14:
+<b class="nc"><i>206</i>&nbsp;                countReferenceComplex = value;</b>
+<b class="nc"><i>207</i>&nbsp;                break;</b>
+<i>208</i>&nbsp;            default:
+<i>209</i>&nbsp;                break;
+<i>210</i>&nbsp;        }
+<b class="nc"><i>211</i>&nbsp;    }</b>
+<i>212</i>&nbsp;
+<i>213</i>&nbsp;    /**
+<i>214</i>&nbsp;     * gets the value of the selected weight Variable
+<i>215</i>&nbsp;     *
+<i>216</i>&nbsp;     * @param weightNo which weight Variable to get (-1 if weightNo exceeds available variables)
+<i>217</i>&nbsp;     * @return the selected weight
+<i>218</i>&nbsp;     */
+<i>219</i>&nbsp;    public int getWeight(int weightNo) {
+<b class="nc"><i>220</i>&nbsp;        switch (weightNo) {</b>
+<i>221</i>&nbsp;            case 0:
+<b class="nc"><i>222</i>&nbsp;                return weightInputSimple;</b>
+<i>223</i>&nbsp;            case 1:
+<b class="nc"><i>224</i>&nbsp;                return weightInputMedium;</b>
+<i>225</i>&nbsp;            case 2:
+<b class="nc"><i>226</i>&nbsp;                return weightInputComplex;</b>
+<i>227</i>&nbsp;            case 3:
+<b class="nc"><i>228</i>&nbsp;                return weightQuerySimple;</b>
+<i>229</i>&nbsp;            case 4:
+<b class="nc"><i>230</i>&nbsp;                return weightQueryMedium;</b>
+<i>231</i>&nbsp;            case 5:
+<b class="nc"><i>232</i>&nbsp;                return weightQueryComplex;</b>
+<i>233</i>&nbsp;            case 6:
+<b class="nc"><i>234</i>&nbsp;                return weightOutputSimple;</b>
+<i>235</i>&nbsp;            case 7:
+<b class="nc"><i>236</i>&nbsp;                return weightOutputMedium;</b>
+<i>237</i>&nbsp;            case 8:
+<b class="nc"><i>238</i>&nbsp;                return weightOutputComplex;</b>
+<i>239</i>&nbsp;            case 9:
+<b class="nc"><i>240</i>&nbsp;                return weightDatasetSimple;</b>
+<i>241</i>&nbsp;            case 10:
+<b class="nc"><i>242</i>&nbsp;                return weightDatasetMedium;</b>
+<i>243</i>&nbsp;            case 11:
+<b class="nc"><i>244</i>&nbsp;                return weightDatasetComplex;</b>
+<i>245</i>&nbsp;            case 12:
+<b class="nc"><i>246</i>&nbsp;                return weightReferenceSimple;</b>
+<i>247</i>&nbsp;            case 13:
+<b class="nc"><i>248</i>&nbsp;                return weightReferenceMedium;</b>
+<i>249</i>&nbsp;            case 14:
+<b class="nc"><i>250</i>&nbsp;                return weightReferenceComplex;</b>
+<i>251</i>&nbsp;            default:
+<b class="nc"><i>252</i>&nbsp;                return -1;</b>
+<i>253</i>&nbsp;        }
+<i>254</i>&nbsp;    }
+<i>255</i>&nbsp;
+<i>256</i>&nbsp;    /**
+<i>257</i>&nbsp;     * gets the value of the selected sum Variable
+<i>258</i>&nbsp;     *
+<i>259</i>&nbsp;     * @param sumNo which sum Variable to get (-1 if sumNo exceeds available variables)
+<i>260</i>&nbsp;     * @return the selected sum
+<i>261</i>&nbsp;     */
+<i>262</i>&nbsp;    public int getSum(int sumNo) {
+<b class="nc"><i>263</i>&nbsp;        switch (sumNo) {</b>
+<i>264</i>&nbsp;            case 0:
+<b class="nc"><i>265</i>&nbsp;                return sumInputSimple;</b>
+<i>266</i>&nbsp;            case 1:
+<b class="nc"><i>267</i>&nbsp;                return sumInputMedium;</b>
+<i>268</i>&nbsp;            case 2:
+<b class="nc"><i>269</i>&nbsp;                return sumInputComplex;</b>
+<i>270</i>&nbsp;            case 3:
+<b class="nc"><i>271</i>&nbsp;                return sumQuerySimple;</b>
+<i>272</i>&nbsp;            case 4:
+<b class="nc"><i>273</i>&nbsp;                return sumQueryMedium;</b>
+<i>274</i>&nbsp;            case 5:
+<b class="nc"><i>275</i>&nbsp;                return sumQueryComplex;</b>
+<i>276</i>&nbsp;            case 6:
+<b class="nc"><i>277</i>&nbsp;                return sumOutputSimple;</b>
+<i>278</i>&nbsp;            case 7:
+<b class="nc"><i>279</i>&nbsp;                return sumOutputMedium;</b>
+<i>280</i>&nbsp;            case 8:
+<b class="nc"><i>281</i>&nbsp;                return sumOutputComplex;</b>
+<i>282</i>&nbsp;            case 9:
+<b class="nc"><i>283</i>&nbsp;                return sumDatasetSimple;</b>
+<i>284</i>&nbsp;            case 10:
+<b class="nc"><i>285</i>&nbsp;                return sumDatasetMedium;</b>
+<i>286</i>&nbsp;            case 11:
+<b class="nc"><i>287</i>&nbsp;                return sumDatasetComplex;</b>
+<i>288</i>&nbsp;            case 12:
+<b class="nc"><i>289</i>&nbsp;                return sumReferenceSimple;</b>
+<i>290</i>&nbsp;            case 13:
+<b class="nc"><i>291</i>&nbsp;                return sumReferenceMedium;</b>
+<i>292</i>&nbsp;            case 14:
+<b class="nc"><i>293</i>&nbsp;                return sumReferenceComplex;</b>
+<i>294</i>&nbsp;            default:
+<b class="nc"><i>295</i>&nbsp;                return -1;</b>
+<i>296</i>&nbsp;        }
+<i>297</i>&nbsp;    }
+<i>298</i>&nbsp;
+<i>299</i>&nbsp;    /**
+<i>300</i>&nbsp;     * calculates the Sum for one row
+<i>301</i>&nbsp;     * depending on the count and weight
+<i>302</i>&nbsp;     *
+<i>303</i>&nbsp;     * @param count  total number of type
+<i>304</i>&nbsp;     * @param weight importance of this factor
+<i>305</i>&nbsp;     * @return count * weight
+<i>306</i>&nbsp;     */
+<i>307</i>&nbsp;    public int calculateRowSum(int count, int weight) {
+<b class="nc"><i>308</i>&nbsp;        return count * weight;</b>
+<i>309</i>&nbsp;    }
+<i>310</i>&nbsp;
+<i>311</i>&nbsp;    /**
+<i>312</i>&nbsp;     * calculates and stores the row sum
+<i>313</i>&nbsp;     * for each count variable
+<i>314</i>&nbsp;     * it therefore runs the calculateRowSum Method for each count variable and
+<i>315</i>&nbsp;     * stores the weight in the corresponding weight variables
+<i>316</i>&nbsp;     */
+<i>317</i>&nbsp;    public void calculateAllRowSums() {
+<b class="nc"><i>318</i>&nbsp;        sumInputSimple = calculateRowSum(countInputSimple, weightInputSimple);</b>
+<b class="nc"><i>319</i>&nbsp;        sumInputMedium = calculateRowSum(countInputMedium, weightInputMedium);</b>
+<b class="nc"><i>320</i>&nbsp;        sumInputComplex = calculateRowSum(countInputComplex, weightInputComplex);</b>
+<i>321</i>&nbsp;
+<b class="nc"><i>322</i>&nbsp;        sumQuerySimple = calculateRowSum(countQuerySimple, weightQuerySimple);</b>
+<b class="nc"><i>323</i>&nbsp;        sumQueryMedium = calculateRowSum(countQueryMedium, weightQueryMedium);</b>
+<b class="nc"><i>324</i>&nbsp;        sumQueryComplex = calculateRowSum(countQueryComplex, weightQueryComplex);</b>
+<i>325</i>&nbsp;
+<b class="nc"><i>326</i>&nbsp;        sumOutputSimple = calculateRowSum(countOutputSimple, weightOutputSimple);</b>
+<b class="nc"><i>327</i>&nbsp;        sumOutputMedium = calculateRowSum(countOutputMedium, weightOutputMedium);</b>
+<b class="nc"><i>328</i>&nbsp;        sumOutputComplex = calculateRowSum(countOutputComplex, weightOutputComplex);</b>
+<i>329</i>&nbsp;
+<b class="nc"><i>330</i>&nbsp;        sumDatasetSimple = calculateRowSum(countDatasetSimple, weightDatasetSimple);</b>
+<b class="nc"><i>331</i>&nbsp;        sumDatasetMedium = calculateRowSum(countDatasetMedium, weightDatasetMedium);</b>
+<b class="nc"><i>332</i>&nbsp;        sumDatasetComplex = calculateRowSum(countDatasetComplex, weightDatasetComplex);</b>
+<i>333</i>&nbsp;
+<b class="nc"><i>334</i>&nbsp;        sumReferenceSimple = calculateRowSum(countReferenceSimple, weightReferenceSimple);</b>
+<b class="nc"><i>335</i>&nbsp;        sumReferenceMedium = calculateRowSum(countReferenceMedium, weightReferenceMedium);</b>
+<b class="nc"><i>336</i>&nbsp;        sumReferenceComplex = calculateRowSum(countReferenceComplex, weightReferenceComplex);</b>
+<b class="nc"><i>337</i>&nbsp;    }</b>
+<i>338</i>&nbsp;
+<i>339</i>&nbsp;    /**
+<i>340</i>&nbsp;     * calculates the total row Sum E1
+<i>341</i>&nbsp;     */
+<i>342</i>&nbsp;    public void calculateTotalRowSumE1() {
+<b class="nc"><i>343</i>&nbsp;        e1Sum = sumInputSimple</b>
+<i>344</i>&nbsp;                + sumInputMedium
+<i>345</i>&nbsp;                + sumInputComplex
+<i>346</i>&nbsp;                + sumQuerySimple
+<i>347</i>&nbsp;                + sumQueryMedium
+<i>348</i>&nbsp;                + sumQueryComplex
+<i>349</i>&nbsp;                + sumOutputSimple
+<i>350</i>&nbsp;                + sumOutputMedium
+<i>351</i>&nbsp;                + sumOutputComplex
+<i>352</i>&nbsp;                + sumDatasetSimple
+<i>353</i>&nbsp;                + sumDatasetMedium
+<i>354</i>&nbsp;                + sumDatasetComplex
+<i>355</i>&nbsp;                + sumReferenceSimple
+<i>356</i>&nbsp;                + sumReferenceMedium
+<i>357</i>&nbsp;                + sumReferenceComplex;
+<b class="nc"><i>358</i>&nbsp;    }</b>
+<i>359</i>&nbsp;
+<i>360</i>&nbsp;    /**
+<i>361</i>&nbsp;     * method calculates and sets the influence sum e3
+<i>362</i>&nbsp;     */
+<i>363</i>&nbsp;    public void calcInfluenceE3() {
+<b class="nc"><i>364</i>&nbsp;        e3Sum = (double) configData.getE2Sum() / 100 + 0.7;</b>
+<b class="nc"><i>365</i>&nbsp;    }</b>
+<i>366</i>&nbsp;
+<i>367</i>&nbsp;    /**
+<i>368</i>&nbsp;     * method calculates the value for the Adjusted Function Points AFP
+<i>369</i>&nbsp;     */
+<i>370</i>&nbsp;    public void calcAdjustedFunctionPoints() {
+<b class="nc"><i>371</i>&nbsp;        afp = e1Sum * e3Sum;</b>
+<b class="nc"><i>372</i>&nbsp;    }</b>
+<i>373</i>&nbsp;
+<i>374</i>&nbsp;    /**
+<i>375</i>&nbsp;     * method calculates values according to the jones estimation and saves them into the model variables
+<i>376</i>&nbsp;     */
+<i>377</i>&nbsp;    public void calcJonesEstimation() {
+<b class="nc"><i>378</i>&nbsp;        jonesDuration = Math.pow(afp, 0.4);</b>
+<b class="nc"><i>379</i>&nbsp;        jonesPersonNo = (int) Math.ceil(afp / 150);</b>
+<b class="nc"><i>380</i>&nbsp;        jonesPersonMonths = jonesDuration * jonesPersonNo;</b>
+<b class="nc"><i>381</i>&nbsp;    }</b>
+<i>382</i>&nbsp;
+<i>383</i>&nbsp;    /**
+<i>384</i>&nbsp;     * uses an input for the real duration and calculates a correction factor
+<i>385</i>&nbsp;     * to estimate the duration better next time
+<i>386</i>&nbsp;     *
+<i>387</i>&nbsp;     * @param realTime time, the project really took till completion
+<i>388</i>&nbsp;     */
+<i>389</i>&nbsp;    public void calcCorrection(double realTime) {
+<b class="nc"><i>390</i>&nbsp;        correctionFactor = Math.log(realTime / jonesPersonMonths);</b>
+<b class="nc"><i>391</i>&nbsp;    }</b>
+<i>392</i>&nbsp;
+<i>393</i>&nbsp;    /**
+<i>394</i>&nbsp;     * calculates the sum of all factors needed to achieve the real time
+<i>395</i>&nbsp;     *
+<i>396</i>&nbsp;     * @param realTime time, the project really took till completion
+<i>397</i>&nbsp;     */
+<i>398</i>&nbsp;    public void calcE2Needed(double realTime) throws IllegalArgumentException {
+<b class="nc"><i>399</i>&nbsp;        if (realTime &gt;= 0) {</b>
+<b class="nc"><i>400</i>&nbsp;            e2Correction = (int) (((Math.pow(realTime / (Math.exp(0) * jonesPersonNo), (1 / 0.4)) / e1Sum) - 0.7) * 100);</b>
+<i>401</i>&nbsp;        } else {
+<b class="nc"><i>402</i>&nbsp;            throw new IllegalArgumentException(&quot;realTime can&#39;t be negative&quot;);</b>
+<i>403</i>&nbsp;        }
+<i>404</i>&nbsp;
+<b class="nc"><i>405</i>&nbsp;    }</b>
+<i>406</i>&nbsp;
+<i>407</i>&nbsp;    /**
+<i>408</i>&nbsp;     * calculates the sum of all factors needed to achieve the real time
+<i>409</i>&nbsp;     *
+<i>410</i>&nbsp;     * @param realTime time, the project really took till completion
+<i>411</i>&nbsp;     */
+<i>412</i>&nbsp;    public void calcE2Needed(double realTime, int jPNo, int e1S) throws IllegalArgumentException {
+<b class="fc"><i>413</i>&nbsp;        if (realTime &gt;= 0) {</b>
+<b class="fc"><i>414</i>&nbsp;            e2Correction = (int) (((Math.pow(realTime / (Math.exp(0) * jPNo), (1 / 0.4)) / e1S) - 0.7) * 100);</b>
+<i>415</i>&nbsp;        } else {
+<b class="fc"><i>416</i>&nbsp;            throw new IllegalArgumentException(&quot;realTime can&#39;t be negative&quot;);</b>
+<i>417</i>&nbsp;        }
+<b class="fc"><i>418</i>&nbsp;    }</b>
+<i>419</i>&nbsp;
+<i>420</i>&nbsp;    /**
+<i>421</i>&nbsp;     * getter Method for e1Sum
+<i>422</i>&nbsp;     *
+<i>423</i>&nbsp;     * @return e1Sum
+<i>424</i>&nbsp;     */
+<i>425</i>&nbsp;    public int getE1Sum() {
+<b class="nc"><i>426</i>&nbsp;        return e1Sum;</b>
+<i>427</i>&nbsp;    }
+<i>428</i>&nbsp;
+<i>429</i>&nbsp;    /**
+<i>430</i>&nbsp;     * getter Method for e3Sum
+<i>431</i>&nbsp;     *
+<i>432</i>&nbsp;     * @return e3Sum
+<i>433</i>&nbsp;     */
+<i>434</i>&nbsp;    public double getE3Sum() {
+<b class="nc"><i>435</i>&nbsp;        return e3Sum;</b>
+<i>436</i>&nbsp;    }
+<i>437</i>&nbsp;
+<i>438</i>&nbsp;    /**
+<i>439</i>&nbsp;     * getter Method for afp
+<i>440</i>&nbsp;     *
+<i>441</i>&nbsp;     * @return afp
+<i>442</i>&nbsp;     */
+<i>443</i>&nbsp;    public double getAFP() {
+<b class="nc"><i>444</i>&nbsp;        return afp;</b>
+<i>445</i>&nbsp;    }
+<i>446</i>&nbsp;
+<i>447</i>&nbsp;    /**
+<i>448</i>&nbsp;     * getter Method for jonesDuration
+<i>449</i>&nbsp;     *
+<i>450</i>&nbsp;     * @return jonesDuration
+<i>451</i>&nbsp;     */
+<i>452</i>&nbsp;    public double getJonesDuration() {
+<b class="nc"><i>453</i>&nbsp;        return jonesDuration;</b>
+<i>454</i>&nbsp;    }
+<i>455</i>&nbsp;
+<i>456</i>&nbsp;    /**
+<i>457</i>&nbsp;     * getter Method for jonesPersonNo
+<i>458</i>&nbsp;     *
+<i>459</i>&nbsp;     * @return jonesPersonNo
+<i>460</i>&nbsp;     */
+<i>461</i>&nbsp;    public int getJonesPersonNo() {
+<b class="nc"><i>462</i>&nbsp;        return jonesPersonNo;</b>
+<i>463</i>&nbsp;    }
+<i>464</i>&nbsp;
+<i>465</i>&nbsp;    /**
+<i>466</i>&nbsp;     * getter Method for jonesPersonMonths
+<i>467</i>&nbsp;     *
+<i>468</i>&nbsp;     * @return jonesPersonMonths
+<i>469</i>&nbsp;     */
+<i>470</i>&nbsp;    public double getJonesPersonMonths() {
+<b class="nc"><i>471</i>&nbsp;        return jonesPersonMonths;</b>
+<i>472</i>&nbsp;    }
+<i>473</i>&nbsp;
+<i>474</i>&nbsp;    /**
+<i>475</i>&nbsp;     * getter Method for actualDuration
+<i>476</i>&nbsp;     *
+<i>477</i>&nbsp;     * @return actualDuration
+<i>478</i>&nbsp;     */
+<i>479</i>&nbsp;    public double getActualDuration() {
+<b class="fc"><i>480</i>&nbsp;        return actualDuration;</b>
+<i>481</i>&nbsp;    }
+<i>482</i>&nbsp;
+<i>483</i>&nbsp;    /**
+<i>484</i>&nbsp;     * setter Method for actualDuration
+<i>485</i>&nbsp;     *
+<i>486</i>&nbsp;     * @param actualDuration value to which actualDuration is set to
+<i>487</i>&nbsp;     */
+<i>488</i>&nbsp;    public void setActualDuration(double actualDuration) {
+<b class="fc"><i>489</i>&nbsp;        this.actualDuration = actualDuration;</b>
+<b class="fc"><i>490</i>&nbsp;    }</b>
+<i>491</i>&nbsp;
+<i>492</i>&nbsp;    /**
+<i>493</i>&nbsp;     * getter Method for correctionFactor
+<i>494</i>&nbsp;     *
+<i>495</i>&nbsp;     * @return correctionFactor
+<i>496</i>&nbsp;     */
+<i>497</i>&nbsp;    public double getCorrectionFactor() {
+<b class="nc"><i>498</i>&nbsp;        return correctionFactor;</b>
+<i>499</i>&nbsp;    }
+<i>500</i>&nbsp;
+<i>501</i>&nbsp;    /**
+<i>502</i>&nbsp;     * getter Method for e2Correction
+<i>503</i>&nbsp;     *
+<i>504</i>&nbsp;     * @return e2Correction
+<i>505</i>&nbsp;     */
+<i>506</i>&nbsp;    public int getE2Correction() {
+<b class="fc"><i>507</i>&nbsp;        return e2Correction;</b>
+<i>508</i>&nbsp;    }
+<i>509</i>&nbsp;
+<i>510</i>&nbsp;    /**
+<i>511</i>&nbsp;     * setter Method for e2Correction
+<i>512</i>&nbsp;     *
+<i>513</i>&nbsp;     * @param e2Correction value to which e2Correction is set to
+<i>514</i>&nbsp;     */
+<i>515</i>&nbsp;    public void setE2Correction(int e2Correction) {
+<b class="fc"><i>516</i>&nbsp;        this.e2Correction = e2Correction;</b>
+<b class="fc"><i>517</i>&nbsp;    }</b>
+<i>518</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-17 19:06</div>
+</div>
+</body>
+</html>

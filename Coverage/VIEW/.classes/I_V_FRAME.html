@@ -1,0 +1,389 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: I_V_FRAME</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">VIEW</a> ]
+</div>
+
+<h1>Coverage Summary for Class: I_V_FRAME (VIEW)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">I_V_FRAME</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package VIEW;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import MODEL.PROJECTDATA.M_PROJECTDATA;
+<i>4</i>&nbsp;import MODEL.PROJECTDATA.M_PROJECTDATA_PRODUCTDATA;
+<i>5</i>&nbsp;import MODEL.PROJECTDATA.M_PROJECTDATA_PRODUCTFUNCTION;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;import javax.swing.*;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;/**
+<i>10</i>&nbsp; * Interface defines all functions that are needed from a View Frame Object
+<i>11</i>&nbsp; */
+<i>12</i>&nbsp;public interface I_V_FRAME extends I_V_BASIC {
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;    /**
+<i>15</i>&nbsp;     * get Target Use Text Area Element
+<i>16</i>&nbsp;     *
+<i>17</i>&nbsp;     * @return returns a JTextArea Swing Element
+<i>18</i>&nbsp;     */
+<i>19</i>&nbsp;    public JTextArea getTargetUse();
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;    /**
+<i>22</i>&nbsp;     * get Product Use Text Area Element
+<i>23</i>&nbsp;     *
+<i>24</i>&nbsp;     * @return returns a JTextArea Swing Element
+<i>25</i>&nbsp;     */
+<i>26</i>&nbsp;    public JTextArea getProductUse();
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;    /**
+<i>29</i>&nbsp;     * get Product Environment Text Area Element
+<i>30</i>&nbsp;     *
+<i>31</i>&nbsp;     * @return returns a JTextArea Swing Element
+<i>32</i>&nbsp;     */
+<i>33</i>&nbsp;    public JTextArea getProductEnvironment();
+<i>34</i>&nbsp;
+<i>35</i>&nbsp;    /**
+<i>36</i>&nbsp;     * get Product Function ID Text Field Element
+<i>37</i>&nbsp;     *
+<i>38</i>&nbsp;     * @return returns a JTextField Swing Element
+<i>39</i>&nbsp;     */
+<i>40</i>&nbsp;    public JTextField getTextFieldProdFuncID();
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;    /**
+<i>43</i>&nbsp;     * get Product Function Function Text Field Element
+<i>44</i>&nbsp;     *
+<i>45</i>&nbsp;     * @return returns a JTextField Swing Element
+<i>46</i>&nbsp;     */
+<i>47</i>&nbsp;    public JTextField getTextFieldProdFunc();
+<i>48</i>&nbsp;
+<i>49</i>&nbsp;    /**
+<i>50</i>&nbsp;     * get Product Function Protagonis Text Field Element
+<i>51</i>&nbsp;     *
+<i>52</i>&nbsp;     * @return returns a JTextField Swing Element
+<i>53</i>&nbsp;     */
+<i>54</i>&nbsp;    public JTextField getTextFieldProdFuncProtagonist();
+<i>55</i>&nbsp;
+<i>56</i>&nbsp;    /**
+<i>57</i>&nbsp;     * get Product Function Description Text Area Element
+<i>58</i>&nbsp;     *
+<i>59</i>&nbsp;     * @return returns a JTextField Swing Element
+<i>60</i>&nbsp;     */
+<i>61</i>&nbsp;    public JTextArea getTextAreaprodFuncDescription();
+<i>62</i>&nbsp;
+<i>63</i>&nbsp;    /**
+<i>64</i>&nbsp;     * get Product Function Category Combo Box
+<i>65</i>&nbsp;     *
+<i>66</i>&nbsp;     * @return returns a JComboBox Swing Element
+<i>67</i>&nbsp;     */
+<i>68</i>&nbsp;    public JComboBox getComboBoxProdFuncCategory();
+<i>69</i>&nbsp;
+<i>70</i>&nbsp;    /**
+<i>71</i>&nbsp;     * get Product Function FTR JSpinner Element
+<i>72</i>&nbsp;     *
+<i>73</i>&nbsp;     * @return returns a JSpinner Swing Element
+<i>74</i>&nbsp;     */
+<i>75</i>&nbsp;    public JSpinner getSpinnerProdFuncFTR();
+<i>76</i>&nbsp;
+<i>77</i>&nbsp;    /**
+<i>78</i>&nbsp;     * get Product Function DET JSpinner Element
+<i>79</i>&nbsp;     *
+<i>80</i>&nbsp;     * @return returns a JSpinner Swing Element
+<i>81</i>&nbsp;     */
+<i>82</i>&nbsp;    public JSpinner getSpinnerProdFuncDET();
+<i>83</i>&nbsp;
+<i>84</i>&nbsp;    /**
+<i>85</i>&nbsp;     * get Product Function List Element
+<i>86</i>&nbsp;     *
+<i>87</i>&nbsp;     * @return returns a JList Swing Element
+<i>88</i>&nbsp;     */
+<i>89</i>&nbsp;    public JList getProdFuncIDList();
+<i>90</i>&nbsp;
+<i>91</i>&nbsp;    /**
+<i>92</i>&nbsp;     * get ProductData List Element
+<i>93</i>&nbsp;     *
+<i>94</i>&nbsp;     * @return returns a JList Swing Element
+<i>95</i>&nbsp;     */
+<i>96</i>&nbsp;    public JList getListproductDataID();
+<i>97</i>&nbsp;
+<i>98</i>&nbsp;    /**
+<i>99</i>&nbsp;     * get Product Data Id Text Field
+<i>100</i>&nbsp;     *
+<i>101</i>&nbsp;     * @return returns a JTextField Swing Element
+<i>102</i>&nbsp;     */
+<i>103</i>&nbsp;    public JTextField getTextFieldproductDataID();
+<i>104</i>&nbsp;
+<i>105</i>&nbsp;    /**
+<i>106</i>&nbsp;     * get Product Data Refernece Text Field
+<i>107</i>&nbsp;     *
+<i>108</i>&nbsp;     * @return returns a JTextField Swing Element
+<i>109</i>&nbsp;     */
+<i>110</i>&nbsp;    public JTextField getTextFieldproductDataReference();
+<i>111</i>&nbsp;
+<i>112</i>&nbsp;    /**
+<i>113</i>&nbsp;     * get Product Data Description Text Area Element
+<i>114</i>&nbsp;     *
+<i>115</i>&nbsp;     * @return returns a JTextArea Swing Element
+<i>116</i>&nbsp;     */
+<i>117</i>&nbsp;    public JTextArea getTextAreaproductDataDescription();
+<i>118</i>&nbsp;
+<i>119</i>&nbsp;    /**
+<i>120</i>&nbsp;     * get Product Data RET Spinner Element
+<i>121</i>&nbsp;     *
+<i>122</i>&nbsp;     * @return returns JSpinner Swing Element
+<i>123</i>&nbsp;     */
+<i>124</i>&nbsp;    public JSpinner getSpinnerproductDataRET();
+<i>125</i>&nbsp;
+<i>126</i>&nbsp;    /**
+<i>127</i>&nbsp;     * get Product Data DET Spinner Element
+<i>128</i>&nbsp;     *
+<i>129</i>&nbsp;     * @return returns JSpinner Swing Element
+<i>130</i>&nbsp;     */
+<i>131</i>&nbsp;    public JSpinner getSpinnerproductDataDET();
+<i>132</i>&nbsp;
+<i>133</i>&nbsp;    /**
+<i>134</i>&nbsp;     * get Product Data Category Combo Box Element
+<i>135</i>&nbsp;     *
+<i>136</i>&nbsp;     * @return returns JComboBox Swing Element
+<i>137</i>&nbsp;     */
+<i>138</i>&nbsp;    public JComboBox getComboBoxProdDataCategory();
+<i>139</i>&nbsp;
+<i>140</i>&nbsp;
+<i>141</i>&nbsp;    /**
+<i>142</i>&nbsp;     * this methods sets the description for the weight label in productfunctions view
+<i>143</i>&nbsp;     * dependent on input value
+<i>144</i>&nbsp;     *
+<i>145</i>&nbsp;     * @param weight value to which the weight should be set to
+<i>146</i>&nbsp;     */
+<i>147</i>&nbsp;    public void setWeightDescription(int weight);
+<i>148</i>&nbsp;
+<i>149</i>&nbsp;    /**
+<i>150</i>&nbsp;     * this method gets the count values from the controller
+<i>151</i>&nbsp;     * and adds all corresponding labels in the estimation tab of the view
+<i>152</i>&nbsp;     *
+<i>153</i>&nbsp;     * @param countNo which count to update
+<i>154</i>&nbsp;     * @param value   value to the selected count
+<i>155</i>&nbsp;     */
+<i>156</i>&nbsp;    public void setEstimationCount(int countNo, int value);
+<i>157</i>&nbsp;
+<i>158</i>&nbsp;    /**
+<i>159</i>&nbsp;     * this method gets the weight values from the controller
+<i>160</i>&nbsp;     * and adds all corresponding labels in the estimation tab of the view
+<i>161</i>&nbsp;     *
+<i>162</i>&nbsp;     * @param weightNo which count to update
+<i>163</i>&nbsp;     * @param value    value to the selected count
+<i>164</i>&nbsp;     */
+<i>165</i>&nbsp;    public void setEstimationWeight(int weightNo, int value);
+<i>166</i>&nbsp;
+<i>167</i>&nbsp;    /**
+<i>168</i>&nbsp;     * this method gets the sum values from the controller
+<i>169</i>&nbsp;     * and adds all corresponding labels in the estimation tab of the view
+<i>170</i>&nbsp;     *
+<i>171</i>&nbsp;     * @param sumNo which count to update
+<i>172</i>&nbsp;     * @param value value to the selected count
+<i>173</i>&nbsp;     */
+<i>174</i>&nbsp;    public void setEstimationSum(int sumNo, int value);
+<i>175</i>&nbsp;
+<i>176</i>&nbsp;    /**
+<i>177</i>&nbsp;     * this method gets the weight values from the controller
+<i>178</i>&nbsp;     * and adds all corresponding labels in the estimation tab of the view
+<i>179</i>&nbsp;     *
+<i>180</i>&nbsp;     * @param sum the totalRowSumE1 of M_projectData_fuctionPointEstimation
+<i>181</i>&nbsp;     */
+<i>182</i>&nbsp;    public void setTotalRowSum(int sum);
+<i>183</i>&nbsp;
+<i>184</i>&nbsp;    /**
+<i>185</i>&nbsp;     * sets slider to the passed possition
+<i>186</i>&nbsp;     *
+<i>187</i>&nbsp;     * @param sliderNo defines which slider to change
+<i>188</i>&nbsp;     * @param value    defines the value to which the slider should be set
+<i>189</i>&nbsp;     */
+<i>190</i>&nbsp;    public void setSliderValue(int sliderNo, int value);
+<i>191</i>&nbsp;
+<i>192</i>&nbsp;    /**
+<i>193</i>&nbsp;     * sets the value of the corresponding text field to the value given
+<i>194</i>&nbsp;     *
+<i>195</i>&nbsp;     * @param sliderNo integer to identify the slider that was changed
+<i>196</i>&nbsp;     * @param value    integer to which the slider was changed to
+<i>197</i>&nbsp;     */
+<i>198</i>&nbsp;    public void setSliderText(int sliderNo, int value);
+<i>199</i>&nbsp;
+<i>200</i>&nbsp;    /**
+<i>201</i>&nbsp;     * set the value of E2
+<i>202</i>&nbsp;     *
+<i>203</i>&nbsp;     * @param e2sum  sum of all factors
+<i>204</i>&nbsp;     * @param e2Goal sum to achieve the same effort in calculation as in the real project
+<i>205</i>&nbsp;     */
+<i>206</i>&nbsp;    public void setFactorSumE2(int e2sum, int e2Goal);
+<i>207</i>&nbsp;
+<i>208</i>&nbsp;    /**
+<i>209</i>&nbsp;     * this method updates the value for E1, E2 and E3 in the Calculation Tab
+<i>210</i>&nbsp;     *
+<i>211</i>&nbsp;     * @param e1            value of the function point sum e1
+<i>212</i>&nbsp;     * @param e2            value of the factor sum e2
+<i>213</i>&nbsp;     * @param e3            value of influence e3
+<i>214</i>&nbsp;     * @param afp           value of Adjusted Function Points
+<i>215</i>&nbsp;     * @param jDuration     total duration, according to jones estimation
+<i>216</i>&nbsp;     * @param jPersons      number of persons working, according to jones estimation
+<i>217</i>&nbsp;     * @param jPersonMonths person months, according to jones estimation
+<i>218</i>&nbsp;     */
+<i>219</i>&nbsp;    public void updateCalculationTab(int e1, int e2, double e3, double afp, double jDuration, int jPersons, double jPersonMonths);
+<i>220</i>&nbsp;
+<i>221</i>&nbsp;    /**
+<i>222</i>&nbsp;     * this method returns the value of the real Duration entered by the user
+<i>223</i>&nbsp;     *
+<i>224</i>&nbsp;     * @return actualDuration
+<i>225</i>&nbsp;     */
+<i>226</i>&nbsp;    public double getActualDuration();
+<i>227</i>&nbsp;
+<i>228</i>&nbsp;    /**
+<i>229</i>&nbsp;     * this method updates all values of the correction factor panel
+<i>230</i>&nbsp;     *
+<i>231</i>&nbsp;     * @param calcEff      effort calculated before
+<i>232</i>&nbsp;     * @param corrFact     correction factor
+<i>233</i>&nbsp;     * @param e2Correction goal for e2Sum
+<i>234</i>&nbsp;     */
+<i>235</i>&nbsp;    public void updateCorrectionPanel(double calcEff, double corrFact, int e2Correction);
+<i>236</i>&nbsp;
+<i>237</i>&nbsp;    /**
+<i>238</i>&nbsp;     * this method shows the next button
+<i>239</i>&nbsp;     */
+<i>240</i>&nbsp;    public void showNext();
+<i>241</i>&nbsp;
+<i>242</i>&nbsp;    /**
+<i>243</i>&nbsp;     * this method hides the next button
+<i>244</i>&nbsp;     */
+<i>245</i>&nbsp;    public void hideNext();
+<i>246</i>&nbsp;
+<i>247</i>&nbsp;    /**
+<i>248</i>&nbsp;     * this method shows the last button
+<i>249</i>&nbsp;     */
+<i>250</i>&nbsp;    public void showLast();
+<i>251</i>&nbsp;
+<i>252</i>&nbsp;    /**
+<i>253</i>&nbsp;     * this method hides the last button
+<i>254</i>&nbsp;     */
+<i>255</i>&nbsp;    public void hideLast();
+<i>256</i>&nbsp;
+<i>257</i>&nbsp;    /**
+<i>258</i>&nbsp;     * this method shows the import button to import all factors
+<i>259</i>&nbsp;     */
+<i>260</i>&nbsp;    public void showFactorImport();
+<i>261</i>&nbsp;
+<i>262</i>&nbsp;    /**
+<i>263</i>&nbsp;     * this method hides the import button to import all factors
+<i>264</i>&nbsp;     */
+<i>265</i>&nbsp;    public void hideFactorImport();
+<i>266</i>&nbsp;
+<i>267</i>&nbsp;    /**
+<i>268</i>&nbsp;     * this method shows the export button to export all factors
+<i>269</i>&nbsp;     */
+<i>270</i>&nbsp;    public void showFactorExport();
+<i>271</i>&nbsp;
+<i>272</i>&nbsp;    /**
+<i>273</i>&nbsp;     * this method hides the export button to export all factors
+<i>274</i>&nbsp;     */
+<i>275</i>&nbsp;    public void hideFactorExport();
+<i>276</i>&nbsp;
+<i>277</i>&nbsp;    /**
+<i>278</i>&nbsp;     * method goes to the next step in effort analysis
+<i>279</i>&nbsp;     */
+<i>280</i>&nbsp;    public void nextStepEffort();
+<i>281</i>&nbsp;
+<i>282</i>&nbsp;    /**
+<i>283</i>&nbsp;     * method goes to the last step in effort analysis
+<i>284</i>&nbsp;     */
+<i>285</i>&nbsp;    public void lastStepEffort();
+<i>286</i>&nbsp;
+<i>287</i>&nbsp;    /**
+<i>288</i>&nbsp;     * adds the ProductFunctionID List in Tab
+<i>289</i>&nbsp;     *
+<i>290</i>&nbsp;     * @param id ID that will be added to Product Function ID List
+<i>291</i>&nbsp;     */
+<i>292</i>&nbsp;    public void addProdFuncIDListElement(String id);
+<i>293</i>&nbsp;
+<i>294</i>&nbsp;    /**
+<i>295</i>&nbsp;     * change ProductFunctionID List element with String id
+<i>296</i>&nbsp;     *
+<i>297</i>&nbsp;     * @param id is the new value for the list element
+<i>298</i>&nbsp;     */
+<i>299</i>&nbsp;    public void changeprodFuncIDListElement(String id);
+<i>300</i>&nbsp;
+<i>301</i>&nbsp;    /**
+<i>302</i>&nbsp;     * function can reinitialize complente Product Function ID List with new Project Data
+<i>303</i>&nbsp;     *
+<i>304</i>&nbsp;     * @param projData referenece to new project data
+<i>305</i>&nbsp;     */
+<i>306</i>&nbsp;    public void reinitializeProdFuncIDList(M_PROJECTDATA projData);
+<i>307</i>&nbsp;
+<i>308</i>&nbsp;    /**
+<i>309</i>&nbsp;     * updates textboxes depending on the selected Index
+<i>310</i>&nbsp;     *
+<i>311</i>&nbsp;     * @param projDataFunction new Product Function Element that has to be loaded into textboxes
+<i>312</i>&nbsp;     */
+<i>313</i>&nbsp;    public void updateProdFuncInfo(M_PROJECTDATA_PRODUCTFUNCTION projDataFunction);
+<i>314</i>&nbsp;
+<i>315</i>&nbsp;    /**
+<i>316</i>&nbsp;     * adds new Product Data List Element in Tab Product Data
+<i>317</i>&nbsp;     *
+<i>318</i>&nbsp;     * @param id new Element ID
+<i>319</i>&nbsp;     */
+<i>320</i>&nbsp;    public void addProdDataIDListElement(String id);
+<i>321</i>&nbsp;
+<i>322</i>&nbsp;    /**
+<i>323</i>&nbsp;     * change the current selected List Element with a new Element
+<i>324</i>&nbsp;     *
+<i>325</i>&nbsp;     * @param id defines what exact Element to change
+<i>326</i>&nbsp;     */
+<i>327</i>&nbsp;    public void changeProdDataIDListElement(String id);
+<i>328</i>&nbsp;
+<i>329</i>&nbsp;    /**
+<i>330</i>&nbsp;     * function can reinitialize complente Product Data ID List with new Project Data
+<i>331</i>&nbsp;     *
+<i>332</i>&nbsp;     * @param projData referenece to new project data
+<i>333</i>&nbsp;     */
+<i>334</i>&nbsp;    public void reinitializeProdDataIDList(M_PROJECTDATA projData);
+<i>335</i>&nbsp;
+<i>336</i>&nbsp;    /**
+<i>337</i>&nbsp;     * updates textboxes depending on selected Index
+<i>338</i>&nbsp;     *
+<i>339</i>&nbsp;     * @param projDataProductData new Product Data content
+<i>340</i>&nbsp;     */
+<i>341</i>&nbsp;    public void updateProdDataInfo(M_PROJECTDATA_PRODUCTDATA projDataProductData);
+<i>342</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-17 19:06</div>
+</div>
+</body>
+</html>

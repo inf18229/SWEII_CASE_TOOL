@@ -1,0 +1,157 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: I_C_FRAME</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">CONTROLLER</a> ]
+</div>
+
+<h1>Coverage Summary for Class: I_C_FRAME (CONTROLLER)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">I_C_FRAME</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package CONTROLLER;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import CONTROLLER.TAB.I_C_TAB;
+<i>4</i>&nbsp;import MODEL.PROJECTDATA.M_PROJECTDATA;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;/**
+<i>7</i>&nbsp; * main CONTROLLER, that handles all programm functions not regarding special VIEWS.
+<i>8</i>&nbsp; * Its only purpose is to create CONTROLLERS for the special VIEWS and handle USER-IO to &quot;switch&quot; between the different
+<i>9</i>&nbsp; * views
+<i>10</i>&nbsp; */
+<i>11</i>&nbsp;public interface I_C_FRAME {
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;    /**
+<i>14</i>&nbsp;     * sets the necessary links after instantiation of the controller
+<i>15</i>&nbsp;     *
+<i>16</i>&nbsp;     * @param projData reference to the projectData
+<i>17</i>&nbsp;     * @param conStart reference to the Start Controller
+<i>18</i>&nbsp;     * @param path     path of the projectData
+<i>19</i>&nbsp;     */
+<i>20</i>&nbsp;    public void setLinks(M_PROJECTDATA projData, I_C_START conStart, String path);
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;    /**
+<i>23</i>&nbsp;     * creates Controller for each tab
+<i>24</i>&nbsp;     */
+<i>25</i>&nbsp;    public void createTabControllers();
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;    /**
+<i>28</i>&nbsp;     * switches to the specified Tab
+<i>29</i>&nbsp;     *
+<i>30</i>&nbsp;     * @param newTab integer of the newly selected tab
+<i>31</i>&nbsp;     */
+<i>32</i>&nbsp;    public void notifyTabChange(int newTab);
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;    /**
+<i>35</i>&nbsp;     * should notify C_EFFORT that the tab in V_Effort_Tabs has changed
+<i>36</i>&nbsp;     */
+<i>37</i>&nbsp;    public void notifyTabChangeEffort();
+<i>38</i>&nbsp;
+<i>39</i>&nbsp;    /**
+<i>40</i>&nbsp;     * notifies the Controller, that a slider was changed
+<i>41</i>&nbsp;     *
+<i>42</i>&nbsp;     * @param sliderNo integer to identify the slider that was changed
+<i>43</i>&nbsp;     * @param value    integer to which the slider was changed to
+<i>44</i>&nbsp;     */
+<i>45</i>&nbsp;    public void notifySlider(int sliderNo, int value);
+<i>46</i>&nbsp;
+<i>47</i>&nbsp;    /**
+<i>48</i>&nbsp;     * notifies the effort controller to recalculate the estimation
+<i>49</i>&nbsp;     */
+<i>50</i>&nbsp;    public void notifyCalculate();
+<i>51</i>&nbsp;
+<i>52</i>&nbsp;    /**
+<i>53</i>&nbsp;     * notifies the Controller that he should close the project and open the welcome window
+<i>54</i>&nbsp;     */
+<i>55</i>&nbsp;    public void notifyClose();
+<i>56</i>&nbsp;
+<i>57</i>&nbsp;    /**
+<i>58</i>&nbsp;     * notifies the Controller that he should save the project
+<i>59</i>&nbsp;     */
+<i>60</i>&nbsp;    public void notifySave();
+<i>61</i>&nbsp;
+<i>62</i>&nbsp;    /**
+<i>63</i>&nbsp;     * notifies the Controller that he should import new factors
+<i>64</i>&nbsp;     */
+<i>65</i>&nbsp;    public void notifyImportFactor();
+<i>66</i>&nbsp;
+<i>67</i>&nbsp;    /**
+<i>68</i>&nbsp;     * notifies the Controller that he should export the factors
+<i>69</i>&nbsp;     */
+<i>70</i>&nbsp;    public void notifyExportFactor();
+<i>71</i>&nbsp;
+<i>72</i>&nbsp;    /**
+<i>73</i>&nbsp;     * notifies the Controller that the next button was pressed
+<i>74</i>&nbsp;     */
+<i>75</i>&nbsp;    public void notifyNext();
+<i>76</i>&nbsp;
+<i>77</i>&nbsp;    /**
+<i>78</i>&nbsp;     * notifies the Controller that the last button was pressed
+<i>79</i>&nbsp;     */
+<i>80</i>&nbsp;    public void notifyLast();
+<i>81</i>&nbsp;
+<i>82</i>&nbsp;    /**
+<i>83</i>&nbsp;     * automatically updates the values for the factors to meet the e2goal
+<i>84</i>&nbsp;     */
+<i>85</i>&nbsp;    public void notifyAdjustFactors();
+<i>86</i>&nbsp;
+<i>87</i>&nbsp;    /**
+<i>88</i>&nbsp;     * notifies the Controller that the user wants to close the program window
+<i>89</i>&nbsp;     */
+<i>90</i>&nbsp;    public void notifyExit();
+<i>91</i>&nbsp;
+<i>92</i>&nbsp;    I_C_TAB getCurrentController();
+<i>93</i>&nbsp;
+<i>94</i>&nbsp;    /**
+<i>95</i>&nbsp;     * notfies the controller that the new Button in Functional Reqirement Tab is pressed
+<i>96</i>&nbsp;     */
+<i>97</i>&nbsp;    public void notifyProductContentNEW();
+<i>98</i>&nbsp;
+<i>99</i>&nbsp;    /**
+<i>100</i>&nbsp;     * notifies the controller that save Button in Functional Reqirement Tab is pressed
+<i>101</i>&nbsp;     */
+<i>102</i>&nbsp;    public void notifyProductContentDELETE();
+<i>103</i>&nbsp;
+<i>104</i>&nbsp;    /**
+<i>105</i>&nbsp;     * notify Controller that selected List Item has changed
+<i>106</i>&nbsp;     *
+<i>107</i>&nbsp;     * @param selectedID selected ID from JList Element
+<i>108</i>&nbsp;     */
+<i>109</i>&nbsp;    public void notifySelectedListChange(String selectedID);
+<i>110</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-06-17 19:06</div>
+</div>
+</body>
+</html>
