@@ -22,8 +22,10 @@ class C_EFFORT_TEST {
      */
     @Test
     void calcE2Needed(){ //TODO: add test?
-        /*double realTime = 3.0;
-        double expectedTime = 3.0;
+        double realTime = 4.0;
+        int jonesPersonNo = 1;
+        int e1Sum = 38;
+        double expectedTime = 4.0;
         M_IMPORT m__import = new M_IMPORT();
         I_C_EFFORT controllerEffort;
         String path = "testFiles/test_calcE2Needed.xml"; // fixed path relative
@@ -36,9 +38,9 @@ class C_EFFORT_TEST {
         controllerEffort = C_EFFORT.getInstance();
         controllerEffort.setLinks(null, projectData);
 
-        projectData.getM_projectData_functionPointEstimation().calcE2Needed(realTime); //calculation of e2Correction
-
-        assertEquals(expectedTime, projectData.getM_projectData_functionPointEstimation().getE2Correction());*/
+        projectData.getFunctionPointEstimation().calcE2Needed(realTime, jonesPersonNo, e1Sum); //calculation of e2Correction
+        System.out.println("Test");
+        assertEquals(expectedTime, projectData.getFunctionPointEstimation().getE2Correction());
     }
 
     @Test

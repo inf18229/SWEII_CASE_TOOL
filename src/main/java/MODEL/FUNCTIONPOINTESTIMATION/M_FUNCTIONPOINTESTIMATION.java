@@ -396,7 +396,16 @@ public class M_FUNCTIONPOINTESTIMATION {
      * @param realTime time, the project really took till completion
      */
     public void calcE2Needed(double realTime) {
-        e2Correction = (int) (((Math.pow((realTime / (Math.exp(0) * jonesPersonNo)), (1 / 0.4)) / e1Sum) - 0.7) * 100);
+        e2Correction = (int) (((Math.pow(realTime / (Math.exp(0) * jonesPersonNo), (1 / 0.4)) / e1Sum) - 0.7) * 100);
+    }
+
+    /**
+     * calculates the sum of all factors needed to achieve the real time
+     *
+     * @param realTime time, the project really took till completion
+     */
+    public void calcE2Needed(double realTime, int jPNo, int e1S) {
+        e2Correction = (int) (((Math.pow(realTime / (Math.exp(0) * jPNo), (1 / 0.4)) / e1S) - 0.7) * 100);
     }
 
     /**
